@@ -1,0 +1,12 @@
+query PageQuery {
+  ...LayoutQueryFragment
+}
+
+query ContentQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  getPagesDocument(relativePath: $relativePath) {
+    data {
+      ...PagesParts
+    }
+  }
+}

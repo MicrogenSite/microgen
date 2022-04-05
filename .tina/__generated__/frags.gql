@@ -1,0 +1,604 @@
+fragment GlobalParts on Global {
+  siteUrl
+  favicon
+  gtmId
+  colors {
+    __typename
+    primary
+    accent1
+    accent2
+    accent3
+    accent4
+    white
+    grayLight
+    gray
+    grayDark
+    black
+  }
+  logo {
+    __typename
+    logoType
+    logoTypeStyle
+    image
+    imageWidth
+    imageHeight
+    imageMargin
+  }
+  nav {
+    __typename
+    navItems {
+      __typename
+      label
+      link
+    }
+    navAlignment
+    navTypeStyle
+    navBackgroundColor
+    padding
+  }
+  blocks {
+    __typename
+    ... on GlobalBlocksFeature {
+      style {
+        __typename
+        alignment
+        contentTitle
+        featureContent
+        padding
+        imageTitle
+        featureImage
+        imagePadding
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      rule
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      rule2
+      navigationLabel
+    }
+    ... on GlobalBlocksPhotoCards {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        contentWidth
+        columns
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      cardStyle {
+        __typename
+        fillStyles
+        padding
+        type
+        imageStyles
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        buttonTitle
+        buttonType
+        buttonFillStyles
+        buttonTextColor
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      items {
+        __typename
+        image {
+          __typename
+          src
+          alt
+        }
+        label
+        headline
+        subhead
+        text
+        link
+        buttonLabel
+      }
+      navigationLabel
+    }
+    ... on GlobalBlocksTextCards {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        contentWidth
+        columns
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      cardStyle {
+        __typename
+        fillStyles
+        padding
+        type
+        borderStyles
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        buttonTitle
+        buttonType
+        buttonTextColor
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      items {
+        __typename
+        headline
+        subhead
+        text
+        link
+        buttonLabel
+        accentColor
+      }
+      navigationLabel
+    }
+    ... on GlobalBlocksBanner {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        width
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      navigationLabel
+    }
+    ... on GlobalBlocksEmbed {
+      style {
+        __typename
+        minHeight
+        fullWidth
+        padding
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      markup
+      navigationLabel
+    }
+  }
+  redirects {
+    __typename
+    from
+    to
+  }
+}
+
+fragment PagesParts on Pages {
+  draft
+  blocks {
+    __typename
+    ... on PagesBlocksFeature {
+      style {
+        __typename
+        alignment
+        contentTitle
+        featureContent
+        padding
+        imageTitle
+        featureImage
+        imagePadding
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      rule
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      rule2
+      navigationLabel
+    }
+    ... on PagesBlocksPhotoCards {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        contentWidth
+        columns
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      cardStyle {
+        __typename
+        fillStyles
+        padding
+        type
+        imageStyles
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        buttonTitle
+        buttonType
+        buttonFillStyles
+        buttonTextColor
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      items {
+        __typename
+        image {
+          __typename
+          src
+          alt
+        }
+        label
+        headline
+        subhead
+        text
+        link
+        buttonLabel
+      }
+      navigationLabel
+    }
+    ... on PagesBlocksTextCards {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        contentWidth
+        columns
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      cardStyle {
+        __typename
+        fillStyles
+        padding
+        type
+        borderStyles
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        buttonTitle
+        buttonType
+        buttonTextColor
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      items {
+        __typename
+        headline
+        subhead
+        text
+        link
+        buttonLabel
+        accentColor
+      }
+      navigationLabel
+    }
+    ... on PagesBlocksBanner {
+      style {
+        __typename
+        textAlignment
+        minHeight
+        padding
+        width
+        typographyTitle
+        labelStyles
+        headlineStyles
+        subheadStyles
+        textStyles
+        contentOrder
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      navigationLabel
+    }
+    ... on PagesBlocksEmbed {
+      style {
+        __typename
+        minHeight
+        fullWidth
+        padding
+      }
+      background {
+        __typename
+        fillStyles
+        src
+        position
+        ornaments {
+          __typename
+          src
+          alignment
+          width
+          height
+          xOffset
+          yOffset
+        }
+      }
+      markup
+      navigationLabel
+    }
+  }
+  meta {
+    __typename
+    pageTitle
+    pageDescription
+    siteImageSrc
+  }
+}

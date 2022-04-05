@@ -1,0 +1,10 @@
+{
+  "build": {
+    "image": "fleek/next-js",
+    "command": "yarn && yarn build && yarn export",
+    "publicDir": "out",
+    "environment": {
+      "CI": "true"
+    }
+  }
+}

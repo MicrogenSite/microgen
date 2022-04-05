@@ -1,0 +1,279 @@
+fragment LayoutQueryFragment on Query {
+  getGlobalDocument(relativePath: "index.json") {
+    data {
+      siteUrl
+      favicon
+      gtmId
+      redirects {
+        from
+        to
+      }
+      colors {
+        primary
+        accent1
+        accent2
+        accent3
+        accent4
+        white
+        grayLight
+        gray
+        grayDark
+        black
+      }
+      logo {
+        logoType
+        logoTypeStyle
+        image
+        imageWidth
+        imageHeight
+        imageMargin
+      }
+      nav {
+        navItems {
+          link
+          label
+        }
+        navAlignment
+        navTypeStyle
+        navBackgroundColor
+        padding
+      }
+      blocks {
+        __typename
+        ... on GlobalBlocksPhotoCards {
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }        
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          items {
+            image {
+              src
+              alt
+            }
+            label
+            headline
+            subhead
+            text
+            link
+            buttonLabel
+          }
+          style {
+            minHeight
+            columns
+            textAlignment
+            padding
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+            contentOrder
+            contentWidth
+          }
+          cardStyle {
+            type
+            padding
+            buttonType
+            imageStyles
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+            fillStyles
+            buttonTextColor
+            buttonFillStyles
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksTextCards {
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }        
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          items {
+            headline
+            subhead
+            text
+            link
+            buttonLabel
+          }
+          style {
+            minHeight
+            columns
+            textAlignment
+            padding
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+            contentOrder
+            contentWidth
+          }
+          cardStyle {
+            type
+            padding
+            borderStyles
+            buttonType
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+            fillStyles
+            buttonTextColor
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksFeature {
+          image {
+            src
+            alt
+          }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }        
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          style {
+            alignment
+            featureContent
+            featureImage
+            imagePadding
+            padding
+            contentOrder
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksBanner {
+          image {
+            src
+            alt
+          }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          style {
+            minHeight
+            width
+            padding
+            labelStyles
+            headlineStyles
+            subheadStyles
+            textStyles
+            textAlignment
+            contentOrder
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksEmbed {
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
+          markup
+          style {
+            minHeight
+            fullWidth
+            padding
+          }
+          navigationLabel
+        }
+      }
+    }
+  }
+}

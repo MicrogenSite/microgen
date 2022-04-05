@@ -1,0 +1,62 @@
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/SuisseIntl-Regular-WebM.woff') format('woff');
+}
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: italic;
+  font-weight: 400;
+  src: url('/fonts/SuisseIntl-RegularItalic-WebM.woff') format('woff');
+}
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/fonts/SuisseIntl-Bold-WebM.woff') format('woff');
+}
+@font-face {
+  font-family: 'Suisse Intl';
+  font-style: italic;
+  font-weight: 700;
+  src: url('/fonts/SuisseIntl-BoldItalic-WebM.woff') format('woff');
+}
+body {
+  font-family: 'Suisse Intl', Helvetica, sans-serif;
+}
+
+.markdown p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+section > .text-center .markdown img {
+  margin: auto;
+}
+section > .text-right .markdown img {
+  margin-left: auto;
+}
+
+/* Hide various rich-text toolbar items */
+.with-toolbar .sticky {
+  width: 280px !important;
+}
+.with-toolbar .sticky .grid .grid span.z-10,
+.with-toolbar .sticky .grid .grid > div,
+.with-toolbar span[data-test="popoverRichTextButton"],
+.with-toolbar span[data-test="quoteButton"],
+.with-toolbar span[data-test="codeButton"],
+.with-toolbar span[data-test="codeBlockButton"] {
+  display: none;
+}
+.with-toolbar span[data-test="italicButton"],
+.with-toolbar span[data-test="boldButton"] {
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+.with-toolbar span[data-test="italicButton"] {
+  border-right: 1px solid rgb(225 221 236 / var(--tw-border-opacity));
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -5,34 +5,27 @@ import { Blocks } from "../components/blocks";
 import layoutData from "../content/global/index.json";
 
 export const Layout = ({
-  rawData = {},
-  data = layoutData as any,
-  themeData = {
-    meta: {
-      pageTitle: "",
-      pageDescription: "",
-      siteImageSrc: ""
-    },
-  },
+  pageData,
+  globalData,
   children,
 }) => {
   return (
     <>
       <Head>
-        <title>{themeData?.meta?.pageTitle}</title>
+        <title>{globalData?.meta?.pageTitle}</title>
         <meta name="author" content="Protocol Labs"></meta>
-        <link rel="icon" type="image/png" sizes="48x48" href={data?.favicon} />
+        <link rel="icon" type="image/png" sizes="48x48" href={globalData?.favicon} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta property="og:site_name" content={data?.siteUrl} />
-        <meta property="og:title" content={themeData?.meta?.pageTitle} />
-        <meta property="og:description" content={themeData?.meta?.pageDescription} />
-        <meta property="og:image" content={themeData?.meta?.siteImageSrc} />
+        <meta property="og:site_name" content={globalData?.siteUrl} />
+        <meta property="og:title" content={globalData?.meta?.pageTitle} />
+        <meta property="og:description" content={globalData?.meta?.pageDescription} />
+        <meta property="og:image" content={globalData?.meta?.siteImageSrc} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content={data?.siteUrl} />
-        <meta property="twitter:url" content={data?.siteUrl} />
-        <meta name="twitter:title" content={themeData?.meta?.pageTitle} />
-        <meta name="twitter:description" content={themeData?.meta?.pageDescription} />
-        <meta name="twitter:image" content={themeData?.meta?.siteImageSrc} />
+        <meta property="twitter:domain" content={globalData?.siteUrl} />
+        <meta property="twitter:url" content={globalData?.siteUrl} />
+        <meta name="twitter:title" content={globalData?.meta?.pageTitle} />
+        <meta name="twitter:description" content={globalData?.meta?.pageDescription} />
+        <meta name="twitter:image" content={globalData?.meta?.siteImageSrc} />
         <style
           id="customProperties"
           dangerouslySetInnerHTML={{
@@ -41,16 +34,16 @@ export const Layout = ({
               scroll-behavior: smooth;
             }
             :root {
-              --primary-color: ${data?.colors?.primary};
-              --accent1-color: ${data?.colors?.accent1};
-              --accent2-color: ${data?.colors?.accent2};
-              --accent3-color: ${data?.colors?.accent3};
-              --accent4-color: ${data?.colors?.accent4};
-              --white-color: ${data?.colors?.white};
-              --black-color: ${data?.colors?.black};
-              --gray-light-color: ${data?.colors?.grayLight};
-              --gray-color: ${data?.colors?.gray};
-              --gray-dark-color: ${data?.colors?.grayDark};
+              --primary-color: ${globalData?.colors?.primary};
+              --accent1-color: ${globalData?.colors?.accent1};
+              --accent2-color: ${globalData?.colors?.accent2};
+              --accent3-color: ${globalData?.colors?.accent3};
+              --accent4-color: ${globalData?.colors?.accent4};
+              --white-color: ${globalData?.colors?.white};
+              --black-color: ${globalData?.colors?.black};
+              --gray-light-color: ${globalData?.colors?.grayLight};
+              --gray-color: ${globalData?.colors?.gray};
+              --gray-dark-color: ${globalData?.colors?.grayDark};
             }
             .markdown ol {
               list-style: number;
@@ -72,15 +65,15 @@ export const Layout = ({
         />
 
         {/* Google Analytics */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${data?.gtmId}`} />
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${globalData?.gtmId}`} />
         <script
           dangerouslySetInnerHTML={{
             __html: `
-            if (document.location.hostname === "${data?.siteUrl}") {
+            if (document.location.hostname === "${globalData?.siteUrl}") {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${data?.gtmId}', {
+                gtag('config', '${globalData?.gtmId}', {
                   page_path: window.location.pathname,
                 });
               }
@@ -89,10 +82,10 @@ export const Layout = ({
         />
       </Head>
       <div className={`min-h-screen flex flex-col`}>
-        <Header blocks={data.blocks} globals={data} />
+        <Header blocks={pageData?.blocks} globalData={globalData} />
         <div className="flex flex-col flex-1">{children}</div>
         {/* Footer Blocks */}
-        <Blocks { ...data } />
+        <Blocks { ...globalData } />
       </div>
     </>
   );

@@ -15,7 +15,7 @@ const linkTarget = (link) => {
 
 export const Header = ({
   blocks,
-  globals
+  globalData
 }) => {
   const [navOpen, setNavOpen] = useState(false);
 
@@ -29,7 +29,7 @@ export const Header = ({
     })
   }
 
-  const nav = globals.nav
+  const nav = globalData.nav
   const navItems = nav?.navItems || []
   const sectionClasses = navOpen ? "sm:h-screen" : "sm:h-10 overflow-hidden";
   const navClasses = navOpen ? "sm:opacity-100 m-0" : "sm:opacity-0 sm:pointer-events-none";
@@ -48,18 +48,18 @@ export const Header = ({
     transition: "line-height .4s"
   }
   const logoStyles = { 
-    marginRight: `${globals.logo.imageMargin}px`
+    marginRight: `${globalData.logo.imageMargin}px`
   }
 
   function Logo(props) {
-    const hasLogoImage = globals.logo?.image;
+    const hasLogoImage = globalData.logo?.image;
     if (hasLogoImage) {
       return (
-        <img className={props.className} src={globals.logo?.image} width={globals.logo?.imageWidth} height={globals.logo?.imageHeight} style={logoStyles} />
+        <img className={props.className} src={globalData.logo?.image} width={globalData.logo?.imageWidth} height={globalData.logo?.imageHeight} style={logoStyles} />
       );
     }
     return (
-      <h1 className={`flex-none ${props.className} ${globals.logo?.logoTypeStyle}`} style={logoStyles}>{globals.logo?.logoType}</h1>
+      <h1 className={`flex-none ${props.className} ${globalData.logo?.logoTypeStyle}`} style={logoStyles}>{globalData.logo?.logoType}</h1>
     );
   }
 

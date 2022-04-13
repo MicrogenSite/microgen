@@ -19,13 +19,17 @@ export const Layout = ({
         <meta property="og:site_name" content={globalData?.siteUrl} />
         <meta property="og:title" content={pageData?.meta?.pageTitle} />
         <meta property="og:description" content={pageData?.meta?.pageDescription} />
-        <meta property="og:image" content={globalData?.meta?.siteImageSrc} />
+        {globalData?.meta?.siteImageSrc &&
+          <meta property="og:image" content={globalData?.meta?.siteImageSrc} />
+        }
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content={globalData?.siteUrl} />
         <meta property="twitter:url" content={globalData?.siteUrl} />
         <meta name="twitter:title" content={pageData?.meta?.pageTitle} />
         <meta name="twitter:description" content={pageData?.meta?.pageDescription} />
-        <meta name="twitter:image" content={globalData?.meta?.siteImageSrc} />
+        {globalData?.meta?.siteImageSrc &&
+          <meta name="twitter:image" content={globalData?.meta?.siteImageSrc} />
+        }
         <style
           id="customProperties"
           dangerouslySetInnerHTML={{

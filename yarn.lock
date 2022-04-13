@@ -8793,10 +8793,10 @@ next-svgr@^0.0.2:
   dependencies:
     "@svgr/webpack" "^4.3.0"
 
-next-tinacms-cloudinary@3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/next-tinacms-cloudinary/-/next-tinacms-cloudinary-3.5.0.tgz#c1261224e33ef3854db073a80e507948af66ac00"
-  integrity sha512-yV9m69JLcGde5BBUXzav4fBZeX9nyd8MXmcQb9D2ZcNzMYNVwq6Y5gXvL4DtZmxGm9u+3qIJsxyPYoGagnWF9w==
+next-tinacms-cloudinary@3.5.11:
+  version "3.5.11"
+  resolved "https://registry.yarnpkg.com/next-tinacms-cloudinary/-/next-tinacms-cloudinary-3.5.11.tgz#16b88faf6631569cb43a3aba7b26b9947cf39bbe"
+  integrity sha512-C/LBbqtWyIcCZHvl8ymGYYP+cyJnE7/h01e1ro9l2glU9Eoh0eLYVo1QRVWNR5EEhe6PMvR2fp6FzK1mOOLGOA==
   dependencies:
     cloudinary "^1.25.2"
     multer "^1.4.2"

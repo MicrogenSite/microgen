@@ -12,19 +12,19 @@ export const Layout = ({
   return (
     <>
       <Head>
-        <title>{globalData?.meta?.pageTitle}</title>
+        <title>{pageData?.meta?.pageTitle}</title>
         <meta name="author" content="Protocol Labs"></meta>
         <link rel="icon" type="image/png" sizes="48x48" href={globalData?.favicon} />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta property="og:site_name" content={globalData?.siteUrl} />
-        <meta property="og:title" content={globalData?.meta?.pageTitle} />
-        <meta property="og:description" content={globalData?.meta?.pageDescription} />
+        <meta property="og:title" content={pageData?.meta?.pageTitle} />
+        <meta property="og:description" content={pageData?.meta?.pageDescription} />
         <meta property="og:image" content={globalData?.meta?.siteImageSrc} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content={globalData?.siteUrl} />
         <meta property="twitter:url" content={globalData?.siteUrl} />
-        <meta name="twitter:title" content={globalData?.meta?.pageTitle} />
-        <meta name="twitter:description" content={globalData?.meta?.pageDescription} />
+        <meta name="twitter:title" content={pageData?.meta?.pageTitle} />
+        <meta name="twitter:description" content={pageData?.meta?.pageDescription} />
         <meta name="twitter:image" content={globalData?.meta?.siteImageSrc} />
         <style
           id="customProperties"

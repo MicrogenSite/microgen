@@ -163,5 +163,7 @@ blocks:
     navigationLabel: Made with Microgen
     _template: photoCards
 meta:
+  pageTitle: Microgen
+  pageDescription: Make modern web 3.0 ready websites with a real-time visual editor.
 ---
 

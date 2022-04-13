@@ -17,6 +17,7 @@ blocks:
     image:
       src: >-
         http://res.cloudinary.com/protocolai/image/upload/v1643128562/Hall_of_Fame_grccee.png
+      alt: Illustration of space shuttles
     label: ''
     headline: Microgen
     subhead: A site builder for Web 3.0
@@ -163,5 +164,7 @@ blocks:
     navigationLabel: Made with Microgen
     _template: photoCards
 meta:
+  pageTitle: Microgen
+  pageDescription: Make modern web 3.0 ready websites with a real-time visual editor.
 ---
 

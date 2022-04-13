@@ -15,7 +15,7 @@ const Card = ({ data, index, cardstyle, parentField = ""  }) => {
       <div>
         {data.image && (
           <img
-            alt={data.image.alt}
+            alt={data.image.alt || data.headline}
             src={data.image.src}
             className={`w-full ${cardstyle?.imageStyles}`}
             data-tinafield={`${parentField}.${index}.image`}

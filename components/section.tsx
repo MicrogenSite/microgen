@@ -19,7 +19,7 @@ export const Section = ({
       className={`relative ${className}`}
     >
       <div className={`background absolute inset-0 -z-2 ${background?.fillStyles}`}>
-        {background?.src && <img className={`w-full h-full object-cover ${background?.position}`} src={background.src} />}
+        {background?.src && <img className={`w-full h-full object-cover ${background?.position}`} src={background.src} alt="background image" />}
       </div>
       {background?.ornaments?.length > 0 &&
         <div className="ornaments absolute inset-0 -z-1">

@@ -1,0 +1,36 @@
+import { Blocks } from "../components/blocks";
+import { ExperimentalGetTinaClient } from "../.tina/__generated__/types";
+import { useTina } from "tinacms/dist/edit-state";
+import { Layout } from "../components/layout";
+
+export default function HomePage(
+  props: AsyncReturnType<typeof getStaticProps>["props"]
+) {
+  const { data } = useTina({
+    query: props.query,
+    variables: props.variables,
+    data: props.data,
+  });
+  return (
+    <Layout pageData={data.getPagesDocument.data} globalData={data.getGlobalDocument.data}>
+      <Blocks {...data.getPagesDocument.data} />
+    </Layout>
+  );
+}
+
+export const getStaticProps = async ({ params }) => {
+  const client = ExperimentalGetTinaClient();
+  const tinaProps = await client.ContentQuery({
+    relativePath: `index.md`,
+  });
+  return {
+    props: {
+      data: tinaProps.data,
+      query: tinaProps.query,
+      variables: tinaProps.variables,
+    },
+  };
+};
+
+export type AsyncReturnType<T extends (...args: any) => Promise<any>> =
+  T extends (...args: any) => Promise<infer R> ? R : any;

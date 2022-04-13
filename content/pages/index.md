@@ -16,7 +16,7 @@ blocks:
       fillStyles: from-accent1 to-black bg-gradient-to-br
     image:
       src: >-
-        http://res.cloudinary.com/protocolai/image/upload/v1643128562/Hall_of_Fame_grccee.png
+        https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/Hall_of_Fame_grccee_k39etu.png
       alt: Illustration of space shuttles
     label: ''
     headline: Microgen
@@ -143,7 +143,7 @@ blocks:
     items:
       - image:
           src: >-
-            http://res.cloudinary.com/protocolai/image/upload/v1638476735/hackathons_z7pwah.png
+            https://res.cloudinary.com/protocolai/image/upload/v1649882496/microgen/hackathons_z7pwah_ulntqb.png
         headline: Hackathons
         subhead: ''
         text: >
@@ -153,7 +153,7 @@ blocks:
         buttonLabel: Visit Site
       - image:
           src: >-
-            http://res.cloudinary.com/protocolai/image/upload/v1638476723/asia-season_sn2gv8.png
+            https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/asia-season_sn2gv8_bj7ovk.png
         headline: Asia Hackathon Season
         subhead: ''
         text: >

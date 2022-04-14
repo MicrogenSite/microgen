@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import { Header } from "./header";
 import { Blocks } from "../components/blocks";
-import layoutData from "../content/global/index.json";
 
 export const Layout = ({
   pageData,

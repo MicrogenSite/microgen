@@ -57,6 +57,14 @@ section > .text-right .markdown img {
   border-right: 1px solid rgb(225 221 236 / var(--tw-border-opacity));
 }
 
+/* Make global settings modal sidebar width and remove overlay */
+#modal-root > div > div > div {
+  max-width: 450px;
+}
+#modal-root > div > div:last-child {
+  display: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

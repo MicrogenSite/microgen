@@ -3,6 +3,22 @@ import Head from "next/head";
 import { Header } from "./header";
 import { Blocks } from "../components/blocks";
 
+const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
+
+const googleFontsLink = (fonts) => {
+  const fontList = [fonts.sans, fonts.serif, fonts.mono, fonts.display].filter(item => item !== undefined || '')
+  const uniqueFontList = [...new Set(fontList)]
+  const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item))
+  const formattedFontList = googleFontList.map(item => item.split(' ').join('+'))
+  const familyString = formattedFontList.join('&family=')
+  const fontLink = `https://fonts.googleapis.com/css2?family=${familyString}&display=swap`
+  return fontList.length > 0 ?  fontLink : ''
+}
+
+const fontName = (font) => {
+  return font.includes(':') ? font.substr(0, font.indexOf(':')) : font
+}
+
 export const Layout = ({
   pageData,
   globalData,
@@ -47,6 +63,10 @@ export const Layout = ({
               --gray-light-color: ${globalData?.colors?.grayLight};
               --gray-color: ${globalData?.colors?.gray};
               --gray-dark-color: ${globalData?.colors?.grayDark};
+              --font-sans: ${fontName(globalData?.fonts?.sans)}, sans-serif;
+              --font-serif: ${fontName(globalData?.fonts?.serif)}, serif;
+              --font-mono: ${fontName(globalData?.fonts?.mono)}, monospace;
+              --font-display: ${fontName(globalData?.fonts?.display)}, sans-serif;
             }
             .markdown ol {
               list-style: number;
@@ -83,6 +103,13 @@ export const Layout = ({
             `,
           }}
         />
+
+        {/* Google Fonts */ }
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        {googleFontsLink(globalData?.fonts) && (
+          <link href={googleFontsLink(globalData?.fonts)} rel="stylesheet"></link>
+        )}
       </Head>
       <div className={`min-h-screen flex flex-col`}>
         <Header blocks={pageData?.blocks} globalData={globalData} />

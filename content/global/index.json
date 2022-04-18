@@ -14,6 +14,12 @@
     "grayDark": "#7B7A80",
     "black": "#000000"
   },
+  "fonts": {
+    "sans": "Roboto:wght@100;300",
+    "serif": "Roboto:wght@100;300",
+    "mono": "Roboto:wght@100;300",
+    "display": "Roboto:wght@100;300"
+  },
   "logo": {
     "logoType": "Microgen",
     "logoTypeStyle": "text-white undefined text-base undefined font-bold",

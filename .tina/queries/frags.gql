@@ -20,6 +20,12 @@ fragment LayoutQueryFragment on Query {
         grayDark
         black
       }
+      fonts {
+        sans
+        serif
+        mono
+        display
+      }
       logo {
         logoType
         logoTypeStyle

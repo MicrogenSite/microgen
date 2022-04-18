@@ -92,6 +92,13 @@ type GlobalColors {
   black: String
 }
 
+type GlobalFonts {
+  sans: String
+  serif: String
+  mono: String
+  display: String
+}
+
 type GlobalLogo {
   logoType: String
   logoTypeStyle: String
@@ -429,6 +436,7 @@ type Global {
   favicon: String
   gtmId: String
   colors: GlobalColors
+  fonts: GlobalFonts
   logo: GlobalLogo
   nav: GlobalNav
   blocks: [GlobalBlocks]
@@ -820,6 +828,13 @@ input GlobalColorsMutation {
   black: String
 }
 
+input GlobalFontsMutation {
+  sans: String
+  serif: String
+  mono: String
+  display: String
+}
+
 input GlobalLogoMutation {
   logoType: String
   logoTypeStyle: String
@@ -1163,6 +1178,7 @@ input GlobalMutation {
   favicon: String
   gtmId: String
   colors: GlobalColorsMutation
+  fonts: GlobalFontsMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
   blocks: [GlobalBlocksMutation]

@@ -15,6 +15,13 @@ fragment GlobalParts on Global {
     grayDark
     black
   }
+  fonts {
+    __typename
+    sans
+    serif
+    mono
+    display
+  }
   logo {
     __typename
     logoType

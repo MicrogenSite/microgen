@@ -119,8 +119,10 @@ module.exports = {
         "-1": "-1",
       },
       fontFamily: {
-        nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
-        lato: ["Lato", ...defaultTheme.fontFamily.sans],
+        'sans': ["var(--font-sans)", "sans-serif"],
+        'serif': ["var(--font-serif)", "serif"],
+        'mono': ["var(--font-mono)", "mono"],
+        'display': ["var(--font-display)", "display"]
       },
     },
   },

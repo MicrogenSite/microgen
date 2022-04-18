@@ -2,15 +2,15 @@
 draft: true
 blocks:
   - style:
-      alignment: flex-row-reverse text-left items-center
-      featureContent: w-1/2 min-h-0
+      alignment: 'flex-row-reverse text-left items-center '
+      featureContent: 'w-1/2 min-h-0 '
       padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: object-center object-scale-down
-      imagePadding: pt-12 pb-4 pr-0 pl-0
+      featureImage: object-center object-cover to-edge
+      imagePadding: pt-0 pb-0 pr-0 pl-0
       labelStyles: text-white font-sans text-xl mb-0 font-bold
       headlineStyles: text-primary font-sans text-6xl mb-0 font-bold
       subheadStyles: text-gray font-sans text-2xl mb-7 font-bold
-      textStyles: text-white font-sans text-lg mb-11
+      textStyles: 'text-white font-sans text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:
       fillStyles: from-accent1 to-black bg-gradient-to-br

@@ -33,6 +33,7 @@ function buildFontOptions(prefix?) {
     { label: "sans", value: "font-sans" },
     { label: "serif", value: "font-serif" },
     { label: "mono", value: "font-mono" },
+    { label: "display", value: "font-display" },
   ]
   const formattedOptions = options.map(option => {
     return {

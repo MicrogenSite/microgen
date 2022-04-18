@@ -4,6 +4,7 @@ import { photoCardsBlockSchema } from "./photo-cards";
 import { textCardsBlockSchema } from "./text-cards";
 import { bannerBlockSchema } from "./banner";
 import { embedBlockSchema } from "./embed";
+import { fontOptionsSans, fontOptionsSerif, fontOptionsMono, fontOptionsDisplay } from "./shared/font-options";
 
 export default defineSchema({
   collections: [
@@ -118,6 +119,53 @@ export default defineSchema({
               ui: {
                 component: "color",
               },
+            },
+          ]
+        },
+        {
+          type: "object",
+          label: "Fonts",
+          name: "fonts",
+          ui: {
+            component: "group",
+          },
+          fields: [
+            {
+              label: "Sans",
+              name: "sans",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: fontOptionsSans,
+            },
+            {
+              label: "Serif",
+              name: "serif",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: fontOptionsSerif,
+            },
+            {
+              label: "Mono",
+              name: "mono",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: fontOptionsMono,
+            },
+            {
+              label: "Display",
+              name: "display",
+              description: "The display font can be sans, serif or mono.",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: fontOptionsDisplay,
             },
           ]
         },

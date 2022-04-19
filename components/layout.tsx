@@ -4,11 +4,12 @@ import { Header } from "./header";
 import { Blocks } from "../components/blocks";
 
 const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
+const customFonts = ['Suisse Intl']
 
 const googleFontsLink = (fonts) => {
   const fontList = [fonts.font1, fonts.font2, fonts.font3, fonts.font4].filter(item => item !== undefined || '')
   const uniqueFontList = [...new Set(fontList)]
-  const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item))
+  const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item)).filter(item => !customFonts.includes(item))
   const formattedFontList = googleFontList.map(item => item.split(' ').join('+'))
   const familyString = formattedFontList.join('&family=')
   const fontLink = `https://fonts.googleapis.com/css2?family=${familyString}&display=swap`

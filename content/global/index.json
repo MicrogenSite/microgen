@@ -15,9 +15,9 @@
     "black": "#000000"
   },
   "fonts": {
-    "font1": "Courier",
+    "font1": "Suisse Intl",
     "font2": "Arial",
-    "font3": "Josefin Sans:wght@400;700",
+    "font3": "Roboto:wght@400;700",
     "font4": "IBM Plex Mono:wght@400;700"
   },
   "logo": {

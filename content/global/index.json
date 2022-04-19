@@ -15,10 +15,10 @@
     "black": "#000000"
   },
   "fonts": {
-    "sans": "Roboto:wght@100;300",
-    "serif": "Roboto:wght@100;300",
-    "mono": "Roboto:wght@100;300",
-    "display": "Roboto:wght@100;300"
+    "sans": "Inter:wght@400;700",
+    "serif": "Baskervville:wght@400",
+    "mono": "IBM Plex Serif:wght@400;700",
+    "display": "Lato:wght@400;700"
   },
   "logo": {
     "logoType": "Microgen",

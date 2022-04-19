@@ -6,6 +6,24 @@ import IconMobile from './icons/IconMobile';
 import IconMargin from './icons/IconMargin';
 import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch } from './widgets/helpers'
+ 
+function getStringBetween(str, start, end) {
+  const trim1 = str.substring(str.indexOf(start)).replace(start,'')
+  const trim2 = trim1.substring(0, trim1.indexOf(end)).replace(end,'')
+  const trim3 = trim2.replace(' ', '').replace(',', '')
+  return trim3
+}
+
+function getFontNames() {
+  const node = document.getElementById("customProperties");
+  const cssText = node.childNodes[0].textContent;
+  return {
+    sans: getStringBetween(cssText, "--font-sans:", "sans-serif;"),
+    serif: getStringBetween(cssText, "--font-serif:", "serif;"),
+    mono: getStringBetween(cssText, "--font-mono:", "monospace;"),
+    display: getStringBetween(cssText, "--font-display:", "sans-serif;")
+  }
+}
 
 function buildColorOptions(prefix?) {
   const options = [
@@ -29,11 +47,12 @@ function buildColorOptions(prefix?) {
   return formattedOptions;
 }
 function buildFontOptions(prefix?) {
+  const fontNames = getFontNames()
   const options = [
-    { label: "sans", value: "font-sans" },
-    { label: "serif", value: "font-serif" },
-    { label: "mono", value: "font-mono" },
-    { label: "display", value: "font-display" },
+    { label: fontNames.sans, value: "font-sans" },
+    { label: fontNames.serif, value: "font-serif" },
+    { label: fontNames.mono, value: "font-mono" },
+    { label: fontNames.display, value: "font-display" },
   ]
   const formattedOptions = options.map(option => {
     return {
@@ -166,14 +185,13 @@ export default function TypeControl({ field, input, meta }) {
     updateHiddenField()
   }, [color, font, size, margin, weight, colorMobile, fontMobile, sizeMobile, marginMobile, weightMobile, hasMobileStyles, inputRef.current]);
 
-
   function handleSetColor(value: string) {
     setColor(`text-${value}`)
   }
   function handleSetColorMobile(value: string) {
     setColorMobile(`sm:text-${value}`)
   }
-  
+
   return (
     <>
       <FieldLabel label={field.label} hasMobileStyles={hasMobileStyles} onMobileToggle={toggleMobile} mobileMode={true} />

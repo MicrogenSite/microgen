@@ -47,11 +47,12 @@ export const Layout = ({
         }
         <style
           id="customProperties"
+          // There is logic in the TypeControl component that figures out the custom property
+          // names to populate the font option labels.
+          // The typecontrol component should be revised with more direct access to data in 
+          // the future and then this comment should be removed.
           dangerouslySetInnerHTML={{
             __html: `
-            html {
-              scroll-behavior: smooth;
-            }
             :root {
               --primary-color: ${globalData?.colors?.primary};
               --accent1-color: ${globalData?.colors?.accent1};
@@ -67,6 +68,9 @@ export const Layout = ({
               --font-serif: ${fontName(globalData?.fonts?.serif)}, serif;
               --font-mono: ${fontName(globalData?.fonts?.mono)}, monospace;
               --font-display: ${fontName(globalData?.fonts?.display)}, sans-serif;
+            }
+            html {
+              scroll-behavior: smooth;
             }
             .markdown ol {
               list-style: number;

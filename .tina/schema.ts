@@ -4,7 +4,7 @@ import { photoCardsBlockSchema } from "./photo-cards";
 import { textCardsBlockSchema } from "./text-cards";
 import { bannerBlockSchema } from "./banner";
 import { embedBlockSchema } from "./embed";
-import { fontOptionsSans, fontOptionsSerif, fontOptionsMono, fontOptionsDisplay } from "./shared/font-options";
+import { fontOptions } from "./shared/font-options";
 
 export default defineSchema({
   collections: [
@@ -131,41 +131,40 @@ export default defineSchema({
           },
           fields: [
             {
-              label: "Sans",
+              label: "Font 1",
               name: "sans",
               type: "string",
               ui: {
                 component: "select",
               },
-              options: fontOptionsSans,
+              options: fontOptions,
             },
             {
-              label: "Serif",
+              label: "Font 2",
               name: "serif",
               type: "string",
               ui: {
                 component: "select",
               },
-              options: fontOptionsSerif,
+              options: fontOptions,
             },
             {
-              label: "Mono",
+              label: "Font 3",
               name: "mono",
               type: "string",
               ui: {
                 component: "select",
               },
-              options: fontOptionsMono,
+              options: fontOptions,
             },
             {
-              label: "Display",
+              label: "Font 4",
               name: "display",
-              description: "The display font can be sans, serif or mono.",
               type: "string",
               ui: {
                 component: "select",
               },
-              options: fontOptionsDisplay,
+              options: fontOptions,
             },
           ]
         },
@@ -394,9 +393,6 @@ export const tinaConfig = defineConfig({
      */
     import("tinacms").then(({ RouteMappingPlugin }) => {
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
-        // if (["authors", "global"].includes(collection.name)) {
-        //   return undefined;
-        // }
         if (["pages"].includes(collection.name)) {
           if (document.sys.filename === "home") {
             return `/`;

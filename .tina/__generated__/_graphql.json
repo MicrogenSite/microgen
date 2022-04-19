@@ -1421,7 +1421,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "sans"
+            "value": "font1"
           },
           "arguments": [],
           "type": {
@@ -1436,7 +1436,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "serif"
+            "value": "font2"
           },
           "arguments": [],
           "type": {
@@ -1451,7 +1451,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "mono"
+            "value": "font3"
           },
           "arguments": [],
           "type": {
@@ -1466,7 +1466,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "display"
+            "value": "font4"
           },
           "arguments": [],
           "type": {
@@ -10267,7 +10267,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "sans"
+            "value": "font1"
           },
           "type": {
             "kind": "NamedType",
@@ -10281,7 +10281,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "serif"
+            "value": "font2"
           },
           "type": {
             "kind": "NamedType",
@@ -10295,7 +10295,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "mono"
+            "value": "font3"
           },
           "type": {
             "kind": "NamedType",
@@ -10309,7 +10309,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "display"
+            "value": "font4"
           },
           "type": {
             "kind": "NamedType",

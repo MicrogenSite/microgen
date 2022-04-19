@@ -132,7 +132,7 @@ export default defineSchema({
           fields: [
             {
               label: "Font 1",
-              name: "sans",
+              name: "font1",
               type: "string",
               ui: {
                 component: "select",
@@ -141,7 +141,7 @@ export default defineSchema({
             },
             {
               label: "Font 2",
-              name: "serif",
+              name: "font2",
               type: "string",
               ui: {
                 component: "select",
@@ -150,7 +150,7 @@ export default defineSchema({
             },
             {
               label: "Font 3",
-              name: "mono",
+              name: "font3",
               type: "string",
               ui: {
                 component: "select",
@@ -159,7 +159,7 @@ export default defineSchema({
             },
             {
               label: "Font 4",
-              name: "display",
+              name: "font4",
               type: "string",
               ui: {
                 component: "select",

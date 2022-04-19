@@ -119,10 +119,10 @@ module.exports = {
         "-1": "-1",
       },
       fontFamily: {
-        'sans': ["var(--font-sans)", "sans-serif"],
-        'serif': ["var(--font-serif)", "serif"],
-        'mono': ["var(--font-mono)", "mono"],
-        'display': ["var(--font-display)", "display"]
+        '1': ["var(--font1)", "sans-serif"],
+        '2': ["var(--font2)", "sans-serif"],
+        '3': ["var(--font3)", "sans-serif"],
+        '4': ["var(--font4)", "sans-serif"]
       },
     },
   },

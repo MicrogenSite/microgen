@@ -6,7 +6,7 @@ import { Blocks } from "../components/blocks";
 const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
 
 const googleFontsLink = (fonts) => {
-  const fontList = [fonts.sans, fonts.serif, fonts.mono, fonts.display].filter(item => item !== undefined || '')
+  const fontList = [fonts.font1, fonts.font2, fonts.font3, fonts.font4].filter(item => item !== undefined || '')
   const uniqueFontList = [...new Set(fontList)]
   const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item))
   const formattedFontList = googleFontList.map(item => item.split(' ').join('+'))
@@ -63,11 +63,11 @@ export const Layout = ({
               --black-color: ${globalData?.colors?.black};
               --gray-light-color: ${globalData?.colors?.grayLight};
               --gray-color: ${globalData?.colors?.gray};
-              --gray-dark-color: ${globalData?.colors?.grayDark};
-              --font-sans: ${fontName(globalData?.fonts?.sans)}, sans-serif;
-              --font-serif: ${fontName(globalData?.fonts?.serif)}, serif;
-              --font-mono: ${fontName(globalData?.fonts?.mono)}, monospace;
-              --font-display: ${fontName(globalData?.fonts?.display)}, sans-serif;
+              --gray-dark-color: ${globalData?.colors?.grayDark};              
+              --font1: ${fontName(globalData?.fonts?.font1)}, sans-serif;
+              --font2: ${fontName(globalData?.fonts?.font2)}, sans-serif;
+              --font3: ${fontName(globalData?.fonts?.font3)}, sans-serif;
+              --font4: ${fontName(globalData?.fonts?.font4)}, sans-serif;
             }
             html {
               scroll-behavior: smooth;

@@ -18,10 +18,10 @@ function getFontNames() {
   const node = document.getElementById("customProperties");
   const cssText = node.childNodes[0].textContent;
   return {
-    sans: getStringBetween(cssText, "--font-sans:", "sans-serif;"),
-    serif: getStringBetween(cssText, "--font-serif:", "serif;"),
-    mono: getStringBetween(cssText, "--font-mono:", "monospace;"),
-    display: getStringBetween(cssText, "--font-display:", "sans-serif;")
+    font1: getStringBetween(cssText, "--font1:", "sans-serif;"),
+    font2: getStringBetween(cssText, "--font2:", "sans-serif;"),
+    font3: getStringBetween(cssText, "--font3:", "sans-serif;"),
+    font4: getStringBetween(cssText, "--font4:", "sans-serif;")
   }
 }
 
@@ -49,10 +49,10 @@ function buildColorOptions(prefix?) {
 function buildFontOptions(prefix?) {
   const fontNames = getFontNames()
   const options = [
-    { label: fontNames.sans, value: "font-sans" },
-    { label: fontNames.serif, value: "font-serif" },
-    { label: fontNames.mono, value: "font-mono" },
-    { label: fontNames.display, value: "font-display" },
+    { label: fontNames.font1, value: "font-1" },
+    { label: fontNames.font2, value: "font-2" },
+    { label: fontNames.font3, value: "font-3" },
+    { label: fontNames.font4, value: "font-4" },
   ]
   const formattedOptions = options.map(option => {
     return {
@@ -168,7 +168,7 @@ export default function TypeControl({ field, input, meta }) {
     const mobileClasses = `${colorMobile} ${fontMobile} ${sizeMobile} ${marginMobile} ${weightMobile}`;
     if (mobileClasses.includes("undefined")) {
       setColorMobile(`sm:${color || 'text-white'}`)
-      setFontMobile(`sm:${font || 'font-sans'}`)
+      setFontMobile(`sm:${font || 'font-1'}`)
       setSizeMobile(`sm:${size || 'text-base'}`)
       setMarginMobile(`sm:${margin || 'mb-0'}`)
       if (weight !== "") {

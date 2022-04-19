@@ -17,10 +17,10 @@ fragment GlobalParts on Global {
   }
   fonts {
     __typename
-    sans
-    serif
-    mono
-    display
+    font1
+    font2
+    font3
+    font4
   }
   logo {
     __typename

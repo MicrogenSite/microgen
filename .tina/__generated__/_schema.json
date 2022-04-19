@@ -197,7 +197,7 @@
           "fields": [
             {
               "label": "Font 1",
-              "name": "sans",
+              "name": "font1",
               "type": "string",
               "ui": {
                 "component": "select"
@@ -2147,12 +2147,12 @@
               "namespace": [
                 "global",
                 "fonts",
-                "sans"
+                "font1"
               ]
             },
             {
               "label": "Font 2",
-              "name": "serif",
+              "name": "font2",
               "type": "string",
               "ui": {
                 "component": "select"
@@ -4102,12 +4102,12 @@
               "namespace": [
                 "global",
                 "fonts",
-                "serif"
+                "font2"
               ]
             },
             {
               "label": "Font 3",
-              "name": "mono",
+              "name": "font3",
               "type": "string",
               "ui": {
                 "component": "select"
@@ -6057,12 +6057,12 @@
               "namespace": [
                 "global",
                 "fonts",
-                "mono"
+                "font3"
               ]
             },
             {
               "label": "Font 4",
-              "name": "display",
+              "name": "font4",
               "type": "string",
               "ui": {
                 "component": "select"
@@ -8012,7 +8012,7 @@
               "namespace": [
                 "global",
                 "fonts",
-                "display"
+                "font4"
               ]
             }
           ],
@@ -8249,10 +8249,10 @@
                     "alignment": "flex-row-reverse text-left items-center",
                     "featureContent": "w-1/2 min-h-0",
                     "padding": "pt-20 pb-20 pr-10 pl-20",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
                     "featureImage": "object-center object-scale-down",
                     "imagePadding": "pt-20 pb-20 pr-20 pl-10"
@@ -9093,10 +9093,10 @@
                     "padding": "pt-20 pr-20 pb-20 pl-20",
                     "contentWidth": "w-full",
                     "columns": "3",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
@@ -10405,19 +10405,19 @@
                     "padding": "pt-20 pr-20 pb-20 pl-20",
                     "contentWidth": "w-full",
                     "columns": "3",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
                     "fillStyles": "bg-gray",
                     "padding": "pt-4 pr-4 pb-4 pl-4",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-2xl mb-0",
-                    "subheadStyles": "text-black font-sans text-md mb-0",
-                    "textStyles": "text-black font-sans text-sm mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-2xl mb-0",
+                    "subheadStyles": "text-black font-1 text-md mb-0",
+                    "textStyles": "text-black font-1 text-sm mb-0",
                     "borderStyles": "border-gray",
                     "buttonType": "solid",
                     "buttonTextColor": "text-primary"
@@ -11698,10 +11698,10 @@
                     "textAlignment": "text-left",
                     "minHeight": "min-h-0",
                     "padding": "pt-20 pr-10 pb-20 pl-10",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
                     "width": "normal"
                   }
@@ -12963,10 +12963,10 @@
                     "alignment": "flex-row-reverse text-left items-center",
                     "featureContent": "w-1/2 min-h-0",
                     "padding": "pt-20 pb-20 pr-10 pl-20",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
                     "featureImage": "object-center object-scale-down",
                     "imagePadding": "pt-20 pb-20 pr-20 pl-10"
@@ -13807,10 +13807,10 @@
                     "padding": "pt-20 pr-20 pb-20 pl-20",
                     "contentWidth": "w-full",
                     "columns": "3",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
@@ -15119,19 +15119,19 @@
                     "padding": "pt-20 pr-20 pb-20 pl-20",
                     "contentWidth": "w-full",
                     "columns": "3",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
                     "fillStyles": "bg-gray",
                     "padding": "pt-4 pr-4 pb-4 pl-4",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-2xl mb-0",
-                    "subheadStyles": "text-black font-sans text-md mb-0",
-                    "textStyles": "text-black font-sans text-sm mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-2xl mb-0",
+                    "subheadStyles": "text-black font-1 text-md mb-0",
+                    "textStyles": "text-black font-1 text-sm mb-0",
                     "borderStyles": "border-gray",
                     "buttonType": "solid",
                     "buttonTextColor": "text-primary"
@@ -16412,10 +16412,10 @@
                     "textAlignment": "text-left",
                     "minHeight": "min-h-0",
                     "padding": "pt-20 pr-10 pb-20 pl-10",
-                    "labelStyles": "text-black font-sans text-sm mb-0",
-                    "headlineStyles": "text-black font-sans text-5xl mb-0",
-                    "subheadStyles": "text-black font-sans text-3xl mb-0",
-                    "textStyles": "text-black font-sans text-md mb-0",
+                    "labelStyles": "text-black font-1 text-sm mb-0",
+                    "headlineStyles": "text-black font-1 text-5xl mb-0",
+                    "subheadStyles": "text-black font-1 text-3xl mb-0",
+                    "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
                     "width": "normal"
                   }

@@ -93,10 +93,10 @@ type GlobalColors {
 }
 
 type GlobalFonts {
-  sans: String
-  serif: String
-  mono: String
-  display: String
+  font1: String
+  font2: String
+  font3: String
+  font4: String
 }
 
 type GlobalLogo {
@@ -829,10 +829,10 @@ input GlobalColorsMutation {
 }
 
 input GlobalFontsMutation {
-  sans: String
-  serif: String
-  mono: String
-  display: String
+  font1: String
+  font2: String
+  font3: String
+  font4: String
 }
 
 input GlobalLogoMutation {

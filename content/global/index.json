@@ -15,10 +15,10 @@
     "black": "#000000"
   },
   "fonts": {
-    "sans": "Inter:wght@400;700",
-    "serif": "Baskervville:wght@400",
-    "mono": "IBM Plex Serif:wght@400;700",
-    "display": "Lato:wght@400;700"
+    "font1": "Courier",
+    "font2": "Arial",
+    "font3": "Josefin Sans:wght@400;700",
+    "font4": "IBM Plex Mono:wght@400;700"
   },
   "logo": {
     "logoType": "Microgen",
@@ -36,7 +36,7 @@
       }
     ],
     "navAlignment": "text-right",
-    "navTypeStyle": "text-white font-sans text-base mb-0 ",
+    "navTypeStyle": "text-white font-1 text-base mb-0 ",
     "navBackgroundColor": "from-primary to-accent2 bg-gradient-to-br",
     "padding": "pt-10 pb-10 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5"
   },

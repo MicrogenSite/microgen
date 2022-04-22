@@ -15,6 +15,28 @@ fragment GlobalParts on Global {
     grayDark
     black
   }
+  fonts {
+    __typename
+    font1
+    font2
+    font3
+    font4
+  }
+  sizeLeading {
+    __typename
+    textXs
+    textSm
+    textMd
+    textLg
+    textXl
+    text2xl
+    text3xl
+    text4xl
+    text5xl
+    text6xl
+    text7xl
+    text8xl
+  }
   logo {
     __typename
     logoType

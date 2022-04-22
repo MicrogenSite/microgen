@@ -6,6 +6,24 @@ import IconMobile from './icons/IconMobile';
 import IconMargin from './icons/IconMargin';
 import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch } from './widgets/helpers'
+ 
+function getStringBetween(str, start, end) {
+  const trim1 = str.substring(str.indexOf(start)).replace(start,'')
+  const trim2 = trim1.substring(0, trim1.indexOf(end)).replace(end,'')
+  const trim3 = trim2.replace(' ', '').replace(',', '')
+  return trim3
+}
+
+function getFontNames() {
+  const node = document.getElementById("customProperties");
+  const cssText = node.childNodes[0].textContent;
+  return {
+    font1: getStringBetween(cssText, "--font1:", "sans-serif;"),
+    font2: getStringBetween(cssText, "--font2:", "sans-serif;"),
+    font3: getStringBetween(cssText, "--font3:", "sans-serif;"),
+    font4: getStringBetween(cssText, "--font4:", "sans-serif;")
+  }
+}
 
 function buildColorOptions(prefix?) {
   const options = [
@@ -29,10 +47,12 @@ function buildColorOptions(prefix?) {
   return formattedOptions;
 }
 function buildFontOptions(prefix?) {
+  const fontNames = getFontNames()
   const options = [
-    { label: "sans", value: "font-sans" },
-    { label: "serif", value: "font-serif" },
-    { label: "mono", value: "font-mono" },
+    { label: fontNames.font1, value: "font-1" },
+    { label: fontNames.font2, value: "font-2" },
+    { label: fontNames.font3, value: "font-3" },
+    { label: fontNames.font4, value: "font-4" },
   ]
   const formattedOptions = options.map(option => {
     return {
@@ -148,7 +168,7 @@ export default function TypeControl({ field, input, meta }) {
     const mobileClasses = `${colorMobile} ${fontMobile} ${sizeMobile} ${marginMobile} ${weightMobile}`;
     if (mobileClasses.includes("undefined")) {
       setColorMobile(`sm:${color || 'text-white'}`)
-      setFontMobile(`sm:${font || 'font-sans'}`)
+      setFontMobile(`sm:${font || 'font-1'}`)
       setSizeMobile(`sm:${size || 'text-base'}`)
       setMarginMobile(`sm:${margin || 'mb-0'}`)
       if (weight !== "") {
@@ -165,14 +185,13 @@ export default function TypeControl({ field, input, meta }) {
     updateHiddenField()
   }, [color, font, size, margin, weight, colorMobile, fontMobile, sizeMobile, marginMobile, weightMobile, hasMobileStyles, inputRef.current]);
 
-
   function handleSetColor(value: string) {
     setColor(`text-${value}`)
   }
   function handleSetColorMobile(value: string) {
     setColorMobile(`sm:text-${value}`)
   }
-  
+
   return (
     <>
       <FieldLabel label={field.label} hasMobileStyles={hasMobileStyles} onMobileToggle={toggleMobile} mobileMode={true} />

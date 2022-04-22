@@ -3,6 +3,29 @@ import Head from "next/head";
 import { Header } from "./header";
 import { Blocks } from "../components/blocks";
 
+const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
+const customFonts = ['Suisse Intl']
+
+const googleFontsLink = (fonts) => {
+  const fontList = [fonts.font1, fonts.font2, fonts.font3, fonts.font4].filter(item => item !== undefined || '')
+  const uniqueFontList = [...new Set(fontList)]
+  const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item)).filter(item => !customFonts.includes(item))
+  const formattedFontList = googleFontList.map(item => item.split(' ').join('+'))
+  const familyString = formattedFontList.join('&family=')
+  const fontLink = `https://fonts.googleapis.com/css2?family=${familyString}&display=swap`
+  return fontList.length > 0 ?  fontLink : ''
+}
+
+const fontName = (font) => {
+  return font.includes(':') ? font.substr(0, font.indexOf(':')) : font
+}
+const fontSize = (font) => {
+  return font?.substring(0,font?.indexOf("/")) || "16"
+}
+const fontLeading = (font) => {
+  return font?.substring(font?.indexOf("/") + 1) || "16"
+}
+
 export const Layout = ({
   pageData,
   globalData,
@@ -31,11 +54,12 @@ export const Layout = ({
         }
         <style
           id="customProperties"
+          // There is logic in the TypeControl component that figures out the custom property
+          // names to populate the font option labels.
+          // The typecontrol component should be revised with more direct access to data in 
+          // the future and then this comment should be removed.
           dangerouslySetInnerHTML={{
             __html: `
-            html {
-              scroll-behavior: smooth;
-            }
             :root {
               --primary-color: ${globalData?.colors?.primary};
               --accent1-color: ${globalData?.colors?.accent1};
@@ -46,7 +70,38 @@ export const Layout = ({
               --black-color: ${globalData?.colors?.black};
               --gray-light-color: ${globalData?.colors?.grayLight};
               --gray-color: ${globalData?.colors?.gray};
-              --gray-dark-color: ${globalData?.colors?.grayDark};
+              --gray-dark-color: ${globalData?.colors?.grayDark};              
+              --font1: ${fontName(globalData?.fonts?.font1)}, sans-serif;
+              --font2: ${fontName(globalData?.fonts?.font2)}, sans-serif;
+              --font3: ${fontName(globalData?.fonts?.font3)}, sans-serif;
+              --font4: ${fontName(globalData?.fonts?.font4)}, sans-serif;
+              --text-size-xs: ${fontSize(globalData?.sizeLeading?.textXs)}px;
+              --text-leading-xs: ${fontLeading(globalData?.sizeLeading?.textXs)}px;
+              --text-size-sm: ${fontSize(globalData?.sizeLeading?.textSm)}px;
+              --text-leading-sm: ${fontLeading(globalData?.sizeLeading?.textSm)}px;
+              --text-size-md: ${fontSize(globalData?.sizeLeading?.textMd)}px;
+              --text-leading-md: ${fontLeading(globalData?.sizeLeading?.textMd)}px;
+              --text-size-lg: ${fontSize(globalData?.sizeLeading?.textLg)}px;
+              --text-leading-lg: ${fontLeading(globalData?.sizeLeading?.textLg)}px;
+              --text-size-xl: ${fontSize(globalData?.sizeLeading?.textXl)}px;
+              --text-leading-xl: ${fontLeading(globalData?.sizeLeading?.textXl)}px;
+              --text-size-2xl: ${fontSize(globalData?.sizeLeading?.text2xl)}px;
+              --text-leading-2xl: ${fontLeading(globalData?.sizeLeading?.text2xl)}px;
+              --text-size-3xl: ${fontSize(globalData?.sizeLeading?.text3xl)}px;
+              --text-leading-3xl: ${fontLeading(globalData?.sizeLeading?.text3xl)}px;
+              --text-size-4xl: ${fontSize(globalData?.sizeLeading?.text4xl)}px;
+              --text-leading-4xl: ${fontLeading(globalData?.sizeLeading?.text4xl)}px;
+              --text-size-5xl: ${fontSize(globalData?.sizeLeading?.text5xl)}px;
+              --text-leading-5xl: ${fontLeading(globalData?.sizeLeading?.text5xl)}px;
+              --text-size-6xl: ${fontSize(globalData?.sizeLeading?.text6xl)}px;
+              --text-leading-6xl: ${fontLeading(globalData?.sizeLeading?.text6xl)}px;
+              --text-size-7xl: ${fontSize(globalData?.sizeLeading?.text7xl)}px;
+              --text-leading-7xl: ${fontLeading(globalData?.sizeLeading?.text7xl)}px;
+              --text-size-8xl: ${fontSize(globalData?.sizeLeading?.text8xl)}px;
+              --text-leading-8xl: ${fontLeading(globalData?.sizeLeading?.text8xl)}px;
+            }
+            html {
+              scroll-behavior: smooth;
             }
             .markdown ol {
               list-style: number;
@@ -83,6 +138,13 @@ export const Layout = ({
             `,
           }}
         />
+
+        {/* Google Fonts */ }
+        <link rel="preconnect" href="https://fonts.googleapis.com"></link>
+        <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+        {googleFontsLink(globalData?.fonts) && (
+          <link href={googleFontsLink(globalData?.fonts)} rel="stylesheet"></link>
+        )}
       </Head>
       <div className={`min-h-screen flex flex-col`}>
         <Header blocks={pageData?.blocks} globalData={globalData} />

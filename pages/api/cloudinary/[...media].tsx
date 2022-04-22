@@ -20,8 +20,7 @@ export default createMediaHandler({
       // return true
       return user && user.verified;
     } catch (e) {
-      console.log('error: ', e)
-      // console.error(e);
+      console.error(e);
       return false;
     }
   },

@@ -14,6 +14,26 @@
     "grayDark": "#7B7A80",
     "black": "#000000"
   },
+  "fonts": {
+    "font1": "Inter:wght@400;700",
+    "font2": "Archivo:wght@400;700",
+    "font3": "Rufina:wght@400;700",
+    "font4": "IBM Plex Mono:wght@400;700"
+  },
+  "sizeLeading": {
+    "textXs": "12/20",
+    "textSm": "14/24",
+    "textMd": "16/28",
+    "textLg": "18/28",
+    "textXl": "20/32",
+    "text2xl": "32/42",
+    "text3xl": "28/40",
+    "text4xl": "32/44",
+    "text5xl": "36/48",
+    "text6xl": "48/48",
+    "text7xl": "72/84",
+    "text8xl": "96/120"
+  },
   "logo": {
     "logoType": "Microgen",
     "logoTypeStyle": "text-white undefined text-base undefined font-bold",
@@ -30,7 +50,7 @@
       }
     ],
     "navAlignment": "text-right",
-    "navTypeStyle": "text-white font-sans text-base mb-0 ",
+    "navTypeStyle": "text-white font-1 text-base mb-0 ",
     "navBackgroundColor": "from-primary to-accent2 bg-gradient-to-br",
     "padding": "pt-10 pb-10 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5"
   },

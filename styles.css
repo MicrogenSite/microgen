@@ -22,9 +22,6 @@
   font-weight: 700;
   src: url('/fonts/SuisseIntl-BoldItalic-WebM.woff') format('woff');
 }
-body {
-  font-family: 'Suisse Intl', Helvetica, sans-serif;
-}
 
 .markdown p:not(:last-child) {
   margin-bottom: 1rem;

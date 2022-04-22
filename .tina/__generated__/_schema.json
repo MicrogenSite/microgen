@@ -12132,6 +12132,540 @@
                 "blocks",
                 "embed"
               ]
+            },
+            {
+              "name": "tailwindFeature",
+              "label": "Tailwind Feature",
+              "ui": {
+                "defaultItem": {
+                  "label": "",
+                  "headline": "This is the main headline",
+                  "subhead": "Here is a subhead",
+                  "body": {
+                    "children": [
+                      {
+                        "type": "p",
+                        "children": [
+                          {
+                            "text": "This is a rich text component you can add hyperlinks, etc."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "tailwind": {
+                    "section": "",
+                    "background": "",
+                    "wrap": "",
+                    "imageWrap": "",
+                    "image": "",
+                    "contentWrap": "",
+                    "content": "",
+                    "label": "",
+                    "headline": "",
+                    "subhead": "",
+                    "text": "",
+                    "buttons": ""
+                  }
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Tailwind",
+                  "name": "tailwind",
+                  "ui": {
+                    "component": "group"
+                  },
+                  "fields": [
+                    {
+                      "label": "Section",
+                      "name": "section",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "section"
+                      ]
+                    },
+                    {
+                      "label": "Background",
+                      "name": "background",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "background"
+                      ]
+                    },
+                    {
+                      "label": "Wrap",
+                      "name": "wrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "wrap"
+                      ]
+                    },
+                    {
+                      "label": "Image Wrap",
+                      "name": "imageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "imageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Content Wrap",
+                      "name": "contentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "contentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Content",
+                      "name": "content",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "content"
+                      ]
+                    },
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Headline",
+                      "name": "headline",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "text"
+                      ]
+                    },
+                    {
+                      "label": "Buttons",
+                      "name": "buttons",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "buttons"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "tailwind"
+                  ]
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Image Source",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "image"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "rule"
+                  ]
+                },
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "label"
+                  ]
+                },
+                {
+                  "label": "Headline",
+                  "name": "headline",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "headline"
+                  ]
+                },
+                {
+                  "label": "Subhead",
+                  "name": "subhead",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "subhead"
+                  ]
+                },
+                {
+                  "label": "Body",
+                  "name": "body",
+                  "type": "rich-text",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Buttons",
+                  "name": "buttons",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField",
+                    "defaultItem": {
+                      "label": "Button Label",
+                      "link": "/",
+                      "type": "solid",
+                      "textColor": "black",
+                      "backgroundColor": "primary"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "link"
+                      ]
+                    },
+                    {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Solid",
+                          "value": "solid"
+                        },
+                        {
+                          "label": "Outline",
+                          "value": "outline"
+                        },
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "type"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "buttonFillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "buttonFillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Text Color",
+                      "name": "textColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "textColor"
+                      ]
+                    },
+                    {
+                      "label": "Border Color",
+                      "name": "backgroundColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "backgroundColor"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "buttons"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule2",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "rule2"
+                  ]
+                },
+                {
+                  "label": "Navigation Label",
+                  "name": "navigationLabel",
+                  "description": "Add a jump to this section to the navigation.",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "navigationLabel"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "blocks",
+                "tailwindFeature"
+              ]
             }
           ],
           "namespace": [
@@ -16845,6 +17379,540 @@
                 "pages",
                 "blocks",
                 "embed"
+              ]
+            },
+            {
+              "name": "tailwindFeature",
+              "label": "Tailwind Feature",
+              "ui": {
+                "defaultItem": {
+                  "label": "",
+                  "headline": "This is the main headline",
+                  "subhead": "Here is a subhead",
+                  "body": {
+                    "children": [
+                      {
+                        "type": "p",
+                        "children": [
+                          {
+                            "text": "This is a rich text component you can add hyperlinks, etc."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "tailwind": {
+                    "section": "",
+                    "background": "",
+                    "wrap": "",
+                    "imageWrap": "",
+                    "image": "",
+                    "contentWrap": "",
+                    "content": "",
+                    "label": "",
+                    "headline": "",
+                    "subhead": "",
+                    "text": "",
+                    "buttons": ""
+                  }
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Tailwind",
+                  "name": "tailwind",
+                  "ui": {
+                    "component": "group"
+                  },
+                  "fields": [
+                    {
+                      "label": "Section",
+                      "name": "section",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "section"
+                      ]
+                    },
+                    {
+                      "label": "Background",
+                      "name": "background",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "background"
+                      ]
+                    },
+                    {
+                      "label": "Wrap",
+                      "name": "wrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "wrap"
+                      ]
+                    },
+                    {
+                      "label": "Image Wrap",
+                      "name": "imageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "imageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Content Wrap",
+                      "name": "contentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "contentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Content",
+                      "name": "content",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "content"
+                      ]
+                    },
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Headline",
+                      "name": "headline",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "text"
+                      ]
+                    },
+                    {
+                      "label": "Buttons",
+                      "name": "buttons",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "buttons"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "tailwind"
+                  ]
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Image Source",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "image"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "rule"
+                  ]
+                },
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "label"
+                  ]
+                },
+                {
+                  "label": "Headline",
+                  "name": "headline",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "headline"
+                  ]
+                },
+                {
+                  "label": "Subhead",
+                  "name": "subhead",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "subhead"
+                  ]
+                },
+                {
+                  "label": "Body",
+                  "name": "body",
+                  "type": "rich-text",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Buttons",
+                  "name": "buttons",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField",
+                    "defaultItem": {
+                      "label": "Button Label",
+                      "link": "/",
+                      "type": "solid",
+                      "textColor": "black",
+                      "backgroundColor": "primary"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "link"
+                      ]
+                    },
+                    {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Solid",
+                          "value": "solid"
+                        },
+                        {
+                          "label": "Outline",
+                          "value": "outline"
+                        },
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "type"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "buttonFillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "buttonFillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Text Color",
+                      "name": "textColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "textColor"
+                      ]
+                    },
+                    {
+                      "label": "Border Color",
+                      "name": "backgroundColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "buttons",
+                        "backgroundColor"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "buttons"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule2",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "rule2"
+                  ]
+                },
+                {
+                  "label": "Navigation Label",
+                  "name": "navigationLabel",
+                  "description": "Add a jump to this section to the navigation.",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "navigationLabel"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "tailwindFeature"
               ]
             }
           ],

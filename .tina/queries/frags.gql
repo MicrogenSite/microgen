@@ -293,6 +293,39 @@ fragment LayoutQueryFragment on Query {
           }
           navigationLabel
         }
+        ... on GlobalBlocksTailwindFeature {
+           tailwind {
+            section
+            background
+            wrap
+            imageWrap
+            image
+            contentWrap
+            content
+            label
+            headline
+            subhead
+            text
+            buttons
+          }
+          image {
+            src
+            alt
+          }
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          navigationLabel
+        }
       }
     }
   }

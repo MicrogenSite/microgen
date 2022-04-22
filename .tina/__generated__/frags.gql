@@ -332,6 +332,44 @@ fragment GlobalParts on Global {
       markup
       navigationLabel
     }
+    ... on GlobalBlocksTailwindFeature {
+      tailwind {
+        __typename
+        section
+        background
+        wrap
+        imageWrap
+        image
+        contentWrap
+        content
+        label
+        headline
+        subhead
+        text
+        buttons
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      rule
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      rule2
+      navigationLabel
+    }
   }
   redirects {
     __typename
@@ -614,6 +652,44 @@ fragment PagesParts on Pages {
         }
       }
       markup
+      navigationLabel
+    }
+    ... on PagesBlocksTailwindFeature {
+      tailwind {
+        __typename
+        section
+        background
+        wrap
+        imageWrap
+        image
+        contentWrap
+        content
+        label
+        headline
+        subhead
+        text
+        buttons
+      }
+      image {
+        __typename
+        src
+        alt
+      }
+      rule
+      label
+      headline
+      subhead
+      body
+      buttons {
+        __typename
+        label
+        link
+        type
+        buttonFillStyles
+        textColor
+        backgroundColor
+      }
+      rule2
       navigationLabel
     }
   }

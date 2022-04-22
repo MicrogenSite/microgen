@@ -4,6 +4,7 @@ import { photoCardsBlockSchema } from "./photo-cards";
 import { textCardsBlockSchema } from "./text-cards";
 import { bannerBlockSchema } from "./banner";
 import { embedBlockSchema } from "./embed";
+import { tailwindFeatureBlockSchema } from "./tailwind-feature";
 import { fontOptions } from "./shared/font-options";
 
 export default defineSchema({
@@ -396,6 +397,7 @@ export default defineSchema({
             textCardsBlockSchema,
             bannerBlockSchema,
             embedBlockSchema,
+            tailwindFeatureBlockSchema,
           ],
         },
         {
@@ -440,6 +442,7 @@ export default defineSchema({
             textCardsBlockSchema,
             bannerBlockSchema,
             embedBlockSchema,
+            tailwindFeatureBlockSchema,
           ],
         },
         {

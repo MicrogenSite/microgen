@@ -439,7 +439,49 @@ type GlobalBlocksEmbed {
   navigationLabel: String
 }
 
-union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed
+type GlobalBlocksTailwindFeatureTailwind {
+  section: String
+  background: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+}
+
+type GlobalBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
+type GlobalBlocksTailwindFeatureButtons {
+  label: String
+  link: String
+  type: String
+  buttonFillStyles: String
+  textColor: String
+  backgroundColor: String
+}
+
+type GlobalBlocksTailwindFeature {
+  tailwind: GlobalBlocksTailwindFeatureTailwind
+  image: GlobalBlocksTailwindFeatureImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindFeatureButtons]
+  rule2: String
+  navigationLabel: String
+}
+
+union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed | GlobalBlocksTailwindFeature
 
 type GlobalRedirects {
   from: String
@@ -782,7 +824,49 @@ type PagesBlocksEmbed {
   navigationLabel: String
 }
 
-union PagesBlocks = PagesBlocksFeature | PagesBlocksPhotoCards | PagesBlocksTextCards | PagesBlocksBanner | PagesBlocksEmbed
+type PagesBlocksTailwindFeatureTailwind {
+  section: String
+  background: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+}
+
+type PagesBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksTailwindFeatureButtons {
+  label: String
+  link: String
+  type: String
+  buttonFillStyles: String
+  textColor: String
+  backgroundColor: String
+}
+
+type PagesBlocksTailwindFeature {
+  tailwind: PagesBlocksTailwindFeatureTailwind
+  image: PagesBlocksTailwindFeatureImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindFeatureButtons]
+  rule2: String
+  navigationLabel: String
+}
+
+union PagesBlocks = PagesBlocksFeature | PagesBlocksPhotoCards | PagesBlocksTextCards | PagesBlocksBanner | PagesBlocksEmbed | PagesBlocksTailwindFeature
 
 type PagesMeta {
   pageTitle: String
@@ -1191,12 +1275,55 @@ input GlobalBlocksEmbedMutation {
   navigationLabel: String
 }
 
+input GlobalBlocksTailwindFeatureTailwindMutation {
+  section: String
+  background: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+}
+
+input GlobalBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input GlobalBlocksTailwindFeatureButtonsMutation {
+  label: String
+  link: String
+  type: String
+  buttonFillStyles: String
+  textColor: String
+  backgroundColor: String
+}
+
+input GlobalBlocksTailwindFeatureMutation {
+  tailwind: GlobalBlocksTailwindFeatureTailwindMutation
+  image: GlobalBlocksTailwindFeatureImageMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindFeatureButtonsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
 input GlobalBlocksMutation {
   feature: GlobalBlocksFeatureMutation
   photoCards: GlobalBlocksPhotoCardsMutation
   textCards: GlobalBlocksTextCardsMutation
   banner: GlobalBlocksBannerMutation
   embed: GlobalBlocksEmbedMutation
+  tailwindFeature: GlobalBlocksTailwindFeatureMutation
 }
 
 input GlobalRedirectsMutation {
@@ -1520,12 +1647,55 @@ input PagesBlocksEmbedMutation {
   navigationLabel: String
 }
 
+input PagesBlocksTailwindFeatureTailwindMutation {
+  section: String
+  background: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+}
+
+input PagesBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksTailwindFeatureButtonsMutation {
+  label: String
+  link: String
+  type: String
+  buttonFillStyles: String
+  textColor: String
+  backgroundColor: String
+}
+
+input PagesBlocksTailwindFeatureMutation {
+  tailwind: PagesBlocksTailwindFeatureTailwindMutation
+  image: PagesBlocksTailwindFeatureImageMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindFeatureButtonsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
 input PagesBlocksMutation {
   feature: PagesBlocksFeatureMutation
   photoCards: PagesBlocksPhotoCardsMutation
   textCards: PagesBlocksTextCardsMutation
   banner: PagesBlocksBannerMutation
   embed: PagesBlocksEmbedMutation
+  tailwindFeature: PagesBlocksTailwindFeatureMutation
 }
 
 input PagesMetaMutation {

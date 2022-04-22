@@ -19,6 +19,12 @@ const googleFontsLink = (fonts) => {
 const fontName = (font) => {
   return font.includes(':') ? font.substr(0, font.indexOf(':')) : font
 }
+const fontSize = (font) => {
+  return font?.substring(0,font?.indexOf("/")) || "16"
+}
+const fontLeading = (font) => {
+  return font?.substring(font?.indexOf("/") + 1) || "16"
+}
 
 export const Layout = ({
   pageData,
@@ -69,6 +75,30 @@ export const Layout = ({
               --font2: ${fontName(globalData?.fonts?.font2)}, sans-serif;
               --font3: ${fontName(globalData?.fonts?.font3)}, sans-serif;
               --font4: ${fontName(globalData?.fonts?.font4)}, sans-serif;
+              --text-size-xs: ${fontSize(globalData?.sizeLeading?.textXs)}px;
+              --text-leading-xs: ${fontLeading(globalData?.sizeLeading?.textXs)}px;
+              --text-size-sm: ${fontSize(globalData?.sizeLeading?.textSm)}px;
+              --text-leading-sm: ${fontLeading(globalData?.sizeLeading?.textSm)}px;
+              --text-size-md: ${fontSize(globalData?.sizeLeading?.textMd)}px;
+              --text-leading-md: ${fontLeading(globalData?.sizeLeading?.textMd)}px;
+              --text-size-lg: ${fontSize(globalData?.sizeLeading?.textLg)}px;
+              --text-leading-lg: ${fontLeading(globalData?.sizeLeading?.textLg)}px;
+              --text-size-xl: ${fontSize(globalData?.sizeLeading?.textXl)}px;
+              --text-leading-xl: ${fontLeading(globalData?.sizeLeading?.textXl)}px;
+              --text-size-2xl: ${fontSize(globalData?.sizeLeading?.text2xl)}px;
+              --text-leading-2xl: ${fontLeading(globalData?.sizeLeading?.text2xl)}px;
+              --text-size-3xl: ${fontSize(globalData?.sizeLeading?.text3xl)}px;
+              --text-leading-3xl: ${fontLeading(globalData?.sizeLeading?.text3xl)}px;
+              --text-size-4xl: ${fontSize(globalData?.sizeLeading?.text4xl)}px;
+              --text-leading-4xl: ${fontLeading(globalData?.sizeLeading?.text4xl)}px;
+              --text-size-5xl: ${fontSize(globalData?.sizeLeading?.text5xl)}px;
+              --text-leading-5xl: ${fontLeading(globalData?.sizeLeading?.text5xl)}px;
+              --text-size-6xl: ${fontSize(globalData?.sizeLeading?.text6xl)}px;
+              --text-leading-6xl: ${fontLeading(globalData?.sizeLeading?.text6xl)}px;
+              --text-size-7xl: ${fontSize(globalData?.sizeLeading?.text7xl)}px;
+              --text-leading-7xl: ${fontLeading(globalData?.sizeLeading?.text7xl)}px;
+              --text-size-8xl: ${fontSize(globalData?.sizeLeading?.text8xl)}px;
+              --text-leading-8xl: ${fontLeading(globalData?.sizeLeading?.text8xl)}px;
             }
             html {
               scroll-behavior: smooth;

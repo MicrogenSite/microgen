@@ -99,6 +99,21 @@ type GlobalFonts {
   font4: String
 }
 
+type GlobalSizeLeading {
+  textXs: String
+  textSm: String
+  textMd: String
+  textLg: String
+  textXl: String
+  text2xl: String
+  text3xl: String
+  text4xl: String
+  text5xl: String
+  text6xl: String
+  text7xl: String
+  text8xl: String
+}
+
 type GlobalLogo {
   logoType: String
   logoTypeStyle: String
@@ -437,6 +452,7 @@ type Global {
   gtmId: String
   colors: GlobalColors
   fonts: GlobalFonts
+  sizeLeading: GlobalSizeLeading
   logo: GlobalLogo
   nav: GlobalNav
   blocks: [GlobalBlocks]
@@ -835,6 +851,21 @@ input GlobalFontsMutation {
   font4: String
 }
 
+input GlobalSizeLeadingMutation {
+  textXs: String
+  textSm: String
+  textMd: String
+  textLg: String
+  textXl: String
+  text2xl: String
+  text3xl: String
+  text4xl: String
+  text5xl: String
+  text6xl: String
+  text7xl: String
+  text8xl: String
+}
+
 input GlobalLogoMutation {
   logoType: String
   logoTypeStyle: String
@@ -1179,6 +1210,7 @@ input GlobalMutation {
   gtmId: String
   colors: GlobalColorsMutation
   fonts: GlobalFontsMutation
+  sizeLeading: GlobalSizeLeadingMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
   blocks: [GlobalBlocksMutation]

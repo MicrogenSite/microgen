@@ -26,6 +26,20 @@ fragment LayoutQueryFragment on Query {
         font3
         font4
       }
+      sizeLeading {
+        textXs
+        textSm
+        textMd
+        textLg
+        textXl
+        text2xl
+        text3xl
+        text4xl
+        text5xl
+        text6xl
+        text7xl
+        text8xl
+      }
       logo {
         logoType
         logoTypeStyle

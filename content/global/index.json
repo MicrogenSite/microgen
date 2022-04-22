@@ -15,10 +15,24 @@
     "black": "#000000"
   },
   "fonts": {
-    "font1": "Suisse Intl",
-    "font2": "Arial",
-    "font3": "Roboto:wght@400;700",
+    "font1": "Inter:wght@400;700",
+    "font2": "Archivo:wght@400;700",
+    "font3": "Rufina:wght@400;700",
     "font4": "IBM Plex Mono:wght@400;700"
+  },
+  "sizeLeading": {
+    "textXs": "12/20",
+    "textSm": "14/24",
+    "textMd": "16/28",
+    "textLg": "18/28",
+    "textXl": "20/32",
+    "text2xl": "32/42",
+    "text3xl": "28/40",
+    "text4xl": "32/44",
+    "text5xl": "36/48",
+    "text6xl": "48/48",
+    "text7xl": "72/84",
+    "text8xl": "96/120"
   },
   "logo": {
     "logoType": "Microgen",

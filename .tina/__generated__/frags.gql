@@ -22,6 +22,21 @@ fragment GlobalParts on Global {
     font3
     font4
   }
+  sizeLeading {
+    __typename
+    textXs
+    textSm
+    textMd
+    textLg
+    textXl
+    text2xl
+    text3xl
+    text4xl
+    text5xl
+    text6xl
+    text7xl
+    text8xl
+  }
   logo {
     __typename
     logoType

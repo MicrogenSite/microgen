@@ -1,0 +1,13 @@
+diff --git a/node_modules/tinacms/dist/hooks/use-graphql-forms.d.ts b/node_modules/tinacms/dist/hooks/use-graphql-forms.d.ts
+index 58af47c..c59a065 100644
+--- a/node_modules/tinacms/dist/hooks/use-graphql-forms.d.ts
++++ b/node_modules/tinacms/dist/hooks/use-graphql-forms.d.ts
+@@ -31,7 +31,7 @@ declare type FormCreator = (formConfig: FormOptions<any>) => Form;
+ export interface FormifyArgs {
+     formConfig: FormOptions<any>;
+     createForm: FormCreator;
+-    createGlobalForm: FormCreator;
++    createGlobalForm: GlobalFormCreator;
+     skip?: () => void;
+ }
+ export declare type formifyCallback = (args: FormifyArgs, cms: TinaCMS) => Form | void;

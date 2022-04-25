@@ -1,4 +1,5 @@
 import type { TinaTemplate } from "tinacms"
+import { backgroundSchema } from "./shared/background";
 import { buttonsSchema } from "./shared/buttons";
 import { navigationLabelSchema } from "./shared/navigation-label";
 
@@ -25,7 +26,6 @@ export const tailwindFeatureBlockSchema: TinaTemplate = {
       },
       tailwind: {
         section: "",
-        background: "",
         wrap: "",
         imageWrap: "",
         image: "",
@@ -51,11 +51,6 @@ export const tailwindFeatureBlockSchema: TinaTemplate = {
         {
           label: "Section",
           name: "section",
-          type: "string",
-        },
-        {
-          label: "Background",
-          name: "background",
           type: "string",
         },
         {
@@ -130,6 +125,7 @@ export const tailwindFeatureBlockSchema: TinaTemplate = {
         }
       ],
     },
+    backgroundSchema,
     {
       label: "",
       name: "rule",

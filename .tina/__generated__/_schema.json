@@ -12155,7 +12155,6 @@
                   },
                   "tailwind": {
                     "section": "",
-                    "background": "",
                     "wrap": "",
                     "imageWrap": "",
                     "image": "",
@@ -12188,18 +12187,6 @@
                         "tailwindFeature",
                         "tailwind",
                         "section"
-                      ]
-                    },
-                    {
-                      "label": "Background",
-                      "name": "background",
-                      "type": "string",
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "tailwindFeature",
-                        "tailwind",
-                        "background"
                       ]
                     },
                     {
@@ -12368,6 +12355,239 @@
                     "blocks",
                     "tailwindFeature",
                     "image"
+                  ]
+                },
+                {
+                  "label": "Background",
+                  "name": "background",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "fillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "fillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "src"
+                      ]
+                    },
+                    {
+                      "label": "Image Position",
+                      "name": "position",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Center",
+                          "value": "object-center"
+                        },
+                        {
+                          "label": "Top",
+                          "value": "object-top"
+                        },
+                        {
+                          "label": "Right Top",
+                          "value": "object-right-top"
+                        },
+                        {
+                          "label": "Right",
+                          "value": "object-right"
+                        },
+                        {
+                          "label": "Right Bottom",
+                          "value": "object-right-bottom"
+                        },
+                        {
+                          "label": "Bottom",
+                          "value": "object-bottom"
+                        },
+                        {
+                          "label": "Left Bottom",
+                          "value": "object-left-bottom"
+                        },
+                        {
+                          "label": "Left",
+                          "value": "object-left"
+                        },
+                        {
+                          "label": "Left Top",
+                          "value": "object-left-top"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "position"
+                      ]
+                    },
+                    {
+                      "label": "Ornaments",
+                      "name": "ornaments",
+                      "type": "object",
+                      "list": true,
+                      "fields": [
+                        {
+                          "label": "Image",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "src"
+                          ]
+                        },
+                        {
+                          "label": "Alignment",
+                          "name": "alignment",
+                          "ui": {
+                            "component": "select"
+                          },
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Center",
+                              "value": "center"
+                            },
+                            {
+                              "label": "Top",
+                              "value": "top"
+                            },
+                            {
+                              "label": "Right Top",
+                              "value": "top-right"
+                            },
+                            {
+                              "label": "Right",
+                              "value": "right"
+                            },
+                            {
+                              "label": "Right Bottom",
+                              "value": "bottom-right"
+                            },
+                            {
+                              "label": "Bottom",
+                              "value": "bottom"
+                            },
+                            {
+                              "label": "Left Bottom",
+                              "value": "bottom-left"
+                            },
+                            {
+                              "label": "Left",
+                              "value": "left"
+                            },
+                            {
+                              "label": "Left Top",
+                              "value": "top-left"
+                            }
+                          ],
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "alignment"
+                          ]
+                        },
+                        {
+                          "label": "Width",
+                          "name": "width",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "width"
+                          ]
+                        },
+                        {
+                          "label": "Height",
+                          "name": "height",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "height"
+                          ]
+                        },
+                        {
+                          "label": "X Offset",
+                          "name": "xOffset",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "xOffset"
+                          ]
+                        },
+                        {
+                          "label": "Y Offset",
+                          "name": "yOffset",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "yOffset"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "ornaments"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindFeature",
+                    "background"
                   ]
                 },
                 {
@@ -12665,6 +12885,1090 @@
                 "global",
                 "blocks",
                 "tailwindFeature"
+              ]
+            },
+            {
+              "name": "tailwindCards",
+              "label": "Tailwind Cards",
+              "ui": {
+                "defaultItem": {
+                  "label": "",
+                  "headline": "This is the main headline",
+                  "subhead": "Here is a subhead",
+                  "body": {
+                    "children": [
+                      {
+                        "type": "p",
+                        "children": [
+                          {
+                            "text": "This is a rich text component you can add hyperlinks, etc."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "tailwind": {
+                    "section": "",
+                    "wrap": "",
+                    "imageWrap": "",
+                    "image": "",
+                    "contentWrap": "",
+                    "content": "",
+                    "label": "",
+                    "headline": "",
+                    "subhead": "",
+                    "text": "",
+                    "buttons": ""
+                  },
+                  "items": [
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Tailwind",
+                  "name": "tailwind",
+                  "ui": {
+                    "component": "group"
+                  },
+                  "fields": [
+                    {
+                      "label": "Section",
+                      "name": "section",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "section"
+                      ]
+                    },
+                    {
+                      "label": "Wrap",
+                      "name": "wrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "wrap"
+                      ]
+                    },
+                    {
+                      "label": "Image Wrap",
+                      "name": "imageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "imageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Content Wrap",
+                      "name": "contentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "contentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Content",
+                      "name": "content",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "content"
+                      ]
+                    },
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Headline",
+                      "name": "headline",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "text"
+                      ]
+                    },
+                    {
+                      "label": "Buttons",
+                      "name": "buttons",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "buttons"
+                      ]
+                    },
+                    {
+                      "label": "Cards",
+                      "name": "rule",
+                      "type": "string",
+                      "ui": {
+                        "component": "ruledTitle"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "rule"
+                      ]
+                    },
+                    {
+                      "label": "Card Wrap",
+                      "name": "cardWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card",
+                      "name": "card",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "card"
+                      ]
+                    },
+                    {
+                      "label": "Card Image Wrap",
+                      "name": "cardImageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardImageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card Image",
+                      "name": "cardImage",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardImage"
+                      ]
+                    },
+                    {
+                      "label": "Card Content Wrap",
+                      "name": "cardContentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardContentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card Content",
+                      "name": "cardContent",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardContent"
+                      ]
+                    },
+                    {
+                      "label": "Card Label",
+                      "name": "cardLabel",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardLabel"
+                      ]
+                    },
+                    {
+                      "label": "Card Headline",
+                      "name": "cardHeadline",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardHeadline"
+                      ]
+                    },
+                    {
+                      "label": "Card Subhead",
+                      "name": "cardSubhead",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardSubhead"
+                      ]
+                    },
+                    {
+                      "label": "Card Text",
+                      "name": "cardText",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardText"
+                      ]
+                    },
+                    {
+                      "label": "Card Buttons",
+                      "name": "cardButtons",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardButtons"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "tailwind"
+                  ]
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Image Source",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "image"
+                  ]
+                },
+                {
+                  "label": "Background",
+                  "name": "background",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "fillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "fillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "src"
+                      ]
+                    },
+                    {
+                      "label": "Image Position",
+                      "name": "position",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Center",
+                          "value": "object-center"
+                        },
+                        {
+                          "label": "Top",
+                          "value": "object-top"
+                        },
+                        {
+                          "label": "Right Top",
+                          "value": "object-right-top"
+                        },
+                        {
+                          "label": "Right",
+                          "value": "object-right"
+                        },
+                        {
+                          "label": "Right Bottom",
+                          "value": "object-right-bottom"
+                        },
+                        {
+                          "label": "Bottom",
+                          "value": "object-bottom"
+                        },
+                        {
+                          "label": "Left Bottom",
+                          "value": "object-left-bottom"
+                        },
+                        {
+                          "label": "Left",
+                          "value": "object-left"
+                        },
+                        {
+                          "label": "Left Top",
+                          "value": "object-left-top"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "position"
+                      ]
+                    },
+                    {
+                      "label": "Ornaments",
+                      "name": "ornaments",
+                      "type": "object",
+                      "list": true,
+                      "fields": [
+                        {
+                          "label": "Image",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "src"
+                          ]
+                        },
+                        {
+                          "label": "Alignment",
+                          "name": "alignment",
+                          "ui": {
+                            "component": "select"
+                          },
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Center",
+                              "value": "center"
+                            },
+                            {
+                              "label": "Top",
+                              "value": "top"
+                            },
+                            {
+                              "label": "Right Top",
+                              "value": "top-right"
+                            },
+                            {
+                              "label": "Right",
+                              "value": "right"
+                            },
+                            {
+                              "label": "Right Bottom",
+                              "value": "bottom-right"
+                            },
+                            {
+                              "label": "Bottom",
+                              "value": "bottom"
+                            },
+                            {
+                              "label": "Left Bottom",
+                              "value": "bottom-left"
+                            },
+                            {
+                              "label": "Left",
+                              "value": "left"
+                            },
+                            {
+                              "label": "Left Top",
+                              "value": "top-left"
+                            }
+                          ],
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "alignment"
+                          ]
+                        },
+                        {
+                          "label": "Width",
+                          "name": "width",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "width"
+                          ]
+                        },
+                        {
+                          "label": "Height",
+                          "name": "height",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "height"
+                          ]
+                        },
+                        {
+                          "label": "X Offset",
+                          "name": "xOffset",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "xOffset"
+                          ]
+                        },
+                        {
+                          "label": "Y Offset",
+                          "name": "yOffset",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "yOffset"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "ornaments"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "background"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "rule"
+                  ]
+                },
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "label"
+                  ]
+                },
+                {
+                  "label": "Headline",
+                  "name": "headline",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "headline"
+                  ]
+                },
+                {
+                  "label": "Subhead",
+                  "name": "subhead",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "subhead"
+                  ]
+                },
+                {
+                  "label": "Body",
+                  "name": "body",
+                  "type": "rich-text",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Buttons",
+                  "name": "buttons",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField",
+                    "defaultItem": {
+                      "label": "Button Label",
+                      "link": "/",
+                      "type": "solid",
+                      "textColor": "black",
+                      "backgroundColor": "primary"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "link"
+                      ]
+                    },
+                    {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Solid",
+                          "value": "solid"
+                        },
+                        {
+                          "label": "Outline",
+                          "value": "outline"
+                        },
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "type"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "buttonFillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "buttonFillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Text Color",
+                      "name": "textColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "textColor"
+                      ]
+                    },
+                    {
+                      "label": "Border Color",
+                      "name": "backgroundColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "backgroundColor"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "buttons"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Cards",
+                  "name": "items",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField"
+                  },
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "object",
+                      "fields": [
+                        {
+                          "label": "Image Source",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "items",
+                            "image",
+                            "src"
+                          ]
+                        },
+                        {
+                          "name": "alt",
+                          "label": "Alt Text",
+                          "type": "string",
+                          "namespace": [
+                            "global",
+                            "blocks",
+                            "tailwindCards",
+                            "items",
+                            "image",
+                            "alt"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "image"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Label",
+                      "name": "label",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Headline",
+                      "name": "headline",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "rich-text",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "text"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "link",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "link"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Button Label",
+                      "name": "buttonLabel",
+                      "description": "A button will be included if you have a link and button label, with only a link the entire card is linked",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "buttonLabel"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "items"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule2",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "rule2"
+                  ]
+                },
+                {
+                  "label": "Navigation Label",
+                  "name": "navigationLabel",
+                  "description": "Add a jump to this section to the navigation.",
+                  "type": "string",
+                  "namespace": [
+                    "global",
+                    "blocks",
+                    "tailwindCards",
+                    "navigationLabel"
+                  ]
+                }
+              ],
+              "namespace": [
+                "global",
+                "blocks",
+                "tailwindCards"
               ]
             }
           ],
@@ -17403,7 +18707,6 @@
                   },
                   "tailwind": {
                     "section": "",
-                    "background": "",
                     "wrap": "",
                     "imageWrap": "",
                     "image": "",
@@ -17436,18 +18739,6 @@
                         "tailwindFeature",
                         "tailwind",
                         "section"
-                      ]
-                    },
-                    {
-                      "label": "Background",
-                      "name": "background",
-                      "type": "string",
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "tailwindFeature",
-                        "tailwind",
-                        "background"
                       ]
                     },
                     {
@@ -17616,6 +18907,239 @@
                     "blocks",
                     "tailwindFeature",
                     "image"
+                  ]
+                },
+                {
+                  "label": "Background",
+                  "name": "background",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "fillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "fillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "src"
+                      ]
+                    },
+                    {
+                      "label": "Image Position",
+                      "name": "position",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Center",
+                          "value": "object-center"
+                        },
+                        {
+                          "label": "Top",
+                          "value": "object-top"
+                        },
+                        {
+                          "label": "Right Top",
+                          "value": "object-right-top"
+                        },
+                        {
+                          "label": "Right",
+                          "value": "object-right"
+                        },
+                        {
+                          "label": "Right Bottom",
+                          "value": "object-right-bottom"
+                        },
+                        {
+                          "label": "Bottom",
+                          "value": "object-bottom"
+                        },
+                        {
+                          "label": "Left Bottom",
+                          "value": "object-left-bottom"
+                        },
+                        {
+                          "label": "Left",
+                          "value": "object-left"
+                        },
+                        {
+                          "label": "Left Top",
+                          "value": "object-left-top"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "position"
+                      ]
+                    },
+                    {
+                      "label": "Ornaments",
+                      "name": "ornaments",
+                      "type": "object",
+                      "list": true,
+                      "fields": [
+                        {
+                          "label": "Image",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "src"
+                          ]
+                        },
+                        {
+                          "label": "Alignment",
+                          "name": "alignment",
+                          "ui": {
+                            "component": "select"
+                          },
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Center",
+                              "value": "center"
+                            },
+                            {
+                              "label": "Top",
+                              "value": "top"
+                            },
+                            {
+                              "label": "Right Top",
+                              "value": "top-right"
+                            },
+                            {
+                              "label": "Right",
+                              "value": "right"
+                            },
+                            {
+                              "label": "Right Bottom",
+                              "value": "bottom-right"
+                            },
+                            {
+                              "label": "Bottom",
+                              "value": "bottom"
+                            },
+                            {
+                              "label": "Left Bottom",
+                              "value": "bottom-left"
+                            },
+                            {
+                              "label": "Left",
+                              "value": "left"
+                            },
+                            {
+                              "label": "Left Top",
+                              "value": "top-left"
+                            }
+                          ],
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "alignment"
+                          ]
+                        },
+                        {
+                          "label": "Width",
+                          "name": "width",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "width"
+                          ]
+                        },
+                        {
+                          "label": "Height",
+                          "name": "height",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "height"
+                          ]
+                        },
+                        {
+                          "label": "X Offset",
+                          "name": "xOffset",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "xOffset"
+                          ]
+                        },
+                        {
+                          "label": "Y Offset",
+                          "name": "yOffset",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindFeature",
+                            "background",
+                            "ornaments",
+                            "yOffset"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "background",
+                        "ornaments"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindFeature",
+                    "background"
                   ]
                 },
                 {
@@ -17913,6 +19437,1090 @@
                 "pages",
                 "blocks",
                 "tailwindFeature"
+              ]
+            },
+            {
+              "name": "tailwindCards",
+              "label": "Tailwind Cards",
+              "ui": {
+                "defaultItem": {
+                  "label": "",
+                  "headline": "This is the main headline",
+                  "subhead": "Here is a subhead",
+                  "body": {
+                    "children": [
+                      {
+                        "type": "p",
+                        "children": [
+                          {
+                            "text": "This is a rich text component you can add hyperlinks, etc."
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "tailwind": {
+                    "section": "",
+                    "wrap": "",
+                    "imageWrap": "",
+                    "image": "",
+                    "contentWrap": "",
+                    "content": "",
+                    "label": "",
+                    "headline": "",
+                    "subhead": "",
+                    "text": "",
+                    "buttons": ""
+                  },
+                  "items": [
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "headline": "Here's Another Card",
+                      "subhead": "Card Subhead",
+                      "text": {
+                        "children": [
+                          {
+                            "type": "p",
+                            "children": [
+                              {
+                                "text": "This is a rich text component you can add hyperlinks, etc."
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Tailwind",
+                  "name": "tailwind",
+                  "ui": {
+                    "component": "group"
+                  },
+                  "fields": [
+                    {
+                      "label": "Section",
+                      "name": "section",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "section"
+                      ]
+                    },
+                    {
+                      "label": "Wrap",
+                      "name": "wrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "wrap"
+                      ]
+                    },
+                    {
+                      "label": "Image Wrap",
+                      "name": "imageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "imageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "image"
+                      ]
+                    },
+                    {
+                      "label": "Content Wrap",
+                      "name": "contentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "contentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Content",
+                      "name": "content",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "content"
+                      ]
+                    },
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Headline",
+                      "name": "headline",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "text"
+                      ]
+                    },
+                    {
+                      "label": "Buttons",
+                      "name": "buttons",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "buttons"
+                      ]
+                    },
+                    {
+                      "label": "Cards",
+                      "name": "rule",
+                      "type": "string",
+                      "ui": {
+                        "component": "ruledTitle"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "rule"
+                      ]
+                    },
+                    {
+                      "label": "Card Wrap",
+                      "name": "cardWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card",
+                      "name": "card",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "card"
+                      ]
+                    },
+                    {
+                      "label": "Card Image Wrap",
+                      "name": "cardImageWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardImageWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card Image",
+                      "name": "cardImage",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardImage"
+                      ]
+                    },
+                    {
+                      "label": "Card Content Wrap",
+                      "name": "cardContentWrap",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardContentWrap"
+                      ]
+                    },
+                    {
+                      "label": "Card Content",
+                      "name": "cardContent",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardContent"
+                      ]
+                    },
+                    {
+                      "label": "Card Label",
+                      "name": "cardLabel",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardLabel"
+                      ]
+                    },
+                    {
+                      "label": "Card Headline",
+                      "name": "cardHeadline",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardHeadline"
+                      ]
+                    },
+                    {
+                      "label": "Card Subhead",
+                      "name": "cardSubhead",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardSubhead"
+                      ]
+                    },
+                    {
+                      "label": "Card Text",
+                      "name": "cardText",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardText"
+                      ]
+                    },
+                    {
+                      "label": "Card Buttons",
+                      "name": "cardButtons",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardButtons"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "tailwind"
+                  ]
+                },
+                {
+                  "label": "Image",
+                  "name": "image",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "label": "Image Source",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "image"
+                  ]
+                },
+                {
+                  "label": "Background",
+                  "name": "background",
+                  "type": "object",
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "fillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "fillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Image",
+                      "name": "src",
+                      "type": "image",
+                      "ui": {
+                        "clearable": true
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "src"
+                      ]
+                    },
+                    {
+                      "label": "Image Position",
+                      "name": "position",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Center",
+                          "value": "object-center"
+                        },
+                        {
+                          "label": "Top",
+                          "value": "object-top"
+                        },
+                        {
+                          "label": "Right Top",
+                          "value": "object-right-top"
+                        },
+                        {
+                          "label": "Right",
+                          "value": "object-right"
+                        },
+                        {
+                          "label": "Right Bottom",
+                          "value": "object-right-bottom"
+                        },
+                        {
+                          "label": "Bottom",
+                          "value": "object-bottom"
+                        },
+                        {
+                          "label": "Left Bottom",
+                          "value": "object-left-bottom"
+                        },
+                        {
+                          "label": "Left",
+                          "value": "object-left"
+                        },
+                        {
+                          "label": "Left Top",
+                          "value": "object-left-top"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "position"
+                      ]
+                    },
+                    {
+                      "label": "Ornaments",
+                      "name": "ornaments",
+                      "type": "object",
+                      "list": true,
+                      "fields": [
+                        {
+                          "label": "Image",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "src"
+                          ]
+                        },
+                        {
+                          "label": "Alignment",
+                          "name": "alignment",
+                          "ui": {
+                            "component": "select"
+                          },
+                          "type": "string",
+                          "options": [
+                            {
+                              "label": "Center",
+                              "value": "center"
+                            },
+                            {
+                              "label": "Top",
+                              "value": "top"
+                            },
+                            {
+                              "label": "Right Top",
+                              "value": "top-right"
+                            },
+                            {
+                              "label": "Right",
+                              "value": "right"
+                            },
+                            {
+                              "label": "Right Bottom",
+                              "value": "bottom-right"
+                            },
+                            {
+                              "label": "Bottom",
+                              "value": "bottom"
+                            },
+                            {
+                              "label": "Left Bottom",
+                              "value": "bottom-left"
+                            },
+                            {
+                              "label": "Left",
+                              "value": "left"
+                            },
+                            {
+                              "label": "Left Top",
+                              "value": "top-left"
+                            }
+                          ],
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "alignment"
+                          ]
+                        },
+                        {
+                          "label": "Width",
+                          "name": "width",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "width"
+                          ]
+                        },
+                        {
+                          "label": "Height",
+                          "name": "height",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "height"
+                          ]
+                        },
+                        {
+                          "label": "X Offset",
+                          "name": "xOffset",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "xOffset"
+                          ]
+                        },
+                        {
+                          "label": "Y Offset",
+                          "name": "yOffset",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "background",
+                            "ornaments",
+                            "yOffset"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "background",
+                        "ornaments"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "background"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "rule"
+                  ]
+                },
+                {
+                  "label": "Label",
+                  "name": "label",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "label"
+                  ]
+                },
+                {
+                  "label": "Headline",
+                  "name": "headline",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "headline"
+                  ]
+                },
+                {
+                  "label": "Subhead",
+                  "name": "subhead",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "subhead"
+                  ]
+                },
+                {
+                  "label": "Body",
+                  "name": "body",
+                  "type": "rich-text",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "body"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Buttons",
+                  "name": "buttons",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField",
+                    "defaultItem": {
+                      "label": "Button Label",
+                      "link": "/",
+                      "type": "solid",
+                      "textColor": "black",
+                      "backgroundColor": "primary"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "link"
+                      ]
+                    },
+                    {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Solid",
+                          "value": "solid"
+                        },
+                        {
+                          "label": "Outline",
+                          "value": "outline"
+                        },
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "type"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Background",
+                      "name": "buttonFillStyles",
+                      "ui": {
+                        "component": "fillControl"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "buttonFillStyles"
+                      ]
+                    },
+                    {
+                      "label": "Text Color",
+                      "name": "textColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "textColor"
+                      ]
+                    },
+                    {
+                      "label": "Border Color",
+                      "name": "backgroundColor",
+                      "type": "string",
+                      "ui": {
+                        "component": "select"
+                      },
+                      "options": [
+                        {
+                          "label": "Primary",
+                          "value": "primary"
+                        },
+                        {
+                          "label": "Accent 1",
+                          "value": "accent1"
+                        },
+                        {
+                          "label": "Accent 2",
+                          "value": "accent2"
+                        },
+                        {
+                          "label": "Accent 3",
+                          "value": "accent3"
+                        },
+                        {
+                          "label": "Accent 4",
+                          "value": "accent4"
+                        },
+                        {
+                          "label": "White",
+                          "value": "white"
+                        },
+                        {
+                          "label": "Gray Light",
+                          "value": "grayLight"
+                        },
+                        {
+                          "label": "Gray",
+                          "value": "gray"
+                        },
+                        {
+                          "label": "Gray Dark",
+                          "value": "grayDark"
+                        },
+                        {
+                          "label": "Black",
+                          "value": "black"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "buttons",
+                        "backgroundColor"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "buttons"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Cards",
+                  "name": "items",
+                  "list": true,
+                  "ui": {
+                    "component": "itemListField"
+                  },
+                  "fields": [
+                    {
+                      "label": "Image",
+                      "name": "image",
+                      "type": "object",
+                      "fields": [
+                        {
+                          "label": "Image Source",
+                          "name": "src",
+                          "type": "image",
+                          "ui": {
+                            "clearable": true
+                          },
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "items",
+                            "image",
+                            "src"
+                          ]
+                        },
+                        {
+                          "name": "alt",
+                          "label": "Alt Text",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "tailwindCards",
+                            "items",
+                            "image",
+                            "alt"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "image"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Label",
+                      "name": "label",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "label"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Headline",
+                      "name": "headline",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "headline"
+                      ]
+                    },
+                    {
+                      "label": "Subhead",
+                      "name": "subhead",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "subhead"
+                      ]
+                    },
+                    {
+                      "label": "Text",
+                      "name": "text",
+                      "type": "rich-text",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "text"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Link",
+                      "name": "link",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "link"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Button Label",
+                      "name": "buttonLabel",
+                      "description": "A button will be included if you have a link and button label, with only a link the entire card is linked",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "items",
+                        "buttonLabel"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "items"
+                  ]
+                },
+                {
+                  "label": "",
+                  "name": "rule2",
+                  "type": "string",
+                  "ui": {
+                    "component": "ruledTitle"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "rule2"
+                  ]
+                },
+                {
+                  "label": "Navigation Label",
+                  "name": "navigationLabel",
+                  "description": "Add a jump to this section to the navigation.",
+                  "type": "string",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "tailwindCards",
+                    "navigationLabel"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "tailwindCards"
               ]
             }
           ],

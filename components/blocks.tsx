@@ -5,6 +5,7 @@ import { Feature } from "./blocks/feature";
 import { Banner } from "./blocks/banner";
 import { Embed } from "./blocks/embed";
 import { TailwindFeature } from "./blocks/tailwind-feature";
+import { TailwindCards } from "./blocks/tailwind-cards";
 
 export const Blocks = (props: Pages | Global) => {
   return (
@@ -52,6 +53,13 @@ export const Blocks = (props: Pages | Global) => {
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <TailwindFeature data={block} parentField={`blocks.${i}`} />
+                  </div>
+                );
+              case "PagesBlocksTailwindCards":
+              case "GlobalBlocksTailwindCards":
+                return (
+                  <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
+                    <TailwindCards data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               default:

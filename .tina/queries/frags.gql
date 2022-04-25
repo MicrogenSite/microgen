@@ -73,7 +73,7 @@ fragment LayoutQueryFragment on Query {
               xOffset
               yOffset
             }
-          }        
+          }
           label
           headline
           subhead
@@ -138,7 +138,7 @@ fragment LayoutQueryFragment on Query {
               xOffset
               yOffset
             }
-          }        
+          }  
           label
           headline
           subhead
@@ -296,7 +296,6 @@ fragment LayoutQueryFragment on Query {
         ... on GlobalBlocksTailwindFeature {
            tailwind {
             section
-            background
             wrap
             imageWrap
             image
@@ -312,6 +311,19 @@ fragment LayoutQueryFragment on Query {
             src
             alt
           }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
           label
           headline
           subhead
@@ -323,6 +335,63 @@ fragment LayoutQueryFragment on Query {
             textColor
             backgroundColor
             buttonFillStyles
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksTailwindCards {
+           tailwind {
+            section
+            wrap
+            imageWrap
+            image
+            contentWrap
+            content
+            label
+            headline
+            subhead
+            text
+            buttons
+          }
+          image {
+            src
+            alt
+          }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            type
+            link
+            textColor
+            backgroundColor
+            buttonFillStyles
+          }
+          items {
+            image {
+              src
+              alt
+            }
+            label
+            headline
+            subhead
+            text
+            link
+            buttonLabel
           }
           navigationLabel
         }

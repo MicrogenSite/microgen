@@ -1,12 +1,12 @@
 import * as React from "react";
-import { lowerDash } from "../../helpers/utilities"
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Buttons } from "../buttons";
+import { Section } from "../section";
 
 export const TailwindFeature = ({ data, parentField = ""  }) => {
   const tw = data.tailwind || {};
   return (
-    <section className={tw.section} id={lowerDash(data.navigationLabel)}>
+    <Section className={tw.section} background={data.background} navigationLabel={data.navigationLabel}>
       <div className={tw.background}></div>
       <div className={tw.wrap}>
         <div className={tw.imageWrap}>
@@ -34,6 +34,6 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };

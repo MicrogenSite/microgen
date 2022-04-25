@@ -26,7 +26,8 @@
       "textCards": "GlobalBlocksTextCards",
       "banner": "GlobalBlocksBanner",
       "embed": "GlobalBlocksEmbed",
-      "tailwindFeature": "GlobalBlocksTailwindFeature"
+      "tailwindFeature": "GlobalBlocksTailwindFeature",
+      "tailwindCards": "GlobalBlocksTailwindCards"
     }
   },
   "GlobalDocument": {
@@ -50,7 +51,8 @@
       "textCards": "PagesBlocksTextCards",
       "banner": "PagesBlocksBanner",
       "embed": "PagesBlocksEmbed",
-      "tailwindFeature": "PagesBlocksTailwindFeature"
+      "tailwindFeature": "PagesBlocksTailwindFeature",
+      "tailwindCards": "PagesBlocksTailwindCards"
     }
   },
   "PagesDocument": {

@@ -1,17 +1,6 @@
 ---
 draft: true
 blocks:
-  - tailwind:
-      image: rounded-xl m-8 w-96 shadow-xl
-    image:
-      src: >-
-        https://res.cloudinary.com/protocolai/image/upload/v1650635838/163457782-734e5549-ded8-40f8-870d-24253f60a61f_xcs9vj.png
-    label: Label
-    headline: This is the main headline
-    subhead: Here is a subhead
-    body: |
-      This is a rich text component you can add hyperlinks, etc.
-    _template: tailwindFeature
   - style:
       alignment: 'flex-row-reverse text-left items-center '
       featureContent: 'w-1/2 min-h-0 '
@@ -42,40 +31,6 @@ blocks:
         textColor: white
         backgroundColor: black
     _template: feature
-  - tailwind:
-      section: ''
-      background: ''
-      wrap: ''
-      imageWrap: ''
-      image: ''
-      contentWrap: ''
-      content: ''
-      label: ''
-      headline: ''
-      subhead: ''
-      text: ''
-      buttons: ''
-      cardWrap: flex gap-6 m-6
-      card: border w-full
-    label: ''
-    headline: This is the main headline
-    subhead: Here is a subhead
-    body: |
-      This is a rich text component you can add hyperlinks, etc.
-    items:
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-    _template: tailwindCards
   - style:
       textAlignment: left
       padding: pt-20 pb-20 pr-20 pl-20

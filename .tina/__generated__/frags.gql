@@ -37,6 +37,10 @@ fragment GlobalParts on Global {
     text7xl
     text8xl
   }
+  links {
+    __typename
+    color
+  }
   logo {
     __typename
     logoType

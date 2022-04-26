@@ -1,5 +1,6 @@
 import AlignmentControl from './components/tina/AlignmentControl'
 import BorderControl from './components/tina/BorderControl'
+import ColorControl from './components/tina/ColorControl'
 import FeatureContentField from './components/tina/FeatureContentField'
 import FeatureImageField from './components/tina/FeatureImageField'
 import FillControl from './components/tina/FillControl'
@@ -57,6 +58,12 @@ export const typeSizeControlFieldPlugin = {
   Component: TypeSizeControl,
   __type: 'field',
   name: 'typeSizeControl',
+}
+
+export const colorControlFieldPlugin = {
+  Component: ColorControl,
+  __type: 'field',
+  name: 'colorControl',
 }
 
 export const fillControlFieldPlugin = {

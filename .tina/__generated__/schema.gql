@@ -114,6 +114,10 @@ type GlobalSizeLeading {
   text8xl: String
 }
 
+type GlobalLinks {
+  color: String
+}
+
 type GlobalLogo {
   logoType: String
   logoTypeStyle: String
@@ -597,6 +601,7 @@ type Global {
   colors: GlobalColors
   fonts: GlobalFonts
   sizeLeading: GlobalSizeLeading
+  links: GlobalLinks
   logo: GlobalLogo
   nav: GlobalNav
   blocks: [GlobalBlocks]
@@ -1154,6 +1159,10 @@ input GlobalSizeLeadingMutation {
   text8xl: String
 }
 
+input GlobalLinksMutation {
+  color: String
+}
+
 input GlobalLogoMutation {
   logoType: String
   logoTypeStyle: String
@@ -1645,6 +1654,7 @@ input GlobalMutation {
   colors: GlobalColorsMutation
   fonts: GlobalFontsMutation
   sizeLeading: GlobalSizeLeadingMutation
+  links: GlobalLinksMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
   blocks: [GlobalBlocksMutation]

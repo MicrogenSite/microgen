@@ -34,6 +34,9 @@
     "text7xl": "72/84",
     "text8xl": "96/120"
   },
+  "links": {
+    "color": "primary"
+  },
   "logo": {
     "logoType": "Microgen",
     "logoTypeStyle": "text-white undefined text-base undefined font-bold",

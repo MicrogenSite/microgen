@@ -7281,6 +7281,75 @@
         },
         {
           "type": "object",
+          "label": "Links",
+          "name": "links",
+          "ui": {
+            "component": "group"
+          },
+          "fields": [
+            {
+              "type": "string",
+              "label": "Link Color",
+              "name": "color",
+              "ui": {
+                "component": "colorControl"
+              },
+              "options": [
+                {
+                  "label": "Primary",
+                  "value": "primary"
+                },
+                {
+                  "label": "Accent 1",
+                  "value": "accent1"
+                },
+                {
+                  "label": "Accent 2",
+                  "value": "accent2"
+                },
+                {
+                  "label": "Accent 3",
+                  "value": "accent3"
+                },
+                {
+                  "label": "Accent 4",
+                  "value": "accent4"
+                },
+                {
+                  "label": "White",
+                  "value": "white"
+                },
+                {
+                  "label": "Gray Light",
+                  "value": "grayLight"
+                },
+                {
+                  "label": "Gray",
+                  "value": "gray"
+                },
+                {
+                  "label": "Gray Dark",
+                  "value": "grayDark"
+                },
+                {
+                  "label": "Black",
+                  "value": "black"
+                }
+              ],
+              "namespace": [
+                "global",
+                "links",
+                "color"
+              ]
+            }
+          ],
+          "namespace": [
+            "global",
+            "links"
+          ]
+        },
+        {
+          "type": "object",
           "label": "Logo",
           "name": "logo",
           "ui": {

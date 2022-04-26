@@ -71,6 +71,7 @@ export const Layout = ({
               --gray-light-color: ${globalData?.colors?.grayLight};
               --gray-color: ${globalData?.colors?.gray};
               --gray-dark-color: ${globalData?.colors?.grayDark};              
+              --link-color: ${globalData?.links?.color};              
               --font1: ${fontName(globalData?.fonts?.font1)}, sans-serif;
               --font2: ${fontName(globalData?.fonts?.font2)}, sans-serif;
               --font3: ${fontName(globalData?.fonts?.font3)}, sans-serif;
@@ -103,9 +104,8 @@ export const Layout = ({
             html {
               scroll-behavior: smooth;
             }
-            .markdown ol {
-              list-style: number;
-              margin-left: 1.5rem;
+            .markdown a:not(.button) {
+              color: var(--${globalData?.links?.color}-color);
             }
             .markdown ul {
               list-style: disc;

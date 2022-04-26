@@ -22,7 +22,7 @@ blocks:
     headline: Microgen
     subhead: A site builder for Web 3.0
     body: |
-      Make modern web 3.0 ready websites with a real-time visual editor.
+      Make [modern web 3.0](#) ready websites with a real-time visual editor.
     buttons:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'

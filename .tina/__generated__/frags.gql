@@ -350,6 +350,7 @@ fragment GlobalParts on Global {
         subhead
         text
         buttons
+        button
       }
       image {
         __typename
@@ -380,10 +381,6 @@ fragment GlobalParts on Global {
         __typename
         label
         link
-        type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       rule2
       navigationLabel
@@ -402,6 +399,7 @@ fragment GlobalParts on Global {
         subhead
         text
         buttons
+        button
         rule
         cardWrap
         card
@@ -414,6 +412,7 @@ fragment GlobalParts on Global {
         cardSubhead
         cardText
         cardButtons
+        cardButton
       }
       image {
         __typename
@@ -764,6 +763,7 @@ fragment PagesParts on Pages {
         subhead
         text
         buttons
+        button
       }
       image {
         __typename
@@ -794,10 +794,6 @@ fragment PagesParts on Pages {
         __typename
         label
         link
-        type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       rule2
       navigationLabel
@@ -816,6 +812,7 @@ fragment PagesParts on Pages {
         subhead
         text
         buttons
+        button
         rule
         cardWrap
         card
@@ -828,6 +825,7 @@ fragment PagesParts on Pages {
         cardSubhead
         cardText
         cardButtons
+        cardButton
       }
       image {
         __typename

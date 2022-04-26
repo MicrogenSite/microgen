@@ -1,6 +1,5 @@
 import type { TinaTemplate } from "tinacms"
 import { backgroundSchema } from "./shared/background";
-import { buttonsSchema } from "./shared/buttons";
 import { navigationLabelSchema } from "./shared/navigation-label";
 
 
@@ -103,6 +102,11 @@ export const tailwindFeatureBlockSchema: TinaTemplate = {
           name: "buttons",
           type: "string",
         },
+        {
+          label: "Button",
+          name: "button",
+          type: "string",
+        },
       ],
     },
     {
@@ -154,7 +158,31 @@ export const tailwindFeatureBlockSchema: TinaTemplate = {
       name: "body",
       type: "rich-text",
     },
-    buttonsSchema,
+    {
+      type: "object",
+      label: "Buttons",
+      name: "buttons",
+      list: true,
+      ui: {
+        component: 'itemListField',
+        defaultItem: {
+          label: "Button Label",
+          link: "/",
+        },
+      },
+      fields: [
+        {
+          label: "Label",
+          name: "label",
+          type: "string",
+        },
+        {
+          label: "Link",
+          name: "link",
+          type: "string",
+        },
+      ],
+    },
     {
       label: "",
       name: "rule2",

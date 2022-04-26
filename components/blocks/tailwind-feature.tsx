@@ -1,10 +1,17 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Buttons } from "../buttons";
+import { isString } from "../../helpers/utilities";
 import { Section } from "../section";
+
+const linkTarget = (link) => {
+  const isExternalLink = isString(link) && link.charAt(0) !== '#'
+  return isExternalLink ? '_blank' : ''
+}
 
 export const TailwindFeature = ({ data, parentField = ""  }) => {
   const tw = data.tailwind || {};
+  
+
   return (
     <Section className={tw.section} background={data.background} navigationLabel={data.navigationLabel}>
       <div className={tw.background}></div>
@@ -25,11 +32,23 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
               </div>
             )}
             {data.buttons && (
-              <Buttons
-                buttons={data.buttons}
-                className={tw.buttons}
-                parentField={`${parentField}.buttons`}
-              />
+              <div className={tw.buttons}>
+                {data.buttons &&
+                  data.buttons.map(function (button, index) {
+                    const element = (
+                        <a
+                          className={tw.button}
+                          href={button.link}
+                          target={linkTarget(button.link)}
+                          key={index}
+                          data-tinafield={`${parentField}.buttons.${index}`}
+                        >
+                          { button.label }
+                        </a>
+                      );
+                    return element;
+                  })}
+              </div>
             )}
           </div>
         </div>

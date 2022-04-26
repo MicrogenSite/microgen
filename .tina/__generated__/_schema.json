@@ -12377,6 +12377,18 @@
                         "tailwind",
                         "buttons"
                       ]
+                    },
+                    {
+                      "label": "Button",
+                      "name": "button",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "button"
+                      ]
                     }
                   ],
                   "namespace": [
@@ -12726,10 +12738,7 @@
                     "component": "itemListField",
                     "defaultItem": {
                       "label": "Button Label",
-                      "link": "/",
-                      "type": "solid",
-                      "textColor": "black",
-                      "backgroundColor": "primary"
+                      "link": "/"
                     }
                   },
                   "fields": [
@@ -12755,164 +12764,6 @@
                         "tailwindFeature",
                         "buttons",
                         "link"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Outline",
-                          "value": "outline"
-                        },
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "type"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Background",
-                      "name": "buttonFillStyles",
-                      "ui": {
-                        "component": "fillControl"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "buttonFillStyles"
-                      ]
-                    },
-                    {
-                      "label": "Text Color",
-                      "name": "textColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "textColor"
-                      ]
-                    },
-                    {
-                      "label": "Border Color",
-                      "name": "backgroundColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "backgroundColor"
                       ]
                     }
                   ],
@@ -12987,7 +12838,8 @@
                     "headline": "",
                     "subhead": "",
                     "text": "",
-                    "buttons": ""
+                    "buttons": "",
+                    "button": ""
                   },
                   "items": [
                     {
@@ -13183,6 +13035,18 @@
                       ]
                     },
                     {
+                      "label": "Button",
+                      "name": "button",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "button"
+                      ]
+                    },
+                    {
                       "label": "Cards",
                       "name": "rule",
                       "type": "string",
@@ -13327,6 +13191,18 @@
                         "tailwindCards",
                         "tailwind",
                         "cardButtons"
+                      ]
+                    },
+                    {
+                      "label": "Card Button",
+                      "name": "cardButton",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardButton"
                       ]
                     }
                   ],
@@ -18929,6 +18805,18 @@
                         "tailwind",
                         "buttons"
                       ]
+                    },
+                    {
+                      "label": "Button",
+                      "name": "button",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindFeature",
+                        "tailwind",
+                        "button"
+                      ]
                     }
                   ],
                   "namespace": [
@@ -19278,10 +19166,7 @@
                     "component": "itemListField",
                     "defaultItem": {
                       "label": "Button Label",
-                      "link": "/",
-                      "type": "solid",
-                      "textColor": "black",
-                      "backgroundColor": "primary"
+                      "link": "/"
                     }
                   },
                   "fields": [
@@ -19307,164 +19192,6 @@
                         "tailwindFeature",
                         "buttons",
                         "link"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Outline",
-                          "value": "outline"
-                        },
-                        {
-                          "label": "Link",
-                          "value": "link"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "type"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Background",
-                      "name": "buttonFillStyles",
-                      "ui": {
-                        "component": "fillControl"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "buttonFillStyles"
-                      ]
-                    },
-                    {
-                      "label": "Text Color",
-                      "name": "textColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "textColor"
-                      ]
-                    },
-                    {
-                      "label": "Border Color",
-                      "name": "backgroundColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "select"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "tailwindFeature",
-                        "buttons",
-                        "backgroundColor"
                       ]
                     }
                   ],
@@ -19539,7 +19266,8 @@
                     "headline": "",
                     "subhead": "",
                     "text": "",
-                    "buttons": ""
+                    "buttons": "",
+                    "button": ""
                   },
                   "items": [
                     {
@@ -19735,6 +19463,18 @@
                       ]
                     },
                     {
+                      "label": "Button",
+                      "name": "button",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "button"
+                      ]
+                    },
+                    {
                       "label": "Cards",
                       "name": "rule",
                       "type": "string",
@@ -19879,6 +19619,18 @@
                         "tailwindCards",
                         "tailwind",
                         "cardButtons"
+                      ]
+                    },
+                    {
+                      "label": "Card Button",
+                      "name": "cardButton",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "tailwindCards",
+                        "tailwind",
+                        "cardButton"
                       ]
                     }
                   ],

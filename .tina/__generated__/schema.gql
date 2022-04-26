@@ -455,6 +455,7 @@ type GlobalBlocksTailwindFeatureTailwind {
   subhead: String
   text: String
   buttons: String
+  button: String
 }
 
 type GlobalBlocksTailwindFeatureImage {
@@ -481,10 +482,6 @@ type GlobalBlocksTailwindFeatureBackground {
 type GlobalBlocksTailwindFeatureButtons {
   label: String
   link: String
-  type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTailwindFeature {
@@ -513,6 +510,7 @@ type GlobalBlocksTailwindCardsTailwind {
   subhead: String
   text: String
   buttons: String
+  button: String
   rule: String
   cardWrap: String
   card: String
@@ -525,6 +523,7 @@ type GlobalBlocksTailwindCardsTailwind {
   cardSubhead: String
   cardText: String
   cardButtons: String
+  cardButton: String
 }
 
 type GlobalBlocksTailwindCardsImage {
@@ -943,6 +942,7 @@ type PagesBlocksTailwindFeatureTailwind {
   subhead: String
   text: String
   buttons: String
+  button: String
 }
 
 type PagesBlocksTailwindFeatureImage {
@@ -969,10 +969,6 @@ type PagesBlocksTailwindFeatureBackground {
 type PagesBlocksTailwindFeatureButtons {
   label: String
   link: String
-  type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTailwindFeature {
@@ -1001,6 +997,7 @@ type PagesBlocksTailwindCardsTailwind {
   subhead: String
   text: String
   buttons: String
+  button: String
   rule: String
   cardWrap: String
   card: String
@@ -1013,6 +1010,7 @@ type PagesBlocksTailwindCardsTailwind {
   cardSubhead: String
   cardText: String
   cardButtons: String
+  cardButton: String
 }
 
 type PagesBlocksTailwindCardsImage {
@@ -1500,6 +1498,7 @@ input GlobalBlocksTailwindFeatureTailwindMutation {
   subhead: String
   text: String
   buttons: String
+  button: String
 }
 
 input GlobalBlocksTailwindFeatureImageMutation {
@@ -1526,10 +1525,6 @@ input GlobalBlocksTailwindFeatureBackgroundMutation {
 input GlobalBlocksTailwindFeatureButtonsMutation {
   label: String
   link: String
-  type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTailwindFeatureMutation {
@@ -1558,6 +1553,7 @@ input GlobalBlocksTailwindCardsTailwindMutation {
   subhead: String
   text: String
   buttons: String
+  button: String
   rule: String
   cardWrap: String
   card: String
@@ -1570,6 +1566,7 @@ input GlobalBlocksTailwindCardsTailwindMutation {
   cardSubhead: String
   cardText: String
   cardButtons: String
+  cardButton: String
 }
 
 input GlobalBlocksTailwindCardsImageMutation {
@@ -1976,6 +1973,7 @@ input PagesBlocksTailwindFeatureTailwindMutation {
   subhead: String
   text: String
   buttons: String
+  button: String
 }
 
 input PagesBlocksTailwindFeatureImageMutation {
@@ -2002,10 +2000,6 @@ input PagesBlocksTailwindFeatureBackgroundMutation {
 input PagesBlocksTailwindFeatureButtonsMutation {
   label: String
   link: String
-  type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTailwindFeatureMutation {
@@ -2034,6 +2028,7 @@ input PagesBlocksTailwindCardsTailwindMutation {
   subhead: String
   text: String
   buttons: String
+  button: String
   rule: String
   cardWrap: String
   card: String
@@ -2046,6 +2041,7 @@ input PagesBlocksTailwindCardsTailwindMutation {
   cardSubhead: String
   cardText: String
   cardButtons: String
+  cardButton: String
 }
 
 input PagesBlocksTailwindCardsImageMutation {

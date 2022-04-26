@@ -51,7 +51,8 @@ export const tailwindCardsBlockSchema: TinaTemplate = {
         headline: "",
         subhead: "",
         text: "",
-        buttons: ""
+        buttons: "",
+        button: ""
       },
       items: [defaultCard, defaultCard, defaultCard],
     },
@@ -121,6 +122,11 @@ export const tailwindCardsBlockSchema: TinaTemplate = {
           type: "string",
         },
         {
+          label: "Button",
+          name: "button",
+          type: "string",
+        },
+        {
           label: "Cards",
           name: "rule",
           type: "string",
@@ -181,6 +187,11 @@ export const tailwindCardsBlockSchema: TinaTemplate = {
         {
           label: "Card Buttons",
           name: "cardButtons",
+          type: "string",
+        },
+        {
+          label: "Card Button",
+          name: "cardButton",
           type: "string",
         },
       ],

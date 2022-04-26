@@ -306,6 +306,7 @@ fragment LayoutQueryFragment on Query {
             subhead
             text
             buttons
+            button
           }
           image {
             src
@@ -330,11 +331,7 @@ fragment LayoutQueryFragment on Query {
           body
           buttons {
             label
-            type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           navigationLabel
         }
@@ -351,6 +348,13 @@ fragment LayoutQueryFragment on Query {
             subhead
             text
             buttons
+            button
+            cardLabel
+            cardHeadline
+            cardSubhead
+            cardText
+            cardButtons
+            cardButton
           }
           image {
             src
@@ -375,11 +379,7 @@ fragment LayoutQueryFragment on Query {
           body
           buttons {
             label
-            type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             image {

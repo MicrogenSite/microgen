@@ -1,7 +1,8 @@
 fragment GlobalParts on Global {
   siteUrl
-  favicon
   gtmId
+  favicon
+  rule
   colors {
     __typename
     primary
@@ -37,6 +38,19 @@ fragment GlobalParts on Global {
     text7xl
     text8xl
   }
+  buttons {
+    __typename
+    primaryRule
+    primaryFill
+    primaryTypography
+    primaryBorder
+    primaryPadding
+    secondaryRule
+    secondaryFill
+    secondaryTypography
+    secondaryBorder
+    secondaryPadding
+  }
   links {
     __typename
     color
@@ -62,6 +76,7 @@ fragment GlobalParts on Global {
     navBackgroundColor
     padding
   }
+  rule2
   blocks {
     __typename
     ... on GlobalBlocksFeature {

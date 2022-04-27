@@ -114,6 +114,19 @@ type GlobalSizeLeading {
   text8xl: String
 }
 
+type GlobalButtons {
+  primaryRule: String
+  primaryFill: String
+  primaryTypography: String
+  primaryBorder: String
+  primaryPadding: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryTypography: String
+  secondaryBorder: String
+  secondaryPadding: String
+}
+
 type GlobalLinks {
   color: String
 }
@@ -595,14 +608,17 @@ type GlobalRedirects {
 
 type Global {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  rule: String
   colors: GlobalColors
   fonts: GlobalFonts
   sizeLeading: GlobalSizeLeading
+  buttons: GlobalButtons
   links: GlobalLinks
   logo: GlobalLogo
   nav: GlobalNav
+  rule2: String
   blocks: [GlobalBlocks]
   redirects: [GlobalRedirects]
 }
@@ -1157,6 +1173,19 @@ input GlobalSizeLeadingMutation {
   text8xl: String
 }
 
+input GlobalButtonsMutation {
+  primaryRule: String
+  primaryFill: String
+  primaryTypography: String
+  primaryBorder: String
+  primaryPadding: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryTypography: String
+  secondaryBorder: String
+  secondaryPadding: String
+}
+
 input GlobalLinksMutation {
   color: String
 }
@@ -1646,14 +1675,17 @@ input GlobalRedirectsMutation {
 
 input GlobalMutation {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  rule: String
   colors: GlobalColorsMutation
   fonts: GlobalFontsMutation
   sizeLeading: GlobalSizeLeadingMutation
+  buttons: GlobalButtonsMutation
   links: GlobalLinksMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
+  rule2: String
   blocks: [GlobalBlocksMutation]
   redirects: [GlobalRedirectsMutation]
 }

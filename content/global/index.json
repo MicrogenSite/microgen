@@ -1,7 +1,7 @@
 {
   "siteUrl": "microgen.vercel.app",
-  "favicon": "",
   "gtmId": "",
+  "favicon": "",
   "colors": {
     "primary": "#0090FF",
     "accent1": "#0E4465",
@@ -24,18 +24,28 @@
     "textXs": "12/20",
     "textSm": "14/24",
     "textMd": "16/28",
-    "textLg": "18/28",
-    "textXl": "20/32",
-    "text2xl": "32/42",
+    "textLg": "18/34",
+    "textXl": "24/32",
+    "text2xl": "34/42",
     "text3xl": "28/40",
     "text4xl": "32/44",
-    "text5xl": "36/48",
+    "text5xl": "39/48",
     "text6xl": "48/48",
     "text7xl": "72/84",
     "text8xl": "96/120"
   },
+  "buttons": {
+    "primaryFill": "from-accent2 to-primary bg-gradient-to-t",
+    "primaryTypography": "text-white font-3 text-base undefined ",
+    "primaryBorder": "border-white 2",
+    "primaryPadding": "pt-2.5 pb-2.5 pr-4 pl-4",
+    "secondaryFill": "bg-white",
+    "secondaryTypography": "text-primary undefined text-base undefined font-bold",
+    "secondaryBorder": "undefined ",
+    "secondaryPadding": "undefined undefined undefined undefined"
+  },
   "links": {
-    "color": "primary"
+    "color": "white"
   },
   "logo": {
     "logoType": "Microgen",

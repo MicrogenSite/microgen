@@ -36,9 +36,8 @@ export const buttonsSchema: TinaField = {
         component: "select",
       },
       options: [
-        { label: "Solid", value: "solid" },
-        { label: "Outline", value: "outline" },
-        { label: "Link", value: "link" },
+        { label: "Primary", value: "primary" },
+        { label: "Secondary", value: "secondary" },
       ],
     },
     {

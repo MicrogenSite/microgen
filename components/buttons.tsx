@@ -1,12 +1,17 @@
 import * as React from "react";
 import { isString } from "../helpers/utilities";
+import { ThemeContext } from "../pages/index";
 
 export const Buttons = ({
   className = "",
   buttons,
   parentField = ""
 }) => {
+  
   const classes = (button) => {
+    const theme: any = React.useContext(ThemeContext)
+    const buttons: any = theme.buttons
+
     const textColor = {
       primary: 'text-primary',
       accent1: 'text-accent1',
@@ -34,6 +39,8 @@ export const Buttons = ({
       solid: `px-4 h-10 leading-10 font-bold text-sm ${button.buttonFillStyles} ${textColor[button.textColor]}`,
       outline: `px-4 h-10 leading-9 font-bold text-sm border bg-transparent ${borderColor[button.backgroundColor]} ${textColor[button.textColor]}`,
       link: `px-4 h-10 leading-10 font-bold text-sm ${textColor[button.textColor]}`,
+      primary: `${buttons.primaryFill} ${buttons.primaryTypography} ${buttons.primaryBorder} ${buttons.primaryPadding}`,
+      secondary: `${buttons.secondaryFill} ${buttons.secondaryTypography} ${buttons.secondaryBorder} ${buttons.secondaryPadding}`,
     };
     return button.type ? styles[button.type] : styles.solid
   }

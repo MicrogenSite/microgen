@@ -89,7 +89,7 @@ const imageCss = (data) => {
   return `w-full ${height} ${padding} ${imageClasses}`;
 };
 
-export const Feature = ({ data, parentField = ""  }) => {
+export const Feature = ({ data, parentField = "" }) => {
   const minHeight = data.style?.featureContent?.split(" ").find(item => item.includes("min-h-"))
   return (
     <Section

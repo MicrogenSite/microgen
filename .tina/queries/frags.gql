@@ -40,6 +40,16 @@ fragment LayoutQueryFragment on Query {
         text7xl
         text8xl
       }
+      buttons {
+        primaryFill
+        primaryTypography
+        primaryBorder
+        primaryPadding
+        secondaryFill
+        secondaryTypography
+        secondaryBorder
+        secondaryPadding
+      }
       logo {
         logoType
         logoTypeStyle

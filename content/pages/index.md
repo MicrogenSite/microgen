@@ -31,46 +31,6 @@ blocks:
         textColor: white
         backgroundColor: black
     _template: feature
-  - tailwind:
-      section: p-8
-      wrap: ''
-      imageWrap: ''
-      image: ''
-      contentWrap: ''
-      content: ''
-      label: ''
-      headline: ''
-      subhead: ''
-      text: border
-      buttons: border
-      button: border
-    label: ''
-    headline: This is the main headline
-    subhead: Here is a subhead
-    body: |
-      This is a rich text component you can add hyperlinks, etc.
-    buttons:
-      - label: Button Label
-        link: /
-        type: solid
-        textColor: black
-        backgroundColor: primary
-    items:
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-        link: '#'
-        buttonLabel: Card Button
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-    _template: tailwindCards
   - style:
       textAlignment: left
       padding: pt-20 pb-20 pr-20 pl-20

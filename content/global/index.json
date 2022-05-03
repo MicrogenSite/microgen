@@ -3,16 +3,16 @@
   "favicon": "",
   "gtmId": "",
   "colors": {
-    "primary": "#0090FF",
-    "accent1": "#0E4465",
-    "accent2": "#1BBF6E",
-    "accent3": "#2DD0DB",
-    "accent4": "#00D0DB",
+    "primary": "#070706",
+    "accent1": "#ECEEE2",
+    "accent2": "",
+    "accent3": "",
+    "accent4": "",
     "white": "#FFFFFF",
     "grayLight": "#E8E8EF",
     "gray": "#B0B0BF",
     "grayDark": "#7B7A80",
-    "black": "#000000"
+    "black": "#070706"
   },
   "fonts": {
     "font1": "Inter:wght@400;700",

@@ -15,10 +15,10 @@
     "black": "#070706"
   },
   "fonts": {
-    "font1": "Inter:wght@400;700",
-    "font2": "Archivo:wght@400;700",
-    "font3": "Rufina:wght@400;700",
-    "font4": "IBM Plex Mono:wght@400;700"
+    "font1": "Neuton:wght@400;700",
+    "font2": "Space Grotesk:wght@400;700",
+    "font3": "",
+    "font4": ""
   },
   "sizeLeading": {
     "textXs": "12/20",

@@ -5,12 +5,12 @@ blocks:
       alignment: 'flex-row-reverse text-left items-center '
       featureContent: 'w-1/2 min-h-0 '
       padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: object-center object-cover to-edge
+      featureImage: object-center object-contain to-edge
       imagePadding: pt-0 pb-0 pr-0 pl-0
-      labelStyles: text-white font-2 text-xl mb-0 font-bold
-      headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
-      subheadStyles: text-gray font-1 text-2xl mb-7 font-bold
-      textStyles: 'text-white font-1 text-lg mb-11 '
+      labelStyles: text-accent1 font-2 text-xl mb-0 font-bold
+      headlineStyles: text-accent1 font-1 text-6xl mb-0 font-bold
+      subheadStyles: text-accent1 font-1 text-2xl mb-7 font-bold
+      textStyles: 'text-accent1 font-1 text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:
       fillStyles: bg-primary
@@ -20,7 +20,7 @@ blocks:
         https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/Hall_of_Fame_grccee_k39etu.png
       alt: Illustration of space shuttles
     label: ''
-    headline: Microgen
+    headline: 'Build your travel identity, on-chain.'
     subhead: A site builder for Web 3.0
     body: |
       Make [modern web 3.0](#) ready websites with a real-time visual editor.

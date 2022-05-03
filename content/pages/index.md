@@ -19,12 +19,20 @@ blocks:
       src: >-
         https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/Hall_of_Fame_grccee_k39etu.png
       alt: Illustration of space shuttles
-    label: ''
+    label: A NEW WORLD FOR TRAVELLERS
     headline: 'Build your travel identity, on-chain.'
     subhead: A site builder for Web 3.0
-    body: |
-      Make [modern web 3.0](#) ready websites with a real-time visual editor.
+    body: >
+      The TRVL Passport is filled with NFT stamps that represent your travel
+      history, creating a unique system for reputation, credentials, and
+      rewards.
     buttons:
+      - label: Become a Passport Holder
+        link: 'https://d2bpe117hv9.typeform.com/passportholder'
+        type: solid
+        buttonFillStyles: bg-accent1
+        textColor: primary
+        backgroundColor: ''
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
         type: solid

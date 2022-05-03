@@ -45,11 +45,14 @@ blocks:
       fullWidth: false
       padding: pt-10 pb-10 pr-20 pl-20
     background:
-      ornaments:
-        - {}
+      fillStyles: bg-black
+      position: ''
     markup: |-
-      <p class="text-white">I am an embed</p>
       <div id="background-video">
+      <video controls>
+        <source src="myVideo.webm" type="video/webm">
+        <source src="myVideo.mp4" type="video/mp4">
+      </video>
       </div>
       <style>
       </style>

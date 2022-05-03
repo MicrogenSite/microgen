@@ -17,8 +17,8 @@ blocks:
       position: ''
     image:
       src: >-
-        https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/Hall_of_Fame_grccee_k39etu.png
-      alt: Illustration of space shuttles
+        https://res.cloudinary.com/tombustout/image/upload/v1651547935/passport_img_uygam9.jpg
+      alt: TRVL PASSPORT app shiny gold
     label: A NEW WORLD FOR TRAVELLERS
     headline: 'Build your travel identity, on-chain.'
     subhead: A site builder for Web 3.0

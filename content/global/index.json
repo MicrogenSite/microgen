@@ -35,14 +35,14 @@
     "text8xl": "96/120"
   },
   "links": {
-    "color": "primary"
+    "color": "white"
   },
   "logo": {
     "logoType": "Microgen",
     "logoTypeStyle": "text-white undefined text-base undefined font-bold",
-    "image": "http://res.cloudinary.com/protocolai/image/upload/v1646088242/cryptonet/protocol-logo_ewn4sv.png",
-    "imageWidth": "48",
-    "imageHeight": "48",
+    "image": "https://res.cloudinary.com/tombustout/image/upload/v1651544260/trvl_passport_logo_a8yohr.png",
+    "imageWidth": "254",
+    "imageHeight": "40",
     "imageMargin": "24"
   },
   "nav": {

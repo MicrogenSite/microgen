@@ -3,8 +3,8 @@ draft: true
 blocks:
   - style:
       alignment: 'flex-row-reverse text-left items-center sm:flex-col'
-      featureContent: 'w-2/3 min-h-screen '
-      padding: pt-11 pb-11 pr-0 pl-0
+      featureContent: w-2/3 min-h-screen to-edge
+      padding: pt-11 pb-11 pr-0 pl-36
       featureImage: object-center object-scale-down to-edge
       imagePadding: pt-0 pb-0 pr-0 pl-0
       labelStyles: 'text-accent1 font-2 text-sm mb-0 '

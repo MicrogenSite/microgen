@@ -2,15 +2,15 @@
 draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse text-left items-start sm:flex-col'
-      featureContent: 'w-1/2 min-h-screen '
-      padding: pt-56 pb-16 pr-0 pl-5
+      alignment: 'flex-row-reverse text-left items-center sm:flex-col'
+      featureContent: 'w-2/3 min-h-screen '
+      padding: pt-11 pb-11 pr-0 pl-0
       featureImage: object-center object-scale-down to-edge
       imagePadding: pt-0 pb-0 pr-0 pl-0
-      labelStyles: 'text-accent1 font-2 text-xl mb-0 '
-      headlineStyles: 'text-accent1 font-1 text-6xl mb-0 '
-      subheadStyles: 'text-accent1 font-1 text-2xl mb-7 '
-      textStyles: 'text-accent1 font-1 text-lg mb-11 '
+      labelStyles: 'text-accent1 font-2 text-sm mb-0 '
+      headlineStyles: 'text-accent1 font-1 text-5xl mb-14 '
+      subheadStyles: 'text-accent1 font-2 text-xl mb-4 '
+      textStyles: 'text-accent1 font-2 text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:
       fillStyles: bg-primary
@@ -21,11 +21,11 @@ blocks:
       alt: TRVL PASSPORT app shiny gold
     label: A NEW WORLD FOR TRAVELLERS
     headline: 'Build your travel identity, on-chain.'
-    subhead: A site builder for Web 3.0
-    body: >
+    subhead: >-
       The TRVL Passport is filled with NFT stamps that represent your travel
       history, creating a unique system for reputation, credentials, and
       rewards.
+    body: ''
     buttons:
       - label: Become a Passport Holder
         link: 'https://d2bpe117hv9.typeform.com/passportholder'

@@ -45,9 +45,15 @@ blocks:
       fullWidth: false
       padding: pt-10 pb-10 pr-20 pl-20
     background:
-      fillStyles: bg-black
-    markup: <p class="text-white">I am an embed</p>
-    navigationLabel: Embed
+      ornaments:
+        - {}
+    markup: |-
+      <p class="text-white">I am an embed</p>
+      <div id="background-video">
+      </div>
+      <style>
+      </style>
+    navigationLabel: ''
     _template: embed
 meta:
   pageTitle: TRVL PASSPORT

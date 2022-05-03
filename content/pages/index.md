@@ -33,12 +33,12 @@ blocks:
         buttonFillStyles: bg-accent1
         textColor: primary
         backgroundColor: ''
-      - label: Get Started
-        link: 'https://github.com/filecoin-project/microgen'
-        type: solid
+      - label: Become a Partner
+        link: 'https://d2bpe117hv9.typeform.com/passportpartner'
+        type: outline
         buttonFillStyles: bg-primary
-        textColor: white
-        backgroundColor: black
+        textColor: accent1
+        backgroundColor: accent1
     _template: feature
   - style:
       textAlignment: left

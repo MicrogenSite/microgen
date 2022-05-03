@@ -17,8 +17,8 @@
   "fonts": {
     "font1": "Neuton:wght@400;700",
     "font2": "Space Grotesk:wght@400;700",
-    "font3": "",
-    "font4": ""
+    "font3": "Abel:wght@400",
+    "font4": "Abel:wght@400"
   },
   "sizeLeading": {
     "textXs": "12/20",

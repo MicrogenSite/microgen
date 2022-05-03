@@ -13,7 +13,8 @@ blocks:
       textStyles: 'text-white font-1 text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:
-      fillStyles: from-accent1 to-black bg-gradient-to-br
+      fillStyles: bg-primary
+      position: ''
     image:
       src: >-
         https://res.cloudinary.com/protocolai/image/upload/v1649882497/microgen/Hall_of_Fame_grccee_k39etu.png

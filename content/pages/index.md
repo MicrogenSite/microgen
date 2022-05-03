@@ -2,14 +2,14 @@
 draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse text-left items-center '
-      featureContent: 'w-1/2 min-h-0 '
-      padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: object-center object-contain to-edge
+      alignment: 'flex-row-reverse text-left items-start sm:flex-col'
+      featureContent: 'w-1/2 min-h-screen '
+      padding: pt-56 pb-16 pr-0 pl-5
+      featureImage: object-center object-scale-down to-edge
       imagePadding: pt-0 pb-0 pr-0 pl-0
-      labelStyles: text-accent1 font-2 text-xl mb-0 font-bold
-      headlineStyles: text-accent1 font-1 text-6xl mb-0 font-bold
-      subheadStyles: text-accent1 font-1 text-2xl mb-7 font-bold
+      labelStyles: 'text-accent1 font-2 text-xl mb-0 '
+      headlineStyles: 'text-accent1 font-1 text-6xl mb-0 '
+      subheadStyles: 'text-accent1 font-1 text-2xl mb-7 '
       textStyles: 'text-accent1 font-1 text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:

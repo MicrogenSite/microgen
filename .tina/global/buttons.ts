@@ -1,10 +1,5 @@
 import type { TinaField } from "tinacms"
-
-// - text control
-// - border
-// - fill
-// - padding
-// - rounded
+import { roundedOptions } from "../shared/options"
 
 export const globalButtons: TinaField = {
   type: "object",
@@ -32,18 +27,18 @@ export const globalButtons: TinaField = {
     },
     {
       type: "string",
-      label: "Typography",
-      name: "primaryTypography",
-      ui: {
-        component: "typeControl",
-      },
-    },
-    {
-      type: "string",
       label: "Border",
       name: "primaryBorder",
       ui: {
         component: "borderControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Typography",
+      name: "primaryTypography",
+      ui: {
+        component: "typeControl",
       },
     },
     {
@@ -53,6 +48,15 @@ export const globalButtons: TinaField = {
       ui: {
         component: "paddingControl",
       },
+    },
+    {
+      type: "string",
+      label: "Rounded",
+      name: "primaryRounded",
+      ui: {
+        component: "selectField",
+      },
+      options: roundedOptions,
     },
     {
       label: "Secondary Button",
@@ -72,18 +76,18 @@ export const globalButtons: TinaField = {
     },
     {
       type: "string",
-      label: "Typography",
-      name: "secondaryTypography",
-      ui: {
-        component: "typeControl",
-      },
-    },
-    {
-      type: "string",
       label: "Border",
       name: "secondaryBorder",
       ui: {
         component: "borderControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Typography",
+      name: "secondaryTypography",
+      ui: {
+        component: "typeControl",
       },
     },
     {
@@ -93,6 +97,15 @@ export const globalButtons: TinaField = {
       ui: {
         component: "paddingControl",
       },
+    },
+    {
+      type: "string",
+      label: "Rounded",
+      name: "secondaryRounded",
+      ui: {
+        component: "selectField",
+      },
+      options: roundedOptions,
     },
   ]
 }

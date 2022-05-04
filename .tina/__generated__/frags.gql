@@ -42,14 +42,16 @@ fragment GlobalParts on Global {
     __typename
     primaryRule
     primaryFill
-    primaryTypography
     primaryBorder
+    primaryTypography
     primaryPadding
+    primaryRounded
     secondaryRule
     secondaryFill
-    secondaryTypography
     secondaryBorder
+    secondaryTypography
     secondaryPadding
+    secondaryRounded
   }
   links {
     __typename
@@ -126,9 +128,6 @@ fragment GlobalParts on Global {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       rule2
       navigationLabel
@@ -188,9 +187,6 @@ fragment GlobalParts on Global {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename
@@ -262,9 +258,6 @@ fragment GlobalParts on Global {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename
@@ -320,9 +313,6 @@ fragment GlobalParts on Global {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       navigationLabel
     }
@@ -459,9 +449,6 @@ fragment GlobalParts on Global {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename
@@ -539,9 +526,6 @@ fragment PagesParts on Pages {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       rule2
       navigationLabel
@@ -601,9 +585,6 @@ fragment PagesParts on Pages {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename
@@ -675,9 +656,6 @@ fragment PagesParts on Pages {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename
@@ -733,9 +711,6 @@ fragment PagesParts on Pages {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       navigationLabel
     }
@@ -872,9 +847,6 @@ fragment PagesParts on Pages {
         label
         link
         type
-        buttonFillStyles
-        textColor
-        backgroundColor
       }
       items {
         __typename

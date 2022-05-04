@@ -117,14 +117,16 @@ type GlobalSizeLeading {
 type GlobalButtons {
   primaryRule: String
   primaryFill: String
-  primaryTypography: String
   primaryBorder: String
+  primaryTypography: String
   primaryPadding: String
+  primaryRounded: String
   secondaryRule: String
   secondaryFill: String
-  secondaryTypography: String
   secondaryBorder: String
+  secondaryTypography: String
   secondaryPadding: String
+  secondaryRounded: String
 }
 
 type GlobalLinks {
@@ -194,9 +196,6 @@ type GlobalBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksFeature {
@@ -263,9 +262,6 @@ type GlobalBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksPhotoCardsItemsImage {
@@ -345,9 +341,6 @@ type GlobalBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTextCardsItems {
@@ -410,9 +403,6 @@ type GlobalBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksBanner {
@@ -564,9 +554,6 @@ type GlobalBlocksTailwindCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTailwindCardsItemsImage {
@@ -684,9 +671,6 @@ type PagesBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksFeature {
@@ -753,9 +737,6 @@ type PagesBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksPhotoCardsItemsImage {
@@ -835,9 +816,6 @@ type PagesBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTextCardsItems {
@@ -900,9 +878,6 @@ type PagesBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksBanner {
@@ -1054,9 +1029,6 @@ type PagesBlocksTailwindCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTailwindCardsItemsImage {
@@ -1176,14 +1148,16 @@ input GlobalSizeLeadingMutation {
 input GlobalButtonsMutation {
   primaryRule: String
   primaryFill: String
-  primaryTypography: String
   primaryBorder: String
+  primaryTypography: String
   primaryPadding: String
+  primaryRounded: String
   secondaryRule: String
   secondaryFill: String
-  secondaryTypography: String
   secondaryBorder: String
+  secondaryTypography: String
   secondaryPadding: String
+  secondaryRounded: String
 }
 
 input GlobalLinksMutation {
@@ -1253,9 +1227,6 @@ input GlobalBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksFeatureMutation {
@@ -1322,9 +1293,6 @@ input GlobalBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksPhotoCardsItemsImageMutation {
@@ -1404,9 +1372,6 @@ input GlobalBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTextCardsItemsMutation {
@@ -1469,9 +1434,6 @@ input GlobalBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksBannerMutation {
@@ -1623,9 +1585,6 @@ input GlobalBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTailwindCardsItemsImageMutation {
@@ -1731,9 +1690,6 @@ input PagesBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksFeatureMutation {
@@ -1800,9 +1756,6 @@ input PagesBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksPhotoCardsItemsImageMutation {
@@ -1882,9 +1835,6 @@ input PagesBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTextCardsItemsMutation {
@@ -1947,9 +1897,6 @@ input PagesBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksBannerMutation {
@@ -2101,9 +2048,6 @@ input PagesBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTailwindCardsItemsImageMutation {

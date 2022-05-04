@@ -35,14 +35,15 @@
     "text8xl": "96/120"
   },
   "buttons": {
-    "primaryFill": "from-accent2 to-primary bg-gradient-to-t",
-    "primaryTypography": "text-white font-3 text-base undefined ",
-    "primaryBorder": "border-white 2",
-    "primaryPadding": "pt-2.5 pb-2.5 pr-4 pl-4",
-    "secondaryFill": "bg-white",
-    "secondaryTypography": "text-primary undefined text-base undefined font-bold",
-    "secondaryBorder": "undefined ",
-    "secondaryPadding": "undefined undefined undefined undefined"
+    "primaryFill": "from-primary to-accent3 bg-gradient-to-t",
+    "primaryBorder": "border-primary border-2",
+    "primaryTypography": "text-white font-1 text-sm mb-0 font-bold",
+    "primaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
+    "primaryRounded": "rounded-md",
+    "secondaryBorder": "border-white border-2",
+    "secondaryTypography": "text-white undefined text-sm undefined font-bold",
+    "secondaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
+    "secondaryRounded": "rounded-md"
   },
   "links": {
     "color": "white"

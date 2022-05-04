@@ -30,6 +30,11 @@ blocks:
         buttonFillStyles: bg-primary
         textColor: white
         backgroundColor: black
+      - label: Learn More
+        link: /
+        type: secondary
+        textColor: black
+        backgroundColor: primary
     _template: feature
   - style:
       textAlignment: text-left

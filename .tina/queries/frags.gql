@@ -45,10 +45,12 @@ fragment LayoutQueryFragment on Query {
         primaryTypography
         primaryBorder
         primaryPadding
+        primaryRounded
         secondaryFill
         secondaryTypography
         secondaryBorder
         secondaryPadding
+        secondaryRounded
       }
       logo {
         logoType
@@ -92,9 +94,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             image {
@@ -157,9 +156,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             headline
@@ -220,9 +216,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           style {
             alignment
@@ -262,11 +255,9 @@ fragment LayoutQueryFragment on Query {
           body
           buttons {
             label
-            type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
+            type
+            type
           }
           style {
             minHeight

@@ -31,7 +31,6 @@ export default function BorderControl({ field, input, meta }) {
   ]
   const [width, setWidth] = useState(getStyleMatch(widths, input.value));
   const sides = [
-    { label: "None", value: "" },
     { label: "All", value: "border-" },
     { label: "Top", value: "border-t-" },
     { label: "Right", value: "border-r-" },
@@ -58,8 +57,8 @@ export default function BorderControl({ field, input, meta }) {
     <>
       <FieldLabel label={field.label} />
       <div className="flex mb-6 items-center">
-        <ColorPicker value={color?.replace('border-','')} onClick={handleSetColor} className="mr-1" />
-        <SelectMenu value={width} onChange={setWidth} options={widths} className="w-14 mr-1" />
+        <ColorPicker value={color?.replace('border-','')} onClick={handleSetColor} className="mr-2" />
+        <SelectMenu value={width} onChange={setWidth} options={widths} className="w-14 mr-2" />
         <SelectMenu value={side} onChange={setSide} options={sides} className="flex-1" />
         <input ref={inputRef} type="text" {...input}  className="hidden" />
       </div>

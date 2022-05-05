@@ -13,8 +13,9 @@ export const Buttons = ({
     const buttons: any = theme.buttons
 
     const styles = {
-      primary: `${buttons.primaryFill} ${buttons.primaryTypography} ${buttons.primaryBorder} ${buttons.primaryPadding} ${buttons.primaryRounded}`,
-      secondary: `${buttons.secondaryFill} ${buttons.secondaryTypography} ${buttons.secondaryBorder} ${buttons.secondaryPadding} ${buttons.secondaryRounded}`,
+      primary: `${buttons?.primaryFill} ${buttons?.primaryTypography} ${buttons?.primaryBorder} ${buttons?.primaryPadding} ${buttons?.primaryRounded}`,
+      secondary: `${buttons?.secondaryFill} ${buttons?.secondaryTypography} ${buttons?.secondaryBorder} ${buttons?.secondaryPadding} ${buttons?.secondaryRounded}`,
+      minor: `${buttons?.minorFill} ${buttons?.minorTypography} ${buttons?.minorBorder} ${buttons?.minorPadding} ${buttons?.minorRounded}`,
     };
     return button.type ? styles[button.type] : styles.primary
   }

@@ -7374,7 +7374,7 @@
               "options": [
                 {
                   "label": "0",
-                  "value": ""
+                  "value": "rounded-none"
                 },
                 {
                   "label": "2",
@@ -7490,7 +7490,7 @@
               "options": [
                 {
                   "label": "0",
-                  "value": ""
+                  "value": "rounded-none"
                 },
                 {
                   "label": "2",
@@ -7529,6 +7529,122 @@
                 "global",
                 "buttons",
                 "secondaryRounded"
+              ]
+            },
+            {
+              "label": "Minor Button",
+              "name": "minorRule",
+              "type": "string",
+              "ui": {
+                "component": "ruledTitle"
+              },
+              "namespace": [
+                "global",
+                "buttons",
+                "minorRule"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Fill",
+              "name": "minorFill",
+              "ui": {
+                "component": "fillControl"
+              },
+              "namespace": [
+                "global",
+                "buttons",
+                "minorFill"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Border",
+              "name": "minorBorder",
+              "ui": {
+                "component": "borderControl"
+              },
+              "namespace": [
+                "global",
+                "buttons",
+                "minorBorder"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Typography",
+              "name": "minorTypography",
+              "ui": {
+                "component": "typeControl"
+              },
+              "namespace": [
+                "global",
+                "buttons",
+                "minorTypography"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Padding",
+              "name": "minorPadding",
+              "ui": {
+                "component": "paddingControl"
+              },
+              "namespace": [
+                "global",
+                "buttons",
+                "minorPadding"
+              ]
+            },
+            {
+              "type": "string",
+              "label": "Rounded",
+              "name": "minorRounded",
+              "ui": {
+                "component": "selectField"
+              },
+              "options": [
+                {
+                  "label": "0",
+                  "value": "rounded-none"
+                },
+                {
+                  "label": "2",
+                  "value": "rounded-sm"
+                },
+                {
+                  "label": "4",
+                  "value": "rounded"
+                },
+                {
+                  "label": "6",
+                  "value": "rounded-md"
+                },
+                {
+                  "label": "8",
+                  "value": "rounded-lg"
+                },
+                {
+                  "label": "12",
+                  "value": "rounded-xl"
+                },
+                {
+                  "label": "16",
+                  "value": "rounded-2xl"
+                },
+                {
+                  "label": "24",
+                  "value": "rounded-3xl"
+                },
+                {
+                  "label": "Full",
+                  "value": "rounded-full"
+                }
+              ],
+              "namespace": [
+                "global",
+                "buttons",
+                "minorRounded"
               ]
             }
           ],
@@ -8478,6 +8594,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -9106,16 +9226,16 @@
                       },
                       "options": [
                         {
-                          "label": "Solid",
-                          "value": "solid"
+                          "label": "Primary",
+                          "value": "primary"
                         },
                         {
-                          "label": "Outline",
-                          "value": "outline"
+                          "label": "Secondary",
+                          "value": "secondary"
                         },
                         {
-                          "label": "Link",
-                          "value": "link"
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -9124,78 +9244,6 @@
                         "photoCards",
                         "cardStyle",
                         "buttonType"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Background",
-                      "name": "buttonFillStyles",
-                      "ui": {
-                        "component": "fillControl"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "buttonFillStyles"
-                      ]
-                    },
-                    {
-                      "label": "Button Text Color",
-                      "name": "buttonTextColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "buttonTextColor"
                       ]
                     }
                   ],
@@ -9536,6 +9584,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -10279,16 +10331,16 @@
                       },
                       "options": [
                         {
-                          "label": "Solid",
-                          "value": "solid"
+                          "label": "Primary",
+                          "value": "primary"
                         },
                         {
-                          "label": "Outline",
-                          "value": "outline"
+                          "label": "Secondary",
+                          "value": "secondary"
                         },
                         {
-                          "label": "Link",
-                          "value": "link"
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -10297,63 +10349,6 @@
                         "textCards",
                         "cardStyle",
                         "buttonType"
-                      ]
-                    },
-                    {
-                      "label": "Button Text Color",
-                      "name": "buttonTextColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "buttonTextColor"
                       ]
                     }
                   ],
@@ -10694,6 +10689,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -10780,63 +10779,6 @@
                         "textCards",
                         "items",
                         "buttonLabel"
-                      ]
-                    },
-                    {
-                      "label": "Accent Color",
-                      "name": "accentColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "textCards",
-                        "items",
-                        "accentColor"
                       ]
                     }
                   ],
@@ -11521,6 +11463,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -13327,6 +13273,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -14231,6 +14181,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -14859,16 +14813,16 @@
                       },
                       "options": [
                         {
-                          "label": "Solid",
-                          "value": "solid"
+                          "label": "Primary",
+                          "value": "primary"
                         },
                         {
-                          "label": "Outline",
-                          "value": "outline"
+                          "label": "Secondary",
+                          "value": "secondary"
                         },
                         {
-                          "label": "Link",
-                          "value": "link"
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -14877,78 +14831,6 @@
                         "photoCards",
                         "cardStyle",
                         "buttonType"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Background",
-                      "name": "buttonFillStyles",
-                      "ui": {
-                        "component": "fillControl"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "buttonFillStyles"
-                      ]
-                    },
-                    {
-                      "label": "Button Text Color",
-                      "name": "buttonTextColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "buttonTextColor"
                       ]
                     }
                   ],
@@ -15289,6 +15171,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -16032,16 +15918,16 @@
                       },
                       "options": [
                         {
-                          "label": "Solid",
-                          "value": "solid"
+                          "label": "Primary",
+                          "value": "primary"
                         },
                         {
-                          "label": "Outline",
-                          "value": "outline"
+                          "label": "Secondary",
+                          "value": "secondary"
                         },
                         {
-                          "label": "Link",
-                          "value": "link"
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -16050,63 +15936,6 @@
                         "textCards",
                         "cardStyle",
                         "buttonType"
-                      ]
-                    },
-                    {
-                      "label": "Button Text Color",
-                      "name": "buttonTextColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "buttonTextColor"
                       ]
                     }
                   ],
@@ -16447,6 +16276,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -16533,63 +16366,6 @@
                         "textCards",
                         "items",
                         "buttonLabel"
-                      ]
-                    },
-                    {
-                      "label": "Accent Color",
-                      "name": "accentColor",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Primary",
-                          "value": "primary"
-                        },
-                        {
-                          "label": "Accent 1",
-                          "value": "accent1"
-                        },
-                        {
-                          "label": "Accent 2",
-                          "value": "accent2"
-                        },
-                        {
-                          "label": "Accent 3",
-                          "value": "accent3"
-                        },
-                        {
-                          "label": "Accent 4",
-                          "value": "accent4"
-                        },
-                        {
-                          "label": "White",
-                          "value": "white"
-                        },
-                        {
-                          "label": "Gray Light",
-                          "value": "grayLight"
-                        },
-                        {
-                          "label": "Gray",
-                          "value": "gray"
-                        },
-                        {
-                          "label": "Gray Dark",
-                          "value": "grayDark"
-                        },
-                        {
-                          "label": "Black",
-                          "value": "black"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "textCards",
-                        "items",
-                        "accentColor"
                       ]
                     }
                   ],
@@ -17274,6 +17050,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [
@@ -19080,6 +18860,10 @@
                         {
                           "label": "Secondary",
                           "value": "secondary"
+                        },
+                        {
+                          "label": "Minor",
+                          "value": "minor"
                         }
                       ],
                       "namespace": [

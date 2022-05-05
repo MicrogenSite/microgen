@@ -1,7 +1,7 @@
 {
   "siteUrl": "microgen.vercel.app",
   "gtmId": "",
-  "favicon": "",
+  "favicon": "https://res.cloudinary.com/protocolai/image/upload/v1649882296/filecoin-favicon_rn3bfm.png",
   "colors": {
     "primary": "#0090FF",
     "accent1": "#0E4465",
@@ -35,15 +35,19 @@
     "text8xl": "96/120"
   },
   "buttons": {
-    "primaryFill": "from-primary to-accent3 bg-gradient-to-t",
-    "primaryBorder": "border-primary border-2",
-    "primaryTypography": "text-white font-1 text-sm mb-0 font-bold",
+    "primaryFill": "bg-primary",
+    "primaryBorder": "border-accent3 border-r-0",
+    "primaryTypography": "text-white font-2 text-sm mb-0 font-bold",
     "primaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
-    "primaryRounded": "rounded-md",
+    "primaryRounded": "rounded",
     "secondaryBorder": "border-white border-2",
     "secondaryTypography": "text-white undefined text-sm undefined font-bold",
-    "secondaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
-    "secondaryRounded": "rounded-md"
+    "secondaryPadding": "pt-2 pb-2 pr-6 pl-6",
+    "secondaryRounded": "rounded-md",
+    "minorBorder": "border-white border-0",
+    "minorTypography": "text-white undefined text-sm undefined font-bold",
+    "minorPadding": "pt-2 pb-2 pr-6 pl-6",
+    "minorRounded": "rounded-none"
   },
   "links": {
     "color": "white"

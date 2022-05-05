@@ -107,5 +107,54 @@ export const globalButtons: TinaField = {
       },
       options: roundedOptions,
     },
+    {
+      label: "Minor Button",
+      name: "minorRule",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
+    },
+    {
+      type: "string",
+      label: "Fill",
+      name: "minorFill",
+      ui: {
+        component: "fillControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Border",
+      name: "minorBorder",
+      ui: {
+        component: "borderControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Typography",
+      name: "minorTypography",
+      ui: {
+        component: "typeControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Padding",
+      name: "minorPadding",
+      ui: {
+        component: "paddingControl",
+      },
+    },
+    {
+      type: "string",
+      label: "Rounded",
+      name: "minorRounded",
+      ui: {
+        component: "selectField",
+      },
+      options: roundedOptions,
+    },
   ]
 }

@@ -59,7 +59,7 @@ export const textSizeOptions: {label: string, value: string}[] = [
 ];
 
 export const roundedOptions: {label: string, value: string}[] = [
-  { label: "0", value: "" },
+  { label: "0", value: "rounded-none" },
   { label: "2", value: "rounded-sm" },
   { label: "4", value: "rounded" },
   { label: "6", value: "rounded-md" },

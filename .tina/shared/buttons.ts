@@ -36,6 +36,7 @@ export const buttonsSchema: TinaField = {
       options: [
         { label: "Primary", value: "primary" },
         { label: "Secondary", value: "secondary" },
+        { label: "Minor", value: "minor" },
       ],
     },
   ],

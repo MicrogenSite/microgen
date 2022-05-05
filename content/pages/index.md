@@ -27,14 +27,9 @@ blocks:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
         type: primary
-        buttonFillStyles: bg-primary
-        textColor: white
-        backgroundColor: black
       - label: Learn More
         link: /
         type: secondary
-        textColor: black
-        backgroundColor: primary
     _template: feature
   - style:
       textAlignment: text-left
@@ -51,13 +46,12 @@ blocks:
       fillStyles: bg-accent1
       padding: pt-4 pb-4 pr-5 pl-7
       type: solid
-      borderStyles: border-primary undefinedundefined
+      borderStyles: border-primary border-3
       labelStyles: 'text-black undefined text-sm mb-0 '
       headlineStyles: text-primary font-1 text-xl mb-2 font-bold
       subheadStyles: 'text-black undefined text-lg mb-0 '
       textStyles: 'text-gray-light undefined text-lg mb-0 '
-      buttonType: link
-      buttonTextColor: accent4
+      buttonType: primary
     background:
       fillStyles: from-black to-accent1 bg-gradient-to-bl
     label: ''
@@ -70,7 +64,8 @@ blocks:
         text: >
           Get a website complete with a visual CMS deployed in less than an hour
           on your choice of static host.
-        accentColor: primary
+        link: ye
+        buttonLabel: ''
       - headline: Modern Features
         subhead: ''
         text: >
@@ -90,12 +85,12 @@ blocks:
   - style:
       textAlignment: text-center
       minHeight: min-h-0
-      padding: pt-7 pb-10 pr-0
+      padding: pt-7 pb-10 pr-0 undefined
       width: normal
-      labelStyles: text-black  text-xl mb-0 font-bold
-      headlineStyles: text-white  text-6xl mb-3 font-bold
-      subheadStyles: text-black  text-3xl mb-0 font-bold
-      textStyles: text-black  text-lg mb-0 font-bold
+      labelStyles: text-black undefined text-xl mb-0 font-bold
+      headlineStyles: text-white undefined text-6xl mb-3 font-bold
+      subheadStyles: text-black undefined text-3xl mb-0 font-bold
+      textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     background:
       fillStyles: bg-primary
@@ -107,9 +102,6 @@ blocks:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
         type: solid
-        buttonFillStyles: bg-white
-        textColor: primary
-        backgroundColor: white
     _template: banner
   - style:
       minHeight: min-h-0
@@ -126,10 +118,10 @@ blocks:
       padding: pt-14 pb-20 pr-20 pl-20
       contentWidth: w-full
       columns: '2'
-      labelStyles: text-black  text-xl mb-0 font-bold
-      headlineStyles: text-white  text-6xl mb-10 font-bold
-      subheadStyles: text-black  text-3xl mb-0 font-bold
-      textStyles: text-black  text-lg mb-0 font-bold
+      labelStyles: text-black undefined text-xl mb-0 font-bold
+      headlineStyles: text-white undefined text-6xl mb-10 font-bold
+      subheadStyles: text-black undefined text-3xl mb-0 font-bold
+      textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     cardStyle:
       fillStyles: bg-primary
@@ -140,8 +132,7 @@ blocks:
       headlineStyles: 'text-white undefined text-2xl mb-0 '
       subheadStyles: 'text-white undefined text-lg mb-0 '
       textStyles: 'text-white undefined undefined mb-0 '
-      buttonType: outline
-      buttonTextColor: white
+      buttonType: secondary
     background:
       fillStyles: bg-accent1
     label: ''

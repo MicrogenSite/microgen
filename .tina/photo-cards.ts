@@ -171,27 +171,10 @@ export const photoCardsBlockSchema: TinaTemplate = {
             component: "selectField",
           },
           options: [
-            { label: "Solid", value: "solid" },
-            { label: "Outline", value: "outline" },
-            { label: "Link", value: "link" },
+            { label: "Primary", value: "primary" },
+            { label: "Secondary", value: "secondary" },
+            { label: "Minor", value: "minor" },
           ],
-        },
-        {
-          type: "string",
-          label: "Background",
-          name: "buttonFillStyles",
-          ui: {
-            component: "fillControl"
-          }
-        },
-        {
-          label: "Button Text Color",
-          name: "buttonTextColor",
-          type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: colorOptions,
         },
       ],
     },

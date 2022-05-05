@@ -170,19 +170,10 @@ export const textCardsBlockSchema: TinaTemplate = {
             component: "selectField",
           },
           options: [
-            { label: "Solid", value: "solid" },
-            { label: "Outline", value: "outline" },
-            { label: "Link", value: "link" },
+            { label: "Primary", value: "primary" },
+            { label: "Secondary", value: "secondary" },
+            { label: "Minor", value: "minor" },
           ],
-        },
-        {
-          label: "Button Text Color",
-          name: "buttonTextColor",
-          type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: colorOptions,
         },
       ],
     },
@@ -242,15 +233,6 @@ export const textCardsBlockSchema: TinaTemplate = {
           label: "Button Label",
           name: "buttonLabel",
           description: "A button will be included if you have a link and button label, with only a link the entire card is linked"
-        },
-        {
-          label: "Accent Color",
-          name: "accentColor",
-          type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: colorOptions,
         },
       ],
     },

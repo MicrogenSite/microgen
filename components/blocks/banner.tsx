@@ -2,7 +2,7 @@ import * as React from "react";
 import { Section } from "../section";
 import { Content } from "../content";
 
-export const Banner = ({ data, parentField = ""  }) => {
+export const Banner = ({ data, parentField = "" }) => {
   return (
     <Section
       background={data.background}

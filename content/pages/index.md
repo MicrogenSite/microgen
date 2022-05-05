@@ -5,11 +5,11 @@ blocks:
       alignment: 'flex-row-reverse text-left items-center '
       featureContent: 'w-1/2 min-h-0 '
       padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: object-center object-cover to-edge
+      featureImage: 'object-left object-contain '
       imagePadding: pt-0 pb-0 pr-0 pl-0
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
-      subheadStyles: text-gray font-1 text-2xl mb-7 font-bold
+      subheadStyles: text-gray font-1 text-xl mb-7 font-bold
       textStyles: 'text-white font-1 text-lg mb-11 '
       contentOrder: labelHeadingsContent
     background:
@@ -26,73 +26,34 @@ blocks:
     buttons:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
-        type: solid
-        buttonFillStyles: bg-primary
-        textColor: white
-        backgroundColor: black
-    _template: feature
-  - tailwind:
-      section: p-8
-      wrap: ''
-      imageWrap: ''
-      image: ''
-      contentWrap: ''
-      content: ''
-      label: ''
-      headline: ''
-      subhead: ''
-      text: border
-      buttons: border
-      button: border
-    label: ''
-    headline: This is the main headline
-    subhead: Here is a subhead
-    body: |
-      This is a rich text component you can add hyperlinks, etc.
-    buttons:
-      - label: Button Label
+        type: primary
+      - label: Learn More
         link: /
-        type: solid
-        textColor: black
-        backgroundColor: primary
-    items:
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-        link: '#'
-        buttonLabel: Card Button
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-      - headline: Here's Another Card
-        subhead: Card Subhead
-        text: |
-          This is a rich text component you can add hyperlinks, etc.
-    _template: tailwindCards
+        type: secondary
+    _template: feature
   - style:
-      textAlignment: left
+      textAlignment: text-left
+      minHeight: min-h-0
       padding: pt-20 pb-20 pr-20 pl-20
+      contentWidth: w-full
       columns: '2'
       labelStyles: text-black font-1 text-xl mb-0 font-bold
-      headlineStyles: text-black  text-5xl mb-11 font-bold
-      subheadStyles: text-black  text-3xl mb-0 font-bold
-      textStyles: text-black  text-lg mb-0 font-bold
+      headlineStyles: text-white undefined text-5xl mb-11 font-bold
+      subheadStyles: text-black undefined text-3xl mb-0 font-bold
+      textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     cardStyle:
-      fillStyles: bg-white
+      fillStyles: bg-accent1
       padding: pt-4 pb-4 pr-5 pl-7
       type: solid
-      borderStyles: border-primary undefinedundefined
+      borderStyles: border-primary border-3
       labelStyles: 'text-black undefined text-sm mb-0 '
-      headlineStyles: text-primary undefined text-xl mb-2 font-bold
+      headlineStyles: text-primary font-1 text-xl mb-2 font-bold
       subheadStyles: 'text-black undefined text-lg mb-0 '
-      textStyles: 'text-black undefined undefined mb-0 '
-      buttonType: outline
-      buttonTextColor: accent4
+      textStyles: 'text-gray-light undefined text-lg mb-0 '
+      buttonType: primary
     background:
-      fillStyles: bg-gray-light
+      fillStyles: from-black to-accent1 bg-gradient-to-bl
     label: ''
     headline: Features
     subhead: ''
@@ -103,6 +64,8 @@ blocks:
         text: >
           Get a website complete with a visual CMS deployed in less than an hour
           on your choice of static host.
+        link: ye
+        buttonLabel: ''
       - headline: Modern Features
         subhead: ''
         text: >
@@ -122,12 +85,12 @@ blocks:
   - style:
       textAlignment: text-center
       minHeight: min-h-0
-      padding: pt-7 pb-10 pr-0
+      padding: pt-7 pb-10 pr-0 undefined
       width: normal
-      labelStyles: text-black  text-xl mb-0 font-bold
-      headlineStyles: text-white  text-6xl mb-3 font-bold
-      subheadStyles: text-black  text-3xl mb-0 font-bold
-      textStyles: text-black  text-lg mb-0 font-bold
+      labelStyles: text-black undefined text-xl mb-0 font-bold
+      headlineStyles: text-white undefined text-6xl mb-3 font-bold
+      subheadStyles: text-black undefined text-3xl mb-0 font-bold
+      textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     background:
       fillStyles: bg-primary
@@ -139,9 +102,6 @@ blocks:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
         type: solid
-        buttonFillStyles: bg-white
-        textColor: primary
-        backgroundColor: white
     _template: banner
   - style:
       minHeight: min-h-0
@@ -158,22 +118,21 @@ blocks:
       padding: pt-14 pb-20 pr-20 pl-20
       contentWidth: w-full
       columns: '2'
-      labelStyles: text-black  text-xl mb-0 font-bold
-      headlineStyles: text-white  text-6xl mb-10 font-bold
-      subheadStyles: text-black  text-3xl mb-0 font-bold
-      textStyles: text-black  text-lg mb-0 font-bold
+      labelStyles: text-black undefined text-xl mb-0 font-bold
+      headlineStyles: text-white undefined text-6xl mb-10 font-bold
+      subheadStyles: text-black undefined text-3xl mb-0 font-bold
+      textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     cardStyle:
       fillStyles: bg-primary
       padding: pt-5 pb-5 pr-5 pl-5
       type: solid
-      imageStyles: '   '
-      labelStyles: 'text-white  text-sm mb-0 '
-      headlineStyles: 'text-white  text-2xl mb-0 '
-      subheadStyles: 'text-white  text-lg mb-0 '
-      textStyles: 'text-white   mb-0 '
-      buttonType: outline
-      buttonTextColor: white
+      imageStyles: ' undefined undefined mb-0'
+      labelStyles: 'text-white undefined text-sm mb-0 '
+      headlineStyles: 'text-white undefined text-2xl mb-0 '
+      subheadStyles: 'text-white undefined text-lg mb-0 '
+      textStyles: 'text-white undefined undefined mb-0 '
+      buttonType: secondary
     background:
       fillStyles: bg-accent1
     label: ''

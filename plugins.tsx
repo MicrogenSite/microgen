@@ -36,34 +36,34 @@ export const emailFieldPlugin = {
   },
 }
 
-export const selectFieldPlugin = {
-  Component: SelectField,
-  __type: 'field',
-  name: 'selectField',
-}
-
 export const alignmentControlFieldPlugin = {
   Component: AlignmentControl,
   __type: 'field',
   name: 'alignmentControl',
 }
 
-export const typeControlFieldPlugin = {
-  Component: TypeControl,
+export const borderControlFieldPlugin = {
+  Component: BorderControl,
   __type: 'field',
-  name: 'typeControl',
-}
-
-export const typeSizeControlFieldPlugin = {
-  Component: TypeSizeControl,
-  __type: 'field',
-  name: 'typeSizeControl',
+  name: 'borderControl',
 }
 
 export const colorControlFieldPlugin = {
   Component: ColorControl,
   __type: 'field',
   name: 'colorControl',
+}
+
+export const featureContentFieldPlugin = {
+  Component: FeatureContentField,
+  __type: 'field',
+  name: 'featureContentField',
+}
+
+export const featureImageFieldPlugin = {
+  Component: FeatureImageField,
+  __type: 'field',
+  name: 'featureImageField',
 }
 
 export const fillControlFieldPlugin = {
@@ -84,26 +84,26 @@ export const paddingControlFieldPlugin = {
   name: 'paddingControl',
 }
 
-export const borderControlFieldPlugin = {
-  Component: BorderControl,
-  __type: 'field',
-  name: 'borderControl',
-}
-
-export const featureContentFieldPlugin = {
-  Component: FeatureContentField,
-  __type: 'field',
-  name: 'featureContentField',
-}
-
-export const featureImageFieldPlugin = {
-  Component: FeatureImageField,
-  __type: 'field',
-  name: 'featureImageField',
-}
-
 export const ruledTitlePlugin = {
   Component: RuledTitle,
   __type: 'field',
   name: 'ruledTitle',
+}
+
+export const selectFieldPlugin = {
+  Component: SelectField,
+  __type: 'field',
+  name: 'selectField',
+}
+
+export const typeControlFieldPlugin = {
+  Component: TypeControl,
+  __type: 'field',
+  name: 'typeControl',
+}
+
+export const typeSizeControlFieldPlugin = {
+  Component: TypeSizeControl,
+  __type: 'field',
+  name: 'typeSizeControl',
 }

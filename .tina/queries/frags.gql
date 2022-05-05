@@ -40,6 +40,23 @@ fragment LayoutQueryFragment on Query {
         text7xl
         text8xl
       }
+      buttons {
+        primaryFill
+        primaryTypography
+        primaryBorder
+        primaryPadding
+        primaryRounded
+        secondaryFill
+        secondaryTypography
+        secondaryBorder
+        secondaryPadding
+        secondaryRounded
+        minorFill
+        minorTypography
+        minorBorder
+        minorPadding
+        minorRounded
+      }
       logo {
         logoType
         logoTypeStyle
@@ -82,9 +99,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             image {
@@ -120,8 +134,6 @@ fragment LayoutQueryFragment on Query {
             subheadStyles
             textStyles
             fillStyles
-            buttonTextColor
-            buttonFillStyles
           }
           navigationLabel
         }
@@ -147,9 +159,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             headline
@@ -180,7 +189,6 @@ fragment LayoutQueryFragment on Query {
             subheadStyles
             textStyles
             fillStyles
-            buttonTextColor
           }
           navigationLabel
         }
@@ -210,9 +218,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           style {
             alignment
@@ -252,11 +257,9 @@ fragment LayoutQueryFragment on Query {
           body
           buttons {
             label
-            type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
+            type
+            type
           }
           style {
             minHeight

@@ -1,7 +1,10 @@
+import { createContext } from "react";
 import { Blocks } from "../components/blocks";
 import { ExperimentalGetTinaClient } from "../.tina/__generated__/types";
 import { useTina } from "tinacms/dist/edit-state";
 import { Layout } from "../components/layout";
+
+export const ThemeContext = createContext({});
 
 export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>["props"]
@@ -12,9 +15,11 @@ export default function HomePage(
     data: props.data,
   });
   return (
-    <Layout pageData={data.getPagesDocument.data} globalData={data.getGlobalDocument.data}>
-      <Blocks {...data.getPagesDocument.data} />
-    </Layout>
+    <ThemeContext.Provider value={data.getGlobalDocument.data}>
+      <Layout pageData={data.getPagesDocument.data} globalData={data.getGlobalDocument.data}>
+        <Blocks {...data.getPagesDocument.data} />
+      </Layout>
+    </ThemeContext.Provider>
   );
 }
 

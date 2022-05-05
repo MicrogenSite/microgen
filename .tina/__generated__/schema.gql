@@ -114,6 +114,27 @@ type GlobalSizeLeading {
   text8xl: String
 }
 
+type GlobalButtons {
+  primaryRule: String
+  primaryFill: String
+  primaryBorder: String
+  primaryTypography: String
+  primaryPadding: String
+  primaryRounded: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryBorder: String
+  secondaryTypography: String
+  secondaryPadding: String
+  secondaryRounded: String
+  minorRule: String
+  minorFill: String
+  minorBorder: String
+  minorTypography: String
+  minorPadding: String
+  minorRounded: String
+}
+
 type GlobalLinks {
   color: String
 }
@@ -181,9 +202,6 @@ type GlobalBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksFeature {
@@ -226,8 +244,6 @@ type GlobalBlocksPhotoCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 type GlobalBlocksPhotoCardsBackgroundOrnaments {
@@ -250,9 +266,6 @@ type GlobalBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksPhotoCardsItemsImage {
@@ -309,7 +322,6 @@ type GlobalBlocksTextCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 type GlobalBlocksTextCardsBackgroundOrnaments {
@@ -332,9 +344,6 @@ type GlobalBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTextCardsItems {
@@ -343,7 +352,6 @@ type GlobalBlocksTextCardsItems {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 type GlobalBlocksTextCards {
@@ -397,9 +405,6 @@ type GlobalBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksBanner {
@@ -551,9 +556,6 @@ type GlobalBlocksTailwindCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTailwindCardsItemsImage {
@@ -595,14 +597,17 @@ type GlobalRedirects {
 
 type Global {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  rule: String
   colors: GlobalColors
   fonts: GlobalFonts
   sizeLeading: GlobalSizeLeading
+  buttons: GlobalButtons
   links: GlobalLinks
   logo: GlobalLogo
   nav: GlobalNav
+  rule2: String
   blocks: [GlobalBlocks]
   redirects: [GlobalRedirects]
 }
@@ -668,9 +673,6 @@ type PagesBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksFeature {
@@ -713,8 +715,6 @@ type PagesBlocksPhotoCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 type PagesBlocksPhotoCardsBackgroundOrnaments {
@@ -737,9 +737,6 @@ type PagesBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksPhotoCardsItemsImage {
@@ -796,7 +793,6 @@ type PagesBlocksTextCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 type PagesBlocksTextCardsBackgroundOrnaments {
@@ -819,9 +815,6 @@ type PagesBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTextCardsItems {
@@ -830,7 +823,6 @@ type PagesBlocksTextCardsItems {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 type PagesBlocksTextCards {
@@ -884,9 +876,6 @@ type PagesBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksBanner {
@@ -1038,9 +1027,6 @@ type PagesBlocksTailwindCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTailwindCardsItemsImage {
@@ -1157,6 +1143,27 @@ input GlobalSizeLeadingMutation {
   text8xl: String
 }
 
+input GlobalButtonsMutation {
+  primaryRule: String
+  primaryFill: String
+  primaryBorder: String
+  primaryTypography: String
+  primaryPadding: String
+  primaryRounded: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryBorder: String
+  secondaryTypography: String
+  secondaryPadding: String
+  secondaryRounded: String
+  minorRule: String
+  minorFill: String
+  minorBorder: String
+  minorTypography: String
+  minorPadding: String
+  minorRounded: String
+}
+
 input GlobalLinksMutation {
   color: String
 }
@@ -1224,9 +1231,6 @@ input GlobalBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksFeatureMutation {
@@ -1269,8 +1273,6 @@ input GlobalBlocksPhotoCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 input GlobalBlocksPhotoCardsBackgroundOrnamentsMutation {
@@ -1293,9 +1295,6 @@ input GlobalBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksPhotoCardsItemsImageMutation {
@@ -1352,7 +1351,6 @@ input GlobalBlocksTextCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 input GlobalBlocksTextCardsBackgroundOrnamentsMutation {
@@ -1375,9 +1373,6 @@ input GlobalBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTextCardsItemsMutation {
@@ -1386,7 +1381,6 @@ input GlobalBlocksTextCardsItemsMutation {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 input GlobalBlocksTextCardsMutation {
@@ -1440,9 +1434,6 @@ input GlobalBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksBannerMutation {
@@ -1594,9 +1585,6 @@ input GlobalBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTailwindCardsItemsImageMutation {
@@ -1646,14 +1634,17 @@ input GlobalRedirectsMutation {
 
 input GlobalMutation {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  rule: String
   colors: GlobalColorsMutation
   fonts: GlobalFontsMutation
   sizeLeading: GlobalSizeLeadingMutation
+  buttons: GlobalButtonsMutation
   links: GlobalLinksMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
+  rule2: String
   blocks: [GlobalBlocksMutation]
   redirects: [GlobalRedirectsMutation]
 }
@@ -1699,9 +1690,6 @@ input PagesBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksFeatureMutation {
@@ -1744,8 +1732,6 @@ input PagesBlocksPhotoCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 input PagesBlocksPhotoCardsBackgroundOrnamentsMutation {
@@ -1768,9 +1754,6 @@ input PagesBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksPhotoCardsItemsImageMutation {
@@ -1827,7 +1810,6 @@ input PagesBlocksTextCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 input PagesBlocksTextCardsBackgroundOrnamentsMutation {
@@ -1850,9 +1832,6 @@ input PagesBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTextCardsItemsMutation {
@@ -1861,7 +1840,6 @@ input PagesBlocksTextCardsItemsMutation {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 input PagesBlocksTextCardsMutation {
@@ -1915,9 +1893,6 @@ input PagesBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksBannerMutation {
@@ -2069,9 +2044,6 @@ input PagesBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTailwindCardsItemsImageMutation {

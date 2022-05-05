@@ -57,3 +57,15 @@ export const textSizeOptions: {label: string, value: string}[] = [
   { label: "7XL", value: "7xl" },
   { label: "8XL", value: "8xl" },
 ];
+
+export const roundedOptions: {label: string, value: string}[] = [
+  { label: "0", value: "rounded-none" },
+  { label: "2", value: "rounded-sm" },
+  { label: "4", value: "rounded" },
+  { label: "6", value: "rounded-md" },
+  { label: "8", value: "rounded-lg" },
+  { label: "12", value: "rounded-xl" },
+  { label: "16", value: "rounded-2xl" },
+  { label: "24", value: "rounded-3xl" },
+  { label: "Full", value: "rounded-full" },
+]

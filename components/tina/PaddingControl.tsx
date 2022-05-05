@@ -114,8 +114,8 @@ export default function PaddingControl({ field, input, meta }) {
         <div className="flex gap-2 mb-2">
           <SelectGroup label="T" value={top} onChange={setTop} options={topOptions} />
           <SelectGroup label="B" value={bottom} onChange={setBottom} options={bottomOptions} />
-          <SelectGroup label="R" value={right} onChange={setRight} options={rightOptions} />
           <SelectGroup label="L" value={left} onChange={setLeft} options={leftOptions} />
+          <SelectGroup label="R" value={right} onChange={setRight} options={rightOptions} />
         </div>
         {hasMobileStyles &&
           <div className="flex gap-2 mb-2 relative">
@@ -124,8 +124,8 @@ export default function PaddingControl({ field, input, meta }) {
             </div>
             <SelectGroup label="T" value={topMobile} onChange={setTopMobile} options={topOptionsMobile} />
             <SelectGroup label="B" value={bottomMobile} onChange={setBottomMobile} options={bottomOptionsMobile} />
-            <SelectGroup label="R" value={rightMobile} onChange={setRightMobile} options={rightOptionsMobile} />
             <SelectGroup label="L" value={leftMobile} onChange={setLeftMobile} options={leftOptionsMobile} />
+            <SelectGroup label="R" value={rightMobile} onChange={setRightMobile} options={rightOptionsMobile} />
           </div>
         }
         <input ref={inputRef} type="text" {...input}  className="hidden" />

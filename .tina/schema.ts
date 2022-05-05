@@ -1,5 +1,5 @@
 import { defineSchema, defineConfig } from "tinacms";
-import { globalSchema } from "./global";
+import { globalSchema } from "./global/global";
 import { featureBlockSchema } from "./feature";
 import { photoCardsBlockSchema } from "./photo-cards";
 import { textCardsBlockSchema } from "./text-cards";

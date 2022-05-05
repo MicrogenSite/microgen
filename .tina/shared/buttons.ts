@@ -12,9 +12,7 @@ export const buttonsSchema: TinaField = {
     defaultItem: {
       label: "Button Label",
       link: "/",
-      type: "solid",
-      textColor: "black",
-      backgroundColor: "primary",
+      type: "primary",
     },
   },
   fields: [
@@ -36,36 +34,10 @@ export const buttonsSchema: TinaField = {
         component: "select",
       },
       options: [
-        { label: "Solid", value: "solid" },
-        { label: "Outline", value: "outline" },
-        { label: "Link", value: "link" },
+        { label: "Primary", value: "primary" },
+        { label: "Secondary", value: "secondary" },
+        { label: "Minor", value: "minor" },
       ],
-    },
-    {
-      type: "string",
-      label: "Background",
-      name: "buttonFillStyles",
-      ui: {
-        component: "fillControl"
-      }
-    },
-    {
-      label: "Text Color",
-      name: "textColor",
-      type: "string",
-      ui: {
-        component: "select",
-      },
-      options: colorOptions,
-    },
-    {
-      label: "Border Color",
-      name: "backgroundColor",
-      type: "string",
-      ui: {
-        component: "select",
-      },
-      options: colorOptions,
     },
   ],
 };

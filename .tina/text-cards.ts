@@ -62,8 +62,6 @@ export const textCardsBlockSchema: TinaTemplate = {
         subheadStyles: "text-black font-1 text-md mb-0",
         textStyles: "text-black font-1 text-sm mb-0",
         borderStyles: "border-gray",
-        buttonType: "solid",
-        buttonTextColor: "text-primary",
       },
       items: [defaultCard, defaultCard, defaultCard],
     },

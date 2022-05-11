@@ -62,8 +62,6 @@ export const photoCardsBlockSchema: TinaTemplate = {
         subheadStyles: "text-black text-lg mb-0",
         textStyles: "text-black text-sm mb-0",
         buttonType: "solid",
-        buttonFillStyles: "",
-        buttonTextColor: "",
       },
       items: [defaultCard, defaultCard, defaultCard],
     },

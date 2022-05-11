@@ -8688,9 +8688,7 @@
                     "headlineStyles": "text-black text-2xl mb-0",
                     "subheadStyles": "text-black text-lg mb-0",
                     "textStyles": "text-black text-sm mb-0",
-                    "buttonType": "solid",
-                    "buttonFillStyles": "",
-                    "buttonTextColor": ""
+                    "buttonType": "solid"
                   },
                   "items": [
                     {
@@ -9797,9 +9795,7 @@
                     "headlineStyles": "text-black font-1 text-2xl mb-0",
                     "subheadStyles": "text-black font-1 text-md mb-0",
                     "textStyles": "text-black font-1 text-sm mb-0",
-                    "borderStyles": "border-gray",
-                    "buttonType": "solid",
-                    "buttonTextColor": "text-primary"
+                    "borderStyles": "border-gray"
                   },
                   "items": [
                     {
@@ -14275,9 +14271,7 @@
                     "headlineStyles": "text-black text-2xl mb-0",
                     "subheadStyles": "text-black text-lg mb-0",
                     "textStyles": "text-black text-sm mb-0",
-                    "buttonType": "solid",
-                    "buttonFillStyles": "",
-                    "buttonTextColor": ""
+                    "buttonType": "solid"
                   },
                   "items": [
                     {
@@ -15384,9 +15378,7 @@
                     "headlineStyles": "text-black font-1 text-2xl mb-0",
                     "subheadStyles": "text-black font-1 text-md mb-0",
                     "textStyles": "text-black font-1 text-sm mb-0",
-                    "borderStyles": "border-gray",
-                    "buttonType": "solid",
-                    "buttonTextColor": "text-primary"
+                    "borderStyles": "border-gray"
                   },
                   "items": [
                     {

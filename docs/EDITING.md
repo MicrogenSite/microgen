@@ -23,7 +23,7 @@ A heading and cards without photos below.
 **Photo Cards**
 A heading and cards with photos below.
 
-Click on a section to edit it's content.
+Click on a section to edit its content.
 
 ## Styling Sections
 All sections have a "Section Style" button and some also have a "Card Style" button. Dive into these menus to choose section colors, backgrounds, layouts and type settings.
@@ -45,7 +45,7 @@ Tina edits are made on a staging site. To push staging edits to production creat
 ## Known Issues
 
 **No Media Manager with Safari**  
-You cannot login to the media manager when using the latest Safari brower.
+You cannot login to the media manager when using the latest Safari browser.
 
 **Missing Markdown Styles**
-The wyswig body field does not support all listed styles. Tables and headings do not work but bold, italic and links do.
+The wysiwyg body field does not support all listed styles. Tables and headings do not work but bold, italic and links do.

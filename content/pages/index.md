@@ -25,11 +25,11 @@ blocks:
       Make [modern web 3.0](#) ready websites with a real-time visual editor.
     buttons:
       - label: Get Started
-        link: 'https://github.com/filecoin-project/microgen'
-        type: primary
-      - label: Learn More
-        link: /
-        type: secondary
+        link: 'https://github.com/pathfindertools/microgen'
+        type: solid
+        buttonFillStyles: bg-primary
+        textColor: white
+        backgroundColor: black
     _template: feature
   - style:
       textAlignment: text-left

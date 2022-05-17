@@ -44,6 +44,15 @@
           ]
         },
         {
+          "type": "string",
+          "label": "Desktop Width",
+          "name": "desktopWidth",
+          "namespace": [
+            "global",
+            "desktopWidth"
+          ]
+        },
+        {
           "label": "",
           "name": "rule",
           "type": "string",

@@ -7289,6 +7289,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "desktopWidth"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "rule"
           },
           "arguments": [],
@@ -19118,6 +19133,20 @@
           "name": {
             "kind": "Name",
             "value": "favicon"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "desktopWidth"
           },
           "type": {
             "kind": "NamedType",

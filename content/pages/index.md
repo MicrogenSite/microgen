@@ -25,11 +25,8 @@ blocks:
       Make [modern web 3.0](#) ready websites with a real-time visual editor.
     buttons:
       - label: Get Started
-        link: 'https://github.com/filecoin-project/microgen'
+        link: 'https://github.com/pathfindertools/microgen'
         type: primary
-      - label: Learn More
-        link: /
-        type: secondary
     _template: feature
   - style:
       textAlignment: text-left
@@ -174,7 +171,7 @@ blocks:
             https://res.cloudinary.com/protocolai/image/upload/v1652799685/microgen/large-data_ulkv86.jpg
         headline: Filecoin Large Data
         subhead: ''
-        text: "[Filecoin](https://filecoin.io/)\_is an open Web3 alternative to cloud storage, with better interoperability and larger capacity at a lower cost.\n\n\n"
+        text: "[Filecoin](https://filecoin.io/)\_is an open Web3 alternative to cloud storage, with better interoperability and larger capacity at a lower cost.\n"
         link: 'https://largedata.filecoin.io/'
         buttonLabel: Visit Site
       - image:

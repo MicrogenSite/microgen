@@ -14,6 +14,7 @@ export default function FeatureContentField({ field, input, meta }) {
     { label: "66%", value: "w-2/3"},
     { label: "75%", value: "w-3/4"},
     { label: "80%", value: "w-4/5"},
+    { label: "100%", value: "w-full"},
   ]
   const [width, setWidth] = useState(getStyleMatch(widthOptions, input.value) || "w-1/2");
   

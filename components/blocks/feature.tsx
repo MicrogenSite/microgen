@@ -6,47 +6,68 @@ import { Content } from "../content";
 const removeSubstring = (value: string, substring: string) => {
   return value?.split(" ").filter(item => item.indexOf(substring) === -1).join(" ") || ""
 }
-/* Return the first word containing the substring */
-const getSubstring = (value: string, substring: string) => {
-  const match = value?.split(" ").find(item => item.includes(substring))
-  return match
+
+const contentWrapClasses = (data) => {
+  const widthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-")) || ""
+  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
+  const leftImage = alignmentClasses.includes('flex-row')
+  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
+  const contentToEdge: boolean  = data.style?.featureContent?.split(" ").find(item => item === "to-edge")
+
+  // Width Classes
+  let widthClasses = ""
+  if (vertical && contentToEdge) {
+    widthClasses = `w-full`
+  } else if (vertical && !contentToEdge) {
+      widthClasses = `w-full max-w-site-full`
+  } else if (!contentToEdge) {
+    widthClasses = `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
+  } else if (contentToEdge) {
+    widthClasses = `${widthClass} ${widthClass.replace("w-","w-edge-")}`
+  }
+
+  // Margin classes
+  let marginClasses = ""
+  if (vertical) {
+    marginClasses = `mx-auto`
+  } else if (!contentToEdge) {
+    marginClasses = leftImage ? `mr-auto` : `ml-auto`
+  }
+
+  // Padding Classes
+  const paddingClasses = data.style?.padding
+
+  return `sm:w-full ${paddingClasses} ${widthClasses} ${marginClasses}`
 }
 
-const contentContainerCss = (data) => {
-  const isFlipped = data.style?.alignment?.split(' ').includes('flex-row')
-  const toEdge = data.style?.featureContent?.split(" ").find(item => item === "to-edge")
-  const margin = isFlipped ? "mr-auto" : "ml-auto"
-  const padding = data.style?.padding
-  const width = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
-  const edgeWidths = {
-    "w-1/5": "w-edge-20 lg:w-1/5",
-    "w-1/4": "w-edge-25 lg:w-1/4",
-    "w-1/3": "w-edge-33 lg:w-1/3",
-    "w-1/2": "w-edge-50 lg:w-1/2",
-    "w-2/3": "w-edge-66 lg:w-2/3",
-    "w-3/4": "w-edge-75 lg:w-3/4",
-    "w-4/5": "w-edge-80 lg:w-4/5",
-  }
-  const maxWidths = {
-    "w-1/5": "max-w-lg-20",
-    "w-1/4": "max-w-lg-25",
-    "w-1/3": "max-w-lg-33",
-    "w-1/2": "max-w-lg-50",
-    "w-2/3": "max-w-lg-66",
-    "w-3/4": "max-w-lg-75",
-    "w-4/5": "max-w-lg-80",
-  }
-  const classes = toEdge ? `${padding} ${edgeWidths[width]}` : `${padding} ${width} ${maxWidths[width]} ${margin}`
-  return `sm:w-full ${classes}`
+const contentWidth = (data) => {
+  const widthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
+  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
+  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
+  const widthClasses = vertical ? widthClass : "w-full"
+
+  return `sm:w-full ${widthClasses}`
 }
 
-const imageContainerCss = (data) => {
-  const isFlipped = data.style?.alignment?.split(' ')?.includes('flex-row')
-  const toEdge = data.style?.featureImage?.split(" ").find(item => item === "to-edge")
-  const margin = isFlipped ? "ml-auto" : "mr-auto"
-  const padding = data.style?.imagePadding
-  const contentWidth = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
-  const imageWidths = {
+const contentMargin = (data) => {
+  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
+  const alignmentClass: string = alignmentClasses.find( item => item.includes("-vertical") )
+  const marginToAlignment = {
+    "items-start-vertical": "mr-auto",
+    "items-center-vertical": "mx-auto",
+    "items-end-vertical": "ml-auto",
+  }
+  return marginToAlignment[alignmentClass] || ""
+}
+
+const imageWrapClasses = (data) => {
+  const alignmentClasses: string[] = data.style?.alignment?.split(" ") || []
+  const contentWidthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
+  const shouldStretch: boolean = data.style?.featureImage?.split(" ").some(item => ["object-cover", "object-contain"].includes(item))
+  const leftImage = alignmentClasses.includes('flex-row')
+  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
+  const imageToEdge: boolean = data.style?.featureImage?.split(" ").find(item => item === "to-edge")
+  const inverseWidths = {
     "w-1/5": "w-4/5",
     "w-1/4": "w-3/4",
     "w-1/3": "w-2/3",
@@ -54,40 +75,59 @@ const imageContainerCss = (data) => {
     "w-2/3": "w-1/3",
     "w-3/4": "w-1/4",
     "w-4/5": "w-1/5",
+    "w-full": "w-0",
   }
-  const edgeWidths = {
-    "w-1/5": "w-edge-80 lg:w-4/5",
-    "w-1/4": "w-edge-75 lg:w-3/4",
-    "w-1/3": "w-edge-66 lg:w-2/3",
-    "w-1/2": "w-edge-50 lg:w-1/2",
-    "w-2/3": "w-edge-33 lg:w-1/3",
-    "w-3/4": "w-edge-25 lg:w-3/4",
-    "w-4/5": "w-edge-20 lg:w-1/5",
+  const widthClass = inverseWidths[contentWidthClass] || "";
+
+  // Width classes
+  let widthClasses = ""
+  if (vertical && imageToEdge) {
+    widthClasses = `w-full`
+  } else if (vertical && !imageToEdge) {
+    widthClasses = `w-full max-w-site-full`
+  } else if (!imageToEdge) {
+    widthClasses = `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
+  } else if (imageToEdge) {
+    widthClasses = `${widthClass} ${widthClass.replace("w-","w-edge-")}`
   }
-  const maxWidths = {
-    "w-1/5": "max-w-lg-80",
-    "w-1/4": "max-w-lg-75",
-    "w-1/3": "max-w-lg-66",
-    "w-1/2": "max-w-lg-50",
-    "w-2/3": "max-w-lg-33",
-    "w-3/4": "max-w-lg-25",
-    "w-4/5": "max-w-lg-20",
+  
+  // Margin classes
+  let marginClasses = ""
+  if (vertical) {
+    marginClasses = `mx-auto`
+  } else if (!imageToEdge) {
+    marginClasses = leftImage ? `ml-auto` : `mr-auto`
   }
-  const stretchStates = ["object-cover", "object-contain"]
-  const shouldStretch = stretchStates.some(item => data.style?.featureImage?.includes(item));
-  const height = shouldStretch ? "self-stretch" : ""
-  const widthClasses = toEdge ? `${edgeWidths[contentWidth]}` : `${imageWidths[contentWidth]} ${maxWidths[contentWidth]} ${margin}`
-  return `sm:w-full relative ${height} ${padding} ${widthClasses}`
+  
+  const padding = data.style?.imagePadding
+  const stretch = shouldStretch ? "self-stretch" : ""
+
+  return `sm:w-full relative ${padding} ${stretch} ${widthClasses} ${marginClasses}`
 }
 
-const imageCss = (data) => {
-  const padding = data.style?.imagePadding
-  const stretchStates = ["object-cover", "object-contain"]
-  const shouldStretch = stretchStates.some(item => data.style?.featureImage?.includes(item));
+const imgClasses = (data) => {
+  const alignmentClasses: string[] = data.style?.alignment?.split(" ") || []
+  const contentWidthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
+  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
+  const shouldStretch = ["object-cover", "object-contain"].some(item => data.style?.featureImage?.includes(item));
   const height = shouldStretch ? "absolute inset-0 h-full" : ""
-  const imageClasses = removeSubstring(data.style.featureImage, "to-edge")
-  return `w-full ${height} ${padding} ${imageClasses}`;
+  const horizontalLayoutWidth = shouldStretch ? "w-full" : "w-auto"
+  const verticalLayoutWidth = shouldStretch ? "w-auto" : `${contentWidthClass}`
+  const width = vertical ? verticalLayoutWidth : horizontalLayoutWidth
+  const classes = removeSubstring(data.style.featureImage, "to-edge")
+
+  // Margin
+  const alignmentClass: string = alignmentClasses.find( item => item.includes("-vertical") )
+  const marginToAlignment = {
+    "items-start-vertical": "mr-auto",
+    "items-center-vertical": "mx-auto",
+    "items-end-vertical": "ml-auto",
+  }
+  const margin = marginToAlignment[alignmentClass] || ""
+
+  return `sm:w-full ${margin} ${width} ${height} ${classes}`;
 };
+
 
 export const Feature = ({ data, parentField = "" }) => {
   const minHeight = data.style?.featureContent?.split(" ").find(item => item.includes("min-h-"))
@@ -96,18 +136,18 @@ export const Feature = ({ data, parentField = "" }) => {
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
-      <div className={`flex sm:flex-col ${data.style?.alignment} ${minHeight}`}>
-        <div className={imageContainerCss(data)}>
+      <div className={`relative flex sm:flex-col ${data.style?.alignment} ${minHeight}`}>
+        <div className={imageWrapClasses(data)}>
           {data.image?.src && (
             <img
-              className={`${imageCss(data)}`}
+              className={`${imgClasses(data)}`}
               alt={data.image?.alt}
               src={data.image?.src}
               data-tinafield={`${parentField}.image`}
             />
           )}
         </div>
-        <div className={contentContainerCss(data)}>
+        <div className={contentWrapClasses(data)}>
           <Content
             label = {data.label}
             headline = {data.headline}
@@ -120,8 +160,9 @@ export const Feature = ({ data, parentField = "" }) => {
             textStyles = {data.style?.textStyles}
             alignment = {data.style?.alignment}
             order = {data.style?.contentOrder}
-            width = "w-full"
-            parentField={parentField}
+            width = {contentWidth(data)}
+            parentField = {parentField}
+            className = {contentMargin(data)}
           />
         </div>
       </div>

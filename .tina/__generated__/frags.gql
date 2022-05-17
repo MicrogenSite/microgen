@@ -2,6 +2,7 @@ fragment GlobalParts on Global {
   siteUrl
   gtmId
   favicon
+  desktopWidth
   rule
   colors {
     __typename

@@ -35,6 +35,11 @@ export const globalSchema: TinaCollection = {
       }
     },
     {
+      type: "string",
+      label: "Desktop Width",
+      name: "desktopWidth",
+    },
+    {
       label: "",
       name: "rule",
       type: "string",

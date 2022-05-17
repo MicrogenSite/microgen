@@ -61,6 +61,8 @@ export const Layout = ({
           dangerouslySetInnerHTML={{
             __html: `
             :root {
+              --site-width: ${globalData?.desktopWidth}px;
+              --edge-width: calc((100% - var(--site-width)) / 2);
               --primary-color: ${globalData?.colors?.primary};
               --accent1-color: ${globalData?.colors?.accent1};
               --accent2-color: ${globalData?.colors?.accent2};

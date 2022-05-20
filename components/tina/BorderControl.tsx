@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import SelectMenu from './widgets/SelectMenu';
 import ColorPicker from './widgets/ColorPicker';
 import FieldLabel from './widgets/FieldLabel';
-import { getStyleMatch } from './widgets/helpers'
+import { getStyleMatch, getBorderWidth, getBorderSide } from './widgets/helpers'
 
 export default function BorderControl({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -20,8 +20,9 @@ export default function BorderControl({ field, input, meta }) {
     { label: "Black", value: "border-black"},
   ]
   const [color, setColor] = useState(getStyleMatch(colors, input.value));
+
   const widths = [
-    { label: "0", value: "" },
+    { label: "0", value: "0" },
     { label: "1", value: "1" },
     { label: "2", value: "2" },
     { label: "3", value: "3" },
@@ -29,16 +30,16 @@ export default function BorderControl({ field, input, meta }) {
     { label: "6", value: "6" },
     { label: "8", value: "8" },
   ]
-  const [width, setWidth] = useState(getStyleMatch(widths, input.value));
+  const [width, setWidth] = useState(getBorderWidth(widths, input.value));
+
   const sides = [
-    { label: "None", value: "" },
     { label: "All", value: "border-" },
     { label: "Top", value: "border-t-" },
     { label: "Right", value: "border-r-" },
     { label: "Bottom", value: "border-b-" },
     { label: "Left", value: "border-l-" },
   ]
-  const [side, setSide] = useState(getStyleMatch(sides, input.value));
+  const [side, setSide] = useState(getBorderSide(sides, input.value));
 
   useEffect(() => {
     // Update Hidden Field
@@ -58,11 +59,11 @@ export default function BorderControl({ field, input, meta }) {
     <>
       <FieldLabel label={field.label} />
       <div className="flex mb-6 items-center">
-        <ColorPicker value={color?.replace('border-','')} onClick={handleSetColor} className="mr-1" />
-        <SelectMenu value={width} onChange={setWidth} options={widths} className="w-14 mr-1" />
+        <ColorPicker value={color?.replace('border-','')} onClick={handleSetColor} className="mr-2" />
+        <SelectMenu value={width} onChange={setWidth} options={widths} className="w-14 mr-2" />
         <SelectMenu value={side} onChange={setSide} options={sides} className="flex-1" />
-        <input ref={inputRef} type="text" {...input}  className="hidden" />
       </div>
+      <input ref={inputRef} type="text" {...input}  className="hidden" />
     </>
   )
 }

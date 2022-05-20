@@ -22,9 +22,6 @@
   font-weight: 700;
   src: url('/fonts/SuisseIntl-BoldItalic-WebM.woff') format('woff');
 }
-body {
-  font-family: 'Suisse Intl', Helvetica, sans-serif;
-}
 
 .markdown p:not(:last-child) {
   margin-bottom: 1rem;
@@ -35,6 +32,8 @@ section > .text-center .markdown img {
 section > .text-right .markdown img {
   margin-left: auto;
 }
+
+/* TINA CMS ADJUSTMENTS
 
 /* Hide various rich-text toolbar items */
 .with-toolbar .sticky {
@@ -62,6 +61,17 @@ section > .text-right .markdown img {
   max-width: 450px;
 }
 #modal-root > div > div:last-child {
+  display: none;
+}
+
+/* Hide group field labels */
+div[data-test="form:getGlobalDocument"] label[for="colors"],
+div[data-test="form:getGlobalDocument"] label[for="fonts"],
+div[data-test="form:getGlobalDocument"] label[for="sizeLeading"],
+div[data-test="form:getGlobalDocument"] label[for="buttons"],
+div[data-test="form:getGlobalDocument"] label[for="links"],
+div[data-test="form:getGlobalDocument"] label[for="logo"],
+div[data-test="form:getGlobalDocument"] label[for="nav"] {
   display: none;
 }
 

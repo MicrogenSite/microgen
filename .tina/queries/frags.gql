@@ -4,6 +4,7 @@ fragment LayoutQueryFragment on Query {
       siteUrl
       favicon
       gtmId
+      desktopWidth
       redirects {
         from
         to
@@ -19,6 +20,43 @@ fragment LayoutQueryFragment on Query {
         gray
         grayDark
         black
+      }
+      fonts {
+        font1
+        font2
+        font3
+        font4
+      }
+      sizeLeading {
+        textXs
+        textSm
+        textMd
+        textLg
+        textXl
+        text2xl
+        text3xl
+        text4xl
+        text5xl
+        text6xl
+        text7xl
+        text8xl
+      }
+      buttons {
+        primaryFill
+        primaryTypography
+        primaryBorder
+        primaryPadding
+        primaryRounded
+        secondaryFill
+        secondaryTypography
+        secondaryBorder
+        secondaryPadding
+        secondaryRounded
+        minorFill
+        minorTypography
+        minorBorder
+        minorPadding
+        minorRounded
       }
       logo {
         logoType
@@ -53,7 +91,7 @@ fragment LayoutQueryFragment on Query {
               xOffset
               yOffset
             }
-          }        
+          }
           label
           headline
           subhead
@@ -62,9 +100,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             image {
@@ -100,8 +135,6 @@ fragment LayoutQueryFragment on Query {
             subheadStyles
             textStyles
             fillStyles
-            buttonTextColor
-            buttonFillStyles
           }
           navigationLabel
         }
@@ -118,7 +151,7 @@ fragment LayoutQueryFragment on Query {
               xOffset
               yOffset
             }
-          }        
+          }  
           label
           headline
           subhead
@@ -127,9 +160,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           items {
             headline
@@ -160,7 +190,6 @@ fragment LayoutQueryFragment on Query {
             subheadStyles
             textStyles
             fillStyles
-            buttonTextColor
           }
           navigationLabel
         }
@@ -190,9 +219,6 @@ fragment LayoutQueryFragment on Query {
             label
             type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
           }
           style {
             alignment
@@ -232,11 +258,9 @@ fragment LayoutQueryFragment on Query {
           body
           buttons {
             label
-            type
             link
-            textColor
-            backgroundColor
-            buttonFillStyles
+            type
+            type
           }
           style {
             minHeight
@@ -270,6 +294,108 @@ fragment LayoutQueryFragment on Query {
             minHeight
             fullWidth
             padding
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksTailwindFeature {
+           tailwind {
+            section
+            wrap
+            imageWrap
+            image
+            contentWrap
+            content
+            label
+            headline
+            subhead
+            text
+            buttons
+            button
+          }
+          image {
+            src
+            alt
+          }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            link
+          }
+          navigationLabel
+        }
+        ... on GlobalBlocksTailwindCards {
+           tailwind {
+            section
+            wrap
+            imageWrap
+            image
+            contentWrap
+            content
+            label
+            headline
+            subhead
+            text
+            buttons
+            button
+            cardLabel
+            cardHeadline
+            cardSubhead
+            cardText
+            cardButtons
+            cardButton
+          }
+          image {
+            src
+            alt
+          }
+          background {
+            fillStyles
+            src
+            position
+            ornaments {
+              src
+              alignment
+              width
+              height
+              xOffset
+              yOffset
+            }
+          }
+          label
+          headline
+          subhead
+          body
+          buttons {
+            label
+            link
+          }
+          items {
+            image {
+              src
+              alt
+            }
+            label
+            headline
+            subhead
+            text
+            link
+            buttonLabel
           }
           navigationLabel
         }

@@ -1,13 +1,11 @@
-import type { TinaTemplate } from "@tinacms/cli";
+import type { TinaTemplate } from "tinacms"
 import { backgroundSchema } from "./shared/background";
 import { buttonsSchema } from "./shared/buttons";
-import { cardsSchema } from "./shared/cards";
 import { navigationLabelSchema } from "./shared/navigation-label";
-import { colorOptions } from "./shared/options"
 
 const defaultCard = {
   headline: "Here's Another Card",
-  subhead: "",
+  subhead: "Card Subhead",
   text: {
     children: [
      {
@@ -22,13 +20,13 @@ const defaultCard = {
   },
 };
 
-export const photoCardsBlockSchema: TinaTemplate = {
-  name: "photoCards",
-  label: "Photo Cards",
+export const tailwindCardsBlockSchema: TinaTemplate = {
+  name: "tailwindCards",
+  label: "Tailwind Cards",
   ui: {
     defaultItem: {
       label: "",
-      headline: "This is a headline",
+      headline: "This is the main headline",
       subhead: "Here is a subhead",
       body: {
         children: [
@@ -42,141 +40,191 @@ export const photoCardsBlockSchema: TinaTemplate = {
           }
         ]
       },
-      style: {
-        textAlignment: "text-left",
-        minHeight: "min-h-0",
-        padding: "pt-20 pr-20 pb-20 pl-20",
-        contentWidth: "w-full",
-        columns: "3",
-        labelStyles: "text-black font-1 text-sm mb-0",
-        headlineStyles: "text-black font-1 text-5xl mb-0",
-        subheadStyles: "text-black font-1 text-3xl mb-0",
-        textStyles: "text-black font-1 text-md mb-0",
-        contentOrder: "labelHeadingsContent",
-      },
-      cardStyle: {
-        fillStyles: "bg-gray",
-        padding: "pt-4 pr-4 pb-4 pl-4",
-        labelStyles: "text-black text-sm mb-0",
-        headlineStyles: "text-black text-2xl mb-0",
-        subheadStyles: "text-black text-lg mb-0",
-        textStyles: "text-black text-sm mb-0",
-        buttonType: "solid",
+      tailwind: {
+        section: "",
+        wrap: "",
+        imageWrap: "",
+        image: "",
+        contentWrap: "",
+        content: "",
+        label: "",
+        headline: "",
+        subhead: "",
+        text: "",
+        buttons: "",
+        button: ""
       },
       items: [defaultCard, defaultCard, defaultCard],
     },
   },
   fields: [
-    cardsSchema,
     {
       type: "object",
-      label: "Card Style",
-      name: "cardStyle",
+      label: "Tailwind",
+      name: "tailwind",
       ui: {
         component: "group",
       },
       fields: [
         {
+          label: "Section",
+          name: "section",
           type: "string",
-          label: "Background",
-          name: "fillStyles",
-          ui: {
-            component: "fillControl"
-          }
         },
         {
-          label: "Padding",
-          name: "padding",
+          label: "Wrap",
+          name: "wrap",
           type: "string",
-          ui: {
-            component: "paddingControl",
-          }
         },
         {
-          label: "Type",
-          name: "type",
+          label: "Image Wrap",
+          name: "imageWrap",
           type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: [
-            { label: "Solid Background", value: "solid" },
-            { label: "Semi Transparent", value: "transparent" },
-            { label: "Horizontal Fade", value: "fadeH" },
-          ],
         },
         {
-          type: "string",
           label: "Image",
-          name: "imageStyles",
-          ui: {
-            component: "imageControl"
-          }
+          name: "image",
+          type: "string",
         },
         {
-          label: "Typography",
-          name: "typographyTitle",
+          label: "Content Wrap",
+          name: "contentWrap",
           type: "string",
-          ui: {
-            component: "ruledTitle",
-          },
         },
         {
+          label: "Content",
+          name: "content",
           type: "string",
+        },
+        {
           label: "Label",
-          name: "labelStyles",
-          ui: {
-            component: "typeControl"
-          }
+          name: "label",
+          type: "string",
         },
         {
-          type: "string",
           label: "Headline",
-          name: "headlineStyles",
-          ui: {
-            component: "typeControl"
-          }
+          name: "headline",
+          type: "string",
         },
         {
-          type: "string",
           label: "Subhead",
-          name: "subheadStyles",
-          ui: {
-            component: "typeControl"
-          }
+          name: "subhead",
+          type: "string",
         },
         {
-          type: "string",
           label: "Text",
-          name: "textStyles",
-          ui: {
-            component: "typeControl"
-          }
+          name: "text",
+          type: "string",
+        },
+        {
+          label: "Buttons",
+          name: "buttons",
+          type: "string",
         },
         {
           label: "Button",
-          name: "buttonTitle",
+          name: "button",
+          type: "string",
+        },
+        {
+          label: "Cards",
+          name: "rule",
           type: "string",
           ui: {
             component: "ruledTitle",
           },
         },
         {
-          label: "Type",
-          name: "buttonType",
+          label: "Card Wrap",
+          name: "cardWrap",
           type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: [
-            { label: "Primary", value: "primary" },
-            { label: "Secondary", value: "secondary" },
-            { label: "Minor", value: "minor" },
-          ],
+        },
+        {
+          label: "Card",
+          name: "card",
+          type: "string",
+        },
+        {
+          label: "Card Image Wrap",
+          name: "cardImageWrap",
+          type: "string",
+        },
+        {
+          label: "Card Image",
+          name: "cardImage",
+          type: "string",
+        },
+        {
+          label: "Card Content Wrap",
+          name: "cardContentWrap",
+          type: "string",
+        },
+        {
+          label: "Card Content",
+          name: "cardContent",
+          type: "string",
+        },
+        {
+          label: "Card Label",
+          name: "cardLabel",
+          type: "string",
+        },
+        {
+          label: "Card Headline",
+          name: "cardHeadline",
+          type: "string",
+        },
+        {
+          label: "Card Subhead",
+          name: "cardSubhead",
+          type: "string",
+        },
+        {
+          label: "Card Text",
+          name: "cardText",
+          type: "string",
+        },
+        {
+          label: "Card Buttons",
+          name: "cardButtons",
+          type: "string",
+        },
+        {
+          label: "Card Button",
+          name: "cardButton",
+          type: "string",
         },
       ],
     },
+    {
+      label: "Image",
+      name: "image",
+      type: "object",
+      fields: [
+        {
+          label: "Image Source",
+          name: "src",
+          type: "image",
+          ui: {
+            clearable: true,
+          }
+        },
+        {
+          name: "alt",
+          label: "Alt Text",
+          type: "string",
+        }
+      ],
+    },
     backgroundSchema,
+    {
+      label: "",
+      name: "rule",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
+    },
     {
       label: "Label",
       name: "label",
@@ -234,7 +282,7 @@ export const photoCardsBlockSchema: TinaTemplate = {
         },
         {
           type: "string",
-          label: "Title",
+          label: "Headline",
           name: "headline",
         },
         {
@@ -258,7 +306,15 @@ export const photoCardsBlockSchema: TinaTemplate = {
           name: "buttonLabel",
           description: "A button will be included if you have a link and button label, with only a link the entire card is linked"
         },
-      ],
+      ]
+    },
+    {
+      label: "",
+      name: "rule2",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
     },
     navigationLabelSchema,
   ],

@@ -47,25 +47,23 @@ module.exports = {
       }
     },
     screens: {
-			xl: { max: "1280px" },
-			lg: { max: "1024px" },
-			md: { max: "768px" },
-			sm: { max: "900px" },
+			lg: { max: "1000px" },
+			md: { max: "800px" },
+			sm: { max: "700px" },
 		},
     fontSize: {
-      xs: ['.75rem', { lineHeight: '1.25rem' }], // 12/20
-      sm: ['.875rem', { lineHeight: '1.5rem' }], // 14/24
-      base: ['1rem', { lineHeight: '1.75rem' }], // 16/28
-      lg: ['1.125rem', { lineHeight: '1.75rem' }], // 18/28
-      xl: ['1.25rem', { lineHeight: '2rem' }], // 20/32
-      '2xl': ['1.5rem', { lineHeight: '2.25rem' }], // 24/36
-      '3xl': ['1.75rem', { lineHeight: '2.5rem' }], // 28/40
-      '3xl': ['2rem', { lineHeight: '2.75rem' }], // 32/44
-      '4xl': ['2.25rem', { lineHeight: '3rem' }], // 36/48
-      '5xl': ['2.5rem', { lineHeight: '3.5rem' }], // 40/56
-      '6xl': ['3rem', { lineHeight: '4rem' }], // 48/64
-      '7xl': ['4.5rem', { lineHeight: '5.25rem' }], // 72/84
-      '8xl': ['6rem', { lineHeight: '7rem' }], // 96/112
+      xs: [ "var(--text-size-xs)", { lineHeight: "var(--text-leading-xs)" }],
+      sm: [ "var(--text-size-sm)", { lineHeight: "var(--text-leading-sm)" }],
+      base: [ "var(--text-size-md)", { lineHeight: "var(--text-leading-md)" }],
+      lg: [ "var(--text-size-lg)", { lineHeight: "var(--text-leading-lg)" }],
+      xl: [ "var(--text-size-xl)", { lineHeight: "var(--text-leading-xl)" }],
+      '2xl': [ "var(--text-size-2xl)", { lineHeight: "var(--text-leading-2xl)" }],
+      '3xl': [ "var(--text-size-3xl)", { lineHeight: "var(--text-leading-3xl)" }],
+      '4xl': [ "var(--text-size-4xl)", { lineHeight: "var(--text-leading-4xl)" }],
+      '5xl': [ "var(--text-size-5xl)", { lineHeight: "var(--text-leading-5xl)" }],
+      '6xl': [ "var(--text-size-6xl)", { lineHeight: "var(--text-leading-6xl)" }],
+      '7xl': [ "var(--text-size-7xl)", { lineHeight: "var(--text-leading-7xl)" }],
+      '8xl': [ "var(--text-size-8xl)", { lineHeight: "var(--text-leading-8xl)" }],
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -83,25 +81,37 @@ module.exports = {
         7: ".075",
         15: ".15",
       },
-      width: {
-        "edge-20": "calc(((100% - 1024px)/2) + 204px)",
-        "edge-25": "calc(((100% - 1024px)/2) + 256px)",
-        "edge-33": "calc(((100% - 1024px)/2) + 341px)",
-        "edge-50": "calc(((100% - 1024px)/2) + 512px)",
-        "edge-66": "calc(((100% - 1024px)/2) + 682px)",
-        "edge-75": "calc(((100% - 1024px)/2) + 768px)",
-        "edge-80": "calc(((100% - 1024px)/2) + 819px)",
+      margin: {
+        "edge": "calc((100% - 1000px) * .5)",
       },
       maxWidth: {
-        "desktop-full": "1024px",
-        "desktop-half": "512px",
-        "lg-20": "204px",
-        "lg-25": "256px",
-        "lg-33": "340px",
-        "lg-50": "512px",
-        "lg-66": "676px",
-        "lg-75": "768px",
-        "lg-80": "818px",
+        "1/5": "calc(var(--site-width)*.2)",
+        "1/4": "calc(var(--site-width)*.25)",
+        "1/3": "calc(var(--site-width)*.33)",
+        "1/2": "calc(var(--site-width)*.5)",
+        "2/3": "calc(var(--site-width)*.66)",
+        "3/4": "calc(var(--site-width)*.75)",
+        "4/5": "calc(var(--site-width)*.8)",
+        "desktop-full": "var(--site-width)",
+        "desktop-half": "calc(var(--site-width)*.5)",
+        "site-full": "var(--site-width)",
+        "site-half": "calc(var(--site-width)*.5)",
+        "site-1/5": "calc(var(--site-width)*.20)",
+        "site-1/4": "calc(var(--site-width)*.25)",
+        "site-1/3": "calc(var(--site-width)*.33)",
+        "site-1/2": "calc(var(--site-width)*.5)",
+        "site-2/3": "calc(var(--site-width)*.66)",
+        "site-3/4": "calc(var(--site-width)*.75)",
+        "site-4/5": "calc(var(--site-width)*.80)",
+      },
+      width: {
+        "edge-1/5": "max(calc( (var(--site-width) * .20) + var(--edge-width)), 20%);",
+        "edge-1/4": "max(calc( (var(--site-width) * .25) + var(--edge-width)), 25%);",
+        "edge-1/3": "max(calc( (var(--site-width) * .33) + var(--edge-width)), 33%);",
+        "edge-1/2": "min(calc( (var(--site-width) * .5) + var(--edge-width)), 50%);",
+        "edge-2/3": "min(calc( (var(--site-width) * .66) + var(--edge-width)), 66%);",
+        "edge-3/4": "min(calc( (var(--site-width) * .75) + var(--edge-width)), 75%)",
+        "edge-4/5": "min(calc( (var(--site-width) * .80) + var(--edge-width)), 80%)",
       },
       minHeight: {
         "100": "25rem",
@@ -119,8 +129,10 @@ module.exports = {
         "-1": "-1",
       },
       fontFamily: {
-        nunito: ["Nunito", ...defaultTheme.fontFamily.sans],
-        lato: ["Lato", ...defaultTheme.fontFamily.sans],
+        '1': ["var(--font1)", "sans-serif"],
+        '2': ["var(--font2)", "sans-serif"],
+        '3': ["var(--font3)", "sans-serif"],
+        '4': ["var(--font4)", "sans-serif"]
       },
     },
   },

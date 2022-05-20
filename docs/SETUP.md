@@ -22,7 +22,7 @@ Fork the [MicroGen repo](https://github.com/filecoin-project/microgen-tina) from
 #### 4. Setup a Vercel Account as your staging site
 - [Login](https://vercel.com/login) to Vercel or [create a new account](https://vercel.com/signup).
 - Create a new project by importing your GitHub repo, use the Next.js preset and don't adjust build settings.
-- Add environment variables using the calues you saved from Cloudinary and Tina Cloud.
+- Add environment variables using the values you saved from Cloudinary and Tina Cloud.
 ```
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=xxxxx
     NEXT_PUBLIC_CLOUDINARY_API_KEY=xxxxx
@@ -43,9 +43,9 @@ http://localhost:3000,https://your-project.vercel.app
 https://your-project.vercel.app/admin
 ```
  
-You will be asked to login to Tina Cloud. After loging in click the pencil in the lower left of your site to expand the sidebar. Make some edits and confirm you can save them and they make it to your repo.
+You will be asked to login to Tina Cloud. After logging in click the pencil in the lower left of your site to expand the sidebar. Make some edits and confirm you can save them and they make it to your repo.
 
-#### Setup a Fleek production site
+#### Set up a Fleek production site
 When you're ready you can setup a production site on Fleek running off the "production" branch of your repo. You will not be making Tina edits from here so this is a standard Fleek site setup.
 - [Login](https://app.fleek.co/#/auth/sign-in) to Fleek or [create a new account](https://app.fleek.co/#/auth/sign-up).
 - Add a new site and follow the steps, connect the production branch of your repo.

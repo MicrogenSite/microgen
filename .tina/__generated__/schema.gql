@@ -92,6 +92,53 @@ type GlobalColors {
   black: String
 }
 
+type GlobalFonts {
+  font1: String
+  font2: String
+  font3: String
+  font4: String
+}
+
+type GlobalSizeLeading {
+  textXs: String
+  textSm: String
+  textMd: String
+  textLg: String
+  textXl: String
+  text2xl: String
+  text3xl: String
+  text4xl: String
+  text5xl: String
+  text6xl: String
+  text7xl: String
+  text8xl: String
+}
+
+type GlobalButtons {
+  primaryRule: String
+  primaryFill: String
+  primaryBorder: String
+  primaryTypography: String
+  primaryPadding: String
+  primaryRounded: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryBorder: String
+  secondaryTypography: String
+  secondaryPadding: String
+  secondaryRounded: String
+  minorRule: String
+  minorFill: String
+  minorBorder: String
+  minorTypography: String
+  minorPadding: String
+  minorRounded: String
+}
+
+type GlobalLinks {
+  color: String
+}
+
 type GlobalLogo {
   logoType: String
   logoTypeStyle: String
@@ -155,9 +202,6 @@ type GlobalBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksFeature {
@@ -200,8 +244,6 @@ type GlobalBlocksPhotoCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 type GlobalBlocksPhotoCardsBackgroundOrnaments {
@@ -224,9 +266,6 @@ type GlobalBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksPhotoCardsItemsImage {
@@ -283,7 +322,6 @@ type GlobalBlocksTextCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 type GlobalBlocksTextCardsBackgroundOrnaments {
@@ -306,9 +344,6 @@ type GlobalBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksTextCardsItems {
@@ -317,7 +352,6 @@ type GlobalBlocksTextCardsItems {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 type GlobalBlocksTextCards {
@@ -371,9 +405,6 @@ type GlobalBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type GlobalBlocksBanner {
@@ -417,7 +448,147 @@ type GlobalBlocksEmbed {
   navigationLabel: String
 }
 
-union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed
+type GlobalBlocksTailwindFeatureTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+}
+
+type GlobalBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
+type GlobalBlocksTailwindFeatureBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type GlobalBlocksTailwindFeatureBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnaments]
+}
+
+type GlobalBlocksTailwindFeatureButtons {
+  label: String
+  link: String
+}
+
+type GlobalBlocksTailwindFeature {
+  tailwind: GlobalBlocksTailwindFeatureTailwind
+  image: GlobalBlocksTailwindFeatureImage
+  background: GlobalBlocksTailwindFeatureBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindFeatureButtons]
+  rule2: String
+  navigationLabel: String
+}
+
+type GlobalBlocksTailwindCardsTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+  rule: String
+  cardWrap: String
+  card: String
+  cardImageWrap: String
+  cardImage: String
+  cardContentWrap: String
+  cardContent: String
+  cardLabel: String
+  cardHeadline: String
+  cardSubhead: String
+  cardText: String
+  cardButtons: String
+  cardButton: String
+}
+
+type GlobalBlocksTailwindCardsImage {
+  src: String
+  alt: String
+}
+
+type GlobalBlocksTailwindCardsBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type GlobalBlocksTailwindCardsBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksTailwindCardsBackgroundOrnaments]
+}
+
+type GlobalBlocksTailwindCardsButtons {
+  label: String
+  link: String
+  type: String
+}
+
+type GlobalBlocksTailwindCardsItemsImage {
+  src: String
+  alt: String
+}
+
+type GlobalBlocksTailwindCardsItems {
+  image: GlobalBlocksTailwindCardsItemsImage
+  label: String
+  headline: String
+  subhead: String
+  text: JSON
+  link: String
+  buttonLabel: String
+}
+
+type GlobalBlocksTailwindCards {
+  tailwind: GlobalBlocksTailwindCardsTailwind
+  image: GlobalBlocksTailwindCardsImage
+  background: GlobalBlocksTailwindCardsBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindCardsButtons]
+  items: [GlobalBlocksTailwindCardsItems]
+  rule2: String
+  navigationLabel: String
+}
+
+union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed | GlobalBlocksTailwindFeature | GlobalBlocksTailwindCards
 
 type GlobalRedirects {
   from: String
@@ -426,11 +597,18 @@ type GlobalRedirects {
 
 type Global {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  desktopWidth: String
+  rule: String
   colors: GlobalColors
+  fonts: GlobalFonts
+  sizeLeading: GlobalSizeLeading
+  buttons: GlobalButtons
+  links: GlobalLinks
   logo: GlobalLogo
   nav: GlobalNav
+  rule2: String
   blocks: [GlobalBlocks]
   redirects: [GlobalRedirects]
 }
@@ -496,9 +674,6 @@ type PagesBlocksFeatureButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksFeature {
@@ -541,8 +716,6 @@ type PagesBlocksPhotoCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 type PagesBlocksPhotoCardsBackgroundOrnaments {
@@ -565,9 +738,6 @@ type PagesBlocksPhotoCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksPhotoCardsItemsImage {
@@ -624,7 +794,6 @@ type PagesBlocksTextCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 type PagesBlocksTextCardsBackgroundOrnaments {
@@ -647,9 +816,6 @@ type PagesBlocksTextCardsButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksTextCardsItems {
@@ -658,7 +824,6 @@ type PagesBlocksTextCardsItems {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 type PagesBlocksTextCards {
@@ -712,9 +877,6 @@ type PagesBlocksBannerButtons {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 type PagesBlocksBanner {
@@ -758,7 +920,147 @@ type PagesBlocksEmbed {
   navigationLabel: String
 }
 
-union PagesBlocks = PagesBlocksFeature | PagesBlocksPhotoCards | PagesBlocksTextCards | PagesBlocksBanner | PagesBlocksEmbed
+type PagesBlocksTailwindFeatureTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+}
+
+type PagesBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksTailwindFeatureBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PagesBlocksTailwindFeatureBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PagesBlocksTailwindFeatureBackgroundOrnaments]
+}
+
+type PagesBlocksTailwindFeatureButtons {
+  label: String
+  link: String
+}
+
+type PagesBlocksTailwindFeature {
+  tailwind: PagesBlocksTailwindFeatureTailwind
+  image: PagesBlocksTailwindFeatureImage
+  background: PagesBlocksTailwindFeatureBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindFeatureButtons]
+  rule2: String
+  navigationLabel: String
+}
+
+type PagesBlocksTailwindCardsTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+  rule: String
+  cardWrap: String
+  card: String
+  cardImageWrap: String
+  cardImage: String
+  cardContentWrap: String
+  cardContent: String
+  cardLabel: String
+  cardHeadline: String
+  cardSubhead: String
+  cardText: String
+  cardButtons: String
+  cardButton: String
+}
+
+type PagesBlocksTailwindCardsImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksTailwindCardsBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PagesBlocksTailwindCardsBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PagesBlocksTailwindCardsBackgroundOrnaments]
+}
+
+type PagesBlocksTailwindCardsButtons {
+  label: String
+  link: String
+  type: String
+}
+
+type PagesBlocksTailwindCardsItemsImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksTailwindCardsItems {
+  image: PagesBlocksTailwindCardsItemsImage
+  label: String
+  headline: String
+  subhead: String
+  text: JSON
+  link: String
+  buttonLabel: String
+}
+
+type PagesBlocksTailwindCards {
+  tailwind: PagesBlocksTailwindCardsTailwind
+  image: PagesBlocksTailwindCardsImage
+  background: PagesBlocksTailwindCardsBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindCardsButtons]
+  items: [PagesBlocksTailwindCardsItems]
+  rule2: String
+  navigationLabel: String
+}
+
+union PagesBlocks = PagesBlocksFeature | PagesBlocksPhotoCards | PagesBlocksTextCards | PagesBlocksBanner | PagesBlocksEmbed | PagesBlocksTailwindFeature | PagesBlocksTailwindCards
 
 type PagesMeta {
   pageTitle: String
@@ -818,6 +1120,53 @@ input GlobalColorsMutation {
   gray: String
   grayDark: String
   black: String
+}
+
+input GlobalFontsMutation {
+  font1: String
+  font2: String
+  font3: String
+  font4: String
+}
+
+input GlobalSizeLeadingMutation {
+  textXs: String
+  textSm: String
+  textMd: String
+  textLg: String
+  textXl: String
+  text2xl: String
+  text3xl: String
+  text4xl: String
+  text5xl: String
+  text6xl: String
+  text7xl: String
+  text8xl: String
+}
+
+input GlobalButtonsMutation {
+  primaryRule: String
+  primaryFill: String
+  primaryBorder: String
+  primaryTypography: String
+  primaryPadding: String
+  primaryRounded: String
+  secondaryRule: String
+  secondaryFill: String
+  secondaryBorder: String
+  secondaryTypography: String
+  secondaryPadding: String
+  secondaryRounded: String
+  minorRule: String
+  minorFill: String
+  minorBorder: String
+  minorTypography: String
+  minorPadding: String
+  minorRounded: String
+}
+
+input GlobalLinksMutation {
+  color: String
 }
 
 input GlobalLogoMutation {
@@ -883,9 +1232,6 @@ input GlobalBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksFeatureMutation {
@@ -928,8 +1274,6 @@ input GlobalBlocksPhotoCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 input GlobalBlocksPhotoCardsBackgroundOrnamentsMutation {
@@ -952,9 +1296,6 @@ input GlobalBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksPhotoCardsItemsImageMutation {
@@ -1011,7 +1352,6 @@ input GlobalBlocksTextCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 input GlobalBlocksTextCardsBackgroundOrnamentsMutation {
@@ -1034,9 +1374,6 @@ input GlobalBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksTextCardsItemsMutation {
@@ -1045,7 +1382,6 @@ input GlobalBlocksTextCardsItemsMutation {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 input GlobalBlocksTextCardsMutation {
@@ -1099,9 +1435,6 @@ input GlobalBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input GlobalBlocksBannerMutation {
@@ -1145,12 +1478,154 @@ input GlobalBlocksEmbedMutation {
   navigationLabel: String
 }
 
+input GlobalBlocksTailwindFeatureTailwindMutation {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+}
+
+input GlobalBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input GlobalBlocksTailwindFeatureBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation]
+}
+
+input GlobalBlocksTailwindFeatureButtonsMutation {
+  label: String
+  link: String
+}
+
+input GlobalBlocksTailwindFeatureMutation {
+  tailwind: GlobalBlocksTailwindFeatureTailwindMutation
+  image: GlobalBlocksTailwindFeatureImageMutation
+  background: GlobalBlocksTailwindFeatureBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindFeatureButtonsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
+input GlobalBlocksTailwindCardsTailwindMutation {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+  rule: String
+  cardWrap: String
+  card: String
+  cardImageWrap: String
+  cardImage: String
+  cardContentWrap: String
+  cardContent: String
+  cardLabel: String
+  cardHeadline: String
+  cardSubhead: String
+  cardText: String
+  cardButtons: String
+  cardButton: String
+}
+
+input GlobalBlocksTailwindCardsImageMutation {
+  src: String
+  alt: String
+}
+
+input GlobalBlocksTailwindCardsBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input GlobalBlocksTailwindCardsBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksTailwindCardsBackgroundOrnamentsMutation]
+}
+
+input GlobalBlocksTailwindCardsButtonsMutation {
+  label: String
+  link: String
+  type: String
+}
+
+input GlobalBlocksTailwindCardsItemsImageMutation {
+  src: String
+  alt: String
+}
+
+input GlobalBlocksTailwindCardsItemsMutation {
+  image: GlobalBlocksTailwindCardsItemsImageMutation
+  label: String
+  headline: String
+  subhead: String
+  text: JSON
+  link: String
+  buttonLabel: String
+}
+
+input GlobalBlocksTailwindCardsMutation {
+  tailwind: GlobalBlocksTailwindCardsTailwindMutation
+  image: GlobalBlocksTailwindCardsImageMutation
+  background: GlobalBlocksTailwindCardsBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksTailwindCardsButtonsMutation]
+  items: [GlobalBlocksTailwindCardsItemsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
 input GlobalBlocksMutation {
   feature: GlobalBlocksFeatureMutation
   photoCards: GlobalBlocksPhotoCardsMutation
   textCards: GlobalBlocksTextCardsMutation
   banner: GlobalBlocksBannerMutation
   embed: GlobalBlocksEmbedMutation
+  tailwindFeature: GlobalBlocksTailwindFeatureMutation
+  tailwindCards: GlobalBlocksTailwindCardsMutation
 }
 
 input GlobalRedirectsMutation {
@@ -1160,11 +1635,18 @@ input GlobalRedirectsMutation {
 
 input GlobalMutation {
   siteUrl: String
-  favicon: String
   gtmId: String
+  favicon: String
+  desktopWidth: String
+  rule: String
   colors: GlobalColorsMutation
+  fonts: GlobalFontsMutation
+  sizeLeading: GlobalSizeLeadingMutation
+  buttons: GlobalButtonsMutation
+  links: GlobalLinksMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
+  rule2: String
   blocks: [GlobalBlocksMutation]
   redirects: [GlobalRedirectsMutation]
 }
@@ -1210,9 +1692,6 @@ input PagesBlocksFeatureButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksFeatureMutation {
@@ -1255,8 +1734,6 @@ input PagesBlocksPhotoCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonFillStyles: String
-  buttonTextColor: String
 }
 
 input PagesBlocksPhotoCardsBackgroundOrnamentsMutation {
@@ -1279,9 +1756,6 @@ input PagesBlocksPhotoCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksPhotoCardsItemsImageMutation {
@@ -1338,7 +1812,6 @@ input PagesBlocksTextCardsCardStyleMutation {
   textStyles: String
   buttonTitle: String
   buttonType: String
-  buttonTextColor: String
 }
 
 input PagesBlocksTextCardsBackgroundOrnamentsMutation {
@@ -1361,9 +1834,6 @@ input PagesBlocksTextCardsButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksTextCardsItemsMutation {
@@ -1372,7 +1842,6 @@ input PagesBlocksTextCardsItemsMutation {
   text: JSON
   link: String
   buttonLabel: String
-  accentColor: String
 }
 
 input PagesBlocksTextCardsMutation {
@@ -1426,9 +1895,6 @@ input PagesBlocksBannerButtonsMutation {
   label: String
   link: String
   type: String
-  buttonFillStyles: String
-  textColor: String
-  backgroundColor: String
 }
 
 input PagesBlocksBannerMutation {
@@ -1472,12 +1938,154 @@ input PagesBlocksEmbedMutation {
   navigationLabel: String
 }
 
+input PagesBlocksTailwindFeatureTailwindMutation {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+}
+
+input PagesBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksTailwindFeatureBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input PagesBlocksTailwindFeatureBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PagesBlocksTailwindFeatureBackgroundOrnamentsMutation]
+}
+
+input PagesBlocksTailwindFeatureButtonsMutation {
+  label: String
+  link: String
+}
+
+input PagesBlocksTailwindFeatureMutation {
+  tailwind: PagesBlocksTailwindFeatureTailwindMutation
+  image: PagesBlocksTailwindFeatureImageMutation
+  background: PagesBlocksTailwindFeatureBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindFeatureButtonsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
+input PagesBlocksTailwindCardsTailwindMutation {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+  rule: String
+  cardWrap: String
+  card: String
+  cardImageWrap: String
+  cardImage: String
+  cardContentWrap: String
+  cardContent: String
+  cardLabel: String
+  cardHeadline: String
+  cardSubhead: String
+  cardText: String
+  cardButtons: String
+  cardButton: String
+}
+
+input PagesBlocksTailwindCardsImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksTailwindCardsBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input PagesBlocksTailwindCardsBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PagesBlocksTailwindCardsBackgroundOrnamentsMutation]
+}
+
+input PagesBlocksTailwindCardsButtonsMutation {
+  label: String
+  link: String
+  type: String
+}
+
+input PagesBlocksTailwindCardsItemsImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksTailwindCardsItemsMutation {
+  image: PagesBlocksTailwindCardsItemsImageMutation
+  label: String
+  headline: String
+  subhead: String
+  text: JSON
+  link: String
+  buttonLabel: String
+}
+
+input PagesBlocksTailwindCardsMutation {
+  tailwind: PagesBlocksTailwindCardsTailwindMutation
+  image: PagesBlocksTailwindCardsImageMutation
+  background: PagesBlocksTailwindCardsBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PagesBlocksTailwindCardsButtonsMutation]
+  items: [PagesBlocksTailwindCardsItemsMutation]
+  rule2: String
+  navigationLabel: String
+}
+
 input PagesBlocksMutation {
   feature: PagesBlocksFeatureMutation
   photoCards: PagesBlocksPhotoCardsMutation
   textCards: PagesBlocksTextCardsMutation
   banner: PagesBlocksBannerMutation
   embed: PagesBlocksEmbedMutation
+  tailwindFeature: PagesBlocksTailwindFeatureMutation
+  tailwindCards: PagesBlocksTailwindCardsMutation
 }
 
 input PagesMetaMutation {

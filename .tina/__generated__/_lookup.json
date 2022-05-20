@@ -25,7 +25,9 @@
       "photoCards": "GlobalBlocksPhotoCards",
       "textCards": "GlobalBlocksTextCards",
       "banner": "GlobalBlocksBanner",
-      "embed": "GlobalBlocksEmbed"
+      "embed": "GlobalBlocksEmbed",
+      "tailwindFeature": "GlobalBlocksTailwindFeature",
+      "tailwindCards": "GlobalBlocksTailwindCards"
     }
   },
   "GlobalDocument": {
@@ -48,7 +50,9 @@
       "photoCards": "PagesBlocksPhotoCards",
       "textCards": "PagesBlocksTextCards",
       "banner": "PagesBlocksBanner",
-      "embed": "PagesBlocksEmbed"
+      "embed": "PagesBlocksEmbed",
+      "tailwindFeature": "PagesBlocksTailwindFeature",
+      "tailwindCards": "PagesBlocksTailwindCards"
     }
   },
   "PagesDocument": {

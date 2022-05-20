@@ -2,7 +2,7 @@
 draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse text-left items-center '
+      alignment: 'flex-row-reverse text-left items-center items-start-vertical '
       featureContent: 'w-1/2 min-h-0 '
       padding: pt-40 pb-16 pr-7 pl-20
       featureImage: 'object-left object-contain '

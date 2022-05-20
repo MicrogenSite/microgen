@@ -1,7 +1,10 @@
+import { createContext } from "react";
 import { Blocks } from "../components/blocks";
 import { ExperimentalGetTinaClient } from "../.tina/__generated__/types";
 import { useTina } from "tinacms/dist/edit-state";
 import { Layout } from "../components/layout";
+
+export const ThemeContext = createContext({});
 
 export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>["props"]
@@ -12,16 +15,18 @@ export default function HomePage(
     data: props.data,
   });
   return (
-    <Layout pageData={data.getPagesDocument.data} globalData={data.getGlobalDocument.data}>
-      <Blocks {...data.getPagesDocument.data} />
-    </Layout>
+    <ThemeContext.Provider value={data.getGlobalDocument.data}>
+      <Layout pageData={data.getPagesDocument.data} globalData={data.getGlobalDocument.data}>
+        <Blocks {...data.getPagesDocument.data} />
+      </Layout>
+    </ThemeContext.Provider>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
   const client = ExperimentalGetTinaClient();
   const tinaProps = await client.ContentQuery({
-    relativePath: `${params.filename}.md`,
+    relativePath: `index.md`,
   });
   return {
     props: {
@@ -42,5 +47,6 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
+
 export type AsyncReturnType<T extends (...args: any) => Promise<any>> =
   T extends (...args: any) => Promise<infer R> ? R : any;

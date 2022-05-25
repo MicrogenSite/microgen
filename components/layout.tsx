@@ -35,23 +35,28 @@ export const Layout = ({
     <>
       <Head>
         <title>{pageData?.meta?.pageTitle}</title>
+        <meta name="description" content={pageData?.meta?.pageDescription} />
         <meta name="author" content="Protocol Labs"></meta>
         <link rel="icon" type="image/png" sizes="48x48" href={globalData?.favicon} />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        {/* Facebook/Instagram */}
         <meta property="og:site_name" content={globalData?.siteUrl} />
+        <meta property="og:url" content={globalData?.siteUrl} />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={pageData?.meta?.pageTitle} />
         <meta property="og:description" content={pageData?.meta?.pageDescription} />
-        {globalData?.meta?.siteImageSrc &&
-          <meta property="og:image" content={globalData?.meta?.siteImageSrc} />
+        {pageData?.meta?.siteImageSrc &&
+          <meta property="og:image" content={pageData?.meta?.siteImageSrc} />
         }
+        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content={globalData?.siteUrl} />
         <meta property="twitter:url" content={globalData?.siteUrl} />
         <meta name="twitter:title" content={pageData?.meta?.pageTitle} />
         <meta name="twitter:description" content={pageData?.meta?.pageDescription} />
-        {globalData?.meta?.siteImageSrc &&
-          <meta name="twitter:image" content={globalData?.meta?.siteImageSrc} />
+        {pageData?.meta?.siteImageSrc &&
+          <meta name="twitter:image" content={pageData?.meta?.siteImageSrc} />
         }
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <style
           id="customProperties"
           // There is logic in the TypeControl component that figures out the custom property

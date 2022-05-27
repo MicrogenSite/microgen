@@ -1,12 +1,12 @@
 # Microgen
 
-MicroGen is a starter template for quickly creating sites that can be customized and styled through a visual CMS.
+Microgen is an open source visual site builder developers can get along with.
 
-Staging  
-https://microgen.vercel.app
+It enables non-technical editors to build a website using a set of highly customizable stock components. Developers get a simple framework they can use to easily add their own custom blocks to the site builder.
 
-CMS Login  
-https://microgen.vercel.app/admin/
+A global theming system keeps everything looking consistent and support for standard niceties like analytics, meta data and opengraph is included. Integrating existing services and APIs is the same as it would be for any static site.
+
+https://microgen.site
 
 ### Documentation
 

@@ -60,6 +60,7 @@ export default defineSchema({
               type: "image",
               label: "Social Sharing Image",
               name: "siteImageSrc",
+              description: "1200x630 jpeg, varies across platforms and may end up slightly cropped.",
               ui: {
                 clearable: true,
               }

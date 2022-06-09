@@ -8691,6 +8691,7 @@
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
+                    "type": "solid",
                     "fillStyles": "bg-gray",
                     "padding": "pt-4 pr-4 pb-4 pl-4",
                     "labelStyles": "text-black text-sm mb-0",
@@ -14274,6 +14275,7 @@
                     "contentOrder": "labelHeadingsContent"
                   },
                   "cardStyle": {
+                    "type": "solid",
                     "fillStyles": "bg-gray",
                     "padding": "pt-4 pr-4 pb-4 pl-4",
                     "labelStyles": "text-black text-sm mb-0",
@@ -19088,6 +19090,7 @@
               "type": "image",
               "label": "Social Sharing Image",
               "name": "siteImageSrc",
+              "description": "1200x630 jpeg, varies across platforms and may end up slightly cropped.",
               "ui": {
                 "clearable": true
               },

@@ -55,6 +55,7 @@ export const photoCardsBlockSchema: TinaTemplate = {
         contentOrder: "labelHeadingsContent",
       },
       cardStyle: {
+        type: "solid",
         fillStyles: "bg-gray",
         padding: "pt-4 pr-4 pb-4 pl-4",
         labelStyles: "text-black text-sm mb-0",

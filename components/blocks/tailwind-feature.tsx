@@ -22,7 +22,7 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
           )}
         </div>
         <div className={tw.contentWrap}>
-          <div className={tw.content}>
+          <div className={`markdown ${tw.content}`}>
             {data.label &&<h4 className={tw.label} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
             {data.headline && <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>}
             {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}

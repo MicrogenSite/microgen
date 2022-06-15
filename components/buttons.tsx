@@ -1,6 +1,6 @@
 import * as React from "react";
 import { isString } from "../helpers/utilities";
-import { ThemeContext } from "../pages/index";
+import { ThemeContext } from "./layout";
 
 export const Buttons = ({
   className = "",

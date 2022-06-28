@@ -1,6 +1,6 @@
 {
   "name": "@filecoin-project/microgen",
-  "version": "0.2.0",
+  "version": "0.3.4",
   "private": true,
   "scripts": {
     "dev": "yarn tinacms server:start -c \"next dev\"",

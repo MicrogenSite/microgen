@@ -1,6 +1,12 @@
 
 # Release Notes
 
+**Version 0.3.4**  | Released 6/9/22
+
+Fixes
+- Global data fix
+- Tailwind text style fix
+
 **Version 0.3.3**  | Released 6/9/22
 
 Fixes

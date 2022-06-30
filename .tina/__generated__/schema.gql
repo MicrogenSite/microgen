@@ -600,6 +600,7 @@ type Global {
   gtmId: String
   favicon: String
   desktopWidth: String
+  backgroundColor: String
   rule: String
   colors: GlobalColors
   fonts: GlobalFonts
@@ -1638,6 +1639,7 @@ input GlobalMutation {
   gtmId: String
   favicon: String
   desktopWidth: String
+  backgroundColor: String
   rule: String
   colors: GlobalColorsMutation
   fonts: GlobalFontsMutation

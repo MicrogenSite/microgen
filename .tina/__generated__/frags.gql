@@ -3,6 +3,7 @@ fragment GlobalParts on Global {
   gtmId
   favicon
   desktopWidth
+  backgroundColor
   rule
   colors {
     __typename

@@ -5,6 +5,7 @@ fragment LayoutQueryFragment on Query {
       favicon
       gtmId
       desktopWidth
+      backgroundColor
       redirects {
         from
         to

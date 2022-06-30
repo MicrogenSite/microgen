@@ -60,6 +60,12 @@ section > .text-right .markdown img {
 #modal-root > div > div > div {
   max-width: 450px;
 }
+#modal-root > .z-modal {
+  pointer-events: none;
+}
+#modal-root > .z-modal > div {
+  pointer-events: all;
+}
 #modal-root > div > div:last-child {
   display: none;
 }

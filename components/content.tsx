@@ -79,10 +79,18 @@ export const Content = ({
   parentField,
   className = ""
 }) => {
+  // The first block gets an h1, others get an h2
+  const headlineElement = () => {
+    if (headline && parentField === 'blocks.0') {
+      return <h1 className={`${headingOrder(order)} ${headlineStyles}`} data-tinafield={`${parentField}.headline`}>{headline}</h1>
+    } else if (headline) {
+      return <h2 className={`${headingOrder(order)} ${headlineStyles}`} data-tinafield={`${parentField}.headline`}>{headline}</h2>
+    }
+  }
   return (
     <div className={`flex flex-col ${width} ${className}`}>
       {label &&<h4 className={`${labelOrder(order)} ${labelStyles}`} data-tinafield={`${parentField}.label`}>{label}</h4>}
-      {headline && <h2 className={`${headingOrder(order)} ${headlineStyles}`} data-tinafield={`${parentField}.headline`}>{headline}</h2>}
+      {headlineElement()}
       {subhead && <h3 className={`${subheadOrder(order)} ${subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{subhead}</h3>}
       {body?.children && (
         <div className={`markdown items-center ${bodyOrder(order)} ${textStyles}`} data-tinafield={`${parentField}.body`}>

@@ -20,5 +20,5 @@ export const getBorderSide = function (options: {label: string, value: string}[]
   const currentStyles = styles?.split(' ') || [];
   const match = optionValues.filter(option => currentStyles.includes(option))
   const side = match[0]?.split('-').slice(0,-1).join('-')
-  return `${side}-`;
+  return side ? `${side}-` : 'border-';
 }

@@ -9147,6 +9147,21 @@
                     },
                     {
                       "type": "string",
+                      "label": "Border",
+                      "name": "borderStyles",
+                      "ui": {
+                        "component": "borderControl"
+                      },
+                      "namespace": [
+                        "global",
+                        "blocks",
+                        "photoCards",
+                        "cardStyle",
+                        "borderStyles"
+                      ]
+                    },
+                    {
+                      "type": "string",
                       "label": "Image",
                       "name": "imageStyles",
                       "ui": {
@@ -14673,6 +14688,21 @@
                         "photoCards",
                         "cardStyle",
                         "padding"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Border",
+                      "name": "borderStyles",
+                      "ui": {
+                        "component": "borderControl"
+                      },
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "photoCards",
+                        "cardStyle",
+                        "borderStyles"
                       ]
                     },
                     {

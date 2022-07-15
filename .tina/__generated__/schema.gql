@@ -235,6 +235,7 @@ type GlobalBlocksPhotoCardsStyle {
 type GlobalBlocksPhotoCardsCardStyle {
   fillStyles: String
   padding: String
+  borderStyles: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -706,6 +707,7 @@ type PagesBlocksPhotoCardsStyle {
 type PagesBlocksPhotoCardsCardStyle {
   fillStyles: String
   padding: String
+  borderStyles: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1262,6 +1264,7 @@ input GlobalBlocksPhotoCardsStyleMutation {
 input GlobalBlocksPhotoCardsCardStyleMutation {
   fillStyles: String
   padding: String
+  borderStyles: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1721,6 +1724,7 @@ input PagesBlocksPhotoCardsStyleMutation {
 input PagesBlocksPhotoCardsCardStyleMutation {
   fillStyles: String
   padding: String
+  borderStyles: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String

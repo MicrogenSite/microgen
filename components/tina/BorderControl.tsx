@@ -19,7 +19,7 @@ export default function BorderControl({ field, input, meta }) {
     { label: "Gray Dark", value: "border-gray-dark"},
     { label: "Black", value: "border-black"},
   ]
-  const [color, setColor] = useState(getStyleMatch(colors, input.value));
+  const [color, setColor] = useState(getStyleMatch(colors, input.value) || "border-white");
 
   const widths = [
     { label: "0", value: "0" },

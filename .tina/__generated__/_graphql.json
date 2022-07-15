@@ -3084,6 +3084,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "borderStyles"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "imageStyles"
           },
           "arguments": [],
@@ -8565,6 +8580,21 @@
           "name": {
             "kind": "Name",
             "value": "padding"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "borderStyles"
           },
           "arguments": [],
           "type": {
@@ -15171,6 +15201,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "borderStyles"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "imageStyles"
           },
           "type": {
@@ -20054,6 +20098,20 @@
           "name": {
             "kind": "Name",
             "value": "padding"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "borderStyles"
           },
           "type": {
             "kind": "NamedType",

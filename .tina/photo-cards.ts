@@ -95,6 +95,14 @@ export const photoCardsBlockSchema: TinaTemplate = {
         },
         {
           type: "string",
+          label: "Border",
+          name: "borderStyles",
+          ui: {
+            component: "borderControl"
+          }
+        },
+        {
+          type: "string",
           label: "Image",
           name: "imageStyles",
           ui: {

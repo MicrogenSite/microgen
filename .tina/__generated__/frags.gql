@@ -159,6 +159,7 @@ fragment GlobalParts on Global {
         __typename
         fillStyles
         padding
+        borderStyles
         imageStyles
         typographyTitle
         labelStyles
@@ -551,6 +552,7 @@ fragment PagesParts on Pages {
         __typename
         fillStyles
         padding
+        borderStyles
         imageStyles
         typographyTitle
         labelStyles

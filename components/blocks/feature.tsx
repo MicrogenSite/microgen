@@ -37,16 +37,16 @@ const contentWrapClasses = (data) => {
   // Padding Classes
   const paddingClasses = data.style?.padding
 
-  return `sm:w-full ${paddingClasses} ${widthClasses} ${marginClasses}`
+  return `sm:w-full  ${paddingClasses} ${widthClasses} ${marginClasses}`
 }
 
 const contentWidth = (data) => {
   const widthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
   const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
   const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
-  const widthClasses = vertical ? widthClass : "w-full"
+  const widthClasses = vertical ? `${widthClass} sm:w-full` : "w-full"
 
-  return `sm:w-full ${widthClasses}`
+  return `${widthClasses}`
 }
 
 const contentMargin = (data) => {
@@ -102,7 +102,7 @@ const imageWrapClasses = (data) => {
   const padding = data.style?.imagePadding
   const stretch = shouldStretch ? "self-stretch" : ""
 
-  return `sm:w-full relative ${padding} ${stretch} ${widthClasses} ${marginClasses}`
+  return `relative ${padding} ${stretch} ${widthClasses} ${marginClasses}`
 }
 
 const imgClasses = (data) => {
@@ -110,22 +110,24 @@ const imgClasses = (data) => {
   const contentWidthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
   const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
   const shouldStretch = ["object-cover", "object-contain"].some(item => data.style?.featureImage?.includes(item));
-  const height = shouldStretch ? "absolute inset-0 h-full" : ""
   const horizontalLayoutWidth = shouldStretch ? "w-full" : "w-auto"
   const verticalLayoutWidth = shouldStretch ? "w-auto" : `${contentWidthClass}`
-  const width = vertical ? verticalLayoutWidth : horizontalLayoutWidth
-  const classes = removeSubstring(data.style.featureImage, "to-edge")
-
+  
   // Margin
-  const alignmentClass: string = alignmentClasses.find( item => item.includes("-vertical") )
-  const marginToAlignment = {
+  const flexAlignClasses: string[] = alignmentClasses.filter( item => item.includes("-vertical") )
+  const flexAlignToMargin = {
     "items-start-vertical": "mr-auto",
     "items-center-vertical": "mx-auto",
     "items-end-vertical": "ml-auto",
+    "sm:items-start-vertical": "sm:mr-auto sm:ml-0",
+    "sm:items-center-vertical": "sm:mx-auto",
+    "sm:items-end-vertical": "sm:ml-auto sm:mr-0",
   }
-  const margin = marginToAlignment[alignmentClass] || ""
-
-  return `sm:w-full ${margin} ${width} ${height} ${classes}`;
+  const margin = flexAlignClasses.map(item => flexAlignToMargin[item]).join(' ')
+  const width = vertical ? verticalLayoutWidth : horizontalLayoutWidth
+  const height = shouldStretch ? "absolute inset-0 h-full" : ""
+  const classes = removeSubstring(data.style.featureImage, "to-edge")
+  return `${margin} ${width} ${height} ${classes}`;
 };
 
 
@@ -136,7 +138,7 @@ export const Feature = ({ data, parentField = "" }) => {
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
-      <div className={`relative flex sm:flex-col ${data.style?.alignment} ${minHeight}`}>
+      <div className={`relative flex ${data.style?.alignment} ${minHeight}`}>
         <div className={imageWrapClasses(data)}>
           {data.image?.src && (
             <img

@@ -2,11 +2,13 @@
 draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse text-left items-center items-start-vertical '
+      alignment: >-
+        flex-row-reverse text-left items-center items-center-vertical
+        sm:flex-col sm:text-left sm:items-start sm:items-start-vertical
       featureContent: 'w-1/2 min-h-0 '
-      padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: 'object-left object-contain '
-      imagePadding: pt-0 pb-0 pr-0 pl-0
+      padding: pt-40 pb-0 pr-5 pl-20
+      featureImage: 'object-left object-scale-down '
+      imagePadding: pt-40 pb-10 pr-20 pl-5
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
       subheadStyles: text-gray font-1 text-xl mb-7 font-bold

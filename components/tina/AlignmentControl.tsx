@@ -39,10 +39,33 @@ export default function AlignmentControl({ field, input, meta }) {
   const [contentAlignVertical, setContentAlignVertical] = useState(getStyleMatch(contentAlignVerticalOptions, input.value) || "items-start-vertical");
   
   const layoutOptionsMobile = [
+    { label: "left image", value: "sm:flex-row"},
+    { label: "right image", value: "sm:flex-row-reverse"},
     { label: "top image", value: "sm:flex-col"},
     { label: "bottom image", value: "sm:flex-col-reverse"},
   ]
   const [layoutMobile, setLayoutMobile] = useState(getStyleMatch(layoutOptionsMobile, input.value) || "sm:flex-col");
+
+  const textAlignOptionsMobile = [
+    { label: "text-left", value: "sm:text-left"},
+    { label: "text-center", value: "sm:text-center"},
+    { label: "text-right", value: "sm:text-right"},
+  ]
+  const [textAlignMobile, setTextAlignMobile] = useState(getStyleMatch(textAlignOptionsMobile, input.value) || "sm:text-left");
+  
+  const contentAlignOptionsMobile = [
+    { label: "items-start", value: "sm:items-start"},
+    { label: "items-center", value: "sm:items-center"},
+    { label: "items-end", value: "sm:items-end"},
+  ]
+  const [contentAlignMobile, setContentAlignMobile] = useState(getStyleMatch(contentAlignOptionsMobile, input.value) || "sm:items-start");
+  
+  const contentAlignVerticalOptionsMobile = [
+    { label: "items-start-vertical", value: "sm:items-start-vertical"},
+    { label: "items-center-vertical", value: "sm:items-center-vertical"},
+    { label: "items-end-vertical", value: "sm:items-end-vertical"},
+  ]
+  const [contentAlignVerticalMobile, setContentAlignVerticalMobile] = useState(getStyleMatch(contentAlignVerticalOptionsMobile, input.value) || "sm:items-start-vertical");
 
   function toggleMobile() {
     if (!hasMobileStyles && !layoutMobile) {
@@ -55,33 +78,25 @@ export default function AlignmentControl({ field, input, meta }) {
     // Update Hidden Field
     const input = inputRef.current;
     const lastValue = input.value;
-    const newValue = `${layout} ${textAlign} ${contentAlign} ${contentAlignVertical} ${hasMobileStyles ? layoutMobile : ""}`;
+    const desktopStyles = `${layout} ${textAlign} ${contentAlign} ${contentAlignVertical}`
+    const mobileStyles = `${layoutMobile} ${textAlignMobile} ${contentAlignMobile} ${contentAlignVerticalMobile}`;
+    const newValue = `${desktopStyles} ${hasMobileStyles ? mobileStyles : ''}`;
     input.value = newValue;
     (input as any)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [layout, textAlign, contentAlign, contentAlignVertical, layoutMobile, hasMobileStyles, inputRef.current]);
-
-  function handleSetTextAlign(value: string) {
-    setTextAlign(value)
-  }
-  function handleSetContentAlign(value: string) {
-    setContentAlign(value)
-  }
-  function handleSetContentAlignVertical(value: string) {
-    setContentAlignVertical(value)
-  }
+  }, [layout, textAlign, contentAlign, contentAlignVertical, layoutMobile, textAlignMobile, contentAlignMobile, contentAlignVerticalMobile, hasMobileStyles, inputRef.current]);
 
   return (
     <div className="mb-4">
       <FieldLabel label={field.label} hasMobileStyles={hasMobileStyles} onMobileToggle={toggleMobile} mobileMode={true} />
       <div className="flex gap-2">
         <SelectMenu value={layout} onChange={setLayout} options={layoutOptions} className="w-1/2 shrink-0" />
-        <IconPicker value={textAlign} onClick={handleSetTextAlign} options={textAlignOptions} menuPosition="right" className="flex-1" />
+        <IconPicker value={textAlign} onClick={value => setTextAlign(value)} options={textAlignOptions} menuPosition="right" className="flex-1" />        
         {layout.includes("row") && (
-          <IconPicker value={contentAlign} onClick={handleSetContentAlign} options={contentAlignOptions} menuPosition="right" className="flex-1" />
+          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptions} menuPosition="right" className="flex-1" />
         )}
         {layout.includes("col") && (
-          <IconPicker value={contentAlignVertical} onClick={handleSetContentAlignVertical} options={contentAlignVerticalOptions} menuPosition="right" className="flex-1" />
+          <IconPicker value={contentAlignVertical} onClick={value => setContentAlignVertical(value)} options={contentAlignVerticalOptions} menuPosition="right" className="flex-1" />
         )}
         </div>
       {hasMobileStyles &&
@@ -90,6 +105,13 @@ export default function AlignmentControl({ field, input, meta }) {
             <IconMobile />
           </div>
           <SelectMenu value={layoutMobile} onChange={setLayoutMobile} options={layoutOptionsMobile} className="w-1/2 shrink-0" />
+          <IconPicker value={textAlignMobile} onClick={value => setTextAlignMobile(value)} options={textAlignOptionsMobile} menuPosition="right" className="flex-1" />
+          {layoutMobile.includes("row") && (
+            <IconPicker value={contentAlignMobile} onClick={value => setContentAlignMobile(value)} options={contentAlignOptionsMobile} menuPosition="right" className="flex-1" />
+          )}
+          {layoutMobile.includes("col") && (
+            <IconPicker value={contentAlignVerticalMobile} onClick={value => setContentAlignVerticalMobile(value)} options={contentAlignVerticalOptionsMobile} menuPosition="right" className="flex-1" />
+          )}
         </div>
       }
       <input ref={inputRef} type="text" {...input}  className="hidden" />

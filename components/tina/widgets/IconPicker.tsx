@@ -64,7 +64,7 @@ export default function IconPicker(props:IconPickerProps) {
 
   return (
     <div id="iconpicker" ref={clickOutsideRef} onClick={togglePicker} className={buttonClasses} style={buttonStyles}>
-      <Icon icon={props.value} />
+      <Icon icon={props.value?.replace('sm:', '')} />
       <Icon icon="angle-down" className="absolute right-0 top-2.5 text-primary h-3.5" />
       <div className={pickerClasses} style={pickerStyles}>
         {options}

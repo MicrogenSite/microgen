@@ -3,13 +3,16 @@ import { TinaMarkdown } from "tinacms/dist/rich-text";
 import { Buttons } from "./buttons";
 
 const buttonAlignment = (alignment) => {
-  const alignmentClass = alignment?.split(" ").find(item => item.includes("text-")) || ""
+  const alignmentClasses: string[] = alignment?.split(" ").filter(item => item.includes("text-")) || []
   const textAlignments = {
     "text-left": "",
     "text-center": "mx-auto",
     "text-right": "ml-auto",
+    "sm:text-left": "sm:ml-0 sm:mr-auto",
+    "sm:text-center": "sm:mx-auto",
+    "sm:text-right": "sm:ml-auto sm:mr-0",
   };
-  return textAlignments[alignmentClass];
+  return alignmentClasses.map(item => textAlignments[item]).join(' ')
 };
 
 const labelOrder = (order) => {

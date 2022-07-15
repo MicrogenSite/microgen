@@ -131,7 +131,7 @@ export const Layout = ({
           <script
             dangerouslySetInnerHTML={{
               __html: `
-              if (document.location.hostname === "${globalData?.siteUrl}") {
+              if (document.location.hostname.replace("www.", "") === "${globalData?.siteUrl}") {
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());

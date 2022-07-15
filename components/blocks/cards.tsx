@@ -4,11 +4,6 @@ import { CardGrid } from "../card-grid";
 
 const Card = ({ data, index, cardstyle, parentField = ""  }) => {
   const wrapClasses =  data.link && data.buttonLabel ? 'pb-20' : '';
-  const backgroundClasses = {
-    solid: `${cardstyle?.fillStyles}`,
-    transparent: `${cardstyle?.fillStyles} opacity-70`,
-    fadeH: `${cardstyle?.fillStyles}`,
-  }
 
   return (
     <div className={`flex flex-col relative sm:mb-6 ${cardstyle?.borderStyles}`} data-tinafield={`${parentField}.${index}`}>
@@ -25,7 +20,7 @@ const Card = ({ data, index, cardstyle, parentField = ""  }) => {
       <div
         className={` ${wrapClasses} relative flex-1 text-left border-box ${cardstyle?.padding}`}
       >
-        <div className={`${backgroundClasses[cardstyle?.type]} absolute inset-0 -z-1`} />
+        <div className={`${cardstyle?.fillStyles} absolute inset-0 -z-1`} />
         {data.label && (
           <p className={cardstyle?.labelStyles} data-tinafield={`${parentField}.${index}.label`}>{data.label}</p>
         )}

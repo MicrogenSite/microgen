@@ -44,7 +44,6 @@ blocks:
     cardStyle:
       fillStyles: bg-accent1
       padding: pt-4 pb-4 pr-5 pl-7
-      type: solid
       borderStyles: border-primary border-3
       labelStyles: 'text-black undefined text-sm mb-0 '
       headlineStyles: text-primary font-1 text-xl mb-2 font-bold
@@ -125,7 +124,6 @@ blocks:
     cardStyle:
       fillStyles: bg-primary
       padding: pt-5 pb-5 pr-5 pl-5
-      type: solid
       imageStyles: ' undefined undefined mb-0'
       labelStyles: 'text-white undefined text-sm mb-0 '
       headlineStyles: 'text-white undefined text-2xl mb-0 '

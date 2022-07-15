@@ -8,9 +8,9 @@ export default function FillControl({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const fillTypes = [
+    { label: "None", value: "transparent" },
     { label: "Solid", value: "solid" },
     { label: "Gradient", value: "gradient" },
-    { label: "Transparent", value: "transparent" },
   ]
   const [fillType, setFillType] = useState(getFillType(input.value));
   const bgColors = [
@@ -63,6 +63,22 @@ export default function FillControl({ field, input, meta }) {
     { label: "↖", value: "bg-gradient-to-tl" },
   ]
   const [direction, setDirection] = useState(getStyleMatch(directions, input.value) || "bg-gradient-to-r");
+  
+  const opacities = [
+    { label: "5%", value: "opacity-5" },
+    { label: "10%", value: "opacity-10" },
+    { label: "20%", value: "opacity-20" },
+    { label: "30%", value: "opacity-30" },
+    { label: "40%", value: "opacity-40" },
+    { label: "50%", value: "opacity-50" },
+    { label: "60%", value: "opacity-60" },
+    { label: "70%", value: "opacity-70" },
+    { label: "80%", value: "opacity-80" },
+    { label: "90%", value: "opacity-90" },
+    { label: "95%", value: "opacity-95" },
+    { label: "100%", value: "opacity-100" },
+  ]
+  const [opacity, setOpacity] = useState(getStyleMatch(opacities, input.value) || "opacity-100");
 
   useEffect(() => {
     // Update Hidden Field
@@ -73,10 +89,10 @@ export default function FillControl({ field, input, meta }) {
       solid: bgColor,
       gradient: `${fromColor} ${toColor} ${direction}`,
     }
-    input.value = fillClasses[fillType];
+    input.value = `${fillClasses[fillType]} ${opacity}`;
     (input as any)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [bgColor, toColor, fromColor, fillType, direction, inputRef.current]);
+  }, [bgColor, toColor, fromColor, fillType, direction, opacity, inputRef.current]);
 
   function getFillType(value: string) {
     if (value.includes("to-")) {
@@ -108,7 +124,7 @@ export default function FillControl({ field, input, meta }) {
     <>
       <FieldLabel label={field.label} />
       <div className="flex gap-2 mb-4 items-center">
-        <SelectMenu value={fillType} onChange={handleSetFillType} options={fillTypes} className="w-1/2" />
+        <SelectMenu value={fillType} onChange={handleSetFillType} options={fillTypes} className="w-24" />
         {fillType === "solid" &&
           <ColorPicker value={bgColor?.replace('bg-','')} onClick={handleSetBgColor} />
         }
@@ -118,6 +134,9 @@ export default function FillControl({ field, input, meta }) {
             <ColorPicker value={toColor?.replace('to-','')} onClick={handleSetToColor} />
             <SelectMenu value={direction} onChange={setDirection} options={directions} className="w-12" />
           </>
+        }
+        {fillType !== "transparent" &&
+          <SelectMenu value={opacity} onChange={setOpacity} options={opacities} className="w-16 flex-none" />
         }
       </div>
       <input ref={inputRef} type="text" {...input}  className="hidden" />

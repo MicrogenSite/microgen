@@ -127,7 +127,6 @@ fragment LayoutQueryFragment on Query {
             contentWidth
           }
           cardStyle {
-            type
             padding
             buttonType
             imageStyles
@@ -182,7 +181,6 @@ fragment LayoutQueryFragment on Query {
             contentWidth
           }
           cardStyle {
-            type
             padding
             borderStyles
             buttonType

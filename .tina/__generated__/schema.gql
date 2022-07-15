@@ -235,7 +235,6 @@ type GlobalBlocksPhotoCardsStyle {
 type GlobalBlocksPhotoCardsCardStyle {
   fillStyles: String
   padding: String
-  type: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -313,7 +312,6 @@ type GlobalBlocksTextCardsStyle {
 type GlobalBlocksTextCardsCardStyle {
   fillStyles: String
   padding: String
-  type: String
   borderStyles: String
   typographyTitle: String
   labelStyles: String
@@ -708,7 +706,6 @@ type PagesBlocksPhotoCardsStyle {
 type PagesBlocksPhotoCardsCardStyle {
   fillStyles: String
   padding: String
-  type: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -786,7 +783,6 @@ type PagesBlocksTextCardsStyle {
 type PagesBlocksTextCardsCardStyle {
   fillStyles: String
   padding: String
-  type: String
   borderStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1266,7 +1262,6 @@ input GlobalBlocksPhotoCardsStyleMutation {
 input GlobalBlocksPhotoCardsCardStyleMutation {
   fillStyles: String
   padding: String
-  type: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1344,7 +1339,6 @@ input GlobalBlocksTextCardsStyleMutation {
 input GlobalBlocksTextCardsCardStyleMutation {
   fillStyles: String
   padding: String
-  type: String
   borderStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1727,7 +1721,6 @@ input PagesBlocksPhotoCardsStyleMutation {
 input PagesBlocksPhotoCardsCardStyleMutation {
   fillStyles: String
   padding: String
-  type: String
   imageStyles: String
   typographyTitle: String
   labelStyles: String
@@ -1805,7 +1798,6 @@ input PagesBlocksTextCardsStyleMutation {
 input PagesBlocksTextCardsCardStyleMutation {
   fillStyles: String
   padding: String
-  type: String
   borderStyles: String
   typographyTitle: String
   labelStyles: String

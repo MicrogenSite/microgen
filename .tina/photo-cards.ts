@@ -94,19 +94,6 @@ export const photoCardsBlockSchema: TinaTemplate = {
           }
         },
         {
-          label: "Type",
-          name: "type",
-          type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: [
-            { label: "Solid Background", value: "solid" },
-            { label: "Semi Transparent", value: "transparent" },
-            { label: "Horizontal Fade", value: "fadeH" },
-          ],
-        },
-        {
           type: "string",
           label: "Image",
           name: "imageStyles",

@@ -9146,35 +9146,6 @@
                       ]
                     },
                     {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid Background",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Semi Transparent",
-                          "value": "transparent"
-                        },
-                        {
-                          "label": "Horizontal Fade",
-                          "value": "fadeH"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "type"
-                      ]
-                    },
-                    {
                       "type": "string",
                       "label": "Image",
                       "name": "imageStyles",
@@ -10250,31 +10221,6 @@
                         "textCards",
                         "cardStyle",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Transparent Background",
-                          "value": "transparent"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "type"
                       ]
                     },
                     {
@@ -14730,35 +14676,6 @@
                       ]
                     },
                     {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid Background",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Semi Transparent",
-                          "value": "transparent"
-                        },
-                        {
-                          "label": "Horizontal Fade",
-                          "value": "fadeH"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "photoCards",
-                        "cardStyle",
-                        "type"
-                      ]
-                    },
-                    {
                       "type": "string",
                       "label": "Image",
                       "name": "imageStyles",
@@ -15834,31 +15751,6 @@
                         "textCards",
                         "cardStyle",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Transparent Background",
-                          "value": "transparent"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "type"
                       ]
                     },
                     {

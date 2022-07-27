@@ -16,17 +16,18 @@ interface IconPickerProps {
 export default function IconPicker(props:IconPickerProps) {
   const [isActive, setIsActive] = useState(false)
   const clickOutsideRef = useRef(null);
+  const currentOption = props.options.find(option => option.value === props.value)
 
-  const handleClickOutside = e => {
+  const handleClickOutside = (e) => {
     if (!clickOutsideRef.current.contains(e.target)) {
       setIsActive(false);
     }
   };
-  function handleClick(newValue) {
+  const handleClick = (newValue) => {
     props.onClick(newValue)
     setIsActive(false)
   }
-  function togglePicker() {
+  const togglePicker = () => {
     setIsActive(!isActive)
   }
 
@@ -36,7 +37,6 @@ export default function IconPicker(props:IconPickerProps) {
   });
   
 
-  const pickerClasses = `absolute p-2 z-20 border shadow bg-white`
   const pickerStyles = {
       display: isActive ? "block" : "none",
       top: "calc(100% + 8px)",
@@ -55,7 +55,7 @@ export default function IconPicker(props:IconPickerProps) {
   const options = props.options.map((option) => {
     return <div
       onClick={() => handleClick(option.value)}
-      className={`inline-flex items-center h-8 w-8 cursor-pointer rounded-sm hover:bg-tina-gray2`}
+      className={`inline-flex items-center h-8 w-8 cursor-pointer rounded-sm hover:bg-tina-gray1`}
       key={option.value}
     >
       <Icon icon={option.label} className="m-auto" />
@@ -64,10 +64,12 @@ export default function IconPicker(props:IconPickerProps) {
 
   return (
     <div id="iconpicker" ref={clickOutsideRef} onClick={togglePicker} className={buttonClasses} style={buttonStyles}>
-      <Icon icon={props.value?.replace('sm:', '')} />
+      <Icon icon={currentOption?.label?.replace('sm:', '')} />
       <Icon icon="angle-down" className="absolute right-0 top-2.5 text-primary h-3.5" />
-      <div className={pickerClasses} style={pickerStyles}>
-        {options}
+      <div className="absolute p-2 z-20 border shadow bg-white" style={pickerStyles}>
+        <div className="grid grid-cols-3 gap-1 w-24 mr-1">
+          {options}
+        </div>
       </div>
     </div>
   )

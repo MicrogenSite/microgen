@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
+import FieldLabel from './widgets/FieldLabel';
+import IconPicker from './widgets/IconPicker';
 import SelectMenu from './widgets/SelectMenu';
 import { getStyleMatch } from './widgets/helpers'
 
 export default function FeatureContentField({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [toEdge, setToEdge] = useState(input.value.includes("to-edge"));
 
   const widthOptions = [
     { label: "20%", value: "w-1/5"},
@@ -30,19 +31,22 @@ export default function FeatureContentField({ field, input, meta }) {
   ];
   const [height, setHeight] = useState(getStyleMatch(heightOptions, input.value) || "min-h-0");
 
+  const textAlignOptions = [
+    { label: "text-left", value: "text-left"},
+    { label: "text-center", value: "text-center"},
+    { label: "text-right", value: "text-right"},
+  ]
+  const [textAlign, setTextAlign] = useState(getStyleMatch(textAlignOptions, input.value) || "text-left");
+
   useEffect(() => {
     // Update Hidden Field
     const input = inputRef.current;
     const lastValue = input.value;
-    const newValue = `${width} ${height} ${toEdge === true ? "to-edge" : ""}`;
+    const newValue = `${width} ${height} ${textAlign}`;
     input.value = newValue;
     (input as any)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [width, height, toEdge, inputRef.current]);
-
-  function handleToEdge() {
-    setToEdge(!toEdge)
-  }
+  }, [width, height, textAlign, inputRef.current]);
 
   function SelectGroup(props) {
     return (
@@ -55,13 +59,11 @@ export default function FeatureContentField({ field, input, meta }) {
 
   return (
     <div className="mb-4">
+      <FieldLabel label="Content" />
       <div className="flex items-center gap-2">
         <SelectGroup label="W" value={width} onChange={setWidth} options={widthOptions} className="w-1/3 shrink-0" />
         <SelectGroup label="H" value={height} onChange={setHeight} options={heightOptions} className="w-1/3 shrink-0" />
-        <div className="w-1/3">
-          <input className="ml-1 mr-2" type="checkbox" checked={toEdge} onChange={handleToEdge} />
-          <label>to edge</label>
-        </div>
+        <IconPicker value={textAlign} onClick={value => setTextAlign(value)} options={textAlignOptions} menuPosition="right" className="flex-1" />
       </div>
       <input ref={inputRef} type="text" {...input}  className="hidden" />
     </div>

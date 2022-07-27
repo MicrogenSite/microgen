@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import IconMobile from './icons/IconMobile';
+import IconMargin from './icons/IconMargin';
+import IconGap from './icons/IconGap';
 import FieldLabel from './widgets/FieldLabel';
 import IconPicker from './widgets/IconPicker';
 import SelectMenu from './widgets/SelectMenu';
@@ -16,13 +18,6 @@ export default function AlignmentControl({ field, input, meta }) {
     { label: "bottom image", value: "flex-col-reverse"},
   ]
   const [layout, setLayout] = useState(getStyleMatch(layoutOptions, input.value) || "flex-row");
-
-  const textAlignOptions = [
-    { label: "text-left", value: "text-left"},
-    { label: "text-center", value: "text-center"},
-    { label: "text-right", value: "text-right"},
-  ]
-  const [textAlign, setTextAlign] = useState(getStyleMatch(textAlignOptions, input.value) || "text-left");
   
   const contentAlignOptions = [
     { label: "items-start", value: "items-start"},
@@ -38,6 +33,22 @@ export default function AlignmentControl({ field, input, meta }) {
   ]
   const [contentAlignVertical, setContentAlignVertical] = useState(getStyleMatch(contentAlignVerticalOptions, input.value) || "items-start-vertical");
   
+  const gapOptions = [
+    { label: "0", value: ""},
+    { label: "1", value: "gap-1"},
+    { label: "4", value: "gap-4"},
+    { label: "6", value: "gap-6"},
+    { label: "8", value: "gap-8"},
+    { label: "12", value: "gap-12"},
+    { label: "20", value: "gap-20"},
+    { label: "24", value: "gap-24"},
+    { label: "28", value: "gap-28"},
+    { label: "32", value: "gap-32"},
+    { label: "40", value: "gap-40"},
+    { label: "48", value: "gap-48"},
+  ]
+  const [gap, setGap] = useState(getStyleMatch(gapOptions, input.value) || "gap-4");
+
   const layoutOptionsMobile = [
     { label: "left image", value: "sm:flex-row"},
     { label: "right image", value: "sm:flex-row-reverse"},
@@ -45,13 +56,6 @@ export default function AlignmentControl({ field, input, meta }) {
     { label: "bottom image", value: "sm:flex-col-reverse"},
   ]
   const [layoutMobile, setLayoutMobile] = useState(getStyleMatch(layoutOptionsMobile, input.value) || "sm:flex-col");
-
-  const textAlignOptionsMobile = [
-    { label: "text-left", value: "sm:text-left"},
-    { label: "text-center", value: "sm:text-center"},
-    { label: "text-right", value: "sm:text-right"},
-  ]
-  const [textAlignMobile, setTextAlignMobile] = useState(getStyleMatch(textAlignOptionsMobile, input.value) || "sm:text-left");
   
   const contentAlignOptionsMobile = [
     { label: "items-start", value: "sm:items-start"},
@@ -78,34 +82,36 @@ export default function AlignmentControl({ field, input, meta }) {
     // Update Hidden Field
     const input = inputRef.current;
     const lastValue = input.value;
-    const desktopStyles = `${layout} ${textAlign} ${contentAlign} ${contentAlignVertical}`
-    const mobileStyles = `${layoutMobile} ${textAlignMobile} ${contentAlignMobile} ${contentAlignVerticalMobile}`;
+    const desktopStyles = `${layout} ${contentAlign} ${contentAlignVertical} ${gap}`
+    const mobileStyles = `${layoutMobile} ${contentAlignMobile} ${contentAlignVerticalMobile}`;
     const newValue = `${desktopStyles} ${hasMobileStyles ? mobileStyles : ''}`;
     input.value = newValue;
     (input as any)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [layout, textAlign, contentAlign, contentAlignVertical, layoutMobile, textAlignMobile, contentAlignMobile, contentAlignVerticalMobile, hasMobileStyles, inputRef.current]);
+  }, [layout, contentAlign, contentAlignVertical, gap, layoutMobile, contentAlignMobile, contentAlignVerticalMobile, hasMobileStyles, inputRef.current]);
 
   return (
     <div className="mb-4">
       <FieldLabel label={field.label} hasMobileStyles={hasMobileStyles} onMobileToggle={toggleMobile} mobileMode={true} />
       <div className="flex gap-2">
         <SelectMenu value={layout} onChange={setLayout} options={layoutOptions} className="w-1/2 shrink-0" />
-        <IconPicker value={textAlign} onClick={value => setTextAlign(value)} options={textAlignOptions} menuPosition="right" className="flex-1" />        
         {layout.includes("row") && (
           <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptions} menuPosition="right" className="flex-1" />
         )}
         {layout.includes("col") && (
           <IconPicker value={contentAlignVertical} onClick={value => setContentAlignVertical(value)} options={contentAlignVerticalOptions} menuPosition="right" className="flex-1" />
         )}
+        <div className="w-4 pl-2 pt-3">
+          <IconGap className="float-right" />
         </div>
+        <SelectMenu value={gap} onChange={setGap} options={gapOptions} className="w-12" />
+      </div>
       {hasMobileStyles &&
         <div className="flex gap-2 mt-2 relative">
           <div className="absolute -left-4 top-2.5 pl-px" style={{ color: "var(--tina-color-grey-4" }}>
             <IconMobile />
           </div>
           <SelectMenu value={layoutMobile} onChange={setLayoutMobile} options={layoutOptionsMobile} className="w-1/2 shrink-0" />
-          <IconPicker value={textAlignMobile} onClick={value => setTextAlignMobile(value)} options={textAlignOptionsMobile} menuPosition="right" className="flex-1" />
           {layoutMobile.includes("row") && (
             <IconPicker value={contentAlignMobile} onClick={value => setContentAlignMobile(value)} options={contentAlignOptionsMobile} menuPosition="right" className="flex-1" />
           )}

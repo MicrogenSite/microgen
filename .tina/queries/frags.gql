@@ -223,7 +223,6 @@ fragment LayoutQueryFragment on Query {
             alignment
             featureContent
             featureImage
-            imagePadding
             padding
             contentOrder
             labelStyles

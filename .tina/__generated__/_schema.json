@@ -8060,37 +8060,7 @@
                       ]
                     },
                     {
-                      "label": "Content",
-                      "name": "contentTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "contentTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
-                      "name": "featureContent",
-                      "type": "string",
-                      "ui": {
-                        "component": "featureContentField"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "featureContent"
-                      ]
-                    },
-                    {
-                      "label": "Content Padding",
+                      "label": "Padding",
                       "name": "padding",
                       "type": "string",
                       "ui": {
@@ -8102,21 +8072,6 @@
                         "feature",
                         "style",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Image",
-                      "name": "imageTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "imageTitle"
                       ]
                     },
                     {
@@ -8135,18 +8090,18 @@
                       ]
                     },
                     {
-                      "label": "Image Padding",
-                      "name": "imagePadding",
+                      "label": "",
+                      "name": "featureContent",
                       "type": "string",
                       "ui": {
-                        "component": "paddingControl"
+                        "component": "featureContentField"
                       },
                       "namespace": [
                         "global",
                         "blocks",
                         "feature",
                         "style",
-                        "imagePadding"
+                        "featureContent"
                       ]
                     },
                     {
@@ -13605,37 +13560,7 @@
                       ]
                     },
                     {
-                      "label": "Content",
-                      "name": "contentTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "contentTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
-                      "name": "featureContent",
-                      "type": "string",
-                      "ui": {
-                        "component": "featureContentField"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "featureContent"
-                      ]
-                    },
-                    {
-                      "label": "Content Padding",
+                      "label": "Padding",
                       "name": "padding",
                       "type": "string",
                       "ui": {
@@ -13647,21 +13572,6 @@
                         "feature",
                         "style",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Image",
-                      "name": "imageTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "imageTitle"
                       ]
                     },
                     {
@@ -13680,18 +13590,18 @@
                       ]
                     },
                     {
-                      "label": "Image Padding",
-                      "name": "imagePadding",
+                      "label": "",
+                      "name": "featureContent",
                       "type": "string",
                       "ui": {
-                        "component": "paddingControl"
+                        "component": "featureContentField"
                       },
                       "namespace": [
                         "pages",
                         "blocks",
                         "feature",
                         "style",
-                        "imagePadding"
+                        "featureContent"
                       ]
                     },
                     {

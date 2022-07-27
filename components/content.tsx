@@ -64,42 +64,36 @@ const bodyOrder = (order) => {
 }
 
 export const Content = ({
-  label,
-  headline,
-  subhead,
-  body,
-  buttons,
-  labelStyles,
-  headlineStyles,
-  subheadStyles,
-  textStyles,
+  data,
+  styles,
   alignment,
-  order,
   width,
   parentField,
   className = ""
 }) => {
+  const order = styles.contentOrder
+
   // The first block gets an h1, others get an h2
   const headlineElement = () => {
-    if (headline && parentField === 'blocks.0') {
-      return <h1 className={`${headingOrder(order)} ${headlineStyles}`} data-tinafield={`${parentField}.headline`}>{headline}</h1>
-    } else if (headline) {
-      return <h2 className={`${headingOrder(order)} ${headlineStyles}`} data-tinafield={`${parentField}.headline`}>{headline}</h2>
+    if (data?.headline && parentField === 'blocks.0') {
+      return <h1 className={`${headingOrder(order)} ${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h1>
+    } else if (data?.headline) {
+      return <h2 className={`${headingOrder(order)} ${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
     }
   }
   return (
-    <div className={`flex flex-col ${width} ${className}`}>
-      {label &&<h4 className={`${labelOrder(order)} ${labelStyles}`} data-tinafield={`${parentField}.label`}>{label}</h4>}
+    <div className={`flex flex-col ${width} ${alignment} ${className}`}>
+      {data?.label &&<h4 className={`${labelOrder(order)} ${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
       {headlineElement()}
-      {subhead && <h3 className={`${subheadOrder(order)} ${subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{subhead}</h3>}
-      {body?.children && (
-        <div className={`markdown items-center ${bodyOrder(order)} ${textStyles}`} data-tinafield={`${parentField}.body`}>
-          <TinaMarkdown content={body} />
+      {data?.subhead && <h3 className={`${subheadOrder(order)} ${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+      {data?.body?.children && (
+        <div className={`${bodyOrder(order)} markdown items-center ${styles.textStyles}`} data-tinafield={`${parentField}.body`}>
+          <TinaMarkdown content={data.body} />
         </div>
       )}
-      {buttons && (
+      {data?.buttons && (
         <Buttons
-          buttons={buttons}
+          buttons={data.buttons}
           className={`${buttonAlignment(alignment)} order-4`}
           parentField={`${parentField}.buttons`}
         />

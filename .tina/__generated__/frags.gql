@@ -93,12 +93,9 @@ fragment GlobalParts on Global {
       style {
         __typename
         alignment
-        contentTitle
-        featureContent
         padding
-        imageTitle
         featureImage
-        imagePadding
+        featureContent
         typographyTitle
         labelStyles
         headlineStyles
@@ -486,12 +483,9 @@ fragment PagesParts on Pages {
       style {
         __typename
         alignment
-        contentTitle
-        featureContent
         padding
-        imageTitle
         featureImage
-        imagePadding
+        featureContent
         typographyTitle
         labelStyles
         headlineStyles

@@ -1,72 +1,82 @@
 import * as React from "react";
 import { Section } from "../section";
 import { Content } from "../content";
+import { hasWord, getWordWith } from "../../helpers/utilities";
 
-/* Return the string with any word containing the substring removed */
-const removeSubstring = (value: string, substring: string) => {
-  return value?.split(" ").filter(item => item.indexOf(substring) === -1).join(" ") || ""
+// Content Wrap
+const ContentWrapWidthClasses = (widthClass: string, isVertical: boolean, isContentToEdge: boolean) => {
+  if (isVertical && isContentToEdge) {
+    return `w-full`
+  } else if (isVertical && !isContentToEdge) {
+    return `w-full max-w-site-full`
+  } else if (!isContentToEdge) {
+    return `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
+  } else if (isContentToEdge) {
+    return `${widthClass} ${widthClass.replace("w-","w-edge-")}`
+  }
+  return ''
+}
+const ContentWrapMarginClasses = (isVertical: boolean, isLeftImage: boolean) => {
+  // let marginClasses = ""
+  // if (isVertical) {
+  //   marginClasses = `mx-auto`
+  // } else if (!isContentToEdge) {
+  //   marginClasses = isLeftImage ? `mr-auto` : `ml-auto`
+  // }
+  if (isVertical) {
+    return `mx-auto`
+  } else if (isLeftImage) {
+    return `mr-auto`
+  }
+  return `ml-auto`
+}
+const contentWrapPaddingClasses = (padding: string, alignment: string) => {
+  const flexDirection = getWordWith(alignment, "flex-")
+  const opposingPadding = {
+    'flex-col': 'pt-',
+    'flex-col-reverse': 'pb-',
+    'flex-row': 'pl-',
+    'flex-row-reverse': 'pr-',
+  }
+  const paddingToRemove = getWordWith(padding, opposingPadding[flexDirection])
+
+  const edgePadding = padding.replace(paddingToRemove, '')
+  const gapValue = getWordWith(alignment, "gap-").replace('gap-', '')
+  const gapPadding = `${opposingPadding[flexDirection]}${parseInt(gapValue)/2}` 
+  return `${edgePadding} ${gapPadding}`
+}
+const contentWrapClasses = (style) => {
+  const widthClass: string = getWordWith(style.featureContent, "w-")
+  const isLeftImage: boolean = hasWord(style.alignment, "flex-row")
+  const isVertical: boolean = hasWord(style.alignment, "flex-col flex-col-reverse")
+  const isContentToEdge: boolean  = false
+  const widthClasses = ContentWrapWidthClasses(widthClass, isVertical, isContentToEdge)
+  const marginClasses = ContentWrapMarginClasses(isVertical, isLeftImage)
+  const paddingClasses = contentWrapPaddingClasses(style.padding, style.alignment)
+  return `${style.alignment} sm:w-full ${widthClasses} ${marginClasses} ${paddingClasses}`
 }
 
-const contentWrapClasses = (data) => {
-  const widthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-")) || ""
-  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
-  const leftImage = alignmentClasses.includes('flex-row')
-  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
-  const contentToEdge: boolean  = data.style?.featureContent?.split(" ").find(item => item === "to-edge")
-
-  // Width Classes
-  let widthClasses = ""
-  if (vertical && contentToEdge) {
-    widthClasses = `w-full`
-  } else if (vertical && !contentToEdge) {
-      widthClasses = `w-full max-w-site-full`
-  } else if (!contentToEdge) {
-    widthClasses = `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
-  } else if (contentToEdge) {
-    widthClasses = `${widthClass} ${widthClass.replace("w-","w-edge-")}`
-  }
-
-  // Margin classes
-  let marginClasses = ""
-  if (vertical) {
-    marginClasses = `mx-auto`
-  } else if (!contentToEdge) {
-    marginClasses = leftImage ? `mr-auto` : `ml-auto`
-  }
-
-  // Padding Classes
-  const paddingClasses = data.style?.padding
-
-  return `sm:w-full  ${paddingClasses} ${widthClasses} ${marginClasses}`
-}
-
-const contentWidth = (data) => {
-  const widthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
-  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
-  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
-  const widthClasses = vertical ? `${widthClass} sm:w-full` : "w-full"
+// CONTENT
+const contentWidth = (style) => {
+  const widthClass: string = getWordWith(style.featureContent, "w-")
+  const isVertical: boolean = hasWord(style.alignment, "flex-col flex-col-reverse")
+  const widthClasses = isVertical ? `${widthClass} sm:w-full` : "w-full"
 
   return `${widthClasses}`
 }
-
-const contentMargin = (data) => {
-  const alignmentClasses: string[] = data?.style?.alignment?.split(" ") || []
-  const alignmentClass: string = alignmentClasses.find( item => item.includes("-vertical") )
+const contentMargin = (style) => {
+  const alignmentClass: string = getWordWith(style.alignment, "-vertical")
   const marginToAlignment = {
     "items-start-vertical": "mr-auto",
     "items-center-vertical": "mx-auto",
     "items-end-vertical": "ml-auto",
   }
+  
   return marginToAlignment[alignmentClass] || ""
 }
 
-const imageWrapClasses = (data) => {
-  const alignmentClasses: string[] = data.style?.alignment?.split(" ") || []
-  const contentWidthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
-  const shouldStretch: boolean = data.style?.featureImage?.split(" ").some(item => ["object-cover", "object-contain"].includes(item))
-  const leftImage = alignmentClasses.includes('flex-row')
-  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
-  const imageToEdge: boolean = data.style?.featureImage?.split(" ").find(item => item === "to-edge")
+// Image Wrap
+const imageWrapWidthClasses = (contentWidthClass: string, isVertical: boolean, isImageToEdge: boolean) => {
   const inverseWidths = {
     "w-1/5": "w-4/5",
     "w-1/4": "w-3/4",
@@ -79,92 +89,95 @@ const imageWrapClasses = (data) => {
   }
   const widthClass = inverseWidths[contentWidthClass] || "";
 
-  // Width classes
-  let widthClasses = ""
-  if (vertical && imageToEdge) {
-    widthClasses = `w-full`
-  } else if (vertical && !imageToEdge) {
-    widthClasses = `w-full max-w-site-full`
-  } else if (!imageToEdge) {
-    widthClasses = `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
-  } else if (imageToEdge) {
-    widthClasses = `${widthClass} ${widthClass.replace("w-","w-edge-")}`
+  if (isVertical && isImageToEdge) {
+    return `w-full`
+  } else if (isVertical && !isImageToEdge) {
+    return `w-full max-w-site-full`
+  } else if (!isImageToEdge) {
+    return `${widthClass} ${widthClass.replace("w-","max-w-site-")}`
+  } else if (isImageToEdge) {
+    return `${widthClass} ${widthClass.replace("w-","w-edge-")}`
   }
-  
-  // Margin classes
-  let marginClasses = ""
-  if (vertical) {
-    marginClasses = `mx-auto`
-  } else if (!imageToEdge) {
-    marginClasses = leftImage ? `ml-auto` : `mr-auto`
+  return ''
+}
+const imageWrapMarginClasses = (isLeftImage: boolean, isVertical: boolean, isImageToEdge: boolean) => {
+  if (isVertical) {
+    return `mx-auto`
+  } else if (!isImageToEdge) {
+    return isLeftImage ? `ml-auto` : `mr-auto`
   }
-  
-  const padding = data.style?.imagePadding
-  const stretch = shouldStretch ? "self-stretch" : ""
+  return ''
+}
+const imageWrapPaddingClasses = (padding: string, alignment: string) => {
+  const flexDirection = getWordWith(alignment, "flex-")
+  const opposingPadding = {
+    'flex-col': 'pb-',
+    'flex-col-reverse': 'pt-',
+    'flex-row': 'pr-',
+    'flex-row-reverse': 'pl-',
+  }
+  const paddingToRemove = getWordWith(padding, opposingPadding[flexDirection])
+  const edgePadding = padding.replace(paddingToRemove, '')
+  const gapValue = getWordWith(alignment, "gap-").replace('gap-', '')
+  const gapPadding = `${opposingPadding[flexDirection]}${parseInt(gapValue)/2}` 
+  return `${edgePadding} ${gapPadding}`
+}
+const imageWrapClasses = (style) => {
+  const contentWidthClass: string = getWordWith(style.featureContent, "w-")
+  const isVertical: boolean = hasWord(style.alignment, "flex-col flex-col-reverse")
+  const isLeftImage:boolean = hasWord(style.alignment, "flex-row")
+  const isImageToEdge: boolean = false
+  // const imageToEdge: boolean = data.style?.featureImage?.split(" ").find(item => item === "to-edge")
+  const widthClasses = imageWrapWidthClasses(contentWidthClass, isVertical, isImageToEdge)
+  const marginClasses = imageWrapMarginClasses(isLeftImage, isVertical, isImageToEdge)
+  const paddingClasses = imageWrapPaddingClasses(style.padding, style.alignment)
 
-  return `relative ${padding} ${stretch} ${widthClasses} ${marginClasses}`
+  return `relative h-full ${widthClasses} ${marginClasses} ${paddingClasses}`
 }
 
-const imgClasses = (data) => {
-  const alignmentClasses: string[] = data.style?.alignment?.split(" ") || []
-  const contentWidthClass: string = data.style?.featureContent?.split(" ").find(item => item.includes("w-"))
-  const vertical: boolean = alignmentClasses.some(item => ["flex-col", "flex-col-reverse"].includes(item))
-  const shouldStretch = ["object-cover", "object-contain"].some(item => data.style?.featureImage?.includes(item));
-  const horizontalLayoutWidth = shouldStretch ? "w-full" : "w-auto"
-  const verticalLayoutWidth = shouldStretch ? "w-auto" : `${contentWidthClass}`
-  
-  // Margin
-  const flexAlignClasses: string[] = alignmentClasses.filter( item => item.includes("-vertical") )
-  const flexAlignToMargin = {
-    "items-start-vertical": "mr-auto",
-    "items-center-vertical": "mx-auto",
-    "items-end-vertical": "ml-auto",
-    "sm:items-start-vertical": "sm:mr-auto sm:ml-0",
-    "sm:items-center-vertical": "sm:mx-auto",
-    "sm:items-end-vertical": "sm:ml-auto sm:mr-0",
-  }
-  const margin = flexAlignClasses.map(item => flexAlignToMargin[item]).join(' ')
-  const width = vertical ? verticalLayoutWidth : horizontalLayoutWidth
-  const height = shouldStretch ? "absolute inset-0 h-full" : ""
-  const classes = removeSubstring(data.style.featureImage, "to-edge")
-  return `${margin} ${width} ${height} ${classes}`;
+// IMAGE
+const imgClasses = (style) => {
+  const margin: string = getWordWith(style.featureImage, "m")
+  return `${margin}`;
 };
-
+const imgStyles = (style) => {
+  const imageWidth = getWordWith(style.featureImage, "wpx-")?.replace("wpx-", "")
+  const imageHeight = getWordWith(style.featureImage, "hpx-")?.replace("hpx-", "")
+  return {
+    width: imageWidth ? `${imageWidth}px` : 'auto',
+    height: imageHeight ? `${imageHeight}px` : 'auto'
+  }
+}
 
 export const Feature = ({ data, parentField = "" }) => {
-  const minHeight = data.style?.featureContent?.split(" ").find(item => item.includes("min-h-"))
+  const style = data.style
+  const minHeight = getWordWith(style.featureContent, "min-h-")
+  const textAlign = getWordWith(style.featureContent, "text-")
+  const gapClass = getWordWith(style.alignment, "gap-")
+  const alignmentNoGapClasses = style.alignment.replace(gapClass, '')
+  
   return (
-    <Section
-      background={data.background}
-      navigationLabel={data.navigationLabel}
-    >
-      <div className={`relative flex ${data.style?.alignment} ${minHeight}`}>
-        <div className={imageWrapClasses(data)}>
+    <Section background={data.background} navigationLabel={data.navigationLabel}>
+      <div className={`relative flex ${alignmentNoGapClasses} ${minHeight}`}>
+        <div className={`${imageWrapClasses(style)}`}>
           {data.image?.src && (
             <img
-              className={`${imgClasses(data)}`}
+              className={`${imgClasses(style)}`}
+              style={imgStyles(style)}
               alt={data.image?.alt}
               src={data.image?.src}
               data-tinafield={`${parentField}.image`}
             />
           )}
         </div>
-        <div className={contentWrapClasses(data)}>
+        <div className={`${contentWrapClasses(style)}`}>
           <Content
-            label = {data.label}
-            headline = {data.headline}
-            subhead = {data.subhead}
-            body = {data.body}
-            buttons = {data.buttons}
-            labelStyles = {data.style?.labelStyles}
-            headlineStyles = {data.style?.headlineStyles}
-            subheadStyles = {data.style?.subheadStyles}
-            textStyles = {data.style?.textStyles}
-            alignment = {data.style?.alignment}
-            order = {data.style?.contentOrder}
-            width = {contentWidth(data)}
+            data = {data}
+            styles = {style}
+            alignment = {textAlign}            
+            width = {contentWidth(style)}
             parentField = {parentField}
-            className = {contentMargin(data)}
+            className = {contentMargin(style)}
           />
         </div>
       </div>

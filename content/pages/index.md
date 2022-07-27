@@ -2,13 +2,10 @@
 draft: true
 blocks:
   - style:
-      alignment: >-
-        flex-row-reverse text-left items-center items-center-vertical
-        sm:flex-col sm:text-left sm:items-start sm:items-start-vertical
-      featureContent: 'w-1/2 min-h-0 '
-      padding: pt-40 pb-0 pr-5 pl-20
-      featureImage: 'object-left object-scale-down '
-      imagePadding: pt-40 pb-10 pr-20 pl-5
+      alignment: 'flex-row-reverse items-center items-center-vertical gap-4 '
+      padding: pt-40 pb-20 pr-20 pl-20
+      featureImage: wpx-499 hpx- ml-auto
+      featureContent: w-1/2 min-h-0 text-left
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
       subheadStyles: text-gray font-1 text-xl mb-7 font-bold
@@ -99,7 +96,7 @@ blocks:
     buttons:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
-        type: solid
+        type: secondary
     _template: banner
   - style:
       minHeight: min-h-0

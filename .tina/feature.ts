@@ -57,36 +57,12 @@ export const featureBlockSchema: TinaTemplate = {
           },
         },
         {
-          label: "Content",
-          name: "contentTitle",
-          type: "string",
-          ui: {
-            component: "ruledTitle",
-          },
-        },
-        {
-          label: "",
-          name: "featureContent",
-          type: "string",
-          ui: {
-            component: "featureContentField",
-          }
-        },
-        {
-          label: "Content Padding",
+          label: "Padding",
           name: "padding",
           type: "string",
           ui: {
             component: "paddingControl",
           }
-        },
-        {
-          label: "Image",
-          name: "imageTitle",
-          type: "string",
-          ui: {
-            component: "ruledTitle",
-          },
         },
         {
           label: "",
@@ -97,11 +73,11 @@ export const featureBlockSchema: TinaTemplate = {
           }
         },
         {
-          label: "Image Padding",
-          name: "imagePadding",
+          label: "",
+          name: "featureContent",
           type: "string",
           ui: {
-            component: "paddingControl",
+            component: "featureContentField",
           }
         },
         {

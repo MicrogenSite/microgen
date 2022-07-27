@@ -163,12 +163,9 @@ type GlobalNav {
 
 type GlobalBlocksFeatureStyle {
   alignment: String
-  contentTitle: String
-  featureContent: String
   padding: String
-  imageTitle: String
   featureImage: String
-  imagePadding: String
+  featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
@@ -635,12 +632,9 @@ type GlobalConnection implements Connection {
 
 type PagesBlocksFeatureStyle {
   alignment: String
-  contentTitle: String
-  featureContent: String
   padding: String
-  imageTitle: String
   featureImage: String
-  imagePadding: String
+  featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
@@ -1192,12 +1186,9 @@ input GlobalNavMutation {
 
 input GlobalBlocksFeatureStyleMutation {
   alignment: String
-  contentTitle: String
-  featureContent: String
   padding: String
-  imageTitle: String
   featureImage: String
-  imagePadding: String
+  featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
@@ -1652,12 +1643,9 @@ input GlobalMutation {
 
 input PagesBlocksFeatureStyleMutation {
   alignment: String
-  contentTitle: String
-  featureContent: String
   padding: String
-  imageTitle: String
   featureImage: String
-  imagePadding: String
+  featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String

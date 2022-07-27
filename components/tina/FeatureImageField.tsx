@@ -1,54 +1,50 @@
 import React, { useState, useEffect, useRef } from 'react';
-import SelectMenu from './widgets/SelectMenu';
+import FieldLabel from './widgets/FieldLabel';
+import IconPicker from './widgets/IconPicker';
 import { getStyleMatch } from './widgets/helpers'
+
+const NumberGroup = ({value, label="", className="", onChange}) => {
+  return (
+    <div className={`relative pl-6 ${className}`}>
+      <span className="absolute text-xs text-gray-300 font-bold top-3 left-0.5">{label}</span>
+      <input value={value} onChange={onChange} type="number" step="1" placeholder="auto" className="border border-gray-100 shadow text-gray-500 text-sm p-1 pl-2 h-10 w-full rounded-md hover:border-gray-200 focus:border-blue-500" />
+    </div>
+  );
+};
 
 export default function FeatureImageField({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [toEdge, setToEdge] = useState(input.value?.includes("to-edge"));
 
-  const fitOptions = [
-    { label: "natural", value: "object-scale-down" },
-    { label: "fit", value: "object-contain" },
-    { label: "fill", value: "object-cover" },
-  ];
-  const [fit, setFit] = useState(getStyleMatch(fitOptions, input.value) || "object-scale-down");
-
-  const positionOptions = [
-    { label: "bottom", value: "object-bottom" },
-    { label: "center", value: "object-center" },
-    { label: "left", value: "object-left" },
-    { label: "left Bottom", value: "object-left-bottom" },
-    { label: "left Top", value: "object-left-top" },
-    { label: "right", value: "object-right" },
-    { label: "right Bottom", value: "object-right-bottom" },
-    { label: "right Top", value: "object-right-top" },
-    { label: "top", value: "object-top" },
+  const marginOptions = [
+    { label: "margin-right", value: "mr-auto" },
+    { label: "margin-center", value: "mx-auto" },
+    { label: "margin-left", value: "ml-auto" },
   ]
-  const [position, setPosition] = useState(getStyleMatch(positionOptions, input.value) || "object-center");
+  const [margin, setMargin] = useState(getStyleMatch(marginOptions, input.value) || "object-center");
+
+  const getWidth = () => input.value.split(' ').find(item => item.includes('wpx-'))
+  const [width, setWidth] = useState(getWidth() || "")
+  
+  const getHeight = () => input.value.split(' ').find(item => item.includes('hpx-'))
+  const [height, setHeight] = useState(getHeight() || "")
 
   useEffect(() => {
     // Update Hidden Field
     const input = inputRef.current;
     const lastValue = input.value;
-    const newValue = `${position} ${fit} ${toEdge === true ? "to-edge" : ""}`;
+    const newValue = `${width} ${height} ${margin}`;
     input.value = newValue;
     (input as any)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [position, fit, toEdge, inputRef.current]);
-
-  function handleToEdge() {
-    setToEdge(!toEdge)
-  }
+  }, [width, height, margin, inputRef.current]);
 
   return (
     <div className="mb-4">
-      <div className="flex items-center gap-2">
-        <SelectMenu value={fit} onChange={setFit} options={fitOptions} className="w-1/3 shrink-0" />
-        <SelectMenu value={position} onChange={setPosition} options={positionOptions} className="w-1/3 shrink-0" />
-        <div className="w-1/3">
-          <input className="ml-1 mr-2" type="checkbox" checked={toEdge} onChange={handleToEdge} />
-          <label>to edge</label>
-        </div>
+      <FieldLabel label="Image" />
+      <div className="grid grid-cols-3 gap-2">
+        <NumberGroup value={width.replace('wpx-', '')} label="W"  onChange={event => setWidth(`wpx-${event.target.value}`)}  />
+        <NumberGroup value={height.replace('hpx-', '')} label="H" onChange={event => setHeight(`hpx-${event.target.value}`)} />
+        <IconPicker value={margin} onClick={value => setMargin(value)} options={marginOptions} menuPosition="right" className="flex-none" />
       </div>
       <input ref={inputRef} type="text" {...input}  className="hidden" />
     </div>

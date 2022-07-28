@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import IconMobile from './icons/IconMobile';
 import IconMargin from './icons/IconMargin';
 import IconGap from './icons/IconGap';
+import IconGapVertical from './icons/IconGapVertical';
 import FieldLabel from './widgets/FieldLabel';
 import IconPicker from './widgets/IconPicker';
 import SelectMenu from './widgets/SelectMenu';
@@ -35,19 +36,20 @@ export default function AlignmentControl({ field, input, meta }) {
   
   const gapOptions = [
     { label: "0", value: ""},
-    { label: "1", value: "gap-1"},
-    { label: "4", value: "gap-4"},
-    { label: "6", value: "gap-6"},
-    { label: "8", value: "gap-8"},
-    { label: "12", value: "gap-12"},
-    { label: "20", value: "gap-20"},
-    { label: "24", value: "gap-24"},
-    { label: "28", value: "gap-28"},
-    { label: "32", value: "gap-32"},
-    { label: "40", value: "gap-40"},
-    { label: "48", value: "gap-48"},
+    { label: "4", value: "gap-1"},
+    { label: "8", value: "gap-2"},
+    { label: "16", value: "gap-4"},
+    { label: "24", value: "gap-6"},
+    { label: "32", value: "gap-8"},
+    { label: "48", value: "gap-12"},
+    { label: "80", value: "gap-20"},
+    { label: "96", value: "gap-24"},
+    { label: "112", value: "gap-28"},
+    { label: "128", value: "gap-32"},
+    { label: "160", value: "gap-40"},
+    { label: "192", value: "gap-48"},
   ]
-  const [gap, setGap] = useState(getStyleMatch(gapOptions, input.value) || "gap-4");
+  const [gap, setGap] = useState(getStyleMatch(gapOptions, input.value) || "");
 
   const layoutOptionsMobile = [
     { label: "left image", value: "sm:flex-row"},
@@ -102,7 +104,12 @@ export default function AlignmentControl({ field, input, meta }) {
           <IconPicker value={contentAlignVertical} onClick={value => setContentAlignVertical(value)} options={contentAlignVerticalOptions} menuPosition="right" className="flex-1" />
         )}
         <div className="w-4 pl-2 pt-3">
-          <IconGap className="float-right" />
+          {layout.includes("row") && (
+            <IconGap className="float-right" />
+          )}
+          {layout.includes("col") && (
+            <IconGapVertical className="float-right" />
+          )}
         </div>
         <SelectMenu value={gap} onChange={setGap} options={gapOptions} className="w-12" />
       </div>

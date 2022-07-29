@@ -9,7 +9,8 @@ const navList = (blocks) => {
 }
 
 const linkTarget = (link) => {
-  const isExternalLink = isString(link) && link.charAt(0) !== '#'
+  const protocols = ["http", "https"]
+  const isExternalLink = protocols.some(i => link?.includes(i))
   return isExternalLink ? '_blank' : ''
 }
 

@@ -59,7 +59,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
 
   return (
     <>
-      <div className="flex gap-2">
+      <div className="flex gap-2 mb-2">
         <SelectMenu value={layout} onChange={setLayout} options={layoutOptionsPrefixed} className="w-1/2 shrink-0" />
         {layout.includes("row") && (
           <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptionsPrefixed} menuPosition="right" className="flex-1" />

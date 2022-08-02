@@ -2,8 +2,8 @@
 draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse items-center items-center-vertical gap-4 '
-      padding: pt-40 pb-20 pr-20 pl-20
+      alignment: 'flex-row-reverse items-center items-center-vertical '
+      padding: pt-48 pb-20 pr-20 pl-20
       featureImage: wpx-499 hpx- ml-auto
       featureContent: w-1/2 min-h-0 text-left
       labelStyles: text-white font-2 text-xl mb-0 font-bold

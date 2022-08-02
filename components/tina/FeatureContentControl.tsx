@@ -4,7 +4,7 @@ import IconPicker from './widgets/IconPicker';
 import SelectMenu from './widgets/SelectMenu';
 import { getStyleMatch } from './widgets/helpers'
 
-export default function FeatureContentField({ field, input, meta }) {
+export default function FeatureContentControl({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const widthOptions = [

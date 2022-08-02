@@ -1,8 +1,8 @@
 import AlignmentControl from './components/tina/AlignmentControl'
 import BorderControl from './components/tina/BorderControl'
 import ColorControl from './components/tina/ColorControl'
-import FeatureContentField from './components/tina/FeatureContentField'
-import FeatureImageField from './components/tina/FeatureImageField'
+import FeatureContentControl from './components/tina/FeatureContentControl'
+import FeatureImageControl from './components/tina/FeatureImageControl'
 import FillControl from './components/tina/FillControl'
 import ImageControl from './components/tina/ImageControl'
 import PaddingControl from './components/tina/PaddingControl'
@@ -54,16 +54,16 @@ export const colorControlFieldPlugin = {
   name: 'colorControl',
 }
 
-export const featureContentFieldPlugin = {
-  Component: FeatureContentField,
+export const featureContentControlPlugin = {
+  Component: FeatureContentControl,
   __type: 'field',
-  name: 'featureContentField',
+  name: 'featureContentControl',
 }
 
-export const featureImageFieldPlugin = {
-  Component: FeatureImageField,
+export const featureImageControlPlugin = {
+  Component: FeatureImageControl,
   __type: 'field',
-  name: 'featureImageField',
+  name: 'featureImageControl',
 }
 
 export const fillControlFieldPlugin = {

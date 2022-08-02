@@ -144,11 +144,11 @@ export const tinaConfig = defineConfig({
     import("../plugins").then(({ selectFieldPlugin }) => {
       cms.plugins.add(selectFieldPlugin);
     });
-    import("../plugins").then(({ featureContentFieldPlugin }) => {
-      cms.plugins.add(featureContentFieldPlugin);
+    import("../plugins").then(({ featureContentControlPlugin }) => {
+      cms.plugins.add(featureContentControlPlugin);
     });
-    import("../plugins").then(({ featureImageFieldPlugin }) => {
-      cms.plugins.add(featureImageFieldPlugin);
+    import("../plugins").then(({ featureImageControlPlugin }) => {
+      cms.plugins.add(featureImageControlPlugin);
     });
     import("../plugins").then(({ ruledTitlePlugin }) => {
       cms.plugins.add(ruledTitlePlugin);

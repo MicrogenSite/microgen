@@ -12,7 +12,7 @@ const NumberGroup = ({value, label="", className="", onChange}) => {
   );
 };
 
-export default function FeatureImageField({ field, input, meta }) {
+export default function FeatureImageControl({ field, input, meta }) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const marginOptions = [

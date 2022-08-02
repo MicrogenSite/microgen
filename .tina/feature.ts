@@ -69,7 +69,7 @@ export const featureBlockSchema: TinaTemplate = {
           name: "featureImage",
           type: "string",
           ui: {
-            component: "featureImageField",
+            component: "featureImageControl",
           }
         },
         {
@@ -77,7 +77,7 @@ export const featureBlockSchema: TinaTemplate = {
           name: "featureContent",
           type: "string",
           ui: {
-            component: "featureContentField",
+            component: "featureContentControl",
           }
         },
         {

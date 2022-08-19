@@ -80,6 +80,11 @@ fragment GlobalParts on Global {
       __typename
       label
       link
+      subNavItems {
+        __typename
+        label
+        link
+      }
     }
     navAlignment
     navTypeStyle

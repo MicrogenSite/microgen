@@ -65,13 +65,23 @@
   "nav": {
     "navItems": [
       {
-        "label": "Nav Item",
-        "link": "https://www.google.com"
+        "label": "Sub Nav",
+        "link": "",
+        "subNavItems": [
+          {
+            "label": "Option 1",
+            "link": "/"
+          },
+          {
+            "label": "Option 2",
+            "link": "/"
+          }
+        ]
       }
     ],
     "navAlignment": "text-right",
     "navTypeStyle": "text-white font-1 text-base mb-0 ",
-    "navBackgroundColor": "from-primary to-accent2 bg-gradient-to-br opacity-100",
+    "navBackgroundColor": "bg-primary opacity-100",
     "padding": "pt-10 pb-10 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5"
   },
   "blocks": [

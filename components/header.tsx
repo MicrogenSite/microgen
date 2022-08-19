@@ -33,17 +33,15 @@ const Dropdown = ({item}) => {
         </svg>
       </a>
       {isOpen && (
-        <div className="pt-2">
-          <ul className="absolute right-0 bg-primary">
-            {item.subNavItems.map(function (subItem, index) {
-              return (
-                <li className="block" key={index}>
-                  <a className={"block no-underline whitespace-nowrap px-4 py-1"} href={subItem.link} target={linkTarget(subItem.link)} onClick={() => setIsOpen(!isOpen)}>{subItem.label}</a>
-                </li>
-              )
-            })}
-          </ul>
-        </div>
+        <ul className="absolute top-10 right-0 bg-primary">
+          {item.subNavItems.map(function (subItem, index) {
+            return (
+              <li className="block" key={index}>
+                <a className={"block no-underline whitespace-nowrap px-4 py-1"} href={subItem.link} target={linkTarget(subItem.link)} onClick={() => setIsOpen(!isOpen)}>{subItem.label}</a>
+              </li>
+            )
+          })}
+        </ul>
       )}
     </div>
   );

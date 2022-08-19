@@ -1,17 +1,11 @@
 import React, { useState } from "react";
 import * as ga from '../lib/ga'
-import { isString, lowerDash } from "../helpers/utilities";
+import { linkTarget, lowerDash } from "../helpers/utilities";
 import { Burger } from "./burger"
 
 const navList = (blocks) => {
   const anchorLinks: [] = blocks?.filter(block => block.navigationLabel).map(block => block.navigationLabel);
   return anchorLinks;
-}
-
-const linkTarget = (link) => {
-  const protocols = ["http", "https"]
-  const isExternalLink = protocols.some(i => link?.includes(i))
-  return isExternalLink ? '_blank' : ''
 }
 
 export const Header = ({

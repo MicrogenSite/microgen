@@ -1,0 +1,70 @@
+{
+  "DocumentConnection": {
+    "type": "DocumentConnection",
+    "resolveType": "multiCollectionDocumentList",
+    "collections": [
+      "global",
+      "pages"
+    ]
+  },
+  "Node": {
+    "type": "Node",
+    "resolveType": "nodeDocument"
+  },
+  "DocumentNode": {
+    "type": "DocumentNode",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
+  "GlobalBlocks": {
+    "type": "GlobalBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "feature": "GlobalBlocksFeature",
+      "photoCards": "GlobalBlocksPhotoCards",
+      "textCards": "GlobalBlocksTextCards",
+      "banner": "GlobalBlocksBanner",
+      "embed": "GlobalBlocksEmbed",
+      "tailwindFeature": "GlobalBlocksTailwindFeature",
+      "tailwindCards": "GlobalBlocksTailwindCards"
+    }
+  },
+  "GlobalDocument": {
+    "type": "GlobalDocument",
+    "resolveType": "collectionDocument",
+    "collection": "global",
+    "createGlobalDocument": "create",
+    "updateGlobalDocument": "update"
+  },
+  "GlobalConnection": {
+    "type": "GlobalConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "global"
+  },
+  "PagesBlocks": {
+    "type": "PagesBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "feature": "PagesBlocksFeature",
+      "photoCards": "PagesBlocksPhotoCards",
+      "textCards": "PagesBlocksTextCards",
+      "banner": "PagesBlocksBanner",
+      "embed": "PagesBlocksEmbed",
+      "tailwindFeature": "PagesBlocksTailwindFeature",
+      "tailwindCards": "PagesBlocksTailwindCards"
+    }
+  },
+  "PagesDocument": {
+    "type": "PagesDocument",
+    "resolveType": "collectionDocument",
+    "collection": "pages",
+    "createPagesDocument": "create",
+    "updatePagesDocument": "update"
+  },
+  "PagesConnection": {
+    "type": "PagesConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "pages"
+  }
+}

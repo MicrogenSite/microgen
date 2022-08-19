@@ -54,6 +54,15 @@ export function prefixSelectValues (options: {label: string, value: string}[], p
   return prefixedOptions;
 }
 
+/*
+  linkTarget
+  Accepts a string representing a link and returns '_blank' if the string contains http or https
+*/
+export function linkTarget (link: string) {
+  const isExternalLink = isString(link) && (link.includes("http://") || link.includes("https://"))
+  return isExternalLink ? '_blank' : ''
+}
+
 export const getStyleMatch = function (options: {label: string, value: string}[], styles: string): string {
   const optionValues = options.map(option => option.value);
   const currentStyles = styles?.split(" ") || [];

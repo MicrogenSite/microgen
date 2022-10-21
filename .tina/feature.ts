@@ -35,7 +35,6 @@ export const featureBlockSchema: TinaTemplate = {
         textStyles: "text-black font-1 text-md mb-0",
         contentOrder: "labelHeadingsContent",
         featureImage: "object-center object-scale-down",
-        imagePadding: "pt-20 pb-20 pr-20 pl-10"
       },
     },
   },
@@ -65,7 +64,7 @@ export const featureBlockSchema: TinaTemplate = {
           }
         },
         {
-          label: "",
+          label: "Image",
           name: "featureImage",
           type: "string",
           ui: {

@@ -8084,8 +8084,7 @@
                     "subheadStyles": "text-black font-1 text-3xl mb-0",
                     "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
-                    "featureImage": "object-center object-scale-down",
-                    "imagePadding": "pt-20 pb-20 pr-20 pl-10"
+                    "featureImage": "object-center object-scale-down"
                   }
                 }
               },
@@ -8129,7 +8128,7 @@
                       ]
                     },
                     {
-                      "label": "",
+                      "label": "Image",
                       "name": "featureImage",
                       "type": "string",
                       "ui": {
@@ -13584,8 +13583,7 @@
                     "subheadStyles": "text-black font-1 text-3xl mb-0",
                     "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
-                    "featureImage": "object-center object-scale-down",
-                    "imagePadding": "pt-20 pb-20 pr-20 pl-10"
+                    "featureImage": "object-center object-scale-down"
                   }
                 }
               },
@@ -13629,7 +13627,7 @@
                       ]
                     },
                     {
-                      "label": "",
+                      "label": "Image",
                       "name": "featureImage",
                       "type": "string",
                       "ui": {

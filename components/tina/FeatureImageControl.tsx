@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities';
+import Control from './Control';
 import FieldLabel from './widgets/FieldLabel';
 import IconPicker from './widgets/IconPicker';
-import { getStyleMatch } from './widgets/helpers'
 
 const NumberGroup = ({value, label="", className="", onChange}) => {
   return (
@@ -12,41 +13,42 @@ const NumberGroup = ({value, label="", className="", onChange}) => {
   );
 };
 
-export default function FeatureImageControl({ field, input, meta }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+const margins = [
+  { label: "margin-right", value: "mr-auto" },
+  { label: "margin-center", value: "mx-auto" },
+  { label: "margin-left", value: "ml-auto" },
+]
 
-  const marginOptions = [
-    { label: "margin-right", value: "mr-auto" },
-    { label: "margin-center", value: "mx-auto" },
-    { label: "margin-left", value: "ml-auto" },
-  ]
-  const [margin, setMargin] = useState(getStyleMatch(marginOptions, input.value) || "object-center");
+function buildOptions(options: { label: string, value: string }[] = [], isMobile: boolean = false) {
+  const mobilePrefix = isMobile ? 'sm:' : ''
+  return prefixSelectValues(options, `${mobilePrefix}`)
+}
 
-  const getWidth = () => input.value.split(' ').find(item => item.includes('wpx-'))
+const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false }) => {
+  const mobilePrefix = isMobile ? 'sm:' : ''
+  const marginOptions = buildOptions(margins, isMobile)
+  const [margin, setMargin] = useState(getStyleMatch(marginOptions, inputValue));
+  const getWidth = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}wpx-`))
   const [width, setWidth] = useState(getWidth() || "")
-  
-  const getHeight = () => input.value.split(' ').find(item => item.includes('hpx-'))
+  const getHeight = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}wpx-`))
   const [height, setHeight] = useState(getHeight() || "")
 
   useEffect(() => {
-    // Update Hidden Field
-    const input = inputRef.current;
-    const lastValue = input.value;
-    const newValue = `${width} ${height} ${margin}`;
-    input.value = newValue;
-    (input as any)._valueTracker?.setValue(lastValue);
-    input.dispatchEvent(new Event("input", {bubbles: true}));
-  }, [width, height, margin, inputRef.current]);
+    onUpdate(`${width} ${height} ${margin}`)
+  }, [width, height, margin]);
 
   return (
     <div className="mb-4">
-      <FieldLabel label="Image" />
       <div className="grid grid-cols-3 gap-2">
-        <NumberGroup value={width.replace('wpx-', '')} label="W"  onChange={event => setWidth(`wpx-${event.target.value}`)}  />
-        <NumberGroup value={height.replace('hpx-', '')} label="H" onChange={event => setHeight(`hpx-${event.target.value}`)} />
+        <NumberGroup value={width.replace(`${mobilePrefix}wpx-`, '')} label="W"  onChange={event => setWidth(`${mobilePrefix}wpx-${event.target.value}`)}  />
+        <NumberGroup value={height.replace(`${mobilePrefix}hpx-`, '')} label="H" onChange={event => setHeight(`${mobilePrefix}hpx-${event.target.value}`)} />
         <IconPicker value={margin} onClick={value => setMargin(value)} options={marginOptions} menuPosition="right" className="flex-none" />
       </div>
-      <input ref={inputRef} type="text" {...input}  className="hidden" />
+      <input type="text" value={`${width} ${height} ${margin}`} className="hidden" />
     </div>
   )
+}
+
+export default function FeatureImageControl({ field, input }) {
+  return <Control field={field} input={input} fieldRow={<FieldRow />} />
 }

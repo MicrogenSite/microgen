@@ -481,7 +481,6 @@ fragment GlobalParts on Global {
 }
 
 fragment PagesParts on Pages {
-  draft
   blocks {
     __typename
     ... on PagesBlocksFeature {

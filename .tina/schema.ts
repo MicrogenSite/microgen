@@ -17,12 +17,6 @@ export default defineSchema({
       path: "content/pages",
       fields: [
         {
-          type: "boolean",
-          label: "Draft",
-          description: "Draft posts are only visible on staging.",
-          name: "draft",
-        },
-        {
           type: "object",
           list: true,
           name: "blocks",
@@ -85,11 +79,6 @@ export const tinaConfig = defineConfig({
     return pack.TinaCloudCloudinaryMediaStore;
   },
   cmsCallback: (cms) => {
-    /**
-     * Enables experimental branch switcher
-     */
-    cms.flags.set("branch-switcher", true);
-
     /**
      * When `tina-admin` is enabled, this plugin configures contextual editing for collections
      */

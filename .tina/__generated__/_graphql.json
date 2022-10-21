@@ -12723,21 +12723,6 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "draft"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "Boolean"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
             "value": "blocks"
           },
           "arguments": [],
@@ -23934,20 +23919,6 @@
         "value": "PagesMutation"
       },
       "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "draft"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "Boolean"
-            }
-          }
-        },
         {
           "kind": "InputValueDefinition",
           "name": {

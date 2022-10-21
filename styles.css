@@ -81,6 +81,12 @@ div[data-test="form:getGlobalDocument"] label[for="nav"] {
   display: none;
 }
 
+/* Hide global collection */
+.tina-tailwind a[href="/admin#/collections/global"],
+.tina-tailwind a[href="#/collections/global"] {
+  display: none;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities';
 import Control from './Control';
-import FieldLabel from './widgets/FieldLabel';
 import IconPicker from './widgets/IconPicker';
 
 const NumberGroup = ({value, label="", className="", onChange}) => {

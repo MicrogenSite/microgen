@@ -72,7 +72,7 @@ export const featureBlockSchema: TinaTemplate = {
           }
         },
         {
-          label: "",
+          label: "Content",
           name: "featureContent",
           type: "string",
           ui: {

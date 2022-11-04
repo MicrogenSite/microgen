@@ -8143,7 +8143,7 @@
                       ]
                     },
                     {
-                      "label": "",
+                      "label": "Content",
                       "name": "featureContent",
                       "type": "string",
                       "ui": {
@@ -13632,7 +13632,7 @@
                       ]
                     },
                     {
-                      "label": "",
+                      "label": "Content",
                       "name": "featureContent",
                       "type": "string",
                       "ui": {

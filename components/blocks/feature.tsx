@@ -4,17 +4,12 @@ import { Content } from '../content';
 import { hasWord, getWordWith } from '../../helpers/utilities';
 
 // Content
-const ContentWrapWidthClasses = (widthClass: string, isVertical: boolean, isContentToEdge: boolean) => {
-  if (isVertical && isContentToEdge) {
-    return `w-full`
-  } else if (isVertical && !isContentToEdge) {
+const ContentWrapWidthClasses = (widthClass: string, isVertical: boolean) => {
+  if (isVertical) {
     return `w-full max-w-site-full`
-  } else if (!isContentToEdge) {
+  } else {
     return `${widthClass} ${widthClass.replace('w-','max-w-site-')}`
-  } else if (isContentToEdge) {
-    return `${widthClass} ${widthClass.replace('w-','w-edge-')}`
   }
-  return ''
 }
 const ContentWrapMarginClasses = (isVertical: boolean, isLeftImage: boolean) => {
   if (isVertical) {
@@ -50,10 +45,11 @@ const contentWrapClasses = (style) => {
   const widthClass: string = getWordWith(style.featureContent, 'w-')
   const isLeftImage: boolean = hasWord(style.alignment, 'flex-row')
   const isVertical: boolean = hasWord(style.alignment, 'flex-col flex-col-reverse')
-  const isContentToEdge: boolean  = false
   const marginClasses = ContentWrapMarginClasses(isVertical, isLeftImage)
-  const desktopWidthClasses = ContentWrapWidthClasses(widthClass, isVertical, isContentToEdge)
-  const mobileWidthClasses = ContentWrapWidthClasses(widthClass, isVertical, isContentToEdge)
+
+  const desktopWidthClasses = ContentWrapWidthClasses(widthClass, isVertical)
+  const mobileWidthClasses = ContentWrapWidthClasses(widthClass, isVertical)
+
   const desktopPaddingClasses = contentWrapPaddingClasses(style.padding, style.alignment, false)
   const mobilePaddingClasses = contentWrapPaddingClasses(style.padding, style.alignment, true)
   return `${style.alignment} sm:w-full ${desktopWidthClasses} ${marginClasses} ${desktopPaddingClasses} ${mobileWidthClasses} ${mobilePaddingClasses}`
@@ -74,8 +70,8 @@ const contentMargin = (style) => {
   return marginToAlignment[alignmentClass] || ''
 }
 
-// Image
-const imageWrapWidthClasses = (contentWidthClass: string, isVertical: boolean, isImageToEdge: boolean, isMobile: boolean) => {
+// Image Wrap
+const imageWrapWidthClasses = (contentWidthClass: string, isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
   const inverseWidths = {
     'w-1/5': 'w-4/5',
@@ -88,25 +84,19 @@ const imageWrapWidthClasses = (contentWidthClass: string, isVertical: boolean, i
     'w-full': 'w-0',
   }
   const widthClass = inverseWidths[isMobile ? contentWidthClass.replace('sm:', '') : contentWidthClass] || ''
-
-  if (isVertical && isImageToEdge) {
-    return `${mobilePrefix}w-full`
-  } else if (isVertical && !isImageToEdge) {
+  // TODO: Should vertical actually be full width? 
+  if (isVertical) {
     return `${mobilePrefix}w-full ${mobilePrefix}max-w-site-full`
-  } else if (!isImageToEdge) {
+  } else {
     return `${mobilePrefix}${widthClass} ${mobilePrefix}${widthClass.replace('w-','max-w-site-')}`
-  } else if (isImageToEdge) {
-    return `${mobilePrefix}${widthClass} ${mobilePrefix}${widthClass.replace('w-','w-edge-')}`
   }
-  return ''
 }
-const imageWrapMarginClasses = (isLeftImage: boolean, isVertical: boolean, isImageToEdge: boolean) => {
+const imageWrapMarginClasses = (isLeftImage: boolean, isVertical: boolean) => {
   if (isVertical) {
     return `mx-auto`
-  } else if (!isImageToEdge) {
+  } else {
     return isLeftImage ? `ml-auto` : `mr-auto`
   }
-  return ''
 }
 const imageWrapPaddingClasses = (padding: string, alignment: string, isMobile:boolean = false) => {
   const mobilePrefix:string = isMobile ? 'sm:' : ''
@@ -133,27 +123,29 @@ const imageWrapPaddingClasses = (padding: string, alignment: string, isMobile:bo
 const imageWrapClasses = (style) => {
   const contentWidthClass:string = getWordWith(style.featureContent, 'w-')
   const mobileContentWidthClass:string = getWordWith(style.featureContent, 'sm:w-')
-  
+
   const isVertical:boolean = hasWord(style.alignment, 'flex-col flex-col-reverse')
   const isVerticalMobile:boolean = hasWord(style.alignment, 'sm:flex-col sm:flex-col-reverse')
 
   const isLeftImage:boolean = hasWord(style.alignment, 'flex-row')
-  const isImageToEdge: boolean = false
-  const isImageToEdgeMobile: boolean = false
 
-  const widthClasses = imageWrapWidthClasses(contentWidthClass, isVertical, isImageToEdge, false)
-  const mobileWidthClasses = imageWrapWidthClasses(mobileContentWidthClass, isVerticalMobile, isImageToEdgeMobile, true)
+  const widthClasses = imageWrapWidthClasses(contentWidthClass, isVertical, false)
+  const mobileWidthClasses = imageWrapWidthClasses(mobileContentWidthClass, isVerticalMobile, true)
 
-  const marginClasses = imageWrapMarginClasses(isLeftImage, isVertical, isImageToEdge)
+  const marginClasses = imageWrapMarginClasses(isLeftImage, isVertical)
+  
   const desktopPaddingClasses = imageWrapPaddingClasses(style.padding, style.alignment, false)
   const mobilePaddingClasses = imageWrapPaddingClasses(style.padding, style.alignment, true)
   return `relative h-full ${widthClasses} ${marginClasses} ${desktopPaddingClasses} ${mobileWidthClasses} ${mobilePaddingClasses}`
 }
+
+
+// Image
 const imgClasses = (style, isMobile:boolean) => {
-  const classes = style.featureImage.split(' ').filter(item => !item.includes('px'))
-  const mobile = classes.filter(item => item.includes('sm')).join(' ')
-  const desktop = classes.filter(item => !item.includes('sm')).join(' ')
-  return isMobile ? mobile : desktop
+  const marginClasses = style.featureImage.split(' ').filter(item => !item.includes('px'))
+  const mobileMarginClass = marginClasses.filter(item => item.includes('sm')).join(' ')
+  const desktopmarginClass = marginClasses.filter(item => !item.includes('sm')).join(' ')
+  return isMobile ? mobileMarginClass : desktopmarginClass
 };
 const imgStyles = (style, isMobile:boolean) => {
   const classes: [string] = style.featureImage.split(' ')
@@ -172,6 +164,7 @@ const imgStyles = (style, isMobile:boolean) => {
   }
 }
 
+
 export const Feature = ({ data, parentField = '' }) => {
   const style = data.style
   const minHeight = getWordWith(style.featureContent, 'min-h-')
@@ -184,7 +177,8 @@ export const Feature = ({ data, parentField = '' }) => {
   return (
     <Section background={data.background} navigationLabel={data.navigationLabel}>
         <div className={`relative flex ${alignmentNoGapClasses} ${minHeight}`}>
-          <div className={`${imageWrapClasses(style)}`}>
+          
+          <div className={`image-wrap ${imageWrapClasses(style)}`}>
             {data.image?.src && (
               <>
                 <img
@@ -204,6 +198,7 @@ export const Feature = ({ data, parentField = '' }) => {
               </>
             )}
           </div>
+
           <div className={`${contentWrapClasses(style)}`}>
             <Content
               data = {data}

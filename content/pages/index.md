@@ -1,14 +1,18 @@
 ---
 blocks:
   - style:
-      alignment: 'flex-row-reverse items-center '
-      padding: pt-48 pb-0 pr-20 pl-20
-      featureImage: wpx-499 wpx-499 ml-auto
-      featureContent: w-1/2 min-h-0 text-left
+      alignment: 'flex-row-reverse items-center gap-6 sm:flex-col sm:items-start sm:gap-8'
+      padding: 'pt-48 pb-0 pr-20 pl-20 sm:pt-10 sm:pb-10 sm:pr-5 sm:pl-5'
+      featureImage: 'wpx-499 wpx-499 ml-auto sm:wpx-300 sm:wpx-300 sm:mr-auto'
+      featureContent: 'w-1/2 min-h-0 text-left sm:w-full sm:min-h-0 sm:text-left'
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
-      subheadStyles: text-gray font-1 text-xl mb-7 font-bold
-      textStyles: 'text-white font-1 text-lg mb-11 '
+      subheadStyles: >-
+        text-gray font-1 text-xl mb-7 font-bold sm:text-gray sm:font-1
+        sm:text-xl sm:mb-4 sm:font-bold
+      textStyles: >-
+        text-white font-1 text-lg mb-11  sm:text-white sm:font-1 sm:text-lg
+        sm:mb-7 
       contentOrder: labelHeadingsContent
     background:
       fillStyles: from-accent1 to-black bg-gradient-to-br
@@ -29,7 +33,7 @@ blocks:
   - style:
       textAlignment: text-left
       minHeight: min-h-0
-      padding: pt-20 pb-20 pr-20 pl-20
+      padding: 'pt-20 pb-20 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5'
       contentWidth: w-full
       columns: '2'
       labelStyles: text-black font-1 text-xl mb-0 font-bold
@@ -109,7 +113,7 @@ blocks:
   - style:
       textAlignment: text-left
       minHeight: min-h-0
-      padding: pt-14 pb-20 pr-20 pl-20
+      padding: 'pt-14 pb-20 pr-20 pl-20 sm:pt-10 sm:pb-5 sm:pr-5 sm:pl-5'
       contentWidth: w-full
       columns: '2'
       labelStyles: text-black undefined text-xl mb-0 font-bold

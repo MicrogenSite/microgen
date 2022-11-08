@@ -3,144 +3,17 @@ import { Section } from '../section';
 import { Content } from '../content';
 import { hasWord, getWordWith } from '../../helpers/utilities';
 
-// Content
-const ContentWrapWidthClasses = (widthClass: string, isVertical: boolean) => {
-  if (isVertical) {
-    return `w-full max-w-site-full`
-  } else {
-    return `${widthClass} ${widthClass.replace('w-','max-w-site-')}`
-  }
-}
-const ContentWrapMarginClasses = (isVertical: boolean, isLeftImage: boolean) => {
-  if (isVertical) {
-    return `mx-auto`
-  } else if (isLeftImage) {
-    return `mr-auto`
-  }
-  return `ml-auto`
-}
-const contentWrapPaddingClasses = (padding: string, alignment: string, isMobile: boolean = false) => {
-  const mobilePrefix:string = isMobile ? 'sm:' : ''
-  const desktopPadding:string = padding.split(' ').filter(item => !item.includes('sm:')).join(' ')
-  const mobilePadding:string = padding.split(' ').filter(item => item.includes('sm:')).join(' ')
-  const filteredPadding = isMobile ? mobilePadding : desktopPadding
-  const flexDirection = getWordWith(alignment, `${mobilePrefix}flex-`)
-  const opposingPadding = {
-    'flex-col': `pt-`,
-    'flex-col-reverse': `pb-`,
-    'flex-row': `pl-`,
-    'flex-row-reverse': `pr-`,
-    'sm:flex-col': `sm:pt-`,
-    'sm:flex-col-reverse': `sm:pb-`,
-    'sm:flex-row': `sm:pl-`,
-    'sm:flex-row-reverse': `sm:pr-`,
-  }
-  const paddingToRemove = getWordWith(filteredPadding, opposingPadding[flexDirection])
-  const edgePadding = filteredPadding.replace(paddingToRemove, '')
-  const gapValue = getWordWith(alignment, `${mobilePrefix}gap-`).replace(`${mobilePrefix}gap-`, '') || '0'
-  const gapPadding = `${opposingPadding[flexDirection]}${parseInt(gapValue)/2}` 
-  return `${edgePadding} ${mobilePrefix}gap-- ${gapPadding}`
-}
-const contentWrapClasses = (style) => {
-  const widthClass: string = getWordWith(style.featureContent, 'w-')
-  const isLeftImage: boolean = hasWord(style.alignment, 'flex-row')
-  const isVertical: boolean = hasWord(style.alignment, 'flex-col flex-col-reverse')
-  const marginClasses = ContentWrapMarginClasses(isVertical, isLeftImage)
-
-  const desktopWidthClasses = ContentWrapWidthClasses(widthClass, isVertical)
-  const mobileWidthClasses = ContentWrapWidthClasses(widthClass, isVertical)
-
-  const desktopPaddingClasses = contentWrapPaddingClasses(style.padding, style.alignment, false)
-  const mobilePaddingClasses = contentWrapPaddingClasses(style.padding, style.alignment, true)
-  return `${style.alignment} sm:w-full ${desktopWidthClasses} ${marginClasses} ${desktopPaddingClasses} ${mobileWidthClasses} ${mobilePaddingClasses}`
-}
-const contentWidth = (style) => {
-  const widthClass: string = getWordWith(style.featureContent, 'w-')
-  const isVertical: boolean = hasWord(style.alignment, 'flex-col flex-col-reverse')
-  const widthClasses = isVertical ? `${widthClass} sm:w-full` : 'w-full'
-  return `${widthClasses}`
-}
-const contentMargin = (style) => {
-  const alignmentClass: string = getWordWith(style.alignment, '-vertical')
-  const marginToAlignment = {
-    'items-start-vertical': 'mr-auto',
-    'items-center-vertical': 'mx-auto',
-    'items-end-vertical': 'ml-auto',
-  }
-  return marginToAlignment[alignmentClass] || ''
-}
-
-// Image Wrap
-const imageWrapWidthClasses = (contentWidthClass: string, isVertical: boolean, isMobile: boolean) => {
+const imageWrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
-  const inverseWidths = {
-    'w-1/5': 'w-4/5',
-    'w-1/4': 'w-3/4',
-    'w-1/3': 'w-2/3',
-    'w-1/2': 'w-1/2',
-    'w-2/3': 'w-1/3',
-    'w-3/4': 'w-1/4',
-    'w-4/5': 'w-1/5',
-    'w-full': 'w-0',
-  }
-  const widthClass = inverseWidths[isMobile ? contentWidthClass.replace('sm:', '') : contentWidthClass] || ''
-  // TODO: Should vertical actually be full width? 
-  if (isVertical) {
-    return `${mobilePrefix}w-full ${mobilePrefix}max-w-site-full`
-  } else {
-    return `${mobilePrefix}${widthClass} ${mobilePrefix}${widthClass.replace('w-','max-w-site-')}`
-  }
-}
-const imageWrapMarginClasses = (isLeftImage: boolean, isVertical: boolean) => {
-  if (isVertical) {
-    return `mx-auto`
-  } else {
-    return isLeftImage ? `ml-auto` : `mr-auto`
-  }
-}
-const imageWrapPaddingClasses = (padding: string, alignment: string, isMobile:boolean = false) => {
-  const mobilePrefix:string = isMobile ? 'sm:' : ''
-  const desktopPadding:string = padding.split(' ').filter(item => !item.includes('sm:')).join(' ')
-  const mobilePadding:string = padding.split(' ').filter(item => item.includes('sm:')).join(' ')
-  const filteredPadding = isMobile ? mobilePadding : desktopPadding
-  const flexDirection = getWordWith(alignment, `${mobilePrefix}flex-`)
-  const opposingPadding = {
-    'flex-col': `pb-`,
-    'flex-col-reverse': `pt-`,
-    'flex-row': `pr-`,
-    'flex-row-reverse': `pl-`,
-    'sm:flex-col': `sm:pb-`,
-    'sm:flex-col-reverse': `sm:pt-`,
-    'sm:flex-row': `sm:pr-`,
-    'sm:flex-row-reverse': `sm:pl-`,
-  }
-  const paddingToRemove = getWordWith(filteredPadding, opposingPadding[flexDirection])
-  const edgePadding = filteredPadding.replace(paddingToRemove, '')
-  const gapValue = getWordWith(alignment, `${mobilePrefix}gap-`).replace(`${mobilePrefix}gap-`, '') || '0'
-  const gapPadding = `${opposingPadding[flexDirection]}${parseInt(gapValue)/2}` 
-  return `${edgePadding} ${gapPadding}`
+  return isVertical ? `${mobilePrefix}w-full ${mobilePrefix}max-w-site-full` : ''
 }
 const imageWrapClasses = (style) => {
-  const contentWidthClass:string = getWordWith(style.featureContent, 'w-')
-  const mobileContentWidthClass:string = getWordWith(style.featureContent, 'sm:w-')
-
   const isVertical:boolean = hasWord(style.alignment, 'flex-col flex-col-reverse')
   const isVerticalMobile:boolean = hasWord(style.alignment, 'sm:flex-col sm:flex-col-reverse')
-
-  const isLeftImage:boolean = hasWord(style.alignment, 'flex-row')
-
-  const widthClasses = imageWrapWidthClasses(contentWidthClass, isVertical, false)
-  const mobileWidthClasses = imageWrapWidthClasses(mobileContentWidthClass, isVerticalMobile, true)
-
-  const marginClasses = imageWrapMarginClasses(isLeftImage, isVertical)
-  
-  const desktopPaddingClasses = imageWrapPaddingClasses(style.padding, style.alignment, false)
-  const mobilePaddingClasses = imageWrapPaddingClasses(style.padding, style.alignment, true)
-  return `relative h-full ${widthClasses} ${marginClasses} ${desktopPaddingClasses} ${mobileWidthClasses} ${mobilePaddingClasses}`
+  const widthClasses = imageWrapWidthClasses(isVertical, false)
+  const mobileWidthClasses = imageWrapWidthClasses(isVerticalMobile, true)
+  return `relative h-full flex-1 ${widthClasses} ${mobileWidthClasses}`
 }
-
-
-// Image
 const imgClasses = (style, isMobile:boolean) => {
   const marginClasses = style.featureImage.split(' ').filter(item => !item.includes('px'))
   const mobileMarginClass = marginClasses.filter(item => item.includes('sm')).join(' ')
@@ -167,18 +40,12 @@ const imgStyles = (style, isMobile:boolean) => {
 
 export const Feature = ({ data, parentField = '' }) => {
   const style = data.style
-  const minHeight = getWordWith(style.featureContent, 'min-h-')
+  const textAlignMobile = getWordWith(style.featureContent, 'sm:text-')
   const textAlign = getWordWith(style.featureContent, 'text-')
-  const gapClass = getWordWith(style.alignment, 'gap-') || ''
-  const mobileGapClass = getWordWith(style.alignment, 'sm:gap-') || ''
-  const alignmentNoGapClasses = style.alignment.replace(gapClass, '').replace(mobileGapClass, '')
-  console.log(alignmentNoGapClasses)
-
   return (
     <Section background={data.background} navigationLabel={data.navigationLabel}>
-        <div className={`relative flex ${alignmentNoGapClasses} ${minHeight}`}>
-          
-          <div className={`image-wrap ${imageWrapClasses(style)}`}>
+        <div className={`relative flex w-full max-w-site-full mx-auto ${style.padding} ${style.alignment}`}>
+          <div className={`${imageWrapClasses(style)}`}>
             {data.image?.src && (
               <>
                 <img
@@ -198,15 +65,14 @@ export const Feature = ({ data, parentField = '' }) => {
               </>
             )}
           </div>
-
-          <div className={`${contentWrapClasses(style)}`}>
+          <div className={`flex-none ${style.featureContent}`}>
             <Content
               data = {data}
               styles = {style}
-              alignment = {textAlign}            
-              width = {contentWidth(style)}
+              alignment = {`${textAlign} ${textAlignMobile}`}            
+              width = "w-full"
               parentField = {parentField}
-              className = {contentMargin(style)}
+              className = ""
             />
         </div>
       </div>

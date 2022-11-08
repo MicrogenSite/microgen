@@ -1,9 +1,9 @@
 ---
 blocks:
   - style:
-      alignment: 'flex-row-reverse items-center items-center-vertical '
-      padding: pt-48 pb-20 pr-20 pl-20
-      featureImage: wpx-499 hpx- ml-auto
+      alignment: 'flex-row-reverse items-center '
+      padding: pt-48 pb-0 pr-20 pl-20
+      featureImage: wpx-499 wpx-499 ml-auto
       featureContent: w-1/2 min-h-0 text-left
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold

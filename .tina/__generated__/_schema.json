@@ -13543,6 +13543,9 @@
           "list": true,
           "name": "blocks",
           "label": "Sections",
+          "ui": {
+            "component": "sectionListItems"
+          },
           "templates": [
             {
               "name": "feature",

@@ -1,7 +1,7 @@
 {
   "name": "@filecoin-project/microgen",
   "author": "Tom Benbow",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "private": true,
   "scripts": {
     "dev": "yarn tinacms server:start -c \"next dev\"",

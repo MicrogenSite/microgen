@@ -18,9 +18,9 @@ const contentAlignOptions = [
   { label: "items-end", value: "items-end"},
 ]
 const contentAlignVerticalOptions = [
-  { label: "items-start-vertical", value: "items-start-vertical"},
-  { label: "items-center-vertical", value: "items-center-vertical"},
-  { label: "items-end-vertical", value: "items-end-vertical"},
+  { label: "items-start-vertical", value: "items-start"},
+  { label: "items-center-vertical", value: "items-center"},
+  { label: "items-end-vertical", value: "items-end"},
 ]
 const gapOptions = [
   { label: "0", value: ""},
@@ -50,12 +50,11 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   const gapOptionsPrefixed = buildOptions(gapOptions, isMobile)
   const [layout, setLayout] = useState(getStyleMatch(layoutOptionsPrefixed, inputValue) || "flex-row");
   const [contentAlign, setContentAlign] = useState(getStyleMatch(contentAlignOptionsPrefixed, inputValue) || "items-start");
-  const [contentAlignVertical, setContentAlignVertical] = useState(getStyleMatch(contentAlignVerticalOptionsPrefixed, inputValue) || "items-start-vertical");
   const [gap, setGap] = useState(getStyleMatch(gapOptionsPrefixed, inputValue) || "");
 
   useEffect(() => {
-    onUpdate(`${layout} ${contentAlign} ${contentAlignVertical} ${gap}`)
-  }, [layout, contentAlign, contentAlignVertical, gap]);
+    onUpdate(`${layout} ${contentAlign} ${gap}`)
+  }, [layout, contentAlign, gap]);
 
   return (
     <>
@@ -65,7 +64,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
           <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptionsPrefixed} menuPosition="right" className="flex-1" />
         )}
         {layout.includes("col") && (
-          <IconPicker value={contentAlignVertical} onClick={value => setContentAlignVertical(value)} options={contentAlignVerticalOptionsPrefixed} menuPosition="right" className="flex-1" />
+          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignVerticalOptionsPrefixed} menuPosition="right" className="flex-1" />
         )}
         <div className="w-4 pl-2 pt-3">
           {layout.includes("row") && (
@@ -77,7 +76,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         </div>
         <SelectMenu value={gap} onChange={setGap} options={gapOptionsPrefixed} className="w-12" />
       </div>
-      <input type="text" value={`${layout} ${contentAlign} ${contentAlignVertical} ${gap}`} className="hidden" />
+      <input type="text" value={`${layout} ${contentAlign} ${gap}`} className="hidden" />
     </>
   )
 }

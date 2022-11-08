@@ -1,5 +1,6 @@
 {
   "name": "@filecoin-project/microgen",
+  "author": "Tom Benbow",
   "version": "0.3.4",
   "private": true,
   "scripts": {

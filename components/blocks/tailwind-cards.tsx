@@ -1,14 +1,7 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Buttons } from "../buttons";
-import { isString } from "../../helpers/utilities";
+import { linkTarget } from "../../helpers/utilities";
 import { Section } from "../section";
-
-const linkTarget = (link) => {
-  const isExternalLink = isString(link) && link.charAt(0) !== '#'
-  return isExternalLink ? '_blank' : ''
-}
-
 
 const Card = ({ data, index, tw, parentField = ""  }) => {
   return (

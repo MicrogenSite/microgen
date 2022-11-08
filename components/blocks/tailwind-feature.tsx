@@ -1,12 +1,7 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { isString } from "../../helpers/utilities";
+import { linkTarget } from "../../helpers/utilities";
 import { Section } from "../section";
-
-const linkTarget = (link) => {
-  const isExternalLink = isString(link) && link.charAt(0) !== '#'
-  return isExternalLink ? '_blank' : ''
-}
 
 export const TailwindFeature = ({ data, parentField = ""  }) => {
   const tw = data.tailwind || {};

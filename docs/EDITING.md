@@ -221,7 +221,6 @@ Links to external pages can be added from the navigation menu.
 
 ## Future Topics
 
-- Draft Pages
 - Multiple Pages
 - Redirects
 - Creating Custom Sections

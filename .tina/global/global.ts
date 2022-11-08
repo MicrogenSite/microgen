@@ -40,6 +40,15 @@ export const globalSchema: TinaCollection = {
       name: "desktopWidth",
     },
     {
+      type: "string",
+      label: "Background Color",
+      name: "backgroundColor",
+      ui: {
+        component: "colorControl",
+      },
+      options: colorOptions,
+    },
+    {
       label: "",
       name: "rule",
       type: "string",

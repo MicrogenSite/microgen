@@ -2084,6 +2084,47 @@
       "directives": [],
       "name": {
         "kind": "Name",
+        "value": "GlobalNavNavItemsSubNavItems"
+      },
+      "fields": [
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "label"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "link"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "ObjectTypeDefinition",
+      "interfaces": [],
+      "directives": [],
+      "name": {
+        "kind": "Name",
         "value": "GlobalNavNavItems"
       },
       "fields": [
@@ -2114,6 +2155,24 @@
             "name": {
               "kind": "Name",
               "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "subNavItems"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "GlobalNavNavItemsSubNavItems"
+              }
             }
           }
         }
@@ -2236,52 +2295,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "contentTitle"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "featureContent"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
             "value": "padding"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "imageTitle"
           },
           "arguments": [],
           "type": {
@@ -2311,7 +2325,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "imagePadding"
+            "value": "featureContent"
           },
           "arguments": [],
           "type": {
@@ -3084,7 +3098,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "type"
+            "value": "borderStyles"
           },
           "arguments": [],
           "type": {
@@ -3977,21 +3991,6 @@
           "name": {
             "kind": "Name",
             "value": "padding"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "type"
           },
           "arguments": [],
           "type": {
@@ -7304,6 +7303,21 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
+            "value": "backgroundColor"
+          },
+          "arguments": [],
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "FieldDefinition",
+          "name": {
+            "kind": "Name",
             "value": "rule"
           },
           "arguments": [],
@@ -7746,52 +7760,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "contentTitle"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "featureContent"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
             "value": "padding"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "imageTitle"
           },
           "arguments": [],
           "type": {
@@ -7821,7 +7790,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "imagePadding"
+            "value": "featureContent"
           },
           "arguments": [],
           "type": {
@@ -8594,7 +8563,7 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "type"
+            "value": "borderStyles"
           },
           "arguments": [],
           "type": {
@@ -9487,21 +9456,6 @@
           "name": {
             "kind": "Name",
             "value": "padding"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "type"
           },
           "arguments": [],
           "type": {
@@ -12769,21 +12723,6 @@
           "kind": "FieldDefinition",
           "name": {
             "kind": "Name",
-            "value": "draft"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "Boolean"
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
             "value": "blocks"
           },
           "arguments": [],
@@ -14293,6 +14232,43 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
+        "value": "GlobalNavNavItemsSubNavItemsMutation"
+      },
+      "fields": [
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "label"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "link"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "InputObjectTypeDefinition",
+      "name": {
+        "kind": "Name",
         "value": "GlobalNavNavItemsMutation"
       },
       "fields": [
@@ -14321,6 +14297,23 @@
             "name": {
               "kind": "Name",
               "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
+            "value": "subNavItems"
+          },
+          "type": {
+            "kind": "ListType",
+            "type": {
+              "kind": "NamedType",
+              "name": {
+                "kind": "Name",
+                "value": "GlobalNavNavItemsSubNavItemsMutation"
+              }
             }
           }
         }
@@ -14433,49 +14426,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "contentTitle"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "featureContent"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
             "value": "padding"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "imageTitle"
           },
           "type": {
             "kind": "NamedType",
@@ -14503,7 +14454,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "imagePadding"
+            "value": "featureContent"
           },
           "type": {
             "kind": "NamedType",
@@ -15216,7 +15167,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "type"
+            "value": "borderStyles"
           },
           "type": {
             "kind": "NamedType",
@@ -16040,20 +15991,6 @@
           "name": {
             "kind": "Name",
             "value": "padding"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "type"
           },
           "type": {
             "kind": "NamedType",
@@ -19160,6 +19097,20 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
+            "value": "backgroundColor"
+          },
+          "type": {
+            "kind": "NamedType",
+            "name": {
+              "kind": "Name",
+              "value": "String"
+            }
+          }
+        },
+        {
+          "kind": "InputValueDefinition",
+          "name": {
+            "kind": "Name",
             "value": "rule"
           },
           "type": {
@@ -19343,49 +19294,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "contentTitle"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "featureContent"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
             "value": "padding"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "imageTitle"
           },
           "type": {
             "kind": "NamedType",
@@ -19413,7 +19322,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "imagePadding"
+            "value": "featureContent"
           },
           "type": {
             "kind": "NamedType",
@@ -20126,7 +20035,7 @@
           "kind": "InputValueDefinition",
           "name": {
             "kind": "Name",
-            "value": "type"
+            "value": "borderStyles"
           },
           "type": {
             "kind": "NamedType",
@@ -20950,20 +20859,6 @@
           "name": {
             "kind": "Name",
             "value": "padding"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "type"
           },
           "type": {
             "kind": "NamedType",
@@ -24024,20 +23919,6 @@
         "value": "PagesMutation"
       },
       "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "draft"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "Boolean"
-            }
-          }
-        },
         {
           "kind": "InputValueDefinition",
           "name": {

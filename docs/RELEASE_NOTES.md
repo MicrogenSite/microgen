@@ -1,6 +1,25 @@
 
 # Release Notes
 
+**Version 0.3.5**  | Released 11/8/22
+
+Features
+- Label page sections
+- Feature section mobile styles
+- Sub nav
+- New field control pattern to simplify mobile styles
+- Photo cards border
+- Background transparency
+- First section always has an h1
+- Google analytics updates
+- Global background color for page
+
+Fixes
+- Color picker fix
+- Remove draft page concept
+- Desktop nav shift fix
+- Global menu no longer blocks page clicks
+
 **Version 0.3.4**  | Released 6/9/22
 
 Fixes

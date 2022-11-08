@@ -35,7 +35,6 @@ export const featureBlockSchema: TinaTemplate = {
         textStyles: "text-black font-1 text-md mb-0",
         contentOrder: "labelHeadingsContent",
         featureImage: "object-center object-scale-down",
-        imagePadding: "pt-20 pb-20 pr-20 pl-10"
       },
     },
   },
@@ -57,23 +56,7 @@ export const featureBlockSchema: TinaTemplate = {
           },
         },
         {
-          label: "Content",
-          name: "contentTitle",
-          type: "string",
-          ui: {
-            component: "ruledTitle",
-          },
-        },
-        {
-          label: "",
-          name: "featureContent",
-          type: "string",
-          ui: {
-            component: "featureContentField",
-          }
-        },
-        {
-          label: "Content Padding",
+          label: "Padding",
           name: "padding",
           type: "string",
           ui: {
@@ -82,26 +65,18 @@ export const featureBlockSchema: TinaTemplate = {
         },
         {
           label: "Image",
-          name: "imageTitle",
-          type: "string",
-          ui: {
-            component: "ruledTitle",
-          },
-        },
-        {
-          label: "",
           name: "featureImage",
           type: "string",
           ui: {
-            component: "featureImageField",
+            component: "featureImageControl",
           }
         },
         {
-          label: "Image Padding",
-          name: "imagePadding",
+          label: "Content",
+          name: "featureContent",
           type: "string",
           ui: {
-            component: "paddingControl",
+            component: "featureContentControl",
           }
         },
         {

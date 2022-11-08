@@ -18,19 +18,11 @@ export const Banner = ({ data, parentField = "" }) => {
             />
           )}
           <Content
-            label = {data.label}
-            headline = {data.headline}
-            subhead = {data.subhead}
-            body = {data.body}
-            buttons = {data.buttons}
-            labelStyles = {data.style?.labelStyles}
-            headlineStyles = {data.style?.headlineStyles}
-            subheadStyles = {data.style?.subheadStyles}
-            textStyles = {data.style?.textStyles}
-            alignment = {data.style?.textAlignment}
-            order = {data.style?.contentOrder}
+            data = {data}
+            styles = {data.style}
+            alignment = {data.style?.textAlignment}            
             width = {data.style?.contentWidth}
-            parentField={parentField}
+            parentField = {parentField}
           />
         </div>
       </div>

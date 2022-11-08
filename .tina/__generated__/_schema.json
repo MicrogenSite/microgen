@@ -53,6 +53,60 @@
           ]
         },
         {
+          "type": "string",
+          "label": "Background Color",
+          "name": "backgroundColor",
+          "ui": {
+            "component": "colorControl"
+          },
+          "options": [
+            {
+              "label": "Primary",
+              "value": "primary"
+            },
+            {
+              "label": "Accent 1",
+              "value": "accent1"
+            },
+            {
+              "label": "Accent 2",
+              "value": "accent2"
+            },
+            {
+              "label": "Accent 3",
+              "value": "accent3"
+            },
+            {
+              "label": "Accent 4",
+              "value": "accent4"
+            },
+            {
+              "label": "White",
+              "value": "white"
+            },
+            {
+              "label": "Gray Light",
+              "value": "grayLight"
+            },
+            {
+              "label": "Gray",
+              "value": "gray"
+            },
+            {
+              "label": "Gray Dark",
+              "value": "grayDark"
+            },
+            {
+              "label": "Black",
+              "value": "black"
+            }
+          ],
+          "namespace": [
+            "global",
+            "backgroundColor"
+          ]
+        },
+        {
           "label": "",
           "name": "rule",
           "type": "string",
@@ -7827,6 +7881,13 @@
               "name": "navItems",
               "list": true,
               "type": "object",
+              "ui": {
+                "component": "itemListField",
+                "defaultItem": {
+                  "label": "Nav Item",
+                  "link": "/"
+                }
+              },
               "fields": [
                 {
                   "label": "Label",
@@ -7842,12 +7903,59 @@
                 {
                   "label": "Link",
                   "name": "link",
+                  "description": "Items with Sub Navigation will ignore this link",
                   "type": "string",
                   "namespace": [
                     "global",
                     "nav",
                     "navItems",
                     "link"
+                  ]
+                },
+                {
+                  "label": "Sub Navigation",
+                  "description": "Links below the main nav item",
+                  "name": "subNavItems",
+                  "list": true,
+                  "type": "object",
+                  "ui": {
+                    "component": "itemListField",
+                    "defaultItem": {
+                      "label": "Sub Nav Item",
+                      "link": "/"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "nav",
+                        "navItems",
+                        "subNavItems",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "global",
+                        "nav",
+                        "navItems",
+                        "subNavItems",
+                        "link"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "global",
+                    "nav",
+                    "navItems",
+                    "subNavItems"
                   ]
                 }
               ],
@@ -7976,8 +8084,7 @@
                     "subheadStyles": "text-black font-1 text-3xl mb-0",
                     "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
-                    "featureImage": "object-center object-scale-down",
-                    "imagePadding": "pt-20 pb-20 pr-20 pl-10"
+                    "featureImage": "object-center object-scale-down"
                   }
                 }
               },
@@ -8006,37 +8113,7 @@
                       ]
                     },
                     {
-                      "label": "Content",
-                      "name": "contentTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "contentTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
-                      "name": "featureContent",
-                      "type": "string",
-                      "ui": {
-                        "component": "featureContentField"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "featureContent"
-                      ]
-                    },
-                    {
-                      "label": "Content Padding",
+                      "label": "Padding",
                       "name": "padding",
                       "type": "string",
                       "ui": {
@@ -8052,25 +8129,10 @@
                     },
                     {
                       "label": "Image",
-                      "name": "imageTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "imageTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
                       "name": "featureImage",
                       "type": "string",
                       "ui": {
-                        "component": "featureImageField"
+                        "component": "featureImageControl"
                       },
                       "namespace": [
                         "global",
@@ -8081,18 +8143,18 @@
                       ]
                     },
                     {
-                      "label": "Image Padding",
-                      "name": "imagePadding",
+                      "label": "Content",
+                      "name": "featureContent",
                       "type": "string",
                       "ui": {
-                        "component": "paddingControl"
+                        "component": "featureContentControl"
                       },
                       "namespace": [
                         "global",
                         "blocks",
                         "feature",
                         "style",
-                        "imagePadding"
+                        "featureContent"
                       ]
                     },
                     {
@@ -9092,32 +9154,18 @@
                       ]
                     },
                     {
-                      "label": "Type",
-                      "name": "type",
                       "type": "string",
+                      "label": "Border",
+                      "name": "borderStyles",
                       "ui": {
-                        "component": "selectField"
+                        "component": "borderControl"
                       },
-                      "options": [
-                        {
-                          "label": "Solid Background",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Semi Transparent",
-                          "value": "transparent"
-                        },
-                        {
-                          "label": "Horizontal Fade",
-                          "value": "fadeH"
-                        }
-                      ],
                       "namespace": [
                         "global",
                         "blocks",
                         "photoCards",
                         "cardStyle",
-                        "type"
+                        "borderStyles"
                       ]
                     },
                     {
@@ -10196,31 +10244,6 @@
                         "textCards",
                         "cardStyle",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Transparent Background",
-                          "value": "transparent"
-                        }
-                      ],
-                      "namespace": [
-                        "global",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "type"
                       ]
                     },
                     {
@@ -13516,20 +13539,13 @@
       "path": "content/pages",
       "fields": [
         {
-          "type": "boolean",
-          "label": "Draft",
-          "description": "Draft posts are only visible on staging.",
-          "name": "draft",
-          "namespace": [
-            "pages",
-            "draft"
-          ]
-        },
-        {
           "type": "object",
           "list": true,
           "name": "blocks",
           "label": "Sections",
+          "ui": {
+            "component": "sectionListItems"
+          },
           "templates": [
             {
               "name": "feature",
@@ -13560,8 +13576,7 @@
                     "subheadStyles": "text-black font-1 text-3xl mb-0",
                     "textStyles": "text-black font-1 text-md mb-0",
                     "contentOrder": "labelHeadingsContent",
-                    "featureImage": "object-center object-scale-down",
-                    "imagePadding": "pt-20 pb-20 pr-20 pl-10"
+                    "featureImage": "object-center object-scale-down"
                   }
                 }
               },
@@ -13590,37 +13605,7 @@
                       ]
                     },
                     {
-                      "label": "Content",
-                      "name": "contentTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "contentTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
-                      "name": "featureContent",
-                      "type": "string",
-                      "ui": {
-                        "component": "featureContentField"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "featureContent"
-                      ]
-                    },
-                    {
-                      "label": "Content Padding",
+                      "label": "Padding",
                       "name": "padding",
                       "type": "string",
                       "ui": {
@@ -13636,25 +13621,10 @@
                     },
                     {
                       "label": "Image",
-                      "name": "imageTitle",
-                      "type": "string",
-                      "ui": {
-                        "component": "ruledTitle"
-                      },
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "feature",
-                        "style",
-                        "imageTitle"
-                      ]
-                    },
-                    {
-                      "label": "",
                       "name": "featureImage",
                       "type": "string",
                       "ui": {
-                        "component": "featureImageField"
+                        "component": "featureImageControl"
                       },
                       "namespace": [
                         "pages",
@@ -13665,18 +13635,18 @@
                       ]
                     },
                     {
-                      "label": "Image Padding",
-                      "name": "imagePadding",
+                      "label": "Content",
+                      "name": "featureContent",
                       "type": "string",
                       "ui": {
-                        "component": "paddingControl"
+                        "component": "featureContentControl"
                       },
                       "namespace": [
                         "pages",
                         "blocks",
                         "feature",
                         "style",
-                        "imagePadding"
+                        "featureContent"
                       ]
                     },
                     {
@@ -14676,32 +14646,18 @@
                       ]
                     },
                     {
-                      "label": "Type",
-                      "name": "type",
                       "type": "string",
+                      "label": "Border",
+                      "name": "borderStyles",
                       "ui": {
-                        "component": "selectField"
+                        "component": "borderControl"
                       },
-                      "options": [
-                        {
-                          "label": "Solid Background",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Semi Transparent",
-                          "value": "transparent"
-                        },
-                        {
-                          "label": "Horizontal Fade",
-                          "value": "fadeH"
-                        }
-                      ],
                       "namespace": [
                         "pages",
                         "blocks",
                         "photoCards",
                         "cardStyle",
-                        "type"
+                        "borderStyles"
                       ]
                     },
                     {
@@ -15780,31 +15736,6 @@
                         "textCards",
                         "cardStyle",
                         "padding"
-                      ]
-                    },
-                    {
-                      "label": "Type",
-                      "name": "type",
-                      "type": "string",
-                      "ui": {
-                        "component": "selectField"
-                      },
-                      "options": [
-                        {
-                          "label": "Solid",
-                          "value": "solid"
-                        },
-                        {
-                          "label": "Transparent Background",
-                          "value": "transparent"
-                        }
-                      ],
-                      "namespace": [
-                        "pages",
-                        "blocks",
-                        "textCards",
-                        "cardStyle",
-                        "type"
                       ]
                     },
                     {

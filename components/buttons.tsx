@@ -1,5 +1,5 @@
 import * as React from "react";
-import { isString } from "../helpers/utilities";
+import { linkTarget } from "../helpers/utilities";
 import { ThemeContext } from "./layout";
 
 export const Buttons = ({
@@ -18,11 +18,6 @@ export const Buttons = ({
       minor: `${buttons?.minorFill} ${buttons?.minorTypography} ${buttons?.minorBorder} ${buttons?.minorPadding} ${buttons?.minorRounded}`,
     };
     return button.type ? styles[button.type] : styles.primary
-  }
-
-  const linkTarget = (link) => {
-    const isExternalLink = isString(link) && link.charAt(0) !== '#'
-    return isExternalLink ? '_blank' : ''
   }
 
   return (

@@ -63,6 +63,7 @@ export const Layout = ({
               :root {
                 --site-width: ${globalData?.desktopWidth}px;
                 --edge-width: calc((100% - var(--site-width)) / 2);
+                --background-color: ${globalData?.backgroundColor};
                 --primary-color: ${globalData?.colors?.primary};
                 --accent1-color: ${globalData?.colors?.accent1};
                 --accent2-color: ${globalData?.colors?.accent2};
@@ -104,6 +105,7 @@ export const Layout = ({
                 --text-leading-8xl: ${fontLeading(globalData?.sizeLeading?.text8xl)}px;
               }
               html {
+                background-color: var(--${globalData?.backgroundColor}-color);
                 scroll-behavior: smooth;
               }
               .markdown a:not(.button) {
@@ -129,7 +131,7 @@ export const Layout = ({
           <script
             dangerouslySetInnerHTML={{
               __html: `
-              if (document.location.hostname === "${globalData?.siteUrl}") {
+              if (document.location.hostname.replace("www.", "") === "${globalData?.siteUrl}") {
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());

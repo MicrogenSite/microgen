@@ -5,6 +5,7 @@ fragment LayoutQueryFragment on Query {
       favicon
       gtmId
       desktopWidth
+      backgroundColor
       redirects {
         from
         to
@@ -70,6 +71,10 @@ fragment LayoutQueryFragment on Query {
         navItems {
           link
           label
+          subNavItems {
+            link
+            label
+          }
         }
         navAlignment
         navTypeStyle
@@ -126,7 +131,6 @@ fragment LayoutQueryFragment on Query {
             contentWidth
           }
           cardStyle {
-            type
             padding
             buttonType
             imageStyles
@@ -181,7 +185,6 @@ fragment LayoutQueryFragment on Query {
             contentWidth
           }
           cardStyle {
-            type
             padding
             borderStyles
             buttonType
@@ -224,7 +227,6 @@ fragment LayoutQueryFragment on Query {
             alignment
             featureContent
             featureImage
-            imagePadding
             padding
             contentOrder
             labelStyles

@@ -60,6 +60,12 @@ section > .text-right .markdown img {
 #modal-root > div > div > div {
   max-width: 450px;
 }
+#modal-root > .z-modal {
+  pointer-events: none;
+}
+#modal-root > .z-modal > div {
+  pointer-events: all;
+}
 #modal-root > div > div:last-child {
   display: none;
 }
@@ -72,6 +78,12 @@ div[data-test="form:getGlobalDocument"] label[for="buttons"],
 div[data-test="form:getGlobalDocument"] label[for="links"],
 div[data-test="form:getGlobalDocument"] label[for="logo"],
 div[data-test="form:getGlobalDocument"] label[for="nav"] {
+  display: none;
+}
+
+/* Hide global collection */
+.tina-tailwind a[href="/admin#/collections/global"],
+.tina-tailwind a[href="#/collections/global"] {
   display: none;
 }
 

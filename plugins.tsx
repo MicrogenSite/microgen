@@ -1,8 +1,9 @@
+import { TextField, GroupListField, BlocksFieldPlugin } from 'tinacms'
 import AlignmentControl from './components/tina/AlignmentControl'
 import BorderControl from './components/tina/BorderControl'
 import ColorControl from './components/tina/ColorControl'
-import FeatureContentField from './components/tina/FeatureContentField'
-import FeatureImageField from './components/tina/FeatureImageField'
+import FeatureContentControl from './components/tina/FeatureContentControl'
+import FeatureImageControl from './components/tina/FeatureImageControl'
 import FillControl from './components/tina/FillControl'
 import ImageControl from './components/tina/ImageControl'
 import PaddingControl from './components/tina/PaddingControl'
@@ -10,8 +11,41 @@ import RuledTitle from './components/tina/RuledTitle'
 import SelectField from './components/tina/SelectField'
 import TypeControl from './components/tina/TypeControl'
 import TypeSizeControl from './components/tina/TypeSizeControl'
-import { TextField, GroupListField } from 'tinacms'
 
+export const SectionListItemsPlugin = {
+  ...BlocksFieldPlugin,
+  Component: (props) => {
+    const itemProps = (item) => {
+      const templateNames = {
+        banner: 'Banner',
+        embed: 'Embed',
+        feature: 'Feature',
+        photoCards: 'Photo Cards',
+        postCards: 'Post Cards',
+        tailwindCards: 'Cards TW',
+        tailwindFeature: 'Feature TW',
+        textCards: 'Text Cards',
+      }
+      const sectionName = item.headline || item.subhead || item.label || item.title || ''
+      const sectionNameShort = sectionName.match(/^.{24}\w*/)
+      const sectionLabel = sectionNameShort || sectionName || ''
+      const label = sectionLabel ? `${sectionLabel} - ${templateNames[item._template]}` : `${templateNames[item._template]}`
+      return { ...item, label: label }
+    }
+    
+    let templates = {}
+    Object.keys(props.field.templates).forEach((key) => {
+      templates[key] = {
+        ...props.field.templates[key],
+        itemProps,
+      }
+    })
+    
+    return <BlocksFieldPlugin.Component {...props} field={{ ...props.field, templates }} />
+  },
+  __type: 'field',
+  name: "sectionListItems",
+}
 export const itemListFieldPlugin = {
   Component: (props) => {
     const field = {
@@ -54,16 +88,16 @@ export const colorControlFieldPlugin = {
   name: 'colorControl',
 }
 
-export const featureContentFieldPlugin = {
-  Component: FeatureContentField,
+export const featureContentControlPlugin = {
+  Component: FeatureContentControl,
   __type: 'field',
-  name: 'featureContentField',
+  name: 'featureContentControl',
 }
 
-export const featureImageFieldPlugin = {
-  Component: FeatureImageField,
+export const featureImageControlPlugin = {
+  Component: FeatureImageControl,
   __type: 'field',
-  name: 'featureImageField',
+  name: 'featureImageControl',
 }
 
 export const fillControlFieldPlugin = {

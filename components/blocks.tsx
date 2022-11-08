@@ -13,53 +13,92 @@ export const Blocks = (props: Pages | Global) => {
       {props.blocks
         ? props.blocks.map(function (block, i) {
             switch (block.__typename) {
+
+              /* Page Blocks */
               case "PagesBlocksFeature":
-              case "GlobalBlocksFeature":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <Feature data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksBanner":
-              case "GlobalBlocksBanner":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <Banner data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksPhotoCards":
-              case "GlobalBlocksPhotoCards":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <Cards data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksTextCards":
-              case "GlobalBlocksTextCards":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <Cards data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksEmbed":
-              case "GlobalBlocksEmbed":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <Embed data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksTailwindFeature":
-              case "GlobalBlocksTailwindFeature":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <TailwindFeature data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PagesBlocksTailwindCards":
-              case "GlobalBlocksTailwindCards":
                 return (
                   <div data-tinafield={`blocks.${i}`} key={i + block.__typename}>
                     <TailwindCards data={block} parentField={`blocks.${i}`} />
+                  </div>
+                );
+             
+              /* Footer Blocks */
+              case "GlobalBlocksFeature":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <Feature data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksBanner":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <Banner data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksPhotoCards":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <Cards data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksTextCards":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <Cards data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksEmbed":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <Embed data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksTailwindFeature":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <TailwindFeature data={block} parentField={`footer.${i}`} />
+                  </div>
+                );
+              case "GlobalBlocksTailwindCards":
+                return (
+                  <div data-tinafield={`footer.${i}`} key={i + block.__typename}>
+                    <TailwindCards data={block} parentField={`footer.${i}`} />
                   </div>
                 );
               default:

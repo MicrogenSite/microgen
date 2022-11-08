@@ -93,18 +93,6 @@ export const textCardsBlockSchema: TinaTemplate = {
           }
         },
         {
-          label: "Type",
-          name: "type",
-          type: "string",
-          ui: {
-            component: "selectField",
-          },
-          options: [
-            { label: "Solid", value: "solid" },
-            { label: "Transparent Background", value: "transparent" },
-          ],
-        },
-        {
           type: "string",
           label: "Border",
           name: "borderStyles",

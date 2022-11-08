@@ -1,8 +1,8 @@
 
 # Setup
 
-#### 1. Fork the Repo
-Fork the [MicroGen repo](https://github.com/filecoin-project/microgen-tina) from GitHub.
+#### 1. Clone the Repo
+Clone the [MicroGen repo](https://github.com/pathfindertools/microgen) from GitHub. After cloning you will want to remove the git folder and run ```git init``` to start a fresh git repository. 
 
 #### 2. Setup Tina Cloud to manage the CMS
 - [Login](https://app.tina.io/signin) to Tina Cloud or [create a new account](https://app.tina.io/register).

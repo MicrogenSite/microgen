@@ -3,6 +3,7 @@ fragment GlobalParts on Global {
   gtmId
   favicon
   desktopWidth
+  backgroundColor
   rule
   colors {
     __typename
@@ -79,6 +80,11 @@ fragment GlobalParts on Global {
       __typename
       label
       link
+      subNavItems {
+        __typename
+        label
+        link
+      }
     }
     navAlignment
     navTypeStyle
@@ -92,12 +98,9 @@ fragment GlobalParts on Global {
       style {
         __typename
         alignment
-        contentTitle
-        featureContent
         padding
-        imageTitle
         featureImage
-        imagePadding
+        featureContent
         typographyTitle
         labelStyles
         headlineStyles
@@ -158,7 +161,7 @@ fragment GlobalParts on Global {
         __typename
         fillStyles
         padding
-        type
+        borderStyles
         imageStyles
         typographyTitle
         labelStyles
@@ -228,7 +231,6 @@ fragment GlobalParts on Global {
         __typename
         fillStyles
         padding
-        type
         borderStyles
         typographyTitle
         labelStyles
@@ -479,19 +481,15 @@ fragment GlobalParts on Global {
 }
 
 fragment PagesParts on Pages {
-  draft
   blocks {
     __typename
     ... on PagesBlocksFeature {
       style {
         __typename
         alignment
-        contentTitle
-        featureContent
         padding
-        imageTitle
         featureImage
-        imagePadding
+        featureContent
         typographyTitle
         labelStyles
         headlineStyles
@@ -552,7 +550,7 @@ fragment PagesParts on Pages {
         __typename
         fillStyles
         padding
-        type
+        borderStyles
         imageStyles
         typographyTitle
         labelStyles
@@ -622,7 +620,6 @@ fragment PagesParts on Pages {
         __typename
         fillStyles
         padding
-        type
         borderStyles
         typographyTitle
         labelStyles

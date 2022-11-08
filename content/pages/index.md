@@ -1,16 +1,18 @@
 ---
-draft: true
 blocks:
   - style:
-      alignment: 'flex-row-reverse text-left items-center items-start-vertical '
-      featureContent: 'w-1/2 min-h-0 '
-      padding: pt-40 pb-16 pr-7 pl-20
-      featureImage: 'object-left object-contain '
-      imagePadding: pt-0 pb-0 pr-0 pl-0
+      alignment: 'flex-row-reverse items-center gap-6 sm:flex-col sm:items-start sm:gap-8'
+      padding: 'pt-48 pb-0 pr-20 pl-20 sm:pt-10 sm:pb-10 sm:pr-5 sm:pl-5'
+      featureImage: 'wpx-499 wpx-499 ml-auto sm:wpx-300 sm:wpx-300 sm:mr-auto'
+      featureContent: 'w-1/2 min-h-0 text-left sm:w-full sm:min-h-0 sm:text-left'
       labelStyles: text-white font-2 text-xl mb-0 font-bold
       headlineStyles: text-primary font-1 text-6xl mb-0 font-bold
-      subheadStyles: text-gray font-1 text-xl mb-7 font-bold
-      textStyles: 'text-white font-1 text-lg mb-11 '
+      subheadStyles: >-
+        text-gray font-1 text-xl mb-7 font-bold sm:text-gray sm:font-1
+        sm:text-xl sm:mb-4 sm:font-bold
+      textStyles: >-
+        text-white font-1 text-lg mb-11  sm:text-white sm:font-1 sm:text-lg
+        sm:mb-7 
       contentOrder: labelHeadingsContent
     background:
       fillStyles: from-accent1 to-black bg-gradient-to-br
@@ -20,9 +22,9 @@ blocks:
       alt: Illustration of space shuttles
     label: ''
     headline: Microgen
-    subhead: A site builder for Web 3.0
+    subhead: A site builder for Web3
     body: |
-      Make [modern web 3.0](#) ready websites with a real-time visual editor.
+      Make modern Web3 ready websites with a real-time visual editor.
     buttons:
       - label: Get Started
         link: 'https://github.com/pathfindertools/microgen'
@@ -31,7 +33,7 @@ blocks:
   - style:
       textAlignment: text-left
       minHeight: min-h-0
-      padding: pt-20 pb-20 pr-20 pl-20
+      padding: 'pt-20 pb-20 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5'
       contentWidth: w-full
       columns: '2'
       labelStyles: text-black font-1 text-xl mb-0 font-bold
@@ -40,9 +42,8 @@ blocks:
       textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     cardStyle:
-      fillStyles: bg-accent1
+      fillStyles: bg-accent1 opacity-100
       padding: pt-4 pb-4 pr-5 pl-7
-      type: solid
       borderStyles: border-primary border-3
       labelStyles: 'text-black undefined text-sm mb-0 '
       headlineStyles: text-primary font-1 text-xl mb-2 font-bold
@@ -98,7 +99,7 @@ blocks:
     buttons:
       - label: Get Started
         link: 'https://github.com/filecoin-project/microgen'
-        type: solid
+        type: secondary
     _template: banner
   - style:
       minHeight: min-h-0
@@ -112,7 +113,7 @@ blocks:
   - style:
       textAlignment: text-left
       minHeight: min-h-0
-      padding: pt-14 pb-20 pr-20 pl-20
+      padding: 'pt-14 pb-20 pr-20 pl-20 sm:pt-10 sm:pb-5 sm:pr-5 sm:pl-5'
       contentWidth: w-full
       columns: '2'
       labelStyles: text-black undefined text-xl mb-0 font-bold
@@ -121,9 +122,9 @@ blocks:
       textStyles: text-black undefined text-lg mb-0 font-bold
       contentOrder: labelHeadingsContent
     cardStyle:
-      fillStyles: bg-primary
+      fillStyles: bg-primary opacity-100
       padding: pt-5 pb-5 pr-5 pl-5
-      type: solid
+      borderStyles: border-white border-0
       imageStyles: ' undefined undefined mb-0'
       labelStyles: 'text-white undefined text-sm mb-0 '
       headlineStyles: 'text-white undefined text-2xl mb-0 '

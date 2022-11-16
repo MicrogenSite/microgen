@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { Header } from "./header";
+import { FooterLinks } from "./footer-links";
 import { Blocks } from "../components/blocks";
 
 const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
@@ -156,6 +157,7 @@ export const Layout = ({
           <div className="flex flex-col flex-1">{children}</div>
           {/* Footer Blocks */}
           <Blocks { ...globalData } />
+          <FooterLinks globalData={globalData} />
         </div>
       </ThemeContext.Provider>
     </>

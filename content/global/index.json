@@ -37,15 +37,17 @@
     "text8xl": "96/120"
   },
   "buttons": {
-    "primaryFill": "bg-primary",
+    "primaryFill": "bg-primary opacity-100",
     "primaryBorder": "border-accent3 border-r-0",
     "primaryTypography": "text-white font-2 text-sm mb-0 font-bold",
     "primaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
     "primaryRounded": "rounded",
+    "secondaryFill": " opacity-100",
     "secondaryBorder": "border-white border-2",
     "secondaryTypography": "text-white undefined text-sm undefined font-bold",
     "secondaryPadding": "pt-2 pb-2 pr-6 pl-6",
     "secondaryRounded": "rounded-md",
+    "minorFill": " opacity-100",
     "minorBorder": "border-white border-0",
     "minorTypography": "text-white undefined text-sm undefined font-bold",
     "minorPadding": "pt-2 pb-2 pr-6 pl-6",
@@ -106,5 +108,21 @@
       "body": "Made with love by [Protocol Labs](https://protocol.ai)\n",
       "_template": "banner"
     }
-  ]
+  ],
+  "footerNav": {
+    "footerNavItems": [
+      {
+        "label": "Terms of Use",
+        "link": "https://discuss.ipfs.tech/tos"
+      },
+      {
+        "label": "Privacy Policy",
+        "link": "https://discuss.ipfs.tech/privacy"
+      },
+      {
+        "label": "DMCA Policy",
+        "link": "https://ipfs.tech/legal/"
+      }
+    ]
+  }
 }

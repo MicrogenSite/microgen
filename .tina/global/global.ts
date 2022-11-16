@@ -7,6 +7,7 @@ import { globalColors } from "./colors";
 import { globalHeader } from "./header";
 import { globalFonts } from "./fonts";
 import { globalFooter } from "./footer";
+import { globalFooterLinks } from "./footer-links";
 import { globalLogo } from "./logo";
 import { globalTypeSize } from "./type-size";
 
@@ -90,6 +91,7 @@ export const globalSchema: TinaCollection = {
       },
     },
     globalFooter,
+    globalFooterLinks,
     {
       type: "object",
       label: "Redirects",

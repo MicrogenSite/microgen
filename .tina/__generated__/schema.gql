@@ -592,6 +592,15 @@ type GlobalBlocksTailwindCards {
 
 union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed | GlobalBlocksTailwindFeature | GlobalBlocksTailwindCards
 
+type GlobalFooterNavFooterNavItems {
+  label: String
+  link: String
+}
+
+type GlobalFooterNav {
+  footerNavItems: [GlobalFooterNavFooterNavItems]
+}
+
 type GlobalRedirects {
   from: String
   to: String
@@ -613,6 +622,7 @@ type Global {
   nav: GlobalNav
   rule2: String
   blocks: [GlobalBlocks]
+  footerNav: GlobalFooterNav
   redirects: [GlobalRedirects]
 }
 
@@ -1628,6 +1638,15 @@ input GlobalBlocksMutation {
   tailwindCards: GlobalBlocksTailwindCardsMutation
 }
 
+input GlobalFooterNavFooterNavItemsMutation {
+  label: String
+  link: String
+}
+
+input GlobalFooterNavMutation {
+  footerNavItems: [GlobalFooterNavFooterNavItemsMutation]
+}
+
 input GlobalRedirectsMutation {
   from: String
   to: String
@@ -1649,6 +1668,7 @@ input GlobalMutation {
   nav: GlobalNavMutation
   rule2: String
   blocks: [GlobalBlocksMutation]
+  footerNav: GlobalFooterNavMutation
   redirects: [GlobalRedirectsMutation]
 }
 

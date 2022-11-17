@@ -30,7 +30,7 @@ export const FooterLinks = ({
         <ul className={"flex-grow list-none text-center bg-primary p-4"}>
           {footerNavItems.map(function (item, index) {
               return (
-                <li className="inline-block ml-8 sm:block" key={index}>
+                <li className="inline-block ml-8 first:ml-0" key={index}>
                   <a className={`block no-underline hover:underline text-sm ${footerLinkColor}`} href={item.link} target={linkTarget(item.link)}>{item.label}</a>
                 </li>
               )

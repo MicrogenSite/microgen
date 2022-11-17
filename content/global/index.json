@@ -83,28 +83,5 @@
     "navTypeStyle": "text-white font-1 text-base mb-0 ",
     "navBackgroundColor": "bg-primary opacity-100",
     "padding": "pt-10 pb-10 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5"
-  },
-  "blocks": [
-    {
-      "style": {
-        "textAlignment": "text-center",
-        "minHeight": "min-h-0",
-        "padding": "pt-10 pb-10 pr-10 pl-10",
-        "width": "normal",
-        "labelStyles": "text-black undefined text-sm mb-0 ",
-        "headlineStyles": "text-black undefined text-5xl mb-0 ",
-        "subheadStyles": "text-black undefined text-3xl mb-0 ",
-        "textStyles": "text-white undefined text-sm mb-0 ",
-        "contentOrder": "labelHeadingsContent"
-      },
-      "background": {
-        "fillStyles": "bg-primary"
-      },
-      "label": "",
-      "headline": "",
-      "subhead": "",
-      "body": "Made with love by [Protocol Labs](https://protocol.ai)\n",
-      "_template": "banner"
-    }
-  ]
+  }
 }

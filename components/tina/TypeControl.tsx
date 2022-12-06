@@ -1,29 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { getStyleMatch } from '../../helpers/utilities'
+import Control from './Control';
 import SelectMenu from './widgets/SelectMenu';
-import ToggleButton from './widgets/ToggleButton';
 import ColorPicker from './widgets/ColorPicker';
-import IconMobile from './icons/IconMobile';
 import IconMargin from './icons/IconMargin';
-import FieldLabel from './widgets/FieldLabel';
-import { getStyleMatch } from './widgets/helpers'
- 
-function getStringBetween(str, start, end) {
-  const trim1 = str.substring(str.indexOf(start)).replace(start,'')
-  const trim2 = trim1.substring(0, trim1.indexOf(end)).replace(end,'')
-  const trim3 = trim2.replace(' ', '').replace(',', '')
-  return trim3
-}
-
-function getFontNames() {
-  const node = document.getElementById("customProperties");
-  const cssText = node.childNodes[0].textContent;
-  return {
-    font1: getStringBetween(cssText, "--font1:", "sans-serif;"),
-    font2: getStringBetween(cssText, "--font2:", "sans-serif;"),
-    font3: getStringBetween(cssText, "--font3:", "sans-serif;"),
-    font4: getStringBetween(cssText, "--font4:", "sans-serif;")
-  }
-}
 
 function buildColorOptions(prefix?) {
   const options = [
@@ -46,13 +26,19 @@ function buildColorOptions(prefix?) {
   });
   return formattedOptions;
 }
+
 function buildFontOptions(prefix?) {
-  const fontNames = getFontNames()
   const options = [
-    { label: fontNames.font1, value: "font-1" },
-    { label: fontNames.font2, value: "font-2" },
-    { label: fontNames.font3, value: "font-3" },
-    { label: fontNames.font4, value: "font-4" },
+    { label: "Headline Xs", value: "mg-headline-xs" },
+    { label: "Headline Sm", value: "mg-headline-sm" },
+    { label: "Headline Md", value: "mg-headline-md" },
+    { label: "Headline Lg", value: "mg-headline-lg" },
+    { label: "Headline Xl", value: "mg-headline-xl" },
+    { label: "Body Xs", value: "mg-body-xs" },
+    { label: "Body Sm", value: "mg-body-sm" },
+    { label: "Body Md", value: "mg-body-md" },
+    { label: "Body Lg", value: "mg-body-lg" },
+    { label: "Body Xl", value: "mg-body-xl" },
   ]
   const formattedOptions = options.map(option => {
     return {
@@ -62,31 +48,10 @@ function buildFontOptions(prefix?) {
   });
   return formattedOptions;
 }
-function buildSizeOptions(prefix?) {
-  const options = [
-    { label: "xs", value: "text-xs" },
-    { label: "sm", value: "text-sm" },
-    { label: "md", value: "text-base" },
-    { label: "lg", value: "text-lg" },
-    { label: "xl", value: "text-xl" },
-    { label: "2xl", value: "text-2xl" },
-    { label: "3xl", value: "text-3xl" },
-    { label: "4xl", value: "text-4xl" },
-    { label: "5xl", value: "text-5xl" },
-    { label: "6xl", value: "text-6xl" },
-    { label: "7xl", value: "text-7xl" },
-    { label: "8xl", value: "text-8xl" },
-  ]
-  const formattedOptions = options.map(option => {
-    return {
-      label: option.label,
-      value: `${prefix || ""}${option.value}`
-    }
-  });
-  return formattedOptions;
-}
+
 function buildMarginOptions(prefix?) {
   const options = [
+    { label: "default", value: "" },
     { label: "0", value: "mb-0" },
     { label: "1", value: "mb-px" },
     { label: "2", value: "mb-0.5" },
@@ -118,113 +83,39 @@ function buildMarginOptions(prefix?) {
   });
   return formattedOptions;
 }
-function buildWeightOptions(prefix?) {
-  const options = [
-    { label: "B", value: "font-bold" }
-  ]
-  const formattedOptions = options.map(option => {
-    return {
-      label: option.label,
-      value: `${prefix || ""}${option.value}`
-    }
-  });
-  return formattedOptions;
-}
 
-export default function TypeControl({ field, input, meta }) {
-  const inputRef = useRef<HTMLInputElement>(null);
-  const [hasMobileStyles, setHasMobileStyles] = useState(input.value.includes("sm:"));
-
-  const colorOptions = buildColorOptions();
-  const colorOptionsMobile = buildColorOptions('sm:');
-  const fontOptions = buildFontOptions();
-  const fontOptionsMobile = buildFontOptions('sm:');
-  const sizeOptions = buildSizeOptions();
-  const sizeOptionsMobile = buildSizeOptions('sm:');
-  const marginOptions = buildMarginOptions();
-  const marginOptionsMobile = buildMarginOptions('sm:');
-  const weightOptions = buildWeightOptions();
-  const weightOptionsMobile = buildWeightOptions('sm:');
-
-  const [color, setColor] = useState(getStyleMatch(colorOptions, input.value));
-  const [colorMobile, setColorMobile] = useState(getStyleMatch(colorOptionsMobile, input.value));
-  const [font, setFont] = useState(getStyleMatch(fontOptions, input.value));
-  const [fontMobile, setFontMobile] = useState(getStyleMatch(fontOptionsMobile, input.value));
-  const [size, setSize] = useState(getStyleMatch(sizeOptions, input.value));
-  const [sizeMobile, setSizeMobile] = useState(getStyleMatch(sizeOptionsMobile, input.value));
-  const [margin, setMargin] = useState(getStyleMatch(marginOptions, input.value));
-  const [marginMobile, setMarginMobile] = useState(getStyleMatch(marginOptionsMobile, input.value));
-  const [weight, setWeight] = useState(getStyleMatch(weightOptions, input.value) || "");
-  const [weightMobile, setWeightMobile] = useState(getStyleMatch(weightOptionsMobile, input.value) || "");
-
-  function toggleMobile() {
-    setHasMobileStyles(!hasMobileStyles)
-  }
-
-  function updateHiddenField() {
-    const input = inputRef.current;
-    const lastValue = input.value;
-    const defaultClasses = `${color} ${font} ${size} ${margin} ${weight}`;
-    const mobileClasses = `${colorMobile} ${fontMobile} ${sizeMobile} ${marginMobile} ${weightMobile}`;
-    if (mobileClasses.includes("undefined")) {
-      setColorMobile(`sm:${color || 'text-white'}`)
-      setFontMobile(`sm:${font || 'font-1'}`)
-      setSizeMobile(`sm:${size || 'text-base'}`)
-      setMarginMobile(`sm:${margin || 'mb-0'}`)
-      if (weight !== "") {
-        setWeightMobile(`sm:${weight}`)
-      }
-    }
-    const newValue = hasMobileStyles ? `${defaultClasses} ${mobileClasses}` : defaultClasses;
-    input.value = newValue;
-    (input as any)._valueTracker?.setValue(lastValue);
-    input.dispatchEvent(new Event("input", {bubbles: true}));
-  }
+const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false }) => {
+  const prefix = isMobile ? "sm:" : ""
+  const colorOptions = buildColorOptions(prefix);
+  const fontOptions = buildFontOptions(prefix);
+  const marginOptions = buildMarginOptions(prefix);
+  const [color, setColor] = useState(getStyleMatch(colorOptions, inputValue));
+  const [font, setFont] = useState(getStyleMatch(fontOptions, inputValue));
+  const [margin, setMargin] = useState(getStyleMatch(marginOptions, inputValue));
   
-  useEffect(() => {
-    updateHiddenField()
-  }, [color, font, size, margin, weight, colorMobile, fontMobile, sizeMobile, marginMobile, weightMobile, hasMobileStyles, inputRef.current]);
+  function handleSetColor(value: String) {
+    setColor(`${prefix}text-${value}`)
+  }
 
-  function handleSetColor(value: string) {
-    setColor(`text-${value}`)
-  }
-  function handleSetColorMobile(value: string) {
-    setColorMobile(`sm:text-${value}`)
-  }
+  useEffect(() => {
+    onUpdate(`${color} ${font} ${margin}`)
+  }, [color, font, margin]);
 
   return (
     <>
-      <FieldLabel label={field.label} hasMobileStyles={hasMobileStyles} onMobileToggle={toggleMobile} mobileMode={true} />
-      <div className="mb-4">
-        <div className="flex mb-2 items-center gap-2">
-          <ColorPicker value={color?.replace('text-','')} onClick={handleSetColor} className="w-9" />
-          <SelectMenu value={font} onChange={setFont} options={fontOptions} className="w-12 flex-1" />
-          <SelectMenu value={size} onChange={setSize} options={sizeOptions} className="w-13" />
-          <div className="w-3.5 pr-.5">
-            <IconMargin className="float-right" />
-          </div>
-          <SelectMenu value={margin} onChange={setMargin} options={marginOptions} className="w-12 " />
-          <ToggleButton value={weight} onClick={setWeight} options={weightOptions} className="w-9 shrink-0" />
+      <div className="flex gap-2">
+        <ColorPicker value={`${color?.replace('text-','').replace(prefix, '')}`} onClick={handleSetColor} className="w-9" />
+        <SelectMenu value={font} onChange={setFont} options={fontOptions} className="w-12 flex-1" />
+        <div style={{ padding: "9px 2px 0 0", width: "14px"}}>
+          <IconMargin className="float-right" />
         </div>
-        {hasMobileStyles &&
-          <div className="flex mb-2 relative">
-            <div className="absolute -left-4 top-2.5 pl-px">
-              <IconMobile />
-            </div>
-            <div className="flex items-center w-full">
-              <ColorPicker value={colorMobile?.replace('sm:text-','')} onClick={handleSetColorMobile} className="mr-2" />
-              <SelectMenu value={fontMobile} onChange={setFontMobile} options={fontOptionsMobile} className="flex-grow mr-2" />
-              <SelectMenu value={sizeMobile} onChange={setSizeMobile} options={sizeOptionsMobile} className="w-12" />
-              <div className="w-6 pr-1">
-                <IconMargin className="float-right" />
-              </div>
-              <SelectMenu value={marginMobile} onChange={setMarginMobile} options={marginOptionsMobile} className="w-12 mr-2" />
-              <ToggleButton value={weightMobile} onClick={setWeightMobile} options={weightOptionsMobile} className="w-9" />
-            </div>
-          </div>
-        }
+        <SelectMenu value={margin} onChange={setMargin} options={marginOptions} className="w-16 " />
       </div>
-      <input ref={inputRef} type="text" {...input}  className="hidden" />
+      <input type="text" value={`${color} ${font} ${margin}`} className="hidden" />
     </>
   )
+}
+
+export default function TypeControl({ field, input }) {
+  return <Control field={field} input={input} fieldRow={<FieldRow />} />
 }

@@ -38,7 +38,7 @@ const gapOptions = [
   { label: "192", value: "gap-48"},
 ]
 
-function buildOptions(options: {label: string, value: string }[] = [{label: '', value: ''}], isMobile: boolean = false) {
+function buildOptions(options: {label: string, value: string }[] = [{label: '', value: ''}], isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(options, `${mobilePrefix}`)
 }
@@ -58,25 +58,29 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
 
   return (
     <>
-      <div className="flex gap-2 mb-2">
-        <SelectMenu value={layout} onChange={setLayout} options={layoutOptionsPrefixed} className="w-1/2 shrink-0" />
+      <div className="flex gap-2">
+        <div className="flex-1">
+          <SelectMenu value={layout} onChange={setLayout} options={layoutOptionsPrefixed} className="w-full" />
+        </div>
+        <div className="flex gap-2 flex-1">
+          <div className="w-6 pl-2 pt-3">
+            {layout.includes("row") && (
+              <IconGap className="float-right" />
+            )}
+            {layout.includes("col") && (
+              <IconGapVertical className="float-right" />
+            )}
+          </div>
+          <SelectMenu value={gap} onChange={setGap} options={gapOptionsPrefixed} className="flex-1" />  
+        </div>
         {layout.includes("row") && (
-          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptionsPrefixed} menuPosition="right" className="flex-1" />
+          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignOptionsPrefixed} menuPosition="right" />
         )}
         {layout.includes("col") && (
-          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignVerticalOptionsPrefixed} menuPosition="right" className="flex-1" />
+          <IconPicker value={contentAlign} onClick={value => setContentAlign(value)} options={contentAlignVerticalOptionsPrefixed} menuPosition="right" />
         )}
-        <div className="w-4 pl-2 pt-3">
-          {layout.includes("row") && (
-            <IconGap className="float-right" />
-          )}
-          {layout.includes("col") && (
-            <IconGapVertical className="float-right" />
-          )}
-        </div>
-        <SelectMenu value={gap} onChange={setGap} options={gapOptionsPrefixed} className="w-12" />
       </div>
-      <input type="text" value={`${layout} ${contentAlign} ${gap}`} className="hidden" />
+      <input type="text" defaultValue={`${layout} ${contentAlign} ${gap}`} className="hidden" />
     </>
   )
 }

@@ -34,7 +34,7 @@ const icons = {
 
 export default function Icon(props:IconProps) {
   return (
-    <div className={` ${props?.className}`}>
+    <div className={props?.className}>
       <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icons[props.icon])}`} />
     </div>
   )

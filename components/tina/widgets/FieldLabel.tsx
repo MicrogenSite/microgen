@@ -5,7 +5,7 @@ interface FieldLabelProps {
   label: string,
   hasMobileStyles?: boolean,
   mobileMode?: boolean,
-  onMobileToggle?: Function;
+  onMobileToggle?;
 }
 export default function FieldLabel(props:FieldLabelProps) {
   function handleChange() {

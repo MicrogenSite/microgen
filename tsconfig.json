@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2015",
     "lib": [
       "dom",
       "dom.iterable",
@@ -27,6 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".forestry/types.ts",
-    ".forestry/config.ts"
-  ]
+    ".forestry/config.ts",
+    "schema/navigation-label.ts",
+    "schema/background.ts"
+   ]
 }

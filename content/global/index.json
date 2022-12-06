@@ -1,9 +1,18 @@
 {
-  "siteUrl": "microgen.vercel.app",
-  "gtmId": "",
-  "favicon": "https://res.cloudinary.com/protocolai/image/upload/v1649882296/filecoin-favicon_rn3bfm.png",
-  "desktopWidth": "1200",
-  "backgroundColor": "white",
+  "desktopWidth": "1000",
+  "backgroundColor": "accent1",
+  "typography": {
+    "headlineXs": "{\"family\":\"Inter:wght@100\",\"size\":\"24\",\"lineHeight\":\"30\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"12\",\"smLineHeight\":\"30\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "headlineSm": "{\"family\":\"Inter:wght@400;700\",\"size\":\"34\",\"lineHeight\":\"40\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"12\",\"smLineHeight\":\"40\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "headlineMd": "{\"family\":\"Inter:wght@900\",\"size\":\"39\",\"lineHeight\":\"48\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"12\",\"smLineHeight\":\"48\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "headlineLg": "{\"family\":\"Inter:wght@900\",\"size\":\"48\",\"lineHeight\":\"60\",\"letterSpacing\":\"0\",\"margin\":\"20\",\"smSize\":\"40\",\"smLineHeight\":\"50\",\"smLetterSpacing\":\"0\",\"smMargin\":\"20\"}",
+    "headlineXl": "{\"family\":\"Inter:wght@900\",\"size\":\"80\",\"lineHeight\":\"120\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "bodyXs": "{\"family\":\"Inter:wght@400;700\",\"size\":\"14\",\"lineHeight\":\"16\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "bodySm": "{\"family\":\"Inter:wght@400;700\",\"size\":\"16\",\"lineHeight\":\"26\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "bodyMd": "{\"family\":\"Inter:wght@400;700\",\"size\":\"24\",\"lineHeight\":\"21\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "bodyLg": "{\"family\":\"Inter:wght@400;700\",\"size\":\"32\",\"lineHeight\":\"22\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}",
+    "bodyXl": "{\"family\":\"Inter:wght@400;700\",\"size\":\"48\",\"lineHeight\":\"17\",\"letterSpacing\":\"0\",\"margin\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\",\"smMargin\":\"0\"}"
+  },
   "colors": {
     "primary": "#0090FF",
     "accent1": "#0E4465",
@@ -16,95 +25,55 @@
     "grayDark": "#7B7A80",
     "black": "#000000"
   },
-  "fonts": {
-    "font1": "Inter:wght@400;700",
-    "font2": "Archivo:wght@400;700",
-    "font3": "Rufina:wght@400;700",
-    "font4": "IBM Plex Mono:wght@400;700"
-  },
-  "sizeLeading": {
-    "textXs": "12/20",
-    "textSm": "14/24",
-    "textMd": "16/28",
-    "textLg": "18/34",
-    "textXl": "24/32",
-    "text2xl": "34/42",
-    "text3xl": "28/40",
-    "text4xl": "32/44",
-    "text5xl": "39/48",
-    "text6xl": "48/48",
-    "text7xl": "72/84",
-    "text8xl": "96/120"
-  },
-  "buttons": {
-    "primaryFill": "bg-primary",
-    "primaryBorder": "border-accent3 border-r-0",
-    "primaryTypography": "text-white font-2 text-sm mb-0 font-bold",
-    "primaryPadding": "pt-2.5 pb-2.5 pr-6 pl-6",
-    "primaryRounded": "rounded",
-    "secondaryBorder": "border-white border-2",
-    "secondaryTypography": "text-white undefined text-sm undefined font-bold",
-    "secondaryPadding": "pt-2 pb-2 pr-6 pl-6",
-    "secondaryRounded": "rounded-md",
-    "minorBorder": "border-white border-0",
-    "minorTypography": "text-white undefined text-sm undefined font-bold",
-    "minorPadding": "pt-2 pb-2 pr-6 pl-6",
-    "minorRounded": "rounded-none"
-  },
-  "links": {
-    "color": "white"
-  },
-  "logo": {
-    "logoType": "Microgen",
-    "logoTypeStyle": "text-white undefined text-base undefined font-bold",
-    "image": "http://res.cloudinary.com/protocolai/image/upload/v1646088242/cryptonet/protocol-logo_ewn4sv.png",
-    "imageWidth": "48",
-    "imageHeight": "48",
-    "imageMargin": "24"
-  },
-  "nav": {
-    "navItems": [
-      {
-        "label": "Sub Nav",
-        "link": "",
-        "subNavItems": [
-          {
-            "label": "Option 1",
-            "link": "/"
-          },
-          {
-            "label": "Option 2",
-            "link": "/"
-          }
-        ]
-      }
-    ],
-    "navAlignment": "text-right",
-    "navTypeStyle": "text-white font-1 text-base mb-0 ",
-    "navBackgroundColor": "bg-primary opacity-100",
-    "padding": "pt-10 pb-10 pr-20 pl-20 sm:pt-5 sm:pb-5 sm:pr-5 sm:pl-5"
-  },
-  "blocks": [
+  "buttons": [
     {
-      "style": {
-        "textAlignment": "text-center",
-        "minHeight": "min-h-0",
-        "padding": "pt-10 pb-10 pr-10 pl-10",
-        "width": "normal",
-        "labelStyles": "text-black undefined text-sm mb-0 ",
-        "headlineStyles": "text-black undefined text-5xl mb-0 ",
-        "subheadStyles": "text-black undefined text-3xl mb-0 ",
-        "textStyles": "text-white undefined text-sm mb-0 ",
-        "contentOrder": "labelHeadingsContent"
-      },
-      "background": {
-        "fillStyles": "bg-primary"
-      },
-      "label": "",
-      "headline": "",
-      "subhead": "",
-      "body": "Made with love by [Protocol Labs](https://protocol.ai)\n",
-      "_template": "banner"
+      "label": "Primary",
+      "fill": " opacity-100",
+      "typography": "{\"color\":\"accent1\",\"family\":\"Arial\",\"size\":\"18\",\"lineHeight\":\"28\",\"letterSpacing\":\"0\",\"smSize\":\"18\",\"smLineHeight\":\"28\",\"smLetterSpacing\":\"0\"}",
+      "padding": "pt-2.5 pb-2.5 pr-5 pl-5",
+      "primaryBorder": "border-primary border-2",
+      "primaryRounded": "rounded-md"
+    },
+    {
+      "label": "Minor",
+      "fill": "bg-accent2 opacity-100",
+      "typography": "{\"color\":\"accent4\",\"family\":\"Arial\",\"size\":\"20\",\"lineHeight\":\"20\",\"letterSpacing\":\"0\",\"smSize\":\"20\",\"smLineHeight\":\"20\",\"smLetterSpacing\":\"0\"}",
+      "padding": "undefined undefined undefined undefined",
+      "primaryBorder": "border-white border-0",
+      "primaryRounded": "undefined"
+    },
+    {
+      "label": "Outline",
+      "fill": " opacity-100",
+      "typography": "{\"color\":\"gray\",\"family\":\"Arial\",\"size\":\"16\",\"lineHeight\":\"16\",\"letterSpacing\":\"0\",\"smSize\":\"16\",\"smLineHeight\":\"16\",\"smLetterSpacing\":\"0\"}",
+      "padding": "undefined undefined undefined undefined",
+      "primaryBorder": "border-white border-0",
+      "primaryRounded": "undefined"
     }
-  ]
+  ],
+  "header": {
+    "color": "default",
+    "nav": [
+      {
+        "href": "",
+        "label": "Home"
+      },
+      {
+        "href": "about",
+        "label": "About"
+      },
+      {
+        "href": "posts",
+        "label": "Blog"
+      }
+    ]
+  },
+  "footer": {
+    "color": "default",
+    "social": {
+      "facebook": "/",
+      "twitter": "/",
+      "instagram": "/"
+    }
+  }
 }

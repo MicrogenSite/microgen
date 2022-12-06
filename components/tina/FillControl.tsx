@@ -139,7 +139,7 @@ export default function FillControl({ field, input, meta }) {
           <SelectMenu value={opacity} onChange={setOpacity} options={opacities} className="w-16 flex-none" />
         }
       </div>
-      <input ref={inputRef} type="text" {...input}  className="hidden" />
+      <input ref={inputRef} type="text" {...input}  className="" />
     </>
   )
 }

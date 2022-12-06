@@ -90,7 +90,7 @@ export default function ImageControl({ field, input, meta }) {
   return (
     <>
       <FieldLabel label={field.label} />
-      <div className="flex mb-2 items-center">
+      <div className="flex items-center">
         <label className="text-xs text-gray w-18 mr-2">Max Height</label>
         <SelectMenu value={height} onChange={setHeight} options={heights} className="w-24" />
         <div className="w-6 pr-1">

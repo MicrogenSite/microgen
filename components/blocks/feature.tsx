@@ -2,6 +2,9 @@ import * as React from 'react';
 import { Section } from '../section';
 import { Content } from '../content';
 import { hasWord, getWordWith } from '../../helpers/utilities';
+import { buttonsSchema } from "../../schema/buttons"
+import { backgroundSchema } from "../../schema/background"
+import { navigationLabelSchema } from "../../schema/navigation-label";
 
 const imageWrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
@@ -44,7 +47,7 @@ export const Feature = ({ data, parentField = '' }) => {
   const textAlign = getWordWith(style.featureContent, 'text-')
   return (
     <Section background={data.background} navigationLabel={data.navigationLabel}>
-        <div className={`relative flex w-full max-w-site-full mx-auto ${style.padding} ${style.alignment}`}>
+        <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
           <div className={`${imageWrapClasses(style)}`}>
             {data.image?.src && (
               <>
@@ -78,4 +81,156 @@ export const Feature = ({ data, parentField = '' }) => {
       </div>
     </Section>
   );
+};
+
+export const featureBlockSchema: any = {
+  label: "Feature",
+  name: "feature",
+  ui: {
+    defaultItem: {
+      label: "I am a label",
+      style: {
+        alignment: "flex-row items-center gap-0",
+        padding: "pt-20 pb-20 pr-10 pl-10",
+        featureImage: "mx-auto",
+        featureContent: "w-1/2 min-h-0 text-left",
+        labelStyles: "text-black font-1 text-sm mb-0",
+        headlineStyles: "text-black font-1 text-5xl mb-0",
+        subheadStyles: "text-black font-1 text-3xl mb-0",
+        textStyles: "text-black font-1 text-md mb-0",
+      },
+    },
+  },
+  fields: [
+    {
+      label: "Section Style",
+      name: "style",
+      type: "object",
+      fields: [
+        {
+          label: "Alignment",
+          name: "alignment",
+          type: "string",
+          ui: {
+            component: "alignmentControl",
+          },
+        },
+        {
+          label: "Padding",
+          name: "padding",
+          type: "string",
+          ui: {
+            component: "paddingControl",
+          }
+        },
+        {
+          label: "Image",
+          name: "featureImage",
+          type: "string",
+          ui: {
+            component: "featureImageControl",
+          }
+        },
+        {
+          label: "Content",
+          name: "featureContent",
+          type: "string",
+          ui: {
+            component: "featureContentControl",
+          }
+        },
+        {
+          label: "Typography",
+          name: "typographyTitle",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          type: "string",
+          label: "Label",
+          name: "labelStyles",
+          ui: {
+            component: "typeControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Headline",
+          name: "headlineStyles",
+          ui: {
+            component: "typeControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Subhead",
+          name: "subheadStyles",
+          ui: {
+            component: "typeControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Text",
+          name: "textStyles",
+          ui: {
+            component: "typeControl"
+          }
+        }
+      ],
+    },
+    backgroundSchema,
+    {
+      label: "Image",
+      name: "image",
+      type: "object",
+      fields: [
+        {
+          label: "Image Source",
+          name: "src",
+          type: "image",
+          ui: {
+            clearable: true,
+          }
+        },
+        {
+          name: "alt",
+          label: "Alt Text",
+          type: "string",
+        }
+      ],
+    },
+    {
+      label: "",
+      name: "rule",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
+    },
+    {
+      label: "Label",
+      name: "label",
+      type: "string",
+    },
+    {
+      label: "Headline",
+      name: "headline",
+      type: "string",
+    },
+    {
+      label: "Subhead",
+      name: "subhead",
+      type: "string",
+    },
+    {
+      label: "Body",
+      name: "body",
+      type: "rich-text",
+    },
+    buttonsSchema,
+    navigationLabelSchema,
+  ],
 };

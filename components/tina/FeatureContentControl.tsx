@@ -2,16 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities';
 import Control from './Control';
 import IconPicker from './widgets/IconPicker';
-import SelectMenu from './widgets/SelectMenu';
-
-const SelectGroup = ({value, label="", className="", options, onChange}) => {
-  return (
-    <div className={`relative pl-6 ${className}`}>
-      <span className="absolute text-xs text-gray-300 font-bold top-3 left-0">{label}</span>
-      <SelectMenu value={value} onChange={onChange} options={options} className="w-full" />
-    </div>
-  )
-}
+import LabeledSelectMenu from './widgets/LabeledSelectMenu';
 
 const widths = [
   { label: "20%", value: "w-1/5"},
@@ -41,7 +32,7 @@ const alignments = [
   { label: "text-right", value: "text-right"},
 ]
 
-function buildOptions(options: { label: string, value: string }[] = [], isMobile: boolean = false) {
+function buildOptions(options: { label: string, value: string }[] = [], isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(options, `${mobilePrefix}`)
 }
@@ -59,11 +50,11 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   }, [width, height, alignment]);
 
   return (
-    <div className="mb-4">
+    <div className="">
        <div className="flex items-center gap-2">
-         <SelectGroup label="W" value={width} onChange={setWidth} options={widthOptions} className="w-1/3 shrink-0" />
-         <SelectGroup label="H" value={height} onChange={setHeight} options={heightOptions} className="w-1/3 shrink-0" />
-         <IconPicker value={alignment} onClick={value => setAlignment(value)} options={alignmentOptions} menuPosition="right" className="flex-1" />
+          <LabeledSelectMenu label="W" value={width} onChange={setWidth} options={widthOptions} className="flex-1" />
+          <LabeledSelectMenu label="H" value={height} onChange={setHeight} options={heightOptions} className="flex-1" />
+          <IconPicker value={alignment} onClick={value => setAlignment(value)} options={alignmentOptions} menuPosition="right" />
       </div>
       <input type="text" value={`${width} ${height} ${alignment}`} className="hidden" />
     </div>

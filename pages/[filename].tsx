@@ -1,9 +1,9 @@
-import { Blocks } from "../components/blocks";
-import { ExperimentalGetTinaClient } from "../.tina/__generated__/types";
-import { useTina } from "tinacms/dist/edit-state";
+import { Blocks } from "../components/blocks-renderer";
+import { useTina } from "tinacms/dist/react";
 import { Layout } from "../components/layout";
+import { client } from "../.tina/__generated__/client";
 
-export default function DynamicPage(
+export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>["props"]
 ) {
   const { data } = useTina({
@@ -12,15 +12,14 @@ export default function DynamicPage(
     data: props.data,
   });
   return (
-    <Layout data={data}>
-      <Blocks {...data.getPagesDocument.data} />
+    <Layout rawData={data} data={data.global as any}>
+      <Blocks {...data.page} />
     </Layout>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
-  const client = ExperimentalGetTinaClient();
-  const tinaProps = await client.ContentQuery({
+  const tinaProps = await client.queries.contentQuery({
     relativePath: `${params.filename}.md`,
   });
   return {
@@ -33,11 +32,10 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const client = ExperimentalGetTinaClient();
-  const pagesListData = await client.getPagesList();
+  const pagesListData = await client.queries.pageConnection();
   return {
-    paths: pagesListData.data.getPagesList.edges.map((page) => ({
-      params: { filename: page.node.sys.filename },
+    paths: pagesListData.data.pageConnection.edges.map((page) => ({
+      params: { filename: page.node._sys.filename },
     })),
     fallback: false,
   };

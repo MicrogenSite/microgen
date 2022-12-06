@@ -15,54 +15,6 @@ const buttonAlignment = (alignment) => {
   return alignmentClasses.map(item => textAlignments[item]).join(' ')
 };
 
-const labelOrder = (order) => {
-  const labelOrder = {
-    labelHeadingsContent: "order-1",
-    labelContentHeadings: "order-1",
-    headingsLabelContent: "order-2",
-    headingsContentLabel: "order-3",
-    contentLabelHeadings: "order-2",
-    contentHeadingsLabel: "order-3",
-  };
-  return `${labelOrder[order]}`;
-}
-
-const headingOrder = (order) => {
-  const headingOrder = {
-    labelHeadingsContent: "order-2",
-    labelContentHeadings: "order-3",
-    headingsLabelContent: "order-1",
-    headingsContentLabel: "order-1",
-    contentLabelHeadings: "order-3",
-    contentHeadingsLabel: "order-2",
-  };
-  return `${headingOrder[order]}`;
-}
-
-const subheadOrder = (order) => {
-  const subheadOrder = {
-    labelHeadingsContent: "order-2",
-    labelContentHeadings: "order-3",
-    headingsLabelContent: "order-1",
-    headingsContentLabel: "order-1",
-    contentLabelHeadings: "order-3",
-    contentHeadingsLabel: "order-2",
-  };
-  return `${subheadOrder[order]}`;
-}
-
-const bodyOrder = (order) => {
-  const bodyOrder = {
-    labelHeadingsContent: "order-3",
-    labelContentHeadings: "order-2",
-    headingsLabelContent: "order-3",
-    headingsContentLabel: "order-2",
-    contentLabelHeadings: "order-1",
-    contentHeadingsLabel: "order-1",
-  };
-  return `${bodyOrder[order]}`;
-}
-
 export const Content = ({
   data,
   styles,
@@ -71,23 +23,21 @@ export const Content = ({
   parentField,
   className = ""
 }) => {
-  const order = styles.contentOrder
-
   // The first block gets an h1, others get an h2
   const headlineElement = () => {
     if (data?.headline && parentField === 'blocks.0') {
-      return <h1 className={`${headingOrder(order)} ${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h1>
+      return <h1 className={`${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h1>
     } else if (data?.headline) {
-      return <h2 className={`${headingOrder(order)} ${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
+      return <h2 className={`${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
     }
   }
   return (
     <div className={`flex flex-col ${width} ${alignment} ${className}`}>
-      {data?.label &&<h4 className={`${labelOrder(order)} ${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
+      {data?.label &&<h4 className={`${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
       {headlineElement()}
-      {data?.subhead && <h3 className={`${subheadOrder(order)} ${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+      {data?.subhead && <h3 className={`${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
       {data?.body?.children && (
-        <div className={`${bodyOrder(order)} markdown items-center ${styles.textStyles}`} data-tinafield={`${parentField}.body`}>
+        <div className={`markdown items-center ${styles.textStyles}`} data-tinafield={`${parentField}.body`}>
           <TinaMarkdown content={data.body} />
         </div>
       )}

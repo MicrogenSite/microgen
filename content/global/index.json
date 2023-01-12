@@ -4,8 +4,8 @@
   "fathomSiteId": "RBFTFNYG",
   "theme": "content/themes/protocol.md",
   "logo": {
-    "logoTypeStyle": "undefined undefined ",
-    "image": "/uploads/protocol-labs-network-small-logo.svg"
+    "logoTypeStyle": "",
+    "image": ""
   },
   "nav": {
     "navAlignment": "text-right",

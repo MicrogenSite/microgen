@@ -7,6 +7,7 @@ scalar JSON
 
 type SystemInfo {
   filename: String!
+  title: String
   basename: String!
   breadcrumbs(excludeExtension: Boolean): [String!]!
   path: String!
@@ -30,37 +31,50 @@ interface Node {
 
 """"""
 interface Document {
-  sys: SystemInfo
   id: ID!
-  form: JSON!
-  values: JSON!
+  _sys: SystemInfo
+  _values: JSON!
 }
 
 """A relay-compliant pagination connection"""
 interface Connection {
   totalCount: Float!
+  pageInfo: PageInfo!
 }
 
 type Query {
-  getCollection(collection: String): Collection!
-  getCollections: [Collection!]!
+  getOptimizedQuery(queryString: String!): String
+  collection(collection: String): Collection!
+  collections: [Collection!]!
   node(id: String): Node!
-  getDocument(collection: String, relativePath: String): DocumentNode!
-  getDocumentList(before: String, after: String, first: Float, last: Float): DocumentConnection!
-  getDocumentFields: JSON!
-  getGlobalDocument(relativePath: String): GlobalDocument!
-  getGlobalList(before: String, after: String, first: Float, last: Float): GlobalConnection!
-  getPagesDocument(relativePath: String): PagesDocument!
-  getPagesList(before: String, after: String, first: Float, last: Float): PagesConnection!
+  document(collection: String, relativePath: String): DocumentNode!
+  page(relativePath: String): Page!
+  pageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PageFilter): PageConnection!
+  post(relativePath: String): Post!
+  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
+  event(relativePath: String): Event!
+  eventConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: EventFilter): EventConnection!
+  theme(relativePath: String): Theme!
+  themeConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ThemeFilter): ThemeConnection!
+  global(relativePath: String): Global!
+  globalConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: GlobalFilter): GlobalConnection!
+}
+
+input DocumentFilter {
+  page: PageFilter
+  post: PostFilter
+  event: EventFilter
+  theme: ThemeFilter
+  global: GlobalFilter
 }
 
 type DocumentConnectionEdges {
-  cursor: String
+  cursor: String!
   node: DocumentNode
 }
 
 type DocumentConnection implements Connection {
-  pageInfo: PageInfo
+  pageInfo: PageInfo!
   totalCount: Float!
   edges: [DocumentConnectionEdges]
 }
@@ -74,12 +88,851 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
-union DocumentNode = GlobalDocument | PagesDocument
+union DocumentNode = Page | Post | Event | Theme | Global
 
-type GlobalColors {
+type PageBlocksFeatureStyle {
+  alignment: String
+  padding: String
+  featureImage: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type PageBlocksFeatureBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksFeatureBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksFeatureBackgroundOrnaments]
+}
+
+type PageBlocksFeatureImage {
+  src: String
+  alt: String
+}
+
+type PageBlocksFeatureButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type PageBlocksFeature {
+  style: PageBlocksFeatureStyle
+  background: PageBlocksFeatureBackground
+  image: PageBlocksFeatureImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksFeatureButtons]
+  navigationLabel: String
+}
+
+type PageBlocksCardsStyle {
+  alignment: String
+  padding: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type PageBlocksCardsCardStyle {
+  fillStyles: String
+  grid: String
+  alignment: String
+  image: String
+  imagePadding: String
+  contentPadding: String
+  borderStyles: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+  buttonTitle: String
+  buttonType: String
+  buttonLayout: String
+  buttonWidth: String
+}
+
+type PageBlocksCardsBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksCardsBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksCardsBackgroundOrnaments]
+}
+
+type PageBlocksCardsButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type PageBlocksCardsItemsImage {
+  src: String
+  alt: String
+}
+
+type PageBlocksCardsItems {
+  image: PageBlocksCardsItemsImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  link: String
+  buttonLabel: String
+}
+
+type PageBlocksCards {
+  style: PageBlocksCardsStyle
+  cardStyle: PageBlocksCardsCardStyle
+  background: PageBlocksCardsBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksCardsButtons]
+  items: [PageBlocksCardsItems]
+  navigationLabel: String
+}
+
+type PageBlocksEmbedStyle {
+  fullWidth: Boolean
+  minHeight: String
+  padding: String
+}
+
+type PageBlocksEmbedBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksEmbedBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEmbedBackgroundOrnaments]
+}
+
+type PageBlocksEmbed {
+  style: PageBlocksEmbedStyle
+  background: PageBlocksEmbedBackground
+  markup: String
+  navigationLabel: String
+}
+
+type PageBlocksTailwindFeatureTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+}
+
+type PageBlocksTailwindFeatureBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksTailwindFeatureBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksTailwindFeatureBackgroundOrnaments]
+}
+
+type PageBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
+type PageBlocksTailwindFeatureButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type PageBlocksTailwindFeature {
+  tailwind: PageBlocksTailwindFeatureTailwind
+  background: PageBlocksTailwindFeatureBackground
+  image: PageBlocksTailwindFeatureImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksTailwindFeatureButtons]
+  navigationLabel: String
+}
+
+type PageBlocksTailwindCardsTailwind {
+  section: String
+  wrap: String
+  imageWrap: String
+  image: String
+  contentWrap: String
+  content: String
+  label: String
+  headline: String
+  subhead: String
+  text: String
+  buttons: String
+  button: String
+  rule: String
+  cardWrap: String
+  card: String
+  cardImageWrap: String
+  cardImage: String
+  cardContentWrap: String
+  cardContent: String
+  cardLabel: String
+  cardHeadline: String
+  cardSubhead: String
+  cardText: String
+  cardButtons: String
+  cardButton: String
+}
+
+type PageBlocksTailwindCardsBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksTailwindCardsBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksTailwindCardsBackgroundOrnaments]
+}
+
+type PageBlocksTailwindCardsButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type PageBlocksTailwindCardsItemsImage {
+  src: String
+  alt: String
+}
+
+type PageBlocksTailwindCardsItems {
+  image: PageBlocksTailwindCardsItemsImage
+  label: String
+  headline: String
+  subhead: String
+  text: JSON
+  link: String
+  buttonLabel: String
+}
+
+type PageBlocksTailwindCards {
+  tailwind: PageBlocksTailwindCardsTailwind
+  background: PageBlocksTailwindCardsBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksTailwindCardsButtons]
+  items: [PageBlocksTailwindCardsItems]
+  navigationLabel: String
+}
+
+type PageBlocksEventTimelineStyle {
+  fullWidth: Boolean
+  minHeight: String
+  padding: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type PageBlocksEventTimelineBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksEventTimelineBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventTimelineBackgroundOrnaments]
+}
+
+type PageBlocksEventTimeline {
+  style: PageBlocksEventTimelineStyle
+  background: PageBlocksEventTimelineBackground
+  fathomId: String
+  navigationLabel: String
+}
+
+union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventTimeline
+
+type PageMeta {
+  title: String
+  description: String
+  ogImage: String
+}
+
+type Page implements Node & Document {
+  blocks: [PageBlocks]
+  backgroundColor: String
+  meta: PageMeta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PageBlocksFeatureStyleFilter {
+  alignment: StringFilter
+  padding: StringFilter
+  featureImage: StringFilter
+  featureContent: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PageBlocksFeatureBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksFeatureBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksFeatureBackgroundOrnamentsFilter
+}
+
+input PageBlocksFeatureImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input RichTextFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+}
+
+input PageBlocksFeatureButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input PageBlocksFeatureFilter {
+  style: PageBlocksFeatureStyleFilter
+  background: PageBlocksFeatureBackgroundFilter
+  image: PageBlocksFeatureImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: PageBlocksFeatureButtonsFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksCardsStyleFilter {
+  alignment: StringFilter
+  padding: StringFilter
+  featureContent: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input PageBlocksCardsCardStyleFilter {
+  fillStyles: StringFilter
+  grid: StringFilter
+  alignment: StringFilter
+  image: StringFilter
+  imagePadding: StringFilter
+  contentPadding: StringFilter
+  borderStyles: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+  buttonTitle: StringFilter
+  buttonType: StringFilter
+  buttonLayout: StringFilter
+  buttonWidth: StringFilter
+}
+
+input PageBlocksCardsBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksCardsBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksCardsBackgroundOrnamentsFilter
+}
+
+input PageBlocksCardsButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input PageBlocksCardsItemsImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input PageBlocksCardsItemsFilter {
+  image: PageBlocksCardsItemsImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  link: StringFilter
+  buttonLabel: StringFilter
+}
+
+input PageBlocksCardsFilter {
+  style: PageBlocksCardsStyleFilter
+  cardStyle: PageBlocksCardsCardStyleFilter
+  background: PageBlocksCardsBackgroundFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: PageBlocksCardsButtonsFilter
+  items: PageBlocksCardsItemsFilter
+  navigationLabel: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input PageBlocksEmbedStyleFilter {
+  fullWidth: BooleanFilter
+  minHeight: StringFilter
+  padding: StringFilter
+}
+
+input PageBlocksEmbedBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksEmbedBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksEmbedBackgroundOrnamentsFilter
+}
+
+input PageBlocksEmbedFilter {
+  style: PageBlocksEmbedStyleFilter
+  background: PageBlocksEmbedBackgroundFilter
+  markup: StringFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksTailwindFeatureTailwindFilter {
+  section: StringFilter
+  wrap: StringFilter
+  imageWrap: StringFilter
+  image: StringFilter
+  contentWrap: StringFilter
+  content: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: StringFilter
+  buttons: StringFilter
+  button: StringFilter
+}
+
+input PageBlocksTailwindFeatureBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksTailwindFeatureBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksTailwindFeatureBackgroundOrnamentsFilter
+}
+
+input PageBlocksTailwindFeatureImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input PageBlocksTailwindFeatureButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input PageBlocksTailwindFeatureFilter {
+  tailwind: PageBlocksTailwindFeatureTailwindFilter
+  background: PageBlocksTailwindFeatureBackgroundFilter
+  image: PageBlocksTailwindFeatureImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: PageBlocksTailwindFeatureButtonsFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksTailwindCardsTailwindFilter {
+  section: StringFilter
+  wrap: StringFilter
+  imageWrap: StringFilter
+  image: StringFilter
+  contentWrap: StringFilter
+  content: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: StringFilter
+  buttons: StringFilter
+  button: StringFilter
+  rule: StringFilter
+  cardWrap: StringFilter
+  card: StringFilter
+  cardImageWrap: StringFilter
+  cardImage: StringFilter
+  cardContentWrap: StringFilter
+  cardContent: StringFilter
+  cardLabel: StringFilter
+  cardHeadline: StringFilter
+  cardSubhead: StringFilter
+  cardText: StringFilter
+  cardButtons: StringFilter
+  cardButton: StringFilter
+}
+
+input PageBlocksTailwindCardsBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksTailwindCardsBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksTailwindCardsBackgroundOrnamentsFilter
+}
+
+input PageBlocksTailwindCardsButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input PageBlocksTailwindCardsItemsImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input PageBlocksTailwindCardsItemsFilter {
+  image: PageBlocksTailwindCardsItemsImageFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: RichTextFilter
+  link: StringFilter
+  buttonLabel: StringFilter
+}
+
+input PageBlocksTailwindCardsFilter {
+  tailwind: PageBlocksTailwindCardsTailwindFilter
+  background: PageBlocksTailwindCardsBackgroundFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: PageBlocksTailwindCardsButtonsFilter
+  items: PageBlocksTailwindCardsItemsFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksEventTimelineStyleFilter {
+  fullWidth: BooleanFilter
+  minHeight: StringFilter
+  padding: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input PageBlocksEventTimelineBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksEventTimelineBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksEventTimelineBackgroundOrnamentsFilter
+}
+
+input PageBlocksEventTimelineFilter {
+  style: PageBlocksEventTimelineStyleFilter
+  background: PageBlocksEventTimelineBackgroundFilter
+  fathomId: StringFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksFilter {
+  feature: PageBlocksFeatureFilter
+  cards: PageBlocksCardsFilter
+  embed: PageBlocksEmbedFilter
+  tailwindFeature: PageBlocksTailwindFeatureFilter
+  tailwindCards: PageBlocksTailwindCardsFilter
+  eventTimeline: PageBlocksEventTimelineFilter
+}
+
+input PageMetaFilter {
+  title: StringFilter
+  description: StringFilter
+  ogImage: ImageFilter
+}
+
+input PageFilter {
+  blocks: PageBlocksFilter
+  backgroundColor: StringFilter
+  meta: PageMetaFilter
+}
+
+type PageConnectionEdges {
+  cursor: String!
+  node: Page
+}
+
+type PageConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PageConnectionEdges]
+}
+
+type Post implements Node & Document {
+  title: String!
+  heroImg: String
+  excerpt: JSON
+  date: String
+  _body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input Post_bodyDateTimeFilter {
+  format: StringFilter
+}
+
+input Post_bodyBlockQuoteFilter {
+  children: RichTextFilter
+}
+
+input Post_bodyNewsletterSignupFilter {
+  children: RichTextFilter
+  placeholder: StringFilter
+  buttonText: StringFilter
+  disclaimer: RichTextFilter
+}
+
+input Post_bodyFilter {
+  DateTime: Post_bodyDateTimeFilter
+  BlockQuote: Post_bodyBlockQuoteFilter
+  NewsletterSignup: Post_bodyNewsletterSignupFilter
+}
+
+input PostFilter {
+  title: StringFilter
+  heroImg: ImageFilter
+  excerpt: RichTextFilter
+  date: DatetimeFilter
+  _body: Post_bodyFilter
+}
+
+type PostConnectionEdges {
+  cursor: String!
+  node: Post
+}
+
+type PostConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PostConnectionEdges]
+}
+
+type Event implements Node & Document {
+  eventName: String!
+  website: String
+  location: String
+  startDate: String
+  endDate: String
+  dateTBD: Boolean
+  dri: String
+  tag: String
+  juanSpeaking: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input EventFilter {
+  eventName: StringFilter
+  website: StringFilter
+  location: StringFilter
+  startDate: DatetimeFilter
+  endDate: DatetimeFilter
+  dateTBD: BooleanFilter
+  dri: StringFilter
+  tag: StringFilter
+  juanSpeaking: StringFilter
+}
+
+type EventConnectionEdges {
+  cursor: String!
+  node: Event
+}
+
+type EventConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [EventConnectionEdges]
+}
+
+type ThemeColors {
   primary: String
   accent1: String
   accent2: String
@@ -92,52 +945,80 @@ type GlobalColors {
   black: String
 }
 
-type GlobalFonts {
-  font1: String
-  font2: String
-  font3: String
-  font4: String
+type ThemeTypo {
+  label: String
+  typography: String
 }
 
-type GlobalSizeLeading {
-  textXs: String
-  textSm: String
-  textMd: String
-  textLg: String
-  textXl: String
-  text2xl: String
-  text3xl: String
-  text4xl: String
-  text5xl: String
-  text6xl: String
-  text7xl: String
-  text8xl: String
-}
-
-type GlobalButtons {
-  primaryRule: String
-  primaryFill: String
+type ThemeButtons {
+  label: String
+  fill: String
+  typography: String
+  padding: String
   primaryBorder: String
-  primaryTypography: String
-  primaryPadding: String
   primaryRounded: String
-  secondaryRule: String
-  secondaryFill: String
-  secondaryBorder: String
-  secondaryTypography: String
-  secondaryPadding: String
-  secondaryRounded: String
-  minorRule: String
-  minorFill: String
-  minorBorder: String
-  minorTypography: String
-  minorPadding: String
-  minorRounded: String
 }
 
-type GlobalLinks {
-  color: String
+type Theme implements Node & Document {
+  name: String
+  desktopWidth: String
+  colors: ThemeColors
+  typo: [ThemeTypo]
+  buttons: [ThemeButtons]
+  linkColor: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
 }
+
+input ThemeColorsFilter {
+  primary: StringFilter
+  accent1: StringFilter
+  accent2: StringFilter
+  accent3: StringFilter
+  accent4: StringFilter
+  white: StringFilter
+  grayLight: StringFilter
+  gray: StringFilter
+  grayDark: StringFilter
+  black: StringFilter
+}
+
+input ThemeTypoFilter {
+  label: StringFilter
+  typography: StringFilter
+}
+
+input ThemeButtonsFilter {
+  label: StringFilter
+  fill: StringFilter
+  typography: StringFilter
+  padding: StringFilter
+  primaryBorder: StringFilter
+  primaryRounded: StringFilter
+}
+
+input ThemeFilter {
+  name: StringFilter
+  desktopWidth: StringFilter
+  colors: ThemeColorsFilter
+  typo: ThemeTypoFilter
+  buttons: ThemeButtonsFilter
+  linkColor: StringFilter
+}
+
+type ThemeConnectionEdges {
+  cursor: String!
+  node: Theme
+}
+
+type ThemeConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ThemeConnectionEdges]
+}
+
+union GlobalTheme = Theme
 
 type GlobalLogo {
   logoType: String
@@ -167,20 +1048,37 @@ type GlobalNav {
   padding: String
 }
 
-type GlobalBlocksFeatureStyle {
+type GlobalBlocksCardsStyle {
   alignment: String
   padding: String
-  featureImage: String
   featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-  contentOrder: String
 }
 
-type GlobalBlocksFeatureBackgroundOrnaments {
+type GlobalBlocksCardsCardStyle {
+  fillStyles: String
+  grid: String
+  alignment: String
+  image: String
+  imagePadding: String
+  contentPadding: String
+  borderStyles: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+  buttonTitle: String
+  buttonType: String
+  buttonLayout: String
+  buttonWidth: String
+}
+
+type GlobalBlocksCardsBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -189,241 +1087,53 @@ type GlobalBlocksFeatureBackgroundOrnaments {
   yOffset: String
 }
 
-type GlobalBlocksFeatureBackground {
+type GlobalBlocksCardsBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [GlobalBlocksFeatureBackgroundOrnaments]
+  ornaments: [GlobalBlocksCardsBackgroundOrnaments]
 }
 
-type GlobalBlocksFeatureImage {
+type GlobalBlocksCardsButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type GlobalBlocksCardsItemsImage {
   src: String
   alt: String
 }
 
-type GlobalBlocksFeatureButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type GlobalBlocksFeature {
-  style: GlobalBlocksFeatureStyle
-  background: GlobalBlocksFeatureBackground
-  image: GlobalBlocksFeatureImage
+type GlobalBlocksCardsItems {
+  image: GlobalBlocksCardsItemsImage
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [GlobalBlocksFeatureButtons]
-  rule2: String
-  navigationLabel: String
-}
-
-type GlobalBlocksPhotoCardsStyle {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-type GlobalBlocksPhotoCardsCardStyle {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  imageStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-type GlobalBlocksPhotoCardsBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-type GlobalBlocksPhotoCardsBackground {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksPhotoCardsBackgroundOrnaments]
-}
-
-type GlobalBlocksPhotoCardsButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type GlobalBlocksPhotoCardsItemsImage {
-  src: String
-  alt: String
-}
-
-type GlobalBlocksPhotoCardsItems {
-  image: GlobalBlocksPhotoCardsItemsImage
-  label: String
-  headline: String
-  subhead: String
-  text: JSON
   link: String
   buttonLabel: String
 }
 
-type GlobalBlocksPhotoCards {
-  style: GlobalBlocksPhotoCardsStyle
-  cardStyle: GlobalBlocksPhotoCardsCardStyle
-  background: GlobalBlocksPhotoCardsBackground
+type GlobalBlocksCards {
+  style: GlobalBlocksCardsStyle
+  cardStyle: GlobalBlocksCardsCardStyle
+  background: GlobalBlocksCardsBackground
+  rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [GlobalBlocksPhotoCardsButtons]
-  items: [GlobalBlocksPhotoCardsItems]
-  navigationLabel: String
-}
-
-type GlobalBlocksTextCardsStyle {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-type GlobalBlocksTextCardsCardStyle {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-type GlobalBlocksTextCardsBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-type GlobalBlocksTextCardsBackground {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksTextCardsBackgroundOrnaments]
-}
-
-type GlobalBlocksTextCardsButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type GlobalBlocksTextCardsItems {
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-type GlobalBlocksTextCards {
-  style: GlobalBlocksTextCardsStyle
-  cardStyle: GlobalBlocksTextCardsCardStyle
-  background: GlobalBlocksTextCardsBackground
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [GlobalBlocksTextCardsButtons]
-  items: [GlobalBlocksTextCardsItems]
-  navigationLabel: String
-}
-
-type GlobalBlocksBannerStyle {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  width: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-type GlobalBlocksBannerBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-type GlobalBlocksBannerBackground {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksBannerBackgroundOrnaments]
-}
-
-type GlobalBlocksBannerImage {
-  src: String
-  alt: String
-}
-
-type GlobalBlocksBannerButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type GlobalBlocksBanner {
-  style: GlobalBlocksBannerStyle
-  background: GlobalBlocksBannerBackground
-  image: GlobalBlocksBannerImage
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [GlobalBlocksBannerButtons]
+  buttons: [GlobalBlocksCardsButtons]
+  items: [GlobalBlocksCardsItems]
   navigationLabel: String
 }
 
 type GlobalBlocksEmbedStyle {
-  minHeight: String
   fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
@@ -450,6 +1160,59 @@ type GlobalBlocksEmbed {
   navigationLabel: String
 }
 
+type GlobalBlocksFeatureStyle {
+  alignment: String
+  padding: String
+  featureImage: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type GlobalBlocksFeatureBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type GlobalBlocksFeatureBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksFeatureBackgroundOrnaments]
+}
+
+type GlobalBlocksFeatureImage {
+  src: String
+  alt: String
+}
+
+type GlobalBlocksFeatureButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type GlobalBlocksFeature {
+  style: GlobalBlocksFeatureStyle
+  background: GlobalBlocksFeatureBackground
+  image: GlobalBlocksFeatureImage
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksFeatureButtons]
+  navigationLabel: String
+}
+
 type GlobalBlocksTailwindFeatureTailwind {
   section: String
   wrap: String
@@ -463,11 +1226,6 @@ type GlobalBlocksTailwindFeatureTailwind {
   text: String
   buttons: String
   button: String
-}
-
-type GlobalBlocksTailwindFeatureImage {
-  src: String
-  alt: String
 }
 
 type GlobalBlocksTailwindFeatureBackgroundOrnaments {
@@ -486,22 +1244,28 @@ type GlobalBlocksTailwindFeatureBackground {
   ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnaments]
 }
 
+type GlobalBlocksTailwindFeatureImage {
+  src: String
+  alt: String
+}
+
 type GlobalBlocksTailwindFeatureButtons {
   label: String
   link: String
+  buttonStyle: String
+  fathomId: String
 }
 
 type GlobalBlocksTailwindFeature {
   tailwind: GlobalBlocksTailwindFeatureTailwind
-  image: GlobalBlocksTailwindFeatureImage
   background: GlobalBlocksTailwindFeatureBackground
+  image: GlobalBlocksTailwindFeatureImage
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
   buttons: [GlobalBlocksTailwindFeatureButtons]
-  rule2: String
   navigationLabel: String
 }
 
@@ -533,11 +1297,6 @@ type GlobalBlocksTailwindCardsTailwind {
   cardButton: String
 }
 
-type GlobalBlocksTailwindCardsImage {
-  src: String
-  alt: String
-}
-
 type GlobalBlocksTailwindCardsBackgroundOrnaments {
   src: String
   alignment: String
@@ -557,7 +1316,8 @@ type GlobalBlocksTailwindCardsBackground {
 type GlobalBlocksTailwindCardsButtons {
   label: String
   link: String
-  type: String
+  buttonStyle: String
+  fathomId: String
 }
 
 type GlobalBlocksTailwindCardsItemsImage {
@@ -577,7 +1337,6 @@ type GlobalBlocksTailwindCardsItems {
 
 type GlobalBlocksTailwindCards {
   tailwind: GlobalBlocksTailwindCardsTailwind
-  image: GlobalBlocksTailwindCardsImage
   background: GlobalBlocksTailwindCardsBackground
   rule: String
   label: String
@@ -586,57 +1345,415 @@ type GlobalBlocksTailwindCards {
   body: JSON
   buttons: [GlobalBlocksTailwindCardsButtons]
   items: [GlobalBlocksTailwindCardsItems]
-  rule2: String
   navigationLabel: String
 }
 
-union GlobalBlocks = GlobalBlocksFeature | GlobalBlocksPhotoCards | GlobalBlocksTextCards | GlobalBlocksBanner | GlobalBlocksEmbed | GlobalBlocksTailwindFeature | GlobalBlocksTailwindCards
+union GlobalBlocks = GlobalBlocksCards | GlobalBlocksEmbed | GlobalBlocksFeature | GlobalBlocksTailwindFeature | GlobalBlocksTailwindCards
 
-type GlobalRedirects {
-  from: String
-  to: String
-}
-
-type Global {
+type Global implements Node & Document {
   siteUrl: String
-  gtmId: String
   favicon: String
-  desktopWidth: String
-  backgroundColor: String
+  gtmId: String
+  fathomSiteId: String
+  theme: GlobalTheme
   rule: String
-  colors: GlobalColors
-  fonts: GlobalFonts
-  sizeLeading: GlobalSizeLeading
-  buttons: GlobalButtons
-  links: GlobalLinks
   logo: GlobalLogo
   nav: GlobalNav
-  rule2: String
   blocks: [GlobalBlocks]
-  redirects: [GlobalRedirects]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
 }
 
-type GlobalDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Global!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
+input GlobalThemeFilter {
+  theme: ThemeFilter
+}
+
+input GlobalLogoFilter {
+  logoType: StringFilter
+  logoTypeStyle: StringFilter
+  image: ImageFilter
+  imageWidth: StringFilter
+  imageHeight: StringFilter
+  imageMargin: StringFilter
+}
+
+input GlobalNavNavItemsSubNavItemsFilter {
+  label: StringFilter
+  link: StringFilter
+}
+
+input GlobalNavNavItemsFilter {
+  label: StringFilter
+  link: StringFilter
+  subNavItems: GlobalNavNavItemsSubNavItemsFilter
+}
+
+input GlobalNavFilter {
+  navItems: GlobalNavNavItemsFilter
+  navAlignment: StringFilter
+  navTypeStyle: StringFilter
+  navBackgroundColor: StringFilter
+  padding: StringFilter
+}
+
+input GlobalBlocksCardsStyleFilter {
+  alignment: StringFilter
+  padding: StringFilter
+  featureContent: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input GlobalBlocksCardsCardStyleFilter {
+  fillStyles: StringFilter
+  grid: StringFilter
+  alignment: StringFilter
+  image: StringFilter
+  imagePadding: StringFilter
+  contentPadding: StringFilter
+  borderStyles: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+  buttonTitle: StringFilter
+  buttonType: StringFilter
+  buttonLayout: StringFilter
+  buttonWidth: StringFilter
+}
+
+input GlobalBlocksCardsBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input GlobalBlocksCardsBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: GlobalBlocksCardsBackgroundOrnamentsFilter
+}
+
+input GlobalBlocksCardsButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input GlobalBlocksCardsItemsImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input GlobalBlocksCardsItemsFilter {
+  image: GlobalBlocksCardsItemsImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  link: StringFilter
+  buttonLabel: StringFilter
+}
+
+input GlobalBlocksCardsFilter {
+  style: GlobalBlocksCardsStyleFilter
+  cardStyle: GlobalBlocksCardsCardStyleFilter
+  background: GlobalBlocksCardsBackgroundFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: GlobalBlocksCardsButtonsFilter
+  items: GlobalBlocksCardsItemsFilter
+  navigationLabel: StringFilter
+}
+
+input GlobalBlocksEmbedStyleFilter {
+  fullWidth: BooleanFilter
+  minHeight: StringFilter
+  padding: StringFilter
+}
+
+input GlobalBlocksEmbedBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input GlobalBlocksEmbedBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: GlobalBlocksEmbedBackgroundOrnamentsFilter
+}
+
+input GlobalBlocksEmbedFilter {
+  style: GlobalBlocksEmbedStyleFilter
+  background: GlobalBlocksEmbedBackgroundFilter
+  markup: StringFilter
+  navigationLabel: StringFilter
+}
+
+input GlobalBlocksFeatureStyleFilter {
+  alignment: StringFilter
+  padding: StringFilter
+  featureImage: StringFilter
+  featureContent: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input GlobalBlocksFeatureBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input GlobalBlocksFeatureBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: GlobalBlocksFeatureBackgroundOrnamentsFilter
+}
+
+input GlobalBlocksFeatureImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input GlobalBlocksFeatureButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input GlobalBlocksFeatureFilter {
+  style: GlobalBlocksFeatureStyleFilter
+  background: GlobalBlocksFeatureBackgroundFilter
+  image: GlobalBlocksFeatureImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: GlobalBlocksFeatureButtonsFilter
+  navigationLabel: StringFilter
+}
+
+input GlobalBlocksTailwindFeatureTailwindFilter {
+  section: StringFilter
+  wrap: StringFilter
+  imageWrap: StringFilter
+  image: StringFilter
+  contentWrap: StringFilter
+  content: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: StringFilter
+  buttons: StringFilter
+  button: StringFilter
+}
+
+input GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input GlobalBlocksTailwindFeatureBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter
+}
+
+input GlobalBlocksTailwindFeatureImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input GlobalBlocksTailwindFeatureButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input GlobalBlocksTailwindFeatureFilter {
+  tailwind: GlobalBlocksTailwindFeatureTailwindFilter
+  background: GlobalBlocksTailwindFeatureBackgroundFilter
+  image: GlobalBlocksTailwindFeatureImageFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: GlobalBlocksTailwindFeatureButtonsFilter
+  navigationLabel: StringFilter
+}
+
+input GlobalBlocksTailwindCardsTailwindFilter {
+  section: StringFilter
+  wrap: StringFilter
+  imageWrap: StringFilter
+  image: StringFilter
+  contentWrap: StringFilter
+  content: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: StringFilter
+  buttons: StringFilter
+  button: StringFilter
+  rule: StringFilter
+  cardWrap: StringFilter
+  card: StringFilter
+  cardImageWrap: StringFilter
+  cardImage: StringFilter
+  cardContentWrap: StringFilter
+  cardContent: StringFilter
+  cardLabel: StringFilter
+  cardHeadline: StringFilter
+  cardSubhead: StringFilter
+  cardText: StringFilter
+  cardButtons: StringFilter
+  cardButton: StringFilter
+}
+
+input GlobalBlocksTailwindCardsBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input GlobalBlocksTailwindCardsBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: GlobalBlocksTailwindCardsBackgroundOrnamentsFilter
+}
+
+input GlobalBlocksTailwindCardsButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input GlobalBlocksTailwindCardsItemsImageFilter {
+  src: ImageFilter
+  alt: StringFilter
+}
+
+input GlobalBlocksTailwindCardsItemsFilter {
+  image: GlobalBlocksTailwindCardsItemsImageFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  text: RichTextFilter
+  link: StringFilter
+  buttonLabel: StringFilter
+}
+
+input GlobalBlocksTailwindCardsFilter {
+  tailwind: GlobalBlocksTailwindCardsTailwindFilter
+  background: GlobalBlocksTailwindCardsBackgroundFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: GlobalBlocksTailwindCardsButtonsFilter
+  items: GlobalBlocksTailwindCardsItemsFilter
+  navigationLabel: StringFilter
+}
+
+input GlobalBlocksFilter {
+  cards: GlobalBlocksCardsFilter
+  embed: GlobalBlocksEmbedFilter
+  feature: GlobalBlocksFeatureFilter
+  tailwindFeature: GlobalBlocksTailwindFeatureFilter
+  tailwindCards: GlobalBlocksTailwindCardsFilter
+}
+
+input GlobalFilter {
+  siteUrl: StringFilter
+  favicon: ImageFilter
+  gtmId: StringFilter
+  fathomSiteId: StringFilter
+  theme: GlobalThemeFilter
+  rule: StringFilter
+  logo: GlobalLogoFilter
+  nav: GlobalNavFilter
+  blocks: GlobalBlocksFilter
 }
 
 type GlobalConnectionEdges {
-  cursor: String
-  node: GlobalDocument
+  cursor: String!
+  node: Global
 }
 
 type GlobalConnection implements Connection {
-  pageInfo: PageInfo
+  pageInfo: PageInfo!
   totalCount: Float!
   edges: [GlobalConnectionEdges]
 }
 
-type PagesBlocksFeatureStyle {
+type Mutation {
+  addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
+  updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  deleteDocument(collection: String, relativePath: String!): DocumentNode!
+  createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updatePage(relativePath: String!, params: PageMutation!): Page!
+  createPage(relativePath: String!, params: PageMutation!): Page!
+  updatePost(relativePath: String!, params: PostMutation!): Post!
+  createPost(relativePath: String!, params: PostMutation!): Post!
+  updateEvent(relativePath: String!, params: EventMutation!): Event!
+  createEvent(relativePath: String!, params: EventMutation!): Event!
+  updateTheme(relativePath: String!, params: ThemeMutation!): Theme!
+  createTheme(relativePath: String!, params: ThemeMutation!): Theme!
+  updateGlobal(relativePath: String!, params: GlobalMutation!): Global!
+  createGlobal(relativePath: String!, params: GlobalMutation!): Global!
+}
+
+input DocumentMutation {
+  page: PageMutation
+  post: PostMutation
+  event: EventMutation
+  theme: ThemeMutation
+  global: GlobalMutation
+}
+
+input PageBlocksFeatureStyleMutation {
   alignment: String
   padding: String
   featureImage: String
@@ -646,10 +1763,9 @@ type PagesBlocksFeatureStyle {
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-  contentOrder: String
 }
 
-type PagesBlocksFeatureBackgroundOrnaments {
+input PageBlocksFeatureBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -658,133 +1774,56 @@ type PagesBlocksFeatureBackgroundOrnaments {
   yOffset: String
 }
 
-type PagesBlocksFeatureBackground {
+input PageBlocksFeatureBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PagesBlocksFeatureBackgroundOrnaments]
+  ornaments: [PageBlocksFeatureBackgroundOrnamentsMutation]
 }
 
-type PagesBlocksFeatureImage {
+input PageBlocksFeatureImageMutation {
   src: String
   alt: String
 }
 
-type PagesBlocksFeatureButtons {
+input PageBlocksFeatureButtonsMutation {
   label: String
   link: String
-  type: String
+  buttonStyle: String
+  fathomId: String
 }
 
-type PagesBlocksFeature {
-  style: PagesBlocksFeatureStyle
-  background: PagesBlocksFeatureBackground
-  image: PagesBlocksFeatureImage
+input PageBlocksFeatureMutation {
+  style: PageBlocksFeatureStyleMutation
+  background: PageBlocksFeatureBackgroundMutation
+  image: PageBlocksFeatureImageMutation
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [PagesBlocksFeatureButtons]
-  rule2: String
+  buttons: [PageBlocksFeatureButtonsMutation]
   navigationLabel: String
 }
 
-type PagesBlocksPhotoCardsStyle {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-type PagesBlocksPhotoCardsCardStyle {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  imageStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-type PagesBlocksPhotoCardsBackgroundOrnaments {
-  src: String
+input PageBlocksCardsStyleMutation {
   alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-type PagesBlocksPhotoCardsBackground {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksPhotoCardsBackgroundOrnaments]
-}
-
-type PagesBlocksPhotoCardsButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type PagesBlocksPhotoCardsItemsImage {
-  src: String
-  alt: String
-}
-
-type PagesBlocksPhotoCardsItems {
-  image: PagesBlocksPhotoCardsItemsImage
-  label: String
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-type PagesBlocksPhotoCards {
-  style: PagesBlocksPhotoCardsStyle
-  cardStyle: PagesBlocksPhotoCardsCardStyle
-  background: PagesBlocksPhotoCardsBackground
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksPhotoCardsButtons]
-  items: [PagesBlocksPhotoCardsItems]
-  navigationLabel: String
-}
-
-type PagesBlocksTextCardsStyle {
-  textAlignment: String
-  minHeight: String
   padding: String
-  contentWidth: String
-  columns: String
+  featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-  contentOrder: String
 }
 
-type PagesBlocksTextCardsCardStyle {
+input PageBlocksCardsCardStyleMutation {
   fillStyles: String
-  padding: String
+  grid: String
+  alignment: String
+  image: String
+  imagePadding: String
+  contentPadding: String
   borderStyles: String
   typographyTitle: String
   labelStyles: String
@@ -793,9 +1832,11 @@ type PagesBlocksTextCardsCardStyle {
   textStyles: String
   buttonTitle: String
   buttonType: String
+  buttonLayout: String
+  buttonWidth: String
 }
 
-type PagesBlocksTextCardsBackgroundOrnaments {
+input PageBlocksCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -804,99 +1845,57 @@ type PagesBlocksTextCardsBackgroundOrnaments {
   yOffset: String
 }
 
-type PagesBlocksTextCardsBackground {
+input PageBlocksCardsBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PagesBlocksTextCardsBackgroundOrnaments]
+  ornaments: [PageBlocksCardsBackgroundOrnamentsMutation]
 }
 
-type PagesBlocksTextCardsButtons {
+input PageBlocksCardsButtonsMutation {
   label: String
   link: String
-  type: String
+  buttonStyle: String
+  fathomId: String
 }
 
-type PagesBlocksTextCardsItems {
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-type PagesBlocksTextCards {
-  style: PagesBlocksTextCardsStyle
-  cardStyle: PagesBlocksTextCardsCardStyle
-  background: PagesBlocksTextCardsBackground
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksTextCardsButtons]
-  items: [PagesBlocksTextCardsItems]
-  navigationLabel: String
-}
-
-type PagesBlocksBannerStyle {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  width: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-type PagesBlocksBannerBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-type PagesBlocksBannerBackground {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksBannerBackgroundOrnaments]
-}
-
-type PagesBlocksBannerImage {
+input PageBlocksCardsItemsImageMutation {
   src: String
   alt: String
 }
 
-type PagesBlocksBannerButtons {
-  label: String
-  link: String
-  type: String
-}
-
-type PagesBlocksBanner {
-  style: PagesBlocksBannerStyle
-  background: PagesBlocksBannerBackground
-  image: PagesBlocksBannerImage
+input PageBlocksCardsItemsMutation {
+  image: PageBlocksCardsItemsImageMutation
+  rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [PagesBlocksBannerButtons]
+  link: String
+  buttonLabel: String
+}
+
+input PageBlocksCardsMutation {
+  style: PageBlocksCardsStyleMutation
+  cardStyle: PageBlocksCardsCardStyleMutation
+  background: PageBlocksCardsBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksCardsButtonsMutation]
+  items: [PageBlocksCardsItemsMutation]
   navigationLabel: String
 }
 
-type PagesBlocksEmbedStyle {
-  minHeight: String
+input PageBlocksEmbedStyleMutation {
   fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
-type PagesBlocksEmbedBackgroundOrnaments {
+input PageBlocksEmbedBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -905,21 +1904,21 @@ type PagesBlocksEmbedBackgroundOrnaments {
   yOffset: String
 }
 
-type PagesBlocksEmbedBackground {
+input PageBlocksEmbedBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PagesBlocksEmbedBackgroundOrnaments]
+  ornaments: [PageBlocksEmbedBackgroundOrnamentsMutation]
 }
 
-type PagesBlocksEmbed {
-  style: PagesBlocksEmbedStyle
-  background: PagesBlocksEmbedBackground
+input PageBlocksEmbedMutation {
+  style: PageBlocksEmbedStyleMutation
+  background: PageBlocksEmbedBackgroundMutation
   markup: String
   navigationLabel: String
 }
 
-type PagesBlocksTailwindFeatureTailwind {
+input PageBlocksTailwindFeatureTailwindMutation {
   section: String
   wrap: String
   imageWrap: String
@@ -934,12 +1933,7 @@ type PagesBlocksTailwindFeatureTailwind {
   button: String
 }
 
-type PagesBlocksTailwindFeatureImage {
-  src: String
-  alt: String
-}
-
-type PagesBlocksTailwindFeatureBackgroundOrnaments {
+input PageBlocksTailwindFeatureBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -948,33 +1942,39 @@ type PagesBlocksTailwindFeatureBackgroundOrnaments {
   yOffset: String
 }
 
-type PagesBlocksTailwindFeatureBackground {
+input PageBlocksTailwindFeatureBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PagesBlocksTailwindFeatureBackgroundOrnaments]
+  ornaments: [PageBlocksTailwindFeatureBackgroundOrnamentsMutation]
 }
 
-type PagesBlocksTailwindFeatureButtons {
+input PageBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input PageBlocksTailwindFeatureButtonsMutation {
   label: String
   link: String
+  buttonStyle: String
+  fathomId: String
 }
 
-type PagesBlocksTailwindFeature {
-  tailwind: PagesBlocksTailwindFeatureTailwind
-  image: PagesBlocksTailwindFeatureImage
-  background: PagesBlocksTailwindFeatureBackground
+input PageBlocksTailwindFeatureMutation {
+  tailwind: PageBlocksTailwindFeatureTailwindMutation
+  background: PageBlocksTailwindFeatureBackgroundMutation
+  image: PageBlocksTailwindFeatureImageMutation
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [PagesBlocksTailwindFeatureButtons]
-  rule2: String
+  buttons: [PageBlocksTailwindFeatureButtonsMutation]
   navigationLabel: String
 }
 
-type PagesBlocksTailwindCardsTailwind {
+input PageBlocksTailwindCardsTailwindMutation {
   section: String
   wrap: String
   imageWrap: String
@@ -1002,12 +2002,7 @@ type PagesBlocksTailwindCardsTailwind {
   cardButton: String
 }
 
-type PagesBlocksTailwindCardsImage {
-  src: String
-  alt: String
-}
-
-type PagesBlocksTailwindCardsBackgroundOrnaments {
+input PageBlocksTailwindCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -1016,26 +2011,27 @@ type PagesBlocksTailwindCardsBackgroundOrnaments {
   yOffset: String
 }
 
-type PagesBlocksTailwindCardsBackground {
+input PageBlocksTailwindCardsBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PagesBlocksTailwindCardsBackgroundOrnaments]
+  ornaments: [PageBlocksTailwindCardsBackgroundOrnamentsMutation]
 }
 
-type PagesBlocksTailwindCardsButtons {
+input PageBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
-  type: String
+  buttonStyle: String
+  fathomId: String
 }
 
-type PagesBlocksTailwindCardsItemsImage {
+input PageBlocksTailwindCardsItemsImageMutation {
   src: String
   alt: String
 }
 
-type PagesBlocksTailwindCardsItems {
-  image: PagesBlocksTailwindCardsItemsImage
+input PageBlocksTailwindCardsItemsMutation {
+  image: PageBlocksTailwindCardsItemsImageMutation
   label: String
   headline: String
   subhead: String
@@ -1044,70 +2040,95 @@ type PagesBlocksTailwindCardsItems {
   buttonLabel: String
 }
 
-type PagesBlocksTailwindCards {
-  tailwind: PagesBlocksTailwindCardsTailwind
-  image: PagesBlocksTailwindCardsImage
-  background: PagesBlocksTailwindCardsBackground
+input PageBlocksTailwindCardsMutation {
+  tailwind: PageBlocksTailwindCardsTailwindMutation
+  background: PageBlocksTailwindCardsBackgroundMutation
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [PagesBlocksTailwindCardsButtons]
-  items: [PagesBlocksTailwindCardsItems]
-  rule2: String
+  buttons: [PageBlocksTailwindCardsButtonsMutation]
+  items: [PageBlocksTailwindCardsItemsMutation]
   navigationLabel: String
 }
 
-union PagesBlocks = PagesBlocksFeature | PagesBlocksPhotoCards | PagesBlocksTextCards | PagesBlocksBanner | PagesBlocksEmbed | PagesBlocksTailwindFeature | PagesBlocksTailwindCards
-
-type PagesMeta {
-  pageTitle: String
-  pageDescription: String
-  siteImageSrc: String
+input PageBlocksEventTimelineStyleMutation {
+  fullWidth: Boolean
+  minHeight: String
+  padding: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
 }
 
-type Pages {
-  blocks: [PagesBlocks]
-  meta: PagesMeta
+input PageBlocksEventTimelineBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
 }
 
-type PagesDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Pages!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
+input PageBlocksEventTimelineBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventTimelineBackgroundOrnamentsMutation]
 }
 
-type PagesConnectionEdges {
-  cursor: String
-  node: PagesDocument
+input PageBlocksEventTimelineMutation {
+  style: PageBlocksEventTimelineStyleMutation
+  background: PageBlocksEventTimelineBackgroundMutation
+  fathomId: String
+  navigationLabel: String
 }
 
-type PagesConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Float!
-  edges: [PagesConnectionEdges]
+input PageBlocksMutation {
+  feature: PageBlocksFeatureMutation
+  cards: PageBlocksCardsMutation
+  embed: PageBlocksEmbedMutation
+  tailwindFeature: PageBlocksTailwindFeatureMutation
+  tailwindCards: PageBlocksTailwindCardsMutation
+  eventTimeline: PageBlocksEventTimelineMutation
 }
 
-type Mutation {
-  addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
-  updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updateGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
-  createGlobalDocument(relativePath: String!, params: GlobalMutation!): GlobalDocument!
-  updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
-  createPagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+input PageMetaMutation {
+  title: String
+  description: String
+  ogImage: String
 }
 
-input DocumentMutation {
-  global: GlobalMutation
-  pages: PagesMutation
+input PageMutation {
+  blocks: [PageBlocksMutation]
+  backgroundColor: String
+  meta: PageMetaMutation
 }
 
-input GlobalColorsMutation {
+input PostMutation {
+  title: String
+  heroImg: String
+  excerpt: JSON
+  date: String
+  _body: JSON
+}
+
+input EventMutation {
+  eventName: String
+  website: String
+  location: String
+  startDate: String
+  endDate: String
+  dateTBD: Boolean
+  dri: String
+  tag: String
+  juanSpeaking: String
+}
+
+input ThemeColorsMutation {
   primary: String
   accent1: String
   accent2: String
@@ -1120,51 +2141,27 @@ input GlobalColorsMutation {
   black: String
 }
 
-input GlobalFontsMutation {
-  font1: String
-  font2: String
-  font3: String
-  font4: String
+input ThemeTypoMutation {
+  label: String
+  typography: String
 }
 
-input GlobalSizeLeadingMutation {
-  textXs: String
-  textSm: String
-  textMd: String
-  textLg: String
-  textXl: String
-  text2xl: String
-  text3xl: String
-  text4xl: String
-  text5xl: String
-  text6xl: String
-  text7xl: String
-  text8xl: String
-}
-
-input GlobalButtonsMutation {
-  primaryRule: String
-  primaryFill: String
+input ThemeButtonsMutation {
+  label: String
+  fill: String
+  typography: String
+  padding: String
   primaryBorder: String
-  primaryTypography: String
-  primaryPadding: String
   primaryRounded: String
-  secondaryRule: String
-  secondaryFill: String
-  secondaryBorder: String
-  secondaryTypography: String
-  secondaryPadding: String
-  secondaryRounded: String
-  minorRule: String
-  minorFill: String
-  minorBorder: String
-  minorTypography: String
-  minorPadding: String
-  minorRounded: String
 }
 
-input GlobalLinksMutation {
-  color: String
+input ThemeMutation {
+  name: String
+  desktopWidth: String
+  colors: ThemeColorsMutation
+  typo: [ThemeTypoMutation]
+  buttons: [ThemeButtonsMutation]
+  linkColor: String
 }
 
 input GlobalLogoMutation {
@@ -1195,20 +2192,37 @@ input GlobalNavMutation {
   padding: String
 }
 
-input GlobalBlocksFeatureStyleMutation {
+input GlobalBlocksCardsStyleMutation {
   alignment: String
   padding: String
-  featureImage: String
   featureContent: String
   typographyTitle: String
   labelStyles: String
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-  contentOrder: String
 }
 
-input GlobalBlocksFeatureBackgroundOrnamentsMutation {
+input GlobalBlocksCardsCardStyleMutation {
+  fillStyles: String
+  grid: String
+  alignment: String
+  image: String
+  imagePadding: String
+  contentPadding: String
+  borderStyles: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+  buttonTitle: String
+  buttonType: String
+  buttonLayout: String
+  buttonWidth: String
+}
+
+input GlobalBlocksCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -1217,241 +2231,53 @@ input GlobalBlocksFeatureBackgroundOrnamentsMutation {
   yOffset: String
 }
 
-input GlobalBlocksFeatureBackgroundMutation {
+input GlobalBlocksCardsBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [GlobalBlocksFeatureBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksCardsBackgroundOrnamentsMutation]
 }
 
-input GlobalBlocksFeatureImageMutation {
+input GlobalBlocksCardsButtonsMutation {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+input GlobalBlocksCardsItemsImageMutation {
   src: String
   alt: String
 }
 
-input GlobalBlocksFeatureButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input GlobalBlocksFeatureMutation {
-  style: GlobalBlocksFeatureStyleMutation
-  background: GlobalBlocksFeatureBackgroundMutation
-  image: GlobalBlocksFeatureImageMutation
+input GlobalBlocksCardsItemsMutation {
+  image: GlobalBlocksCardsItemsImageMutation
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [GlobalBlocksFeatureButtonsMutation]
-  rule2: String
-  navigationLabel: String
-}
-
-input GlobalBlocksPhotoCardsStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input GlobalBlocksPhotoCardsCardStyleMutation {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  imageStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-input GlobalBlocksPhotoCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input GlobalBlocksPhotoCardsBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksPhotoCardsBackgroundOrnamentsMutation]
-}
-
-input GlobalBlocksPhotoCardsButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input GlobalBlocksPhotoCardsItemsImageMutation {
-  src: String
-  alt: String
-}
-
-input GlobalBlocksPhotoCardsItemsMutation {
-  image: GlobalBlocksPhotoCardsItemsImageMutation
-  label: String
-  headline: String
-  subhead: String
-  text: JSON
   link: String
   buttonLabel: String
 }
 
-input GlobalBlocksPhotoCardsMutation {
-  style: GlobalBlocksPhotoCardsStyleMutation
-  cardStyle: GlobalBlocksPhotoCardsCardStyleMutation
-  background: GlobalBlocksPhotoCardsBackgroundMutation
+input GlobalBlocksCardsMutation {
+  style: GlobalBlocksCardsStyleMutation
+  cardStyle: GlobalBlocksCardsCardStyleMutation
+  background: GlobalBlocksCardsBackgroundMutation
+  rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
-  buttons: [GlobalBlocksPhotoCardsButtonsMutation]
-  items: [GlobalBlocksPhotoCardsItemsMutation]
-  navigationLabel: String
-}
-
-input GlobalBlocksTextCardsStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input GlobalBlocksTextCardsCardStyleMutation {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-input GlobalBlocksTextCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input GlobalBlocksTextCardsBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksTextCardsBackgroundOrnamentsMutation]
-}
-
-input GlobalBlocksTextCardsButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input GlobalBlocksTextCardsItemsMutation {
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-input GlobalBlocksTextCardsMutation {
-  style: GlobalBlocksTextCardsStyleMutation
-  cardStyle: GlobalBlocksTextCardsCardStyleMutation
-  background: GlobalBlocksTextCardsBackgroundMutation
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [GlobalBlocksTextCardsButtonsMutation]
-  items: [GlobalBlocksTextCardsItemsMutation]
-  navigationLabel: String
-}
-
-input GlobalBlocksBannerStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  width: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input GlobalBlocksBannerBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input GlobalBlocksBannerBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [GlobalBlocksBannerBackgroundOrnamentsMutation]
-}
-
-input GlobalBlocksBannerImageMutation {
-  src: String
-  alt: String
-}
-
-input GlobalBlocksBannerButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input GlobalBlocksBannerMutation {
-  style: GlobalBlocksBannerStyleMutation
-  background: GlobalBlocksBannerBackgroundMutation
-  image: GlobalBlocksBannerImageMutation
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [GlobalBlocksBannerButtonsMutation]
+  buttons: [GlobalBlocksCardsButtonsMutation]
+  items: [GlobalBlocksCardsItemsMutation]
   navigationLabel: String
 }
 
 input GlobalBlocksEmbedStyleMutation {
-  minHeight: String
   fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
@@ -1478,6 +2304,59 @@ input GlobalBlocksEmbedMutation {
   navigationLabel: String
 }
 
+input GlobalBlocksFeatureStyleMutation {
+  alignment: String
+  padding: String
+  featureImage: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+input GlobalBlocksFeatureBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input GlobalBlocksFeatureBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [GlobalBlocksFeatureBackgroundOrnamentsMutation]
+}
+
+input GlobalBlocksFeatureImageMutation {
+  src: String
+  alt: String
+}
+
+input GlobalBlocksFeatureButtonsMutation {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+input GlobalBlocksFeatureMutation {
+  style: GlobalBlocksFeatureStyleMutation
+  background: GlobalBlocksFeatureBackgroundMutation
+  image: GlobalBlocksFeatureImageMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [GlobalBlocksFeatureButtonsMutation]
+  navigationLabel: String
+}
+
 input GlobalBlocksTailwindFeatureTailwindMutation {
   section: String
   wrap: String
@@ -1491,11 +2370,6 @@ input GlobalBlocksTailwindFeatureTailwindMutation {
   text: String
   buttons: String
   button: String
-}
-
-input GlobalBlocksTailwindFeatureImageMutation {
-  src: String
-  alt: String
 }
 
 input GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation {
@@ -1514,22 +2388,28 @@ input GlobalBlocksTailwindFeatureBackgroundMutation {
   ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation]
 }
 
+input GlobalBlocksTailwindFeatureImageMutation {
+  src: String
+  alt: String
+}
+
 input GlobalBlocksTailwindFeatureButtonsMutation {
   label: String
   link: String
+  buttonStyle: String
+  fathomId: String
 }
 
 input GlobalBlocksTailwindFeatureMutation {
   tailwind: GlobalBlocksTailwindFeatureTailwindMutation
-  image: GlobalBlocksTailwindFeatureImageMutation
   background: GlobalBlocksTailwindFeatureBackgroundMutation
+  image: GlobalBlocksTailwindFeatureImageMutation
   rule: String
   label: String
   headline: String
   subhead: String
   body: JSON
   buttons: [GlobalBlocksTailwindFeatureButtonsMutation]
-  rule2: String
   navigationLabel: String
 }
 
@@ -1561,11 +2441,6 @@ input GlobalBlocksTailwindCardsTailwindMutation {
   cardButton: String
 }
 
-input GlobalBlocksTailwindCardsImageMutation {
-  src: String
-  alt: String
-}
-
 input GlobalBlocksTailwindCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
@@ -1585,7 +2460,8 @@ input GlobalBlocksTailwindCardsBackgroundMutation {
 input GlobalBlocksTailwindCardsButtonsMutation {
   label: String
   link: String
-  type: String
+  buttonStyle: String
+  fathomId: String
 }
 
 input GlobalBlocksTailwindCardsItemsImageMutation {
@@ -1605,7 +2481,6 @@ input GlobalBlocksTailwindCardsItemsMutation {
 
 input GlobalBlocksTailwindCardsMutation {
   tailwind: GlobalBlocksTailwindCardsTailwindMutation
-  image: GlobalBlocksTailwindCardsImageMutation
   background: GlobalBlocksTailwindCardsBackgroundMutation
   rule: String
   label: String
@@ -1614,486 +2489,27 @@ input GlobalBlocksTailwindCardsMutation {
   body: JSON
   buttons: [GlobalBlocksTailwindCardsButtonsMutation]
   items: [GlobalBlocksTailwindCardsItemsMutation]
-  rule2: String
   navigationLabel: String
 }
 
 input GlobalBlocksMutation {
-  feature: GlobalBlocksFeatureMutation
-  photoCards: GlobalBlocksPhotoCardsMutation
-  textCards: GlobalBlocksTextCardsMutation
-  banner: GlobalBlocksBannerMutation
+  cards: GlobalBlocksCardsMutation
   embed: GlobalBlocksEmbedMutation
+  feature: GlobalBlocksFeatureMutation
   tailwindFeature: GlobalBlocksTailwindFeatureMutation
   tailwindCards: GlobalBlocksTailwindCardsMutation
 }
 
-input GlobalRedirectsMutation {
-  from: String
-  to: String
-}
-
 input GlobalMutation {
   siteUrl: String
-  gtmId: String
   favicon: String
-  desktopWidth: String
-  backgroundColor: String
+  gtmId: String
+  fathomSiteId: String
+  theme: String
   rule: String
-  colors: GlobalColorsMutation
-  fonts: GlobalFontsMutation
-  sizeLeading: GlobalSizeLeadingMutation
-  buttons: GlobalButtonsMutation
-  links: GlobalLinksMutation
   logo: GlobalLogoMutation
   nav: GlobalNavMutation
-  rule2: String
   blocks: [GlobalBlocksMutation]
-  redirects: [GlobalRedirectsMutation]
-}
-
-input PagesBlocksFeatureStyleMutation {
-  alignment: String
-  padding: String
-  featureImage: String
-  featureContent: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input PagesBlocksFeatureBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksFeatureBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksFeatureBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksFeatureImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksFeatureButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input PagesBlocksFeatureMutation {
-  style: PagesBlocksFeatureStyleMutation
-  background: PagesBlocksFeatureBackgroundMutation
-  image: PagesBlocksFeatureImageMutation
-  rule: String
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksFeatureButtonsMutation]
-  rule2: String
-  navigationLabel: String
-}
-
-input PagesBlocksPhotoCardsStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input PagesBlocksPhotoCardsCardStyleMutation {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  imageStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-input PagesBlocksPhotoCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksPhotoCardsBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksPhotoCardsBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksPhotoCardsButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input PagesBlocksPhotoCardsItemsImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksPhotoCardsItemsMutation {
-  image: PagesBlocksPhotoCardsItemsImageMutation
-  label: String
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-input PagesBlocksPhotoCardsMutation {
-  style: PagesBlocksPhotoCardsStyleMutation
-  cardStyle: PagesBlocksPhotoCardsCardStyleMutation
-  background: PagesBlocksPhotoCardsBackgroundMutation
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksPhotoCardsButtonsMutation]
-  items: [PagesBlocksPhotoCardsItemsMutation]
-  navigationLabel: String
-}
-
-input PagesBlocksTextCardsStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  contentWidth: String
-  columns: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input PagesBlocksTextCardsCardStyleMutation {
-  fillStyles: String
-  padding: String
-  borderStyles: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  buttonTitle: String
-  buttonType: String
-}
-
-input PagesBlocksTextCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksTextCardsBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksTextCardsBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksTextCardsButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input PagesBlocksTextCardsItemsMutation {
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-input PagesBlocksTextCardsMutation {
-  style: PagesBlocksTextCardsStyleMutation
-  cardStyle: PagesBlocksTextCardsCardStyleMutation
-  background: PagesBlocksTextCardsBackgroundMutation
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksTextCardsButtonsMutation]
-  items: [PagesBlocksTextCardsItemsMutation]
-  navigationLabel: String
-}
-
-input PagesBlocksBannerStyleMutation {
-  textAlignment: String
-  minHeight: String
-  padding: String
-  width: String
-  typographyTitle: String
-  labelStyles: String
-  headlineStyles: String
-  subheadStyles: String
-  textStyles: String
-  contentOrder: String
-}
-
-input PagesBlocksBannerBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksBannerBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksBannerBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksBannerImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksBannerButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input PagesBlocksBannerMutation {
-  style: PagesBlocksBannerStyleMutation
-  background: PagesBlocksBannerBackgroundMutation
-  image: PagesBlocksBannerImageMutation
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksBannerButtonsMutation]
-  navigationLabel: String
-}
-
-input PagesBlocksEmbedStyleMutation {
-  minHeight: String
-  fullWidth: Boolean
-  padding: String
-}
-
-input PagesBlocksEmbedBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksEmbedBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksEmbedBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksEmbedMutation {
-  style: PagesBlocksEmbedStyleMutation
-  background: PagesBlocksEmbedBackgroundMutation
-  markup: String
-  navigationLabel: String
-}
-
-input PagesBlocksTailwindFeatureTailwindMutation {
-  section: String
-  wrap: String
-  imageWrap: String
-  image: String
-  contentWrap: String
-  content: String
-  label: String
-  headline: String
-  subhead: String
-  text: String
-  buttons: String
-  button: String
-}
-
-input PagesBlocksTailwindFeatureImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksTailwindFeatureBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksTailwindFeatureBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksTailwindFeatureBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksTailwindFeatureButtonsMutation {
-  label: String
-  link: String
-}
-
-input PagesBlocksTailwindFeatureMutation {
-  tailwind: PagesBlocksTailwindFeatureTailwindMutation
-  image: PagesBlocksTailwindFeatureImageMutation
-  background: PagesBlocksTailwindFeatureBackgroundMutation
-  rule: String
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksTailwindFeatureButtonsMutation]
-  rule2: String
-  navigationLabel: String
-}
-
-input PagesBlocksTailwindCardsTailwindMutation {
-  section: String
-  wrap: String
-  imageWrap: String
-  image: String
-  contentWrap: String
-  content: String
-  label: String
-  headline: String
-  subhead: String
-  text: String
-  buttons: String
-  button: String
-  rule: String
-  cardWrap: String
-  card: String
-  cardImageWrap: String
-  cardImage: String
-  cardContentWrap: String
-  cardContent: String
-  cardLabel: String
-  cardHeadline: String
-  cardSubhead: String
-  cardText: String
-  cardButtons: String
-  cardButton: String
-}
-
-input PagesBlocksTailwindCardsImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksTailwindCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
-input PagesBlocksTailwindCardsBackgroundMutation {
-  fillStyles: String
-  src: String
-  position: String
-  ornaments: [PagesBlocksTailwindCardsBackgroundOrnamentsMutation]
-}
-
-input PagesBlocksTailwindCardsButtonsMutation {
-  label: String
-  link: String
-  type: String
-}
-
-input PagesBlocksTailwindCardsItemsImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksTailwindCardsItemsMutation {
-  image: PagesBlocksTailwindCardsItemsImageMutation
-  label: String
-  headline: String
-  subhead: String
-  text: JSON
-  link: String
-  buttonLabel: String
-}
-
-input PagesBlocksTailwindCardsMutation {
-  tailwind: PagesBlocksTailwindCardsTailwindMutation
-  image: PagesBlocksTailwindCardsImageMutation
-  background: PagesBlocksTailwindCardsBackgroundMutation
-  rule: String
-  label: String
-  headline: String
-  subhead: String
-  body: JSON
-  buttons: [PagesBlocksTailwindCardsButtonsMutation]
-  items: [PagesBlocksTailwindCardsItemsMutation]
-  rule2: String
-  navigationLabel: String
-}
-
-input PagesBlocksMutation {
-  feature: PagesBlocksFeatureMutation
-  photoCards: PagesBlocksPhotoCardsMutation
-  textCards: PagesBlocksTextCardsMutation
-  banner: PagesBlocksBannerMutation
-  embed: PagesBlocksEmbedMutation
-  tailwindFeature: PagesBlocksTailwindFeatureMutation
-  tailwindCards: PagesBlocksTailwindCardsMutation
-}
-
-input PagesMetaMutation {
-  pageTitle: String
-  pageDescription: String
-  siteImageSrc: String
-}
-
-input PagesMutation {
-  blocks: [PagesBlocksMutation]
-  meta: PagesMetaMutation
 }
 
 schema {

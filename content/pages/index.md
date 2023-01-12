@@ -18,7 +18,7 @@ blocks:
       Make modern Web3 ready websites with a real-time visual editor.
     buttons:
       - label: Get Started
-        link: 'https://github.com/pathfindertools/pl-network-events'
+        link: 'https://github.com/pathfindertools/microgen'
         buttonStyle: primary
         fathomId: ''
     _template: feature

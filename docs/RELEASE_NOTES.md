@@ -1,6 +1,16 @@
 
 # Release Notes
 
+**Version 1.0**  | Released 1/12/23
+
+Features
+- Uses Tina v1
+- All new block settings
+- New theme layer
+- Any number of type and button settings
+- Post and Event collections
+- Fathom analytics added
+
 **Version 0.3.5**  | Released 11/8/22
 
 Features

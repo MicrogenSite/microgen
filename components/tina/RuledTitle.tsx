@@ -5,8 +5,18 @@ export default function RuledTitle({ field, input, meta }) {
   return (
     <>
       <div className="relative mb-5">
-        <div className="absolute h-px top-2.5 -left-5 -right-5 bg-gray-300 opacity-30"></div>
-        {field.label && <h2 className="text-tina-gray8 font-bold pt-7" style={{
+        <div
+          style={{
+            position: "absolute",
+            height: "1px",
+            top: "10px",
+            left: "-24px",
+            right: "-24px",
+            background: "rgba(0,0,0,.2)",
+          }}
+        ></div>
+        {field.label && <h2 className="text-tina-gray8 font-bold" style={{
+          paddingTop: "28px",
           fontSize: "var(--tina-font-size-2)",
           textOverflow: "ellipsis",
         }}>{field.label}</h2>}

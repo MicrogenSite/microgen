@@ -5,7 +5,7 @@ interface ToggleButtonProps {
     label: string,
     value: string
   }[];
-  onClick: Function;
+  onClick;
   value: string;
   className?: string;
 }

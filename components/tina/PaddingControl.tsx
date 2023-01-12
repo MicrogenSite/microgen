@@ -41,7 +41,7 @@ export const spacingOptions: {label: string, value: string}[] = [
   { label: "384", value: "96" },
 ]
 
-function buildOptions(prefix: string = '', isMobile:boolean = false) {
+function buildOptions(prefix = '', isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(spacingOptions, `${mobilePrefix}${prefix}`)
 }
@@ -62,7 +62,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
 
   return (
     <>
-      <div className="flex gap-2 mb-2">
+      <div className="flex gap-2">
         <LabeledSelectMenu label="T" value={top} onChange={setTop} options={topOptions} />
         <LabeledSelectMenu label="B" value={bottom} onChange={setBottom} options={bottomOptions} />
         <LabeledSelectMenu label="L" value={left} onChange={setLeft} options={leftOptions} />

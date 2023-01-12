@@ -1,12 +1,46 @@
-query PageQuery {
+query pageQuery {
   ...LayoutQueryFragment
+  postConnection {
+    edges {
+      node {
+        id
+        _values
+        _sys {
+          filename
+        }
+      }
+    }
+  },
+  eventConnection {
+    edges {
+      node {
+        id
+        _values
+        _sys {
+          filename
+        }
+      }
+    }
+  }
 }
 
-query ContentQuery($relativePath: String!) {
+query contentQuery($relativePath: String!) {
   ...LayoutQueryFragment
-  getPagesDocument(relativePath: $relativePath) {
-    data {
-      ...PagesParts
-    }
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}
+
+query blogPostQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  post(relativePath: $relativePath) {
+    ...PostParts
+  }
+}
+
+query eventQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  event(relativePath: $relativePath) {
+    ...EventParts
   }
 }

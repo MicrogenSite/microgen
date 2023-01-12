@@ -5,7 +5,7 @@ interface SelectMenuProps {
     label: string,
     value: string
   }[];
-  onChange: Function;
+  onChange;
   value: string;
   className?: string;
 }

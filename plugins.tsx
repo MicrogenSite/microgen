@@ -1,16 +1,21 @@
+import React from "react";
 import { TextField, GroupListField, BlocksFieldPlugin } from 'tinacms'
 import AlignmentControl from './components/tina/AlignmentControl'
 import BorderControl from './components/tina/BorderControl'
+import ButtonControl from './components/tina/ButtonControl'
+import ButtonTypographyControl from './components/tina/ButtonTypographyControl'
+import CardAlignmentControl from './components/tina/CardAlignmentControl'
 import ColorControl from './components/tina/ColorControl'
 import FeatureContentControl from './components/tina/FeatureContentControl'
 import FeatureImageControl from './components/tina/FeatureImageControl'
 import FillControl from './components/tina/FillControl'
+import GridControl from './components/tina/GridControl'
 import ImageControl from './components/tina/ImageControl'
 import PaddingControl from './components/tina/PaddingControl'
 import RuledTitle from './components/tina/RuledTitle'
 import SelectField from './components/tina/SelectField'
 import TypeControl from './components/tina/TypeControl'
-import TypeSizeControl from './components/tina/TypeSizeControl'
+import TypographyControl from './components/tina/TypographyControl'
 
 export const SectionListItemsPlugin = {
   ...BlocksFieldPlugin,
@@ -33,7 +38,7 @@ export const SectionListItemsPlugin = {
       return { ...item, label: label }
     }
     
-    let templates = {}
+    const templates = {}
     Object.keys(props.field.templates).forEach((key) => {
       templates[key] = {
         ...props.field.templates[key],
@@ -65,7 +70,7 @@ export const emailFieldPlugin = {
   __type: 'field',
   name: 'emailField',
   validate: (email, allValues, meta, field) => {
-    let isValidEmail = /.*@.*\..*/.test(email)
+    const isValidEmail = /.*@.*\..*/.test(email)
     if (!isValidEmail) return 'Invalid email address'
   },
 }
@@ -82,10 +87,30 @@ export const borderControlFieldPlugin = {
   name: 'borderControl',
 }
 
+
+export const buttonTypographyControlFieldPlugin = {
+  Component: ButtonTypographyControl,
+  __type: 'field',
+  name: 'buttonTypographyControl',
+}
+
+export const cardAlignmentControlFieldPlugin = {
+  Component: CardAlignmentControl,
+  __type: 'field',
+  name: 'cardAlignmentControl',
+}
+
+
 export const colorControlFieldPlugin = {
   Component: ColorControl,
   __type: 'field',
   name: 'colorControl',
+}
+
+export const buttonControlFieldPlugin = {
+  Component: ButtonControl,
+  __type: 'field',
+  name: 'buttonControl',
 }
 
 export const featureContentControlPlugin = {
@@ -104,6 +129,12 @@ export const fillControlFieldPlugin = {
   Component: FillControl,
   __type: 'field',
   name: 'fillControl',
+}
+
+export const gridControlFieldPlugin = {
+  Component: GridControl,
+  __type: 'field',
+  name: 'gridControl',
 }
 
 export const imageControlFieldPlugin = {
@@ -136,8 +167,8 @@ export const typeControlFieldPlugin = {
   name: 'typeControl',
 }
 
-export const typeSizeControlFieldPlugin = {
-  Component: TypeSizeControl,
+export const typographyControlFieldPlugin = {
+  Component: TypographyControl,
   __type: 'field',
-  name: 'typeSizeControl',
+  name: 'typographyControl',
 }

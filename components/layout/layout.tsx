@@ -210,6 +210,7 @@ export const Layout = ({ rawData, data = layoutData, children }) => {
             html {
               background-color: var(--${page?.backgroundColor}-color);
               scroll-behavior: smooth;
+              overflow-x: hidden;
             }
             h1 a,
             h2 a,

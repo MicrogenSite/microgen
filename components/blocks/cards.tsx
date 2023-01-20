@@ -35,8 +35,8 @@ const cardImgStyles = (cardStyle, isMobile:boolean) => {
     imageHeight = classes.find(item => item.substring(0,4) === 'hpx-')?.replace(`hpx-`, '')
   }
   return {
-    width: imageWidth ? `${imageWidth}px` : 'auto',
-    height: imageHeight ? `${imageHeight}px` : 'auto'
+    width: imageWidth ? `${imageWidth}px` : '100%',
+    height: imageHeight ? `${imageHeight}px` : '100%'
   }
 }
 
@@ -57,7 +57,7 @@ const Card = ({ data, index, cardstyle, parentField = "" }) => {
         <a className={`absolute inset-0 -z-20`} href={data.link} />
       )}
       {data.image?.src && (
-        <div className='flex-none'>
+        <>
           <div className={`${cardstyle?.imagePadding} sm:hidden`} style={cardImgStyles(cardstyle, false)}>
             <img
               className={`sm:hidden ${cardImgClasses(cardstyle, false)}`}
@@ -76,7 +76,7 @@ const Card = ({ data, index, cardstyle, parentField = "" }) => {
               data-tinafield={`${parentField}.image`}
             />
           </div>
-        </div>
+        </>
       )}
       <div className={`flex-1 h-full flex flex-col ${cardstyle.buttonLayout} ${cardstyle?.contentPadding}`} >
         <Content
@@ -108,7 +108,7 @@ export const Cards = ({ data, parentField = "" }) => {
     <Section background={data.background} navigationLabel={data.navigationLabel}>
       <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
         <div className={`${wrapClasses(style)}`}>
-          <div className={`grid sm:block ${data.cardStyle.grid}`}>
+          <div className={`grid ${data.cardStyle.grid}`}>
             {data.items &&
               data.items.map(function (block, index) {
                 return <Card key={index} index={index} data={block} cardstyle={data.cardStyle} parentField={`${parentField}.items`} />;

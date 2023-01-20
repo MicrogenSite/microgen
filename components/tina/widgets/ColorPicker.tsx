@@ -51,7 +51,7 @@ export default function ColorPicker(props:ColorPickerProps) {
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  });
+  }, []);
   
   const pickerClasses = `absolute left-0 p-2 border shadow bg-white`
   const pickerStyles = {

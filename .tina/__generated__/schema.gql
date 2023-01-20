@@ -229,6 +229,71 @@ type PageBlocksCards {
   navigationLabel: String
 }
 
+type PageBlocksAccordianStyle {
+  alignment: String
+  padding: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type PageBlocksAccordianCardStyle {
+  fillStyles: String
+  fillStylesActive: String
+  padding: String
+  borderStyles: String
+  typographyTitle: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+type PageBlocksAccordianBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksAccordianBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksAccordianBackgroundOrnaments]
+}
+
+type PageBlocksAccordianButtons {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+type PageBlocksAccordianItems {
+  headline: String
+  subhead: String
+  text: JSON
+}
+
+type PageBlocksAccordian {
+  style: PageBlocksAccordianStyle
+  cardStyle: PageBlocksAccordianCardStyle
+  background: PageBlocksAccordianBackground
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksAccordianButtons]
+  items: [PageBlocksAccordianItems]
+  navigationLabel: String
+}
+
 type PageBlocksEmbedStyle {
   fullWidth: Boolean
   minHeight: String
@@ -427,7 +492,7 @@ type PageBlocksEventTimeline {
   navigationLabel: String
 }
 
-union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventTimeline
+union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksAccordian | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventTimeline
 
 type PageMeta {
   title: String
@@ -597,6 +662,71 @@ input PageBlocksCardsFilter {
   body: RichTextFilter
   buttons: PageBlocksCardsButtonsFilter
   items: PageBlocksCardsItemsFilter
+  navigationLabel: StringFilter
+}
+
+input PageBlocksAccordianStyleFilter {
+  alignment: StringFilter
+  padding: StringFilter
+  featureContent: StringFilter
+  typographyTitle: StringFilter
+  labelStyles: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input PageBlocksAccordianCardStyleFilter {
+  fillStyles: StringFilter
+  fillStylesActive: StringFilter
+  padding: StringFilter
+  borderStyles: StringFilter
+  typographyTitle: StringFilter
+  headlineStyles: StringFilter
+  subheadStyles: StringFilter
+  textStyles: StringFilter
+}
+
+input PageBlocksAccordianBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksAccordianBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksAccordianBackgroundOrnamentsFilter
+}
+
+input PageBlocksAccordianButtonsFilter {
+  label: StringFilter
+  link: StringFilter
+  buttonStyle: StringFilter
+  fathomId: StringFilter
+}
+
+input PageBlocksAccordianItemsFilter {
+  headline: StringFilter
+  subhead: StringFilter
+  text: RichTextFilter
+}
+
+input PageBlocksAccordianFilter {
+  style: PageBlocksAccordianStyleFilter
+  cardStyle: PageBlocksAccordianCardStyleFilter
+  background: PageBlocksAccordianBackgroundFilter
+  rule: StringFilter
+  label: StringFilter
+  headline: StringFilter
+  subhead: StringFilter
+  body: RichTextFilter
+  buttons: PageBlocksAccordianButtonsFilter
+  items: PageBlocksAccordianItemsFilter
   navigationLabel: StringFilter
 }
 
@@ -806,6 +936,7 @@ input PageBlocksEventTimelineFilter {
 input PageBlocksFilter {
   feature: PageBlocksFeatureFilter
   cards: PageBlocksCardsFilter
+  accordian: PageBlocksAccordianFilter
   embed: PageBlocksEmbedFilter
   tailwindFeature: PageBlocksTailwindFeatureFilter
   tailwindCards: PageBlocksTailwindCardsFilter
@@ -1889,6 +2020,71 @@ input PageBlocksCardsMutation {
   navigationLabel: String
 }
 
+input PageBlocksAccordianStyleMutation {
+  alignment: String
+  padding: String
+  featureContent: String
+  typographyTitle: String
+  labelStyles: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+input PageBlocksAccordianCardStyleMutation {
+  fillStyles: String
+  fillStylesActive: String
+  padding: String
+  borderStyles: String
+  typographyTitle: String
+  headlineStyles: String
+  subheadStyles: String
+  textStyles: String
+}
+
+input PageBlocksAccordianBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input PageBlocksAccordianBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksAccordianBackgroundOrnamentsMutation]
+}
+
+input PageBlocksAccordianButtonsMutation {
+  label: String
+  link: String
+  buttonStyle: String
+  fathomId: String
+}
+
+input PageBlocksAccordianItemsMutation {
+  headline: String
+  subhead: String
+  text: JSON
+}
+
+input PageBlocksAccordianMutation {
+  style: PageBlocksAccordianStyleMutation
+  cardStyle: PageBlocksAccordianCardStyleMutation
+  background: PageBlocksAccordianBackgroundMutation
+  rule: String
+  label: String
+  headline: String
+  subhead: String
+  body: JSON
+  buttons: [PageBlocksAccordianButtonsMutation]
+  items: [PageBlocksAccordianItemsMutation]
+  navigationLabel: String
+}
+
 input PageBlocksEmbedStyleMutation {
   fullWidth: Boolean
   minHeight: String
@@ -2090,6 +2286,7 @@ input PageBlocksEventTimelineMutation {
 input PageBlocksMutation {
   feature: PageBlocksFeatureMutation
   cards: PageBlocksCardsMutation
+  accordian: PageBlocksAccordianMutation
   embed: PageBlocksEmbedMutation
   tailwindFeature: PageBlocksTailwindFeatureMutation
   tailwindCards: PageBlocksTailwindCardsMutation

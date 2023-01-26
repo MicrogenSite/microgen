@@ -30,7 +30,7 @@ export default function DynamicPage(
 
   return (
     /* TODO: needs ts type */
-    <Layout rawData={data} data={data.global as any}>
+    <Layout rawData={data}>
       <Blocks {...data.page } events={eventList} />
     </Layout>
   );

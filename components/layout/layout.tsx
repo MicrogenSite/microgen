@@ -2,7 +2,6 @@ import React from "react";
 import Head from "next/head";
 import { Header } from "./header";
 import { Blocks } from "../../components/blocks-renderer";
-import layoutData from "../../content/global/index.json";
 
 const systemFonts = ['Arial','Courier','Geneva','Georgia', 'Helvetica','Impact','Lucida Console','Lucida Grande','Monaco','Palatino','Tahoma','Times New Roman','Verdana']
 const customFonts = ['Suisse Intl']
@@ -10,24 +9,24 @@ const customFonts = ['Suisse Intl']
 const googleFontsLink = (fonts) => {
   const uniqueFontList = fonts
   const googleFontList = uniqueFontList.filter(item => !systemFonts.includes(item)).filter(item => !customFonts.includes(item))
-  const formattedFontList = googleFontList.map(item => item.split(' ').join('+'))
+  const formattedFontList = googleFontList.map(item => item?.split(' ').join('+'))
   const familyString = formattedFontList.join('&family=')
   const fontLink = `https://fonts.googleapis.com/css2?family=${familyString}&display=swap`
   return uniqueFontList.length > 0 ?  fontLink : ''
 }
 
-export const Layout = ({ rawData, data = layoutData, children }) => {
+export const Layout = ({ rawData, children }) => {
   const page = rawData.page
   const global = rawData.global
-  const typographyFontFamilies = global.theme?.typo.map(item => {
+  const typographyFontFamilies = global.theme?.typo?.map(item => {
     const fontObject = JSON.parse(item.typography)
-    return fontObject.family
-  })
-  const buttonFontFamilies = global.theme?.buttons.map(item => {
+    return fontObject.family || null
+  }) || []
+  const buttonFontFamilies = global.theme?.buttons?.map(item => {
     const fontObject = JSON.parse(item.typography)
-    return fontObject.family
-  })
-  const fontFamilies = typographyFontFamilies.concat(buttonFontFamilies)
+    return fontObject.family || null
+  }) || []
+  const fontFamilies = [...typographyFontFamilies, ...buttonFontFamilies]
   const uniqueFontFamilies =  unique(fontFamilies);
 
   function unique(list) {

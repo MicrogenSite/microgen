@@ -1,6 +1,6 @@
 ---
-name: Protocol
-desktopWidth: '700'
+name: Microgen
+desktopWidth: '900'
 colors:
   primary: '#0090FF'
   accent1: '#0E4465'

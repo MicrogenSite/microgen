@@ -18,7 +18,7 @@ export default function ButtonPicker(props:ButtonPickerProps) {
       setOptions(options);
     };
     fetchData().catch(console.error)
-  });
+  }, []);
   
   function handleChange(event) {
     props.onChange(event.target.value);

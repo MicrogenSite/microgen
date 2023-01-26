@@ -1,7 +1,7 @@
 import React from "react";
-import type { Page } from "../.tina/__generated__/types";
 import { Feature } from "./blocks/feature";
 import { Cards } from "./blocks/cards";
+import { Accordian } from "./blocks/accordian";
 import { Embed } from "./blocks/embed";
 import { TailwindFeature } from "./blocks/tailwind-feature";
 import { TailwindCards } from "./blocks/tailwind-cards";
@@ -29,6 +29,15 @@ export const Blocks = (props: any) => {
                     key={i + block.__typename}
                   >
                     <Cards data={block} parentField={`blocks.${i}`} />
+                  </div>
+                );
+              case "PageBlocksAccordian":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <Accordian data={block} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksEmbed":

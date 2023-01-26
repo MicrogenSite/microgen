@@ -1,6 +1,18 @@
 
 # Release Notes
 
+**Version 1.1** | Released 1/20/23
+
+Features
+- Accordian block
+
+Fixes
+- Mobile card grid
+- API call loop
+- Background overflow bug
+- Card images are 100% width by default not auto
+- No classes for type or buttons without labels
+
 **Version 1.0**  | Released 1/12/23
 
 Features

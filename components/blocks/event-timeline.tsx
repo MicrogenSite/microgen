@@ -45,44 +45,51 @@ export const EventTimeline = ({ data, events, parentField = "" }) => {
       navigationLabel={data.navigationLabel}
     >
       <div className={`${width} ${padding} ${data.style?.minHeight}`}>
-        <div className="relative max-w-desktop-full mx-auto border-l border-primary mb-10 ml-60">
-          {sortedEvents && sortedEvents.map((event, index) => {
-            const startDate = new Date(event.startDate)
-            const endDate = new Date(event.endDate)
-            const startMonth = months[startDate?.getMonth()]
-            const date = event.dateTBD === true ? 'Date TBD' : `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`
-            const hideMonthLabel = labels.includes(startMonth)
-            if (!hideMonthLabel) {
-              labels = [...labels, startMonth]
-            }
-            return (
-              <div className={`mb-5 ml-4 ${!hideMonthLabel && index !== 0 &&  "mt-16"}`} key={index}>
-                {(!hideMonthLabel &&
-                  <div className="absolute -left-36 w-32 text-right">{startMonth}</div>
-                )}
-                <div className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -left-1.5"></div>
-                {date &&
-                  <p className={`${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>
-                    {date}
-                  </p>
-                }
-                <h2 className={`${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>
-                  <EventTimelineHeadline name={event.eventName} website={event.website} fathomId={data.fathomId} />
-                </h2>
-                {event.location &&
-                  <h4 className={`${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>
-                    {event.location}
-                  </h4>
-                }
-                {event.tag &&
-                  <span className={`bg-gray inline-block px-3 py-1 rounded-full relative -top-2 ${styles.textStyles}`}>
-                    {event.tag}
-                  </span>
-                }
-              </div>
-            )
-          })}
-        </div>
+        {sortedEvents.length < 1 &&
+          <p className={`${styles.labelStyles}`}>No events to display.</p>
+        }
+        {sortedEvents.length >= 1 &&
+          (
+          <div className="relative max-w-desktop-full mx-auto border-l border-primary mb-10 ml-60">
+            {sortedEvents && sortedEvents.map((event, index) => {
+              const startDate = new Date(event.startDate)
+              const endDate = new Date(event.endDate)
+              const startMonth = months[startDate?.getMonth()]
+              const date = event.dateTBD === true ? 'Date TBD' : `${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}`
+              const hideMonthLabel = labels.includes(startMonth)
+              if (!hideMonthLabel) {
+                labels = [...labels, startMonth]
+              }
+              return (
+                <div className={`mb-5 ml-4 ${!hideMonthLabel && index !== 0 &&  "mt-16"}`} key={index}>
+                  {(!hideMonthLabel &&
+                    <div className="absolute -left-36 w-32 text-right">{startMonth}</div>
+                  )}
+                  <div className="absolute w-3 h-3 bg-primary rounded-full mt-1.5 -left-1.5"></div>
+                  {date &&
+                    <p className={`${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>
+                      {date}
+                    </p>
+                  }
+                  <h2 className={`${styles.headlineStyles}`} data-tinafield={`${parentField}.headline`}>
+                    <EventTimelineHeadline name={event.eventName} website={event.website} fathomId={data.fathomId} />
+                  </h2>
+                  {event.location &&
+                    <h4 className={`${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>
+                      {event.location}
+                    </h4>
+                  }
+                  {event.tag &&
+                    <span className={`bg-gray inline-block px-3 py-1 rounded-full relative -top-2 ${styles.textStyles}`}>
+                      {event.tag}
+                    </span>
+                  }
+                </div>
+              )
+            })}
+          </div>
+          )
+        }
       </div>
     </Section>
   );
@@ -97,7 +104,7 @@ export const eventTimelineBlockSchema: any = {
       subhead: "Subhead",
       style: {
         fullWidth: false,
-        minHeight: "min-h-100",
+        minHeight: "min-h-0",
         padding: "pt-20 pb-20 pr-10 pl-10",
         labelStyles: "text-black",
         headlineStyles: "text-black",

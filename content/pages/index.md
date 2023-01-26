@@ -24,7 +24,7 @@ blocks:
     _template: feature
 backgroundColor: white
 meta:
-  title: PL Network Events
-  description: A listing of all PL Network events
+  title: Microgen
+  description: ''
 ---
 

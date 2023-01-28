@@ -10,7 +10,23 @@ import { navigationLabelSchema } from "../../schema/navigation-label";
 
 export const TailwindFeature = ({ data, parentField = ""  }) => {
   const tw = data.tailwind || {};
-  
+  const headlineElement = () => {
+    if (data?.headline && parentField === 'blocks.0') {
+      return (
+        <>
+          <h1 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h1> 
+          {data.subhead && <h2 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h2>}
+        </>
+      )
+    } else if (data?.headline) {
+      return (
+        <>
+          <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
+          {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+        </>
+      )
+    }
+  }
 
   return (
     <Section className={tw.section} background={data.background} navigationLabel={data.navigationLabel}>
@@ -24,8 +40,7 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
         <div className={tw.contentWrap}>
           <div className={`markdown ${tw.content}`}>
             {data.label &&<h4 className={tw.label} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
-            {data.headline && <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>}
-            {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+            {headlineElement()}
             {data.body?.children && (
               <div className={tw.text} data-tinafield={`${parentField}.body`}>
                 <TinaMarkdown content={data.body} />

@@ -89,6 +89,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         const options = data.map(item => ({ label: item.label, value: `mg-${item.label.replace(" ", "-").toLowerCase()}` }))
         setFontOptions([{ label: "default", value: "" }, ...options]);
       } catch (error) {
+        setFontOptions([{ label: "default", value: "" }]);
         console.log("error", error);
       }
     };

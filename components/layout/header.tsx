@@ -179,7 +179,7 @@ export const Header = ({
         <div className={`${sectionClasses} hidden md:block h-screen fixed z-40 top-0 left-0 right-0`}>
           <div style={backgroundStyles} className={`${backgroundClasses} ${background} transition duration-400 absolute w-full h-screen -z-1`}></div>
           <div className={`w-full md:p-5`}>
-            <Logo className="absolute top-4 left-4 hidden" />
+            <Logo className="absolute top-4 left-4" />
             <div className={`absolute top-3 -right-2 py-1 pl-2 pr-6 rounded ${nav?.navBackgroundColor}`} onClick={() => setNavOpen(!navOpen)}>
               <Burger color="white" isOpen={navOpen}  />
             </div>

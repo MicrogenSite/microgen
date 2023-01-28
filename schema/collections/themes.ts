@@ -5,6 +5,11 @@ export const themeCollectionSchema: any = {
   name: "theme",
   path: "content/themes",
   format: "md",
+  ui: {
+    router: ({ document }) => {
+      return `/themes/${document._sys.filename}`;
+    },
+  },
   fields: [
     {
       label: 'Name',

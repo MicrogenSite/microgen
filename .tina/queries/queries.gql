@@ -44,3 +44,9 @@ query eventQuery($relativePath: String!) {
     ...EventParts
   }
 }
+
+query themeQuery($relativePath: String!) {
+  theme(relativePath: $relativePath) {
+    ...ThemeParts
+  }
+}

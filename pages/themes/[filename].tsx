@@ -49,11 +49,11 @@ export default function ThemePage(
               <div style={{fontSize: "14px" }}>Colors</div>
             </div>
             <div className="grid grid-cols-5 gap-4 w-full">
-              <div className="bg-primary h-40 rounded"></div>
-              <div className="bg-accent1 h-40 rounded"></div>
-              <div className="bg-accent2 h-40 rounded"></div>
-              <div className="bg-accent3 h-40 rounded"></div>
-              <div className="bg-accent4 h-40 rounded"></div>
+              <div className="bg-primary rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-accent1 rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-accent2 rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-accent3 rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-accent4 rounded" style={{paddingBottom: "100%"}}></div>
             </div>
           </div>
           <div className="flex items-center gap-10">
@@ -61,11 +61,11 @@ export default function ThemePage(
               <div style={{fontSize: "14px" }}>Grays</div>
             </div>
             <div className="grid grid-cols-5 gap-4 w-full">
-              <div className="border-2 border-gray-light bg-white h-40 rounded"></div>
-              <div className="bg-gray-light h-40 rounded"></div>
-              <div className="bg-gray h-40 rounded"></div>
-              <div className="bg-gray-dark h-40 rounded"></div>
-              <div className="bg-black h-40 rounded"></div>
+              <div className="border-2 border-gray-light bg-white rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-gray-light rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-gray rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-gray-dark rounded" style={{paddingBottom: "100%"}}></div>
+              <div className="bg-black rounded" style={{paddingBottom: "100%"}}></div>
             </div>
           </div>
         </div>
@@ -73,6 +73,22 @@ export default function ThemePage(
           {data.theme.typo &&
             data.theme.typo.map(function (item, index) {
               return <Typography key={index} index={index} item={item} />;
+            })
+          }
+        </div>
+        <div className="mx-auto max-w-desktop-full w-full p-10">
+          {data.theme.buttons &&
+            data.theme.buttons.map(function (item, index) {
+              return (
+                <div className="flex items-center gap-10 mb-16">
+                  <div className="flex-none text-gray text-right uppercase w-40">
+                    <div style={{fontSize: "14px" }}>{item.label}</div>
+                  </div>
+                  <div className="w-full">
+                    <a className={`btn-${slugify(item.label)}`} href="#">Do Nothing</a>
+                  </div>
+                </div>
+              )
             })
           }
         </div>

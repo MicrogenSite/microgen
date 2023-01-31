@@ -1,4 +1,0 @@
----
-backgroundColor: undefined
----
-

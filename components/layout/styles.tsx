@@ -93,7 +93,7 @@ function buttonClass(obj) {
       display: inline-block;
       color: var(--${color}-color);
       background: ${getBackground(obj)};
-      font-family: "${justFontFamily(typography?.family)}";
+      font-family: ${justFontFamily(typography?.family)};
       font-weight: ${justFontWeight(typography?.family)};
       font-size: ${typography.size}px;
       line-height: ${typography.lineHeight}px;

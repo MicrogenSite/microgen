@@ -25,16 +25,14 @@ export const SectionListItemsPlugin = {
         banner: 'Banner',
         embed: 'Embed',
         feature: 'Feature',
-        photoCards: 'Photo Cards',
-        postCards: 'Post Cards',
+        cards: 'Cards',
         tailwindCards: 'Cards TW',
         tailwindFeature: 'Feature TW',
-        textCards: 'Text Cards',
       }
       const sectionName = item.headline || item.subhead || item.label || item.title || ''
       const sectionNameShort = sectionName.match(/^.{24}\w*/)
       const sectionLabel = sectionNameShort || sectionName || ''
-      const label = sectionLabel ? `${sectionLabel} - ${templateNames[item._template]}` : `${templateNames[item._template]}`
+      const label = sectionLabel ? `${sectionLabel} (${templateNames[item._template]})` : `${templateNames[item._template]}`
       return { ...item, label: label }
     }
     

@@ -94,6 +94,7 @@ function buttonClass(obj) {
       color: var(--${color}-color);
       background: ${getBackground(obj)};
       font-family: "${justFontFamily(typography?.family)}";
+      font-weight: ${justFontWeight(typography?.family)};
       font-size: ${typography.size}px;
       line-height: ${typography.lineHeight}px;
       letter-spacing: ${typography.letterSpacing}px;

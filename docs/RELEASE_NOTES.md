@@ -10,6 +10,7 @@ Fixes
 Features
 
 - Theme Preview
+- Sidebar Sections Labeled
 
 **Version 1.2** | Released 1/26/23
 

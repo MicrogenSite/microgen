@@ -1,6 +1,17 @@
 
 # Release Notes
 
+**Version 1.3** | Released 2/8/23
+
+Fixes
+
+- Button font weight
+
+Features
+
+- Theme Preview
+- Sidebar Sections Labeled
+
 **Version 1.2** | Released 1/26/23
 
 Fixes

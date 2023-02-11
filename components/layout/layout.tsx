@@ -63,7 +63,7 @@ export const Layout = ({ rawData, children }) => {
         className={`flex flex-col`}
       >
         <Header blocks={page?.blocks} globalData={global} />
-        <div className={`flex flex-col`}>
+        <div className={`flex flex-col overflow-x-hidden`}>
           {children}
           <Blocks blocks={global.blocks} />
         </div>

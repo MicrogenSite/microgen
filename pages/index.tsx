@@ -23,7 +23,6 @@ export default function IndexPage(
         dateTBD: event.node?.dateTBD,
         dri: event.node?.dri,
         tag: event.node?.tag,
-        juanSpeaking: event.node?.juanSpeaking,
       }
     )
   })

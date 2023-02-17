@@ -74,24 +74,5 @@ export const eventCollectionSchema: any = {
         },
       ],
     },
-    {
-      label: 'Juan Speaking',
-      name: 'juanSpeaking',
-      type: 'string',
-      options: [
-        {
-          label: 'Unknown',
-          value: 'unknown',
-        },
-        {
-          label: 'Yes',
-          value: 'yes',
-        },
-        {
-          label: 'No',
-          value: 'no',
-        },
-      ],
-    },
   ],
 }

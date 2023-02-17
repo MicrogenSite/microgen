@@ -1034,7 +1034,6 @@ type Event implements Node & Document {
   dateTBD: Boolean
   dri: String
   tag: String
-  juanSpeaking: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -1049,7 +1048,6 @@ input EventFilter {
   dateTBD: BooleanFilter
   dri: StringFilter
   tag: StringFilter
-  juanSpeaking: StringFilter
 }
 
 type EventConnectionEdges {
@@ -2322,7 +2320,6 @@ input EventMutation {
   dateTBD: Boolean
   dri: String
   tag: String
-  juanSpeaking: String
 }
 
 input ThemeColorsMutation {

@@ -385,7 +385,6 @@ fragment EventParts on Event {
   dateTBD
   dri
   tag
-  juanSpeaking
 }
 
 fragment ThemeParts on Theme {

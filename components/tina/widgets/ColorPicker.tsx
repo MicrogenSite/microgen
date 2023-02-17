@@ -11,18 +11,24 @@ interface ColorPickerProps {
   width?: number;
 }
 
+const kebobToCamel = (kabobString) => {
+  return kabobString.replace(/-([a-z])/g, function (match, letter) {
+    return letter.toUpperCase();
+  });
+}
+
 export default function ColorPicker(props:ColorPickerProps) {
   const colorOptions = [
-    { label: "Primary", value: "primary"},
-    { label: "Accent 1", value: "accent1"},
-    { label: "Accent 2", value: "accent2"},
-    { label: "Accent 3", value: "accent3"},
-    { label: "Accent 4", value: "accent4"},
-    { label: "White", value: "white"},
-    { label: "Gray Light", value: "gray-light"},
-    { label: "Gray", value: "gray"},
-    { label: "Gray Dark", value: "gray-dark"},
-    { label: "Black", value: "black"},
+    { label: "primary", value: "primary"},
+    { label: "accent1", value: "accent1"},
+    { label: "accent2", value: "accent2"},
+    { label: "accent3", value: "accent3"},
+    { label: "accent4", value: "accent4"},
+    { label: "white", value: "white"},
+    { label: "grayLight", value: "gray-light"},
+    { label: "gray", value: "gray"},
+    { label: "grayDark", value: "gray-dark"},
+    { label: "black", value: "black"},
   ]
   const [globalColors, setGlobalColors] = useState(null)
   const [isActive, setIsActive] = useState(false)
@@ -67,18 +73,16 @@ export default function ColorPicker(props:ColorPickerProps) {
   
   const colorChipClasses = `border-box absolute w-7 h-7 rounded-sm`
   const colorChipStyles = {
-    background: (globalColors && globalColors[props.value]) || "#000000",
-    border: props.value === "white" ? "1px solid var(--tina-color-grey-2)" : "",
+    backgroundColor: (globalColors && globalColors[kebobToCamel(props.value)]) || "#000000",
     top: "5px",
     left: "5px",
     width: props.width ? `${props.width - 12}px` : '',
+    border: props.value === "white" ? "1px solid var(--tina-color-grey-2)" : "",
   }
 
   const buttonClasses = `${props.className} relative cursor-pointer py-1 px-2 h-10 w-10 border border-gray-100 text-gray-500 text-sm p-1 h-9 shadow rounded-md hover:text-blue-400 hover:border-gray-200 focus:shadow-outline focus:border-blue-500 focus:text-blue-500`;
   const buttonStyles = {
     borderColor: "var(--tina-color-grey-2)",
-    color: isActive ? "var(--tina-color-primary)" : "var(--tina-color-grey-8)",
-    backgroundColor: "white",
     width: props.width ? `${props.width}px` : '',
   }
 
@@ -86,7 +90,7 @@ export default function ColorPicker(props:ColorPickerProps) {
     const border = option.value === "white" ? "border border-tina-gray2" : ""
     return <div
       onClick={() => handleClick(option.value)}
-      style={{background: (globalColors && globalColors[option.value]) || "#000000"}}
+      style={{background: (globalColors && globalColors[kebobToCamel(option.value)]) || "#000000"}}
       className={`w-6 h-6 cursor-pointer rounded-sm ${border}`}
       key={option.value}
     ></div>

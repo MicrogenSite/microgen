@@ -23,7 +23,7 @@ blocks:
         buttonStyle: primary
         fathomId: ''
     _template: feature
-backgroundColor: black
+backgroundColor: white
 meta:
   title: Microgen
   description: ''

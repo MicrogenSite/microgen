@@ -129,7 +129,7 @@ function typographyClasses(typography, isMobile = false) {
   return items.map((item) => typographyClass(item, isMobile)).join(" ")
 }
 
-export const styles = (theme) => {
+export const styles = (theme, pageBackground = "#FFFFFF") => {
   return `
     :root {
       --site-width: ${theme.desktopWidth}px;
@@ -147,6 +147,7 @@ export const styles = (theme) => {
       --link-color: ${theme.linkColor};              
     }
     html {
+      background:  var(--${pageBackground}-color);
       scroll-behavior: smooth;
       overflow-x: hidden;
     }

@@ -2116,7 +2116,7 @@ export type MutationAddPendingDocumentArgs = {
 export type MutationUpdateDocumentArgs = {
   collection?: InputMaybe<Scalars['String']>;
   relativePath: Scalars['String'];
-  params: DocumentMutation;
+  params: DocumentUpdateMutation;
 };
 
 
@@ -2190,6 +2190,15 @@ export type MutationUpdateGlobalArgs = {
 export type MutationCreateGlobalArgs = {
   relativePath: Scalars['String'];
   params: GlobalMutation;
+};
+
+export type DocumentUpdateMutation = {
+  page?: InputMaybe<PageMutation>;
+  post?: InputMaybe<PostMutation>;
+  event?: InputMaybe<EventMutation>;
+  theme?: InputMaybe<ThemeMutation>;
+  global?: InputMaybe<GlobalMutation>;
+  relativePath?: InputMaybe<Scalars['String']>;
 };
 
 export type DocumentMutation = {

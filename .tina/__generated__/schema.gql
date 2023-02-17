@@ -1859,7 +1859,7 @@ type GlobalConnection implements Connection {
 
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
-  updateDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
+  updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
   deleteDocument(collection: String, relativePath: String!): DocumentNode!
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePage(relativePath: String!, params: PageMutation!): Page!
@@ -1872,6 +1872,15 @@ type Mutation {
   createTheme(relativePath: String!, params: ThemeMutation!): Theme!
   updateGlobal(relativePath: String!, params: GlobalMutation!): Global!
   createGlobal(relativePath: String!, params: GlobalMutation!): Global!
+}
+
+input DocumentUpdateMutation {
+  page: PageMutation
+  post: PostMutation
+  event: EventMutation
+  theme: ThemeMutation
+  global: GlobalMutation
+  relativePath: String
 }
 
 input DocumentMutation {

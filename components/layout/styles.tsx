@@ -157,7 +157,17 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
       overflow-x: hidden;
     }
     #__next {
+      display: flex;
+      flex-direction: column;
       overflow: clip;
+      min-height: 100vh;
+    }
+    #footer {
+      flex: 1;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
     h1 a,
     h2 a,

@@ -59,14 +59,11 @@ export const Layout = ({ rawData, children }) => {
           <link href={googleFontsLink(global.theme)} rel="stylesheet"></link>
         )}
       </Head>
-      <div
-        className={`flex flex-col`}
-      >
-        <Header blocks={page?.blocks} globalData={global} />
-        <div className={`flex flex-col`}>
-          {children}
-          <Blocks blocks={global.blocks} />
-        </div>
+      
+      <Header blocks={page?.blocks} globalData={global} />
+      {children}
+      <div id="footer">
+        <Blocks blocks={global.blocks} />
       </div>
     </>
   );

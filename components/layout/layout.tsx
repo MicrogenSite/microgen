@@ -25,7 +25,7 @@ export const Layout = ({ rawData, children }) => {
             <meta property="og:type" content="website" />
             <meta property="og:title" content={page.meta?.title} />
             <meta property="og:description" content={page.meta?.description} />
-            <meta property="og:image" content={page.meta?.siteImage} />
+            <meta property="og:image" content={page.meta?.ogImage} />
           </>
         }
         

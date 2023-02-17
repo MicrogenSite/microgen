@@ -149,7 +149,15 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
     html {
       background:  var(--${pageBackground}-color);
       scroll-behavior: smooth;
+      height: 100%;
+    }
+    body {
+      min-height: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
+    }
+    #__next {
+      overflow: clip;
     }
     h1 a,
     h2 a,
@@ -176,6 +184,9 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
     ${typographyClasses(theme.typo)}
     
     @media only screen and (max-width: 700px) {
+      html {
+        overflow-x: hidden;
+      }
       ${typographyClasses(theme.typo, true)}
     }
   `

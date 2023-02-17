@@ -11,6 +11,7 @@ blocks:
       textStyles: text-black mg-copy-medium mb-24
     background:
       fillStyles: from-accent3 to-accent4 bg-gradient-to-tl opacity-100
+      src: ''
     label: ''
     headline: Microgen
     subhead: A site builder for Web3
@@ -22,7 +23,7 @@ blocks:
         buttonStyle: primary
         fathomId: ''
     _template: feature
-backgroundColor: white
+backgroundColor: black
 meta:
   title: Microgen
   description: ''

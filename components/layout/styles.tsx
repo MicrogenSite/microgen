@@ -129,7 +129,7 @@ function typographyClasses(typography, isMobile = false) {
   return items.map((item) => typographyClass(item, isMobile)).join(" ")
 }
 
-export const styles = (theme) => {
+export const styles = (theme, pageBackground = "#FFFFFF") => {
   return `
     :root {
       --site-width: ${theme.desktopWidth}px;
@@ -147,8 +147,27 @@ export const styles = (theme) => {
       --link-color: ${theme.linkColor};              
     }
     html {
+      background:  var(--${pageBackground}-color);
       scroll-behavior: smooth;
+      height: 100%;
+    }
+    body {
+      min-height: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
+    }
+    #__next {
+      display: flex;
+      flex-direction: column;
+      overflow: clip;
+      min-height: 100vh;
+    }
+    #footer {
+      flex: 1;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
     }
     h1 a,
     h2 a,
@@ -175,6 +194,9 @@ export const styles = (theme) => {
     ${typographyClasses(theme.typo)}
     
     @media only screen and (max-width: 700px) {
+      html {
+        overflow-x: hidden;
+      }
       ${typographyClasses(theme.typo, true)}
     }
   `

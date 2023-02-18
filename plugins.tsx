@@ -22,8 +22,10 @@ export const SectionListItemsPlugin = {
   Component: (props) => {
     const itemProps = (item) => {
       const templateNames = {
+        accordian: 'Accordian',
         banner: 'Banner',
         embed: 'Embed',
+        eventTimeline: 'Event Timeline',
         feature: 'Feature',
         cards: 'Cards',
         tailwindCards: 'Cards TW',

@@ -25,13 +25,13 @@ export const Layout = ({ rawData, children }) => {
             <meta property="og:type" content="website" />
             <meta property="og:title" content={page.meta?.title} />
             <meta property="og:description" content={page.meta?.description} />
-            <meta property="og:image" content={page.meta?.siteImage} />
+            <meta property="og:image" content={page.meta?.ogImage} />
           </>
         }
         
         <style id="theme-styles"
           dangerouslySetInnerHTML={{
-            __html: styles(global.theme),
+            __html: styles(global?.theme, page?.backgroundColor ),
           }}
         />
         
@@ -59,14 +59,11 @@ export const Layout = ({ rawData, children }) => {
           <link href={googleFontsLink(global.theme)} rel="stylesheet"></link>
         )}
       </Head>
-      <div
-        className={`flex flex-col`}
-      >
-        <Header blocks={page?.blocks} globalData={global} />
-        <div className={`flex flex-col`}>
-          {children}
-          <Blocks blocks={global.blocks} />
-        </div>
+      
+      <Header blocks={page?.blocks} globalData={global} />
+      {children}
+      <div id="footer">
+        <Blocks blocks={global.blocks} />
       </div>
     </>
   );

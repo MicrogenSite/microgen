@@ -1,5 +1,17 @@
-
 # Release Notes
+
+**Version 1.4** | Released 2/17/23
+
+Fixes
+
+- Opengraph image does not show up
+- Section sidebars are not labeled with content data
+- Color Picker gray's show as black
+- Footer not on bottom of page
+- Ornaments make page too wide
+- Page background color not working
+- Upgrade Tina
+
 
 **Version 1.3** | Released 2/8/23
 

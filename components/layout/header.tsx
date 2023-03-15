@@ -121,7 +121,8 @@ export const Header = ({
     marginRight: `${globalData.logo?.imageMargin}px`
   }
   const background = nav?.navBackgroundColor.split(' ').filter((item) => !item.includes('opacity')).join(' ')
-  
+  const hasLinks = navItems.length > 0 || pageJumps(blocks).length > 0; 
+
   function Logo(props) {
     const hasLogoImage = globalData.logo?.image;
     if (hasLogoImage) {
@@ -176,6 +177,7 @@ export const Header = ({
         </div>
 
         {/* Mobile Nav */}
+        {hasLinks && (
         <div className={`${sectionClasses} hidden md:block h-screen fixed z-40 top-0 left-0 right-0`}>
           <div style={backgroundStyles} className={`${backgroundClasses} ${background} transition duration-400 absolute w-full h-screen -z-1`}></div>
           <div className={`w-full md:p-5`}>
@@ -214,6 +216,7 @@ export const Header = ({
           </div>
           
         </div>
+        )}
       </>
     </section>
   );

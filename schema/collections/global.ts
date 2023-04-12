@@ -5,8 +5,6 @@ import { embedBlockSchema } from "../../components/blocks/embed";
 import { tailwindFeatureBlockSchema } from "../../components/blocks/tailwind-feature"
 import { tailwindCardsBlockSchema } from "../../components/blocks/tailwind-cards"
 
-import { colorOptions } from "../options";
-
 export const globalCollectionSchema: any = {
   label: "Global",
   name: "global",

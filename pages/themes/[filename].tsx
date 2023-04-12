@@ -3,7 +3,7 @@ import { useTina } from "tinacms/dist/react";
 import { ThemeLayout } from "../../components/layout/theme-layout";
 
 function slugify(string: string) {
-  return string.replace(" ", "-").toLowerCase()
+  return string?.replace(" ", "-")?.toLowerCase()
 }
 
 const Typography = ({ item, index, parentField = "" }) => {
@@ -80,7 +80,7 @@ export default function ThemePage(
           {data.theme.buttons &&
             data.theme.buttons.map(function (item, index) {
               return (
-                <div className="flex items-center gap-10 mb-16">
+                <div className="flex items-center gap-10 mb-16" key={index}>
                   <div className="flex-none text-gray text-right uppercase w-40">
                     <div style={{fontSize: "14px" }}>{item.label}</div>
                   </div>

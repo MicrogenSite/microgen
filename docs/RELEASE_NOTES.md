@@ -1,5 +1,14 @@
 # Release Notes
 
+**Version 1.5** | Released 4/12/23
+
+Fixes
+
+- Add default card styles
+- Button border fix
+- Mobile header hidden when there are no links
+- Fixes for various code warnings
+
 **Version 1.4** | Released 2/17/23
 
 Fixes

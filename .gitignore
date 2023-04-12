@@ -19,6 +19,7 @@
 .env
 .env.local
 .idea
+/.vscode
 
 # debug
 npm-debug.log*

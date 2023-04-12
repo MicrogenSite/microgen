@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { client } from "../../../.tina/__generated__/client";
+import { lowerDash } from '../../../helpers/utilities';
 
 interface ButtonPickerProps {
   onChange;
@@ -14,7 +15,7 @@ export default function ButtonPicker(props:ButtonPickerProps) {
     const fetchData = async () => {
       const fetchedData = await client.queries.global({relativePath: `../global/index.json`})
       const buttonTypeData = fetchedData?.data?.global?.theme?.buttons
-      const options = buttonTypeData.map(item => ({ label: item.label, value: item.label.toLowerCase() }))
+      const options = buttonTypeData.map(item => ({ label: item.label, value: lowerDash(item.label) }))
       setOptions(options);
     };
     fetchData().catch(console.error)

@@ -184,7 +184,14 @@ export const themeCollectionSchema: any = {
       name: "buttons",
       list: true,
       ui: {
-        component: "itemListField"
+        component: "itemListField",
+        defaultItem: {
+          label: "Button",
+          fill: "bg-primary opacity-100",
+          typography: '{"color":"white","family":"Arial","size":"18","lineHeight":"18","letterSpacing":"0","smSize":"18","smLineHeight":"18","smLetterSpacing":"0"}',
+          padding: "pt-2.5 pb-2.5 pr-9 pl-9",
+          primaryBorder: "border-primary border-0",
+        },
       },
       fields: [
         {

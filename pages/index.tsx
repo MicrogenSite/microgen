@@ -35,7 +35,7 @@ export default function IndexPage(
   );
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async () => {
   const tinaProps = await client.queries.contentQuery({
     relativePath: `index.md`,
   });

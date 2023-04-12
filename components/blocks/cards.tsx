@@ -154,7 +154,9 @@ export const cardsBlockSchema: any = {
       },
       cardStyle: {
         fillStyles: "bg-gray",
-        grid: "grid-cols-3 items-start gap-6",
+        grid: "grid-cols-3 justify-start gap-6",
+        alignment: "flex-row items-start  text-left",
+        image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
         contentPadding: "pt-2 pr-2 pb-2 pl-2",
         labelStyles: "text-black",

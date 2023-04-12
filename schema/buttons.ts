@@ -3,6 +3,9 @@ export const buttonsSchema = {
   name: "buttons",
   type: "object",
   list: true,
+  ui: {
+    component: 'itemListField',
+  },
   fields: [
     {
       label: "Label",

@@ -1130,7 +1130,7 @@ input EventFilter {
   venueName: StringFilter
   venueAddress: StringFilter
   website: StringFilter
-  logomark: StringFilter
+  logomark: ImageFilter
   attendees: NumberFilter
   label: StringFilter
   org: StringFilter

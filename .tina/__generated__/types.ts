@@ -1318,7 +1318,7 @@ export type EventFilter = {
   venueName?: InputMaybe<StringFilter>;
   venueAddress?: InputMaybe<StringFilter>;
   website?: InputMaybe<StringFilter>;
-  logomark?: InputMaybe<StringFilter>;
+  logomark?: InputMaybe<ImageFilter>;
   attendees?: InputMaybe<NumberFilter>;
   label?: InputMaybe<StringFilter>;
   org?: InputMaybe<StringFilter>;

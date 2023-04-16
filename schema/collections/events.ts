@@ -90,7 +90,8 @@ export const eventCollectionSchema: any = {
     {
       label: "Logo",
       name: "logomark",
-      type: "string",
+      type: "image",
+      description: "Displayed in the corner of the event card. Should be a 48x48px png.",
     },
     {
       label: "Attendees",

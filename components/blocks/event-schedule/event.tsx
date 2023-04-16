@@ -68,14 +68,14 @@ export function EventCard({ event }) {
               </div>
             </div>
             <div className="flex-1 flex items-end">
-              <div className="event-tags">
+              <div className="event-tags w-full">
                 {event.tags?.map((tag, i) => (
                   (tag && <Tag key={i}>{tag}</Tag>)
                 ))}
               </div>
               {event.logomark &&
                 <div className="logomark inline-block">
-                  <img height="48" className="w-auto h-12 object-contain" src={event.logomark} />
+                  <img height="40" className="w-auto h-12 object-contain" src={event.logomark} />
                 </div>
               }
             </div>
@@ -189,7 +189,7 @@ function TimeslotTable({ timeslots }) {
 
 function Tag({ children }) {
   return (
-    <span className="inline-block px-1.5 py-0.5 mr-1.5 my-1 border border-gray text-gray mg-copy-small rounded-full cursor-default">
+    <span className="inline-block px-3 py-0.5 mr-1.5 my-1 border border-gray text-gray mg-copy-small rounded-full cursor-default">
       {children}
     </span>
   )

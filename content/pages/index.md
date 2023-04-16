@@ -1,6 +1,5 @@
 ---
 blocks:
-  - _template: embed
   - style:
       alignment: 'flex-row-reverse items-center '
       padding: pt-20 pb-20 pr-10 pl-10
@@ -24,10 +23,8 @@ blocks:
         buttonStyle: primary
         fathomId: ''
     _template: feature
-  - navigationLabel: ''
-    scheduleStartDate: '2023-04-14T20:46:07.532Z'
+  - scheduleStartDate: '2023-04-14T05:00:00.000Z'
     scheduleEndDate: '2023-04-21T05:00:00.000Z'
-    addEventLink: 'https://github.com/ipfs-shipyard/ipfs-thing-2023'
     _template: eventSchedule
   - style:
       fullWidth: false
@@ -43,6 +40,10 @@ meta:
   title: Microgen
   description: ''
 ---
+
+
+
+
 
 
 

@@ -30,21 +30,21 @@ export const embedBlockSchema: any = {
       name: "style",
       type: "object",
       fields: [
-        // {
-        //   label: "Full Width",
-        //   name: "fullWidth",
-        //   type: "boolean",
-        // },
-        // {
-        //   label: "Minimum Height",
-        //   name: "minHeight",
-        //   type: "string",
-        //   ui: {
-        //     component: "selectField",
-        //     mobileMode: true,
-        //   },
-        //   options: minHeightOptions,
-        // },
+        {
+          label: "Full Width",
+          name: "fullWidth",
+          type: "boolean",
+        },
+        {
+          label: "Minimum Height",
+          name: "minHeight",
+          type: "string",
+          ui: {
+            component: "selectField",
+            mobileMode: true,
+          },
+          options: minHeightOptions,
+        },
         {
           label: "Padding",
           name: "padding",

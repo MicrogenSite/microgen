@@ -82,7 +82,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         <PixelField value={smLetterSpacing} label="Tracking" icon={<IconLetterSpacing />} onChange={event => setSmLetterSpacing(event.target.value)} className="" />
         <PixelField value={smMargin} label="Margin" icon={<IconMargin />} onChange={event => setSmMargin(event.target.value)} className="" />
       </div>
-      <input type="text" value={`${jsonInput()}`} className="hidden" onChange={() => {console.log("change")}} />
+      <input type="text" defaultValue={`${jsonInput()}`} className="hidden" onChange={() => {console.log("change")}} />
     </div>
   )
 }

@@ -49,7 +49,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         <IconPicker value={fit} onClick={value => setFit(value)} options={fitOptions} menuPosition="right" />
         <IconPicker value={margin} onClick={value => setMargin(value)} options={marginOptions} menuPosition="right" />
       </div>
-      <input type="text" value={`${width} ${height} ${margin}`} className="hidden" />
+      <input type="text" defaultValue={`${width} ${height} ${margin}`} className="hidden" />
     </div>
   )
 }

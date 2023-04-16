@@ -184,6 +184,8 @@ fragment PageParts on Page {
     ... on PageBlocksEmbed {
       style {
         __typename
+        fullWidth
+        minHeight
         padding
       }
       background {
@@ -602,6 +604,8 @@ fragment GlobalParts on Global {
     ... on GlobalBlocksEmbed {
       style {
         __typename
+        fullWidth
+        minHeight
         padding
       }
       background {

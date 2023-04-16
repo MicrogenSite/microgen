@@ -295,6 +295,8 @@ type PageBlocksAccordian {
 }
 
 type PageBlocksEmbedStyle {
+  fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
@@ -752,7 +754,14 @@ input PageBlocksAccordianFilter {
   navigationLabel: StringFilter
 }
 
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
 input PageBlocksEmbedStyleFilter {
+  fullWidth: BooleanFilter
+  minHeight: StringFilter
   padding: StringFilter
 }
 
@@ -944,11 +953,6 @@ input PageBlocksEventScheduleFilter {
   scheduleStartDate: DatetimeFilter
   scheduleEndDate: DatetimeFilter
   addEventLink: StringFilter
-}
-
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
 }
 
 input PageBlocksEventTimelineStyleFilter {
@@ -1346,6 +1350,8 @@ type GlobalBlocksCards {
 }
 
 type GlobalBlocksEmbedStyle {
+  fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
@@ -1693,6 +1699,8 @@ input GlobalBlocksCardsFilter {
 }
 
 input GlobalBlocksEmbedStyleFilter {
+  fullWidth: BooleanFilter
+  minHeight: StringFilter
   padding: StringFilter
 }
 
@@ -2174,6 +2182,8 @@ input PageBlocksAccordianMutation {
 }
 
 input PageBlocksEmbedStyleMutation {
+  fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 
@@ -2598,6 +2608,8 @@ input GlobalBlocksCardsMutation {
 }
 
 input GlobalBlocksEmbedStyleMutation {
+  fullWidth: Boolean
+  minHeight: String
   padding: String
 }
 

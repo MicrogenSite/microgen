@@ -1,3 +1,4 @@
+import dayjs from 'dayjs'
 
 /*
   lowerDash
@@ -86,4 +87,23 @@ export const getBorderSide = function (options: {label: string, value: string}[]
   const match = optionValues.filter(option => currentStyles.includes(option))
   const side = match[0]?.split('-').slice(0,-1).join('-')
   return side ? `${side}-` : 'border-';
+}
+
+export const dateRangeString = function (date: Date, days = 1) {
+  const d1 = dayjs(date)
+
+  if (days === 1 || days === null) {
+    return d1.format("MMM DD")
+  }
+
+  const d2 = d1.add(days - 1, 'day')
+  return `${d1.format("MMM DD")}-${d2.format("MMM DD")}`
+}
+
+export const dayOffset = function (start, date) {
+  return dayjs(date).diff(dayjs(start), 'days')
+}
+
+export const readableHash = function (eventName) {
+  return eventName.replace(/þ/g, 'th').replace(/[^a-zA-Z0-9þ]/g, ' ').replace(/\s+/g, '-')
 }

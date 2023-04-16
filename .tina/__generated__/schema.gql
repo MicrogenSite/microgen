@@ -295,8 +295,6 @@ type PageBlocksAccordian {
 }
 
 type PageBlocksEmbedStyle {
-  fullWidth: Boolean
-  minHeight: String
   padding: String
 }
 
@@ -458,6 +456,30 @@ type PageBlocksTailwindCards {
   navigationLabel: String
 }
 
+type PageBlocksEventScheduleBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksEventScheduleBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventScheduleBackgroundOrnaments]
+}
+
+type PageBlocksEventSchedule {
+  background: PageBlocksEventScheduleBackground
+  navigationLabel: String
+  scheduleStartDate: String!
+  scheduleEndDate: String!
+  addEventLink: String
+}
+
 type PageBlocksEventTimelineStyle {
   fullWidth: Boolean
   minHeight: String
@@ -492,7 +514,7 @@ type PageBlocksEventTimeline {
   navigationLabel: String
 }
 
-union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksAccordian | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventTimeline
+union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksAccordian | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventSchedule | PageBlocksEventTimeline
 
 type PageMeta {
   title: String
@@ -730,14 +752,7 @@ input PageBlocksAccordianFilter {
   navigationLabel: StringFilter
 }
 
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
-}
-
 input PageBlocksEmbedStyleFilter {
-  fullWidth: BooleanFilter
-  minHeight: StringFilter
   padding: StringFilter
 }
 
@@ -899,6 +914,43 @@ input PageBlocksTailwindCardsFilter {
   navigationLabel: StringFilter
 }
 
+input PageBlocksEventScheduleBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksEventScheduleBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksEventScheduleBackgroundOrnamentsFilter
+}
+
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PageBlocksEventScheduleFilter {
+  background: PageBlocksEventScheduleBackgroundFilter
+  navigationLabel: StringFilter
+  scheduleStartDate: DatetimeFilter
+  scheduleEndDate: DatetimeFilter
+  addEventLink: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
 input PageBlocksEventTimelineStyleFilter {
   fullWidth: BooleanFilter
   minHeight: StringFilter
@@ -940,6 +992,7 @@ input PageBlocksFilter {
   embed: PageBlocksEmbedFilter
   tailwindFeature: PageBlocksTailwindFeatureFilter
   tailwindCards: PageBlocksTailwindCardsFilter
+  eventSchedule: PageBlocksEventScheduleFilter
   eventTimeline: PageBlocksEventTimelineFilter
 }
 
@@ -975,14 +1028,6 @@ type Post implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input DatetimeFilter {
-  after: String
-  before: String
-  eq: String
-  exists: Boolean
-  in: [String]
 }
 
 input Post_bodyDateTimeFilter {
@@ -1025,29 +1070,69 @@ type PostConnection implements Connection {
   edges: [PostConnectionEdges]
 }
 
+type EventTimeslots {
+  time: String
+  speakers: String
+  name: String
+  description: String
+}
+
 type Event implements Node & Document {
-  eventName: String!
+  name: String!
+  description: String
+  date: String!
+  days: Float
+  times: String
+  timeslots: [EventTimeslots]
+  venueName: String
+  venueAddress: String
   website: String
-  location: String
-  startDate: String
-  endDate: String
-  dateTBD: Boolean
+  logomark: String
+  attendees: Float
+  label: String
+  org: String
   dri: String
-  tag: String
+  tags: [String]
+  priority: Float
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input EventTimeslotsFilter {
+  time: StringFilter
+  speakers: StringFilter
+  name: StringFilter
+  description: StringFilter
+}
+
 input EventFilter {
-  eventName: StringFilter
+  name: StringFilter
+  description: StringFilter
+  date: DatetimeFilter
+  days: NumberFilter
+  times: StringFilter
+  timeslots: EventTimeslotsFilter
+  venueName: StringFilter
+  venueAddress: StringFilter
   website: StringFilter
-  location: StringFilter
-  startDate: DatetimeFilter
-  endDate: DatetimeFilter
-  dateTBD: BooleanFilter
+  logomark: StringFilter
+  attendees: NumberFilter
+  label: StringFilter
+  org: StringFilter
   dri: StringFilter
-  tag: StringFilter
+  tags: StringFilter
+  priority: NumberFilter
 }
 
 type EventConnectionEdges {
@@ -1261,8 +1346,6 @@ type GlobalBlocksCards {
 }
 
 type GlobalBlocksEmbedStyle {
-  fullWidth: Boolean
-  minHeight: String
   padding: String
 }
 
@@ -1610,8 +1693,6 @@ input GlobalBlocksCardsFilter {
 }
 
 input GlobalBlocksEmbedStyleFilter {
-  fullWidth: BooleanFilter
-  minHeight: StringFilter
   padding: StringFilter
 }
 
@@ -2093,8 +2174,6 @@ input PageBlocksAccordianMutation {
 }
 
 input PageBlocksEmbedStyleMutation {
-  fullWidth: Boolean
-  minHeight: String
   padding: String
 }
 
@@ -2256,6 +2335,30 @@ input PageBlocksTailwindCardsMutation {
   navigationLabel: String
 }
 
+input PageBlocksEventScheduleBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input PageBlocksEventScheduleBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventScheduleBackgroundOrnamentsMutation]
+}
+
+input PageBlocksEventScheduleMutation {
+  background: PageBlocksEventScheduleBackgroundMutation
+  navigationLabel: String
+  scheduleStartDate: String
+  scheduleEndDate: String
+  addEventLink: String
+}
+
 input PageBlocksEventTimelineStyleMutation {
   fullWidth: Boolean
   minHeight: String
@@ -2297,6 +2400,7 @@ input PageBlocksMutation {
   embed: PageBlocksEmbedMutation
   tailwindFeature: PageBlocksTailwindFeatureMutation
   tailwindCards: PageBlocksTailwindCardsMutation
+  eventSchedule: PageBlocksEventScheduleMutation
   eventTimeline: PageBlocksEventTimelineMutation
 }
 
@@ -2320,15 +2424,30 @@ input PostMutation {
   _body: JSON
 }
 
+input EventTimeslotsMutation {
+  time: String
+  speakers: String
+  name: String
+  description: String
+}
+
 input EventMutation {
-  eventName: String
+  name: String
+  description: String
+  date: String
+  days: Float
+  times: String
+  timeslots: [EventTimeslotsMutation]
+  venueName: String
+  venueAddress: String
   website: String
-  location: String
-  startDate: String
-  endDate: String
-  dateTBD: Boolean
+  logomark: String
+  attendees: Float
+  label: String
+  org: String
   dri: String
-  tag: String
+  tags: [String]
+  priority: Float
 }
 
 input ThemeColorsMutation {
@@ -2479,8 +2598,6 @@ input GlobalBlocksCardsMutation {
 }
 
 input GlobalBlocksEmbedStyleMutation {
-  fullWidth: Boolean
-  minHeight: String
   padding: String
 }
 

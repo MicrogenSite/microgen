@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { dateRangeString } from '../../../helpers/utilities';
 import { EventModal } from './event-modal'
+import Link from 'next/link.js'
 
 function Card({ children, color }) {
   let borderColor = 'bg-gray'
@@ -33,52 +34,54 @@ export function EventCard({ event }) {
   const isWorkInProgress = event.tags?.some((el) => el.toLowerCase() === "wip")
   return (
     <EventModal content={<EventModalContent event={event} />} name={event.name} link={event.website} hash={event.hash}>
-      <div className={classNames('w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
-        <Card color={event.color}>
-          <div className="flex-1">
-            <div className="flex gap-2">
-              <h5 className="flex-1 text-black mg-headline-small">
-                {event.name}
-              </h5>
-              {event.isLive &&
-                <div className="w-12 mt-0.5 flex-none">
-                  <img width="48" height="18" src="/live-streaming.svg" />
-                </div>
-              }
-            </div>
-            <div className="mg-copy-small mt-2">
-              {event.times !== "To be confirmed" &&
-                <div>{event.times}</div>
-              }
-              {event.venueName &&
-                <div>{event.venueName}</div>
-              }
-              {event.attendees &&
-                <div>
-                  👤 {event.attendees && `${event.attendees} -`} {event.label}
-                </div>
-              }
-              {event.org &&
-                <div className="mt-3">
-                  {event.org}
-                </div>
-              }
-            </div>
-          </div>
-          <div className="flex-1 flex items-end">
-            <div className="event-tags">
-              {event.tags?.map((tag, i) => (
-                (tag && <Tag key={i}>{tag}</Tag>)
-              ))}
-            </div>
-            {event.logomark &&
-              <div className="logomark inline-block">
-                <img height="48" className="w-auto h-12 object-contain" src={event.logomark} />
+      <Link href={`/${event.hash}`} scroll={false}>
+        <div className={classNames('w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
+          <Card color={event.color}>
+            <div className="flex-1">
+              <div className="flex gap-2">
+                <h5 className="flex-1 text-black mg-headline-small">
+                  {event.name}
+                </h5>
+                {event.isLive &&
+                  <div className="w-12 mt-0.5 flex-none">
+                    <img width="48" height="18" src="/live-streaming.svg" />
+                  </div>
+                }
               </div>
-            }
-          </div>
-        </Card>
-      </div>
+              <div className="mg-copy-small mt-2">
+                {event.times !== "To be confirmed" &&
+                  <div>{event.times}</div>
+                }
+                {event.venueName &&
+                  <div>{event.venueName}</div>
+                }
+                {event.attendees &&
+                  <div>
+                    👤 {event.attendees && `${event.attendees} -`} {event.label}
+                  </div>
+                }
+                {event.org &&
+                  <div className="mt-3">
+                    {event.org}
+                  </div>
+                }
+              </div>
+            </div>
+            <div className="flex-1 flex items-end">
+              <div className="event-tags">
+                {event.tags?.map((tag, i) => (
+                  (tag && <Tag key={i}>{tag}</Tag>)
+                ))}
+              </div>
+              {event.logomark &&
+                <div className="logomark inline-block">
+                  <img height="48" className="w-auto h-12 object-contain" src={event.logomark} />
+                </div>
+              }
+            </div>
+          </Card>
+        </div>
+      </Link>
     </EventModal>
   )
 }

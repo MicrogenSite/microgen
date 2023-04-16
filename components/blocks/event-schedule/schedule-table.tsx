@@ -1,6 +1,5 @@
 import dayjs from 'dayjs'
 import { EventCard } from './event'
-import Link from 'next/link.js'
 
 function genDates(start, numDays) {
   const days = []
@@ -21,9 +20,7 @@ function EventCardWrapper({e, i}) {
   }
   return (
     <div className={`col-start-${(e.startDay + 1)} col-end-${(e.startDay + e.days + 1)} shrink-0 h-full auto-rows-fr`}>
-        <Link href={`/${e.hash}`} scroll={false}>
-          <EventCard event={e} key={i} />
-        </Link>
+      <EventCard event={e} key={i} />
     </div>
   )
 }

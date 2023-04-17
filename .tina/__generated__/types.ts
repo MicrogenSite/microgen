@@ -240,8 +240,8 @@ export type PageBlocksFeatureStyle = {
   textStyles?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksFeatureBackgroundOrnaments = {
-  __typename?: 'PageBlocksFeatureBackgroundOrnaments';
+export type GlobalBlocksFeatureBackgroundOrnaments = {
+  __typename?: 'GlobalBlocksFeatureBackgroundOrnaments';
   src?: Maybe<Scalars['String']>;
   alignment?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['String']>;
@@ -255,7 +255,7 @@ export type PageBlocksFeatureBackground = {
   fillStyles?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   position?: Maybe<Scalars['String']>;
-  ornaments?: Maybe<Array<Maybe<PageBlocksFeatureBackgroundOrnaments>>>;
+  ornaments?: Maybe<Array<Maybe<GlobalBlocksFeatureBackgroundOrnaments>>>;
 };
 
 export type PageBlocksFeatureImage = {
@@ -318,8 +318,8 @@ export type PageBlocksCardsCardStyle = {
   buttonWidth?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksCardsBackgroundOrnaments = {
-  __typename?: 'PageBlocksCardsBackgroundOrnaments';
+export type GlobalBlocksCardsBackgroundOrnaments = {
+  __typename?: 'GlobalBlocksCardsBackgroundOrnaments';
   src?: Maybe<Scalars['String']>;
   alignment?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['String']>;
@@ -333,7 +333,7 @@ export type PageBlocksCardsBackground = {
   fillStyles?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   position?: Maybe<Scalars['String']>;
-  ornaments?: Maybe<Array<Maybe<PageBlocksCardsBackgroundOrnaments>>>;
+  ornaments?: Maybe<Array<Maybe<GlobalBlocksCardsBackgroundOrnaments>>>;
 };
 
 export type PageBlocksCardsButtons = {
@@ -344,15 +344,15 @@ export type PageBlocksCardsButtons = {
   fathomId?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksCardsItemsImage = {
-  __typename?: 'PageBlocksCardsItemsImage';
+export type GlobalBlocksCardsItemsImage = {
+  __typename?: 'GlobalBlocksCardsItemsImage';
   src?: Maybe<Scalars['String']>;
   alt?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksCardsItems = {
   __typename?: 'PageBlocksCardsItems';
-  image?: Maybe<PageBlocksCardsItemsImage>;
+  image?: Maybe<GlobalBlocksCardsItemsImage>;
   rule?: Maybe<Scalars['String']>;
   label?: Maybe<Scalars['String']>;
   headline?: Maybe<Scalars['String']>;
@@ -456,8 +456,8 @@ export type PageBlocksEmbedStyle = {
   padding?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksEmbedBackgroundOrnaments = {
-  __typename?: 'PageBlocksEmbedBackgroundOrnaments';
+export type GlobalBlocksEmbedBackgroundOrnaments = {
+  __typename?: 'GlobalBlocksEmbedBackgroundOrnaments';
   src?: Maybe<Scalars['String']>;
   alignment?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['String']>;
@@ -471,7 +471,7 @@ export type PageBlocksEmbedBackground = {
   fillStyles?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   position?: Maybe<Scalars['String']>;
-  ornaments?: Maybe<Array<Maybe<PageBlocksEmbedBackgroundOrnaments>>>;
+  ornaments?: Maybe<Array<Maybe<GlobalBlocksEmbedBackgroundOrnaments>>>;
 };
 
 export type PageBlocksEmbed = {
@@ -498,8 +498,8 @@ export type PageBlocksTailwindFeatureTailwind = {
   button?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindFeatureBackgroundOrnaments = {
-  __typename?: 'PageBlocksTailwindFeatureBackgroundOrnaments';
+export type GlobalBlocksTailwindFeatureBackgroundOrnaments = {
+  __typename?: 'GlobalBlocksTailwindFeatureBackgroundOrnaments';
   src?: Maybe<Scalars['String']>;
   alignment?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['String']>;
@@ -513,7 +513,7 @@ export type PageBlocksTailwindFeatureBackground = {
   fillStyles?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   position?: Maybe<Scalars['String']>;
-  ornaments?: Maybe<Array<Maybe<PageBlocksTailwindFeatureBackgroundOrnaments>>>;
+  ornaments?: Maybe<Array<Maybe<GlobalBlocksTailwindFeatureBackgroundOrnaments>>>;
 };
 
 export type PageBlocksTailwindFeatureImage = {
@@ -573,8 +573,8 @@ export type PageBlocksTailwindCardsTailwind = {
   cardButton?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindCardsBackgroundOrnaments = {
-  __typename?: 'PageBlocksTailwindCardsBackgroundOrnaments';
+export type GlobalBlocksTailwindCardsBackgroundOrnaments = {
+  __typename?: 'GlobalBlocksTailwindCardsBackgroundOrnaments';
   src?: Maybe<Scalars['String']>;
   alignment?: Maybe<Scalars['String']>;
   width?: Maybe<Scalars['String']>;
@@ -588,7 +588,7 @@ export type PageBlocksTailwindCardsBackground = {
   fillStyles?: Maybe<Scalars['String']>;
   src?: Maybe<Scalars['String']>;
   position?: Maybe<Scalars['String']>;
-  ornaments?: Maybe<Array<Maybe<PageBlocksTailwindCardsBackgroundOrnaments>>>;
+  ornaments?: Maybe<Array<Maybe<GlobalBlocksTailwindCardsBackgroundOrnaments>>>;
 };
 
 export type PageBlocksTailwindCardsButtons = {
@@ -599,15 +599,15 @@ export type PageBlocksTailwindCardsButtons = {
   fathomId?: Maybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindCardsItemsImage = {
-  __typename?: 'PageBlocksTailwindCardsItemsImage';
+export type GlobalBlocksTailwindCardsItemsImage = {
+  __typename?: 'GlobalBlocksTailwindCardsItemsImage';
   src?: Maybe<Scalars['String']>;
   alt?: Maybe<Scalars['String']>;
 };
 
 export type PageBlocksTailwindCardsItems = {
   __typename?: 'PageBlocksTailwindCardsItems';
-  image?: Maybe<PageBlocksTailwindCardsItemsImage>;
+  image?: Maybe<GlobalBlocksTailwindCardsItemsImage>;
   label?: Maybe<Scalars['String']>;
   headline?: Maybe<Scalars['String']>;
   subhead?: Maybe<Scalars['String']>;
@@ -740,7 +740,7 @@ export type ImageFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
-export type PageBlocksFeatureBackgroundOrnamentsFilter = {
+export type GlobalBlocksFeatureBackgroundOrnamentsFilter = {
   src?: InputMaybe<ImageFilter>;
   alignment?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -753,7 +753,7 @@ export type PageBlocksFeatureBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
   position?: InputMaybe<StringFilter>;
-  ornaments?: InputMaybe<PageBlocksFeatureBackgroundOrnamentsFilter>;
+  ornaments?: InputMaybe<GlobalBlocksFeatureBackgroundOrnamentsFilter>;
 };
 
 export type PageBlocksFeatureImageFilter = {
@@ -817,7 +817,7 @@ export type PageBlocksCardsCardStyleFilter = {
   buttonWidth?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksCardsBackgroundOrnamentsFilter = {
+export type GlobalBlocksCardsBackgroundOrnamentsFilter = {
   src?: InputMaybe<ImageFilter>;
   alignment?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -830,7 +830,7 @@ export type PageBlocksCardsBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
   position?: InputMaybe<StringFilter>;
-  ornaments?: InputMaybe<PageBlocksCardsBackgroundOrnamentsFilter>;
+  ornaments?: InputMaybe<GlobalBlocksCardsBackgroundOrnamentsFilter>;
 };
 
 export type PageBlocksCardsButtonsFilter = {
@@ -840,13 +840,13 @@ export type PageBlocksCardsButtonsFilter = {
   fathomId?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksCardsItemsImageFilter = {
+export type GlobalBlocksCardsItemsImageFilter = {
   src?: InputMaybe<ImageFilter>;
   alt?: InputMaybe<StringFilter>;
 };
 
 export type PageBlocksCardsItemsFilter = {
-  image?: InputMaybe<PageBlocksCardsItemsImageFilter>;
+  image?: InputMaybe<GlobalBlocksCardsItemsImageFilter>;
   rule?: InputMaybe<StringFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
@@ -946,7 +946,7 @@ export type PageBlocksEmbedStyleFilter = {
   padding?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksEmbedBackgroundOrnamentsFilter = {
+export type GlobalBlocksEmbedBackgroundOrnamentsFilter = {
   src?: InputMaybe<ImageFilter>;
   alignment?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -959,7 +959,7 @@ export type PageBlocksEmbedBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
   position?: InputMaybe<StringFilter>;
-  ornaments?: InputMaybe<PageBlocksEmbedBackgroundOrnamentsFilter>;
+  ornaments?: InputMaybe<GlobalBlocksEmbedBackgroundOrnamentsFilter>;
 };
 
 export type PageBlocksEmbedFilter = {
@@ -984,7 +984,7 @@ export type PageBlocksTailwindFeatureTailwindFilter = {
   button?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksTailwindFeatureBackgroundOrnamentsFilter = {
+export type GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter = {
   src?: InputMaybe<ImageFilter>;
   alignment?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -997,7 +997,7 @@ export type PageBlocksTailwindFeatureBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
   position?: InputMaybe<StringFilter>;
-  ornaments?: InputMaybe<PageBlocksTailwindFeatureBackgroundOrnamentsFilter>;
+  ornaments?: InputMaybe<GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter>;
 };
 
 export type PageBlocksTailwindFeatureImageFilter = {
@@ -1053,7 +1053,7 @@ export type PageBlocksTailwindCardsTailwindFilter = {
   cardButton?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksTailwindCardsBackgroundOrnamentsFilter = {
+export type GlobalBlocksTailwindCardsBackgroundOrnamentsFilter = {
   src?: InputMaybe<ImageFilter>;
   alignment?: InputMaybe<StringFilter>;
   width?: InputMaybe<StringFilter>;
@@ -1066,7 +1066,7 @@ export type PageBlocksTailwindCardsBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
   position?: InputMaybe<StringFilter>;
-  ornaments?: InputMaybe<PageBlocksTailwindCardsBackgroundOrnamentsFilter>;
+  ornaments?: InputMaybe<GlobalBlocksTailwindCardsBackgroundOrnamentsFilter>;
 };
 
 export type PageBlocksTailwindCardsButtonsFilter = {
@@ -1076,13 +1076,13 @@ export type PageBlocksTailwindCardsButtonsFilter = {
   fathomId?: InputMaybe<StringFilter>;
 };
 
-export type PageBlocksTailwindCardsItemsImageFilter = {
+export type GlobalBlocksTailwindCardsItemsImageFilter = {
   src?: InputMaybe<ImageFilter>;
   alt?: InputMaybe<StringFilter>;
 };
 
 export type PageBlocksTailwindCardsItemsFilter = {
-  image?: InputMaybe<PageBlocksTailwindCardsItemsImageFilter>;
+  image?: InputMaybe<GlobalBlocksTailwindCardsItemsImageFilter>;
   label?: InputMaybe<StringFilter>;
   headline?: InputMaybe<StringFilter>;
   subhead?: InputMaybe<StringFilter>;
@@ -1498,16 +1498,6 @@ export type GlobalBlocksCardsCardStyle = {
   buttonWidth?: Maybe<Scalars['String']>;
 };
 
-export type GlobalBlocksCardsBackgroundOrnaments = {
-  __typename?: 'GlobalBlocksCardsBackgroundOrnaments';
-  src?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-  xOffset?: Maybe<Scalars['String']>;
-  yOffset?: Maybe<Scalars['String']>;
-};
-
 export type GlobalBlocksCardsBackground = {
   __typename?: 'GlobalBlocksCardsBackground';
   fillStyles?: Maybe<Scalars['String']>;
@@ -1522,12 +1512,6 @@ export type GlobalBlocksCardsButtons = {
   link?: Maybe<Scalars['String']>;
   buttonStyle?: Maybe<Scalars['String']>;
   fathomId?: Maybe<Scalars['String']>;
-};
-
-export type GlobalBlocksCardsItemsImage = {
-  __typename?: 'GlobalBlocksCardsItemsImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
 };
 
 export type GlobalBlocksCardsItems = {
@@ -1564,16 +1548,6 @@ export type GlobalBlocksEmbedStyle = {
   padding?: Maybe<Scalars['String']>;
 };
 
-export type GlobalBlocksEmbedBackgroundOrnaments = {
-  __typename?: 'GlobalBlocksEmbedBackgroundOrnaments';
-  src?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-  xOffset?: Maybe<Scalars['String']>;
-  yOffset?: Maybe<Scalars['String']>;
-};
-
 export type GlobalBlocksEmbedBackground = {
   __typename?: 'GlobalBlocksEmbedBackground';
   fillStyles?: Maybe<Scalars['String']>;
@@ -1601,16 +1575,6 @@ export type GlobalBlocksFeatureStyle = {
   headlineStyles?: Maybe<Scalars['String']>;
   subheadStyles?: Maybe<Scalars['String']>;
   textStyles?: Maybe<Scalars['String']>;
-};
-
-export type GlobalBlocksFeatureBackgroundOrnaments = {
-  __typename?: 'GlobalBlocksFeatureBackgroundOrnaments';
-  src?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-  xOffset?: Maybe<Scalars['String']>;
-  yOffset?: Maybe<Scalars['String']>;
 };
 
 export type GlobalBlocksFeatureBackground = {
@@ -1663,16 +1627,6 @@ export type GlobalBlocksTailwindFeatureTailwind = {
   text?: Maybe<Scalars['String']>;
   buttons?: Maybe<Scalars['String']>;
   button?: Maybe<Scalars['String']>;
-};
-
-export type GlobalBlocksTailwindFeatureBackgroundOrnaments = {
-  __typename?: 'GlobalBlocksTailwindFeatureBackgroundOrnaments';
-  src?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-  xOffset?: Maybe<Scalars['String']>;
-  yOffset?: Maybe<Scalars['String']>;
 };
 
 export type GlobalBlocksTailwindFeatureBackground = {
@@ -1740,16 +1694,6 @@ export type GlobalBlocksTailwindCardsTailwind = {
   cardButton?: Maybe<Scalars['String']>;
 };
 
-export type GlobalBlocksTailwindCardsBackgroundOrnaments = {
-  __typename?: 'GlobalBlocksTailwindCardsBackgroundOrnaments';
-  src?: Maybe<Scalars['String']>;
-  alignment?: Maybe<Scalars['String']>;
-  width?: Maybe<Scalars['String']>;
-  height?: Maybe<Scalars['String']>;
-  xOffset?: Maybe<Scalars['String']>;
-  yOffset?: Maybe<Scalars['String']>;
-};
-
 export type GlobalBlocksTailwindCardsBackground = {
   __typename?: 'GlobalBlocksTailwindCardsBackground';
   fillStyles?: Maybe<Scalars['String']>;
@@ -1764,12 +1708,6 @@ export type GlobalBlocksTailwindCardsButtons = {
   link?: Maybe<Scalars['String']>;
   buttonStyle?: Maybe<Scalars['String']>;
   fathomId?: Maybe<Scalars['String']>;
-};
-
-export type GlobalBlocksTailwindCardsItemsImage = {
-  __typename?: 'GlobalBlocksTailwindCardsItemsImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
 };
 
 export type GlobalBlocksTailwindCardsItems = {
@@ -1877,15 +1815,6 @@ export type GlobalBlocksCardsCardStyleFilter = {
   buttonWidth?: InputMaybe<StringFilter>;
 };
 
-export type GlobalBlocksCardsBackgroundOrnamentsFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alignment?: InputMaybe<StringFilter>;
-  width?: InputMaybe<StringFilter>;
-  height?: InputMaybe<StringFilter>;
-  xOffset?: InputMaybe<StringFilter>;
-  yOffset?: InputMaybe<StringFilter>;
-};
-
 export type GlobalBlocksCardsBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
@@ -1898,11 +1827,6 @@ export type GlobalBlocksCardsButtonsFilter = {
   link?: InputMaybe<StringFilter>;
   buttonStyle?: InputMaybe<StringFilter>;
   fathomId?: InputMaybe<StringFilter>;
-};
-
-export type GlobalBlocksCardsItemsImageFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alt?: InputMaybe<StringFilter>;
 };
 
 export type GlobalBlocksCardsItemsFilter = {
@@ -1936,15 +1860,6 @@ export type GlobalBlocksEmbedStyleFilter = {
   padding?: InputMaybe<StringFilter>;
 };
 
-export type GlobalBlocksEmbedBackgroundOrnamentsFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alignment?: InputMaybe<StringFilter>;
-  width?: InputMaybe<StringFilter>;
-  height?: InputMaybe<StringFilter>;
-  xOffset?: InputMaybe<StringFilter>;
-  yOffset?: InputMaybe<StringFilter>;
-};
-
 export type GlobalBlocksEmbedBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
@@ -1969,15 +1884,6 @@ export type GlobalBlocksFeatureStyleFilter = {
   headlineStyles?: InputMaybe<StringFilter>;
   subheadStyles?: InputMaybe<StringFilter>;
   textStyles?: InputMaybe<StringFilter>;
-};
-
-export type GlobalBlocksFeatureBackgroundOrnamentsFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alignment?: InputMaybe<StringFilter>;
-  width?: InputMaybe<StringFilter>;
-  height?: InputMaybe<StringFilter>;
-  xOffset?: InputMaybe<StringFilter>;
-  yOffset?: InputMaybe<StringFilter>;
 };
 
 export type GlobalBlocksFeatureBackgroundFilter = {
@@ -2025,15 +1931,6 @@ export type GlobalBlocksTailwindFeatureTailwindFilter = {
   text?: InputMaybe<StringFilter>;
   buttons?: InputMaybe<StringFilter>;
   button?: InputMaybe<StringFilter>;
-};
-
-export type GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alignment?: InputMaybe<StringFilter>;
-  width?: InputMaybe<StringFilter>;
-  height?: InputMaybe<StringFilter>;
-  xOffset?: InputMaybe<StringFilter>;
-  yOffset?: InputMaybe<StringFilter>;
 };
 
 export type GlobalBlocksTailwindFeatureBackgroundFilter = {
@@ -2096,15 +1993,6 @@ export type GlobalBlocksTailwindCardsTailwindFilter = {
   cardButton?: InputMaybe<StringFilter>;
 };
 
-export type GlobalBlocksTailwindCardsBackgroundOrnamentsFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alignment?: InputMaybe<StringFilter>;
-  width?: InputMaybe<StringFilter>;
-  height?: InputMaybe<StringFilter>;
-  xOffset?: InputMaybe<StringFilter>;
-  yOffset?: InputMaybe<StringFilter>;
-};
-
 export type GlobalBlocksTailwindCardsBackgroundFilter = {
   fillStyles?: InputMaybe<StringFilter>;
   src?: InputMaybe<ImageFilter>;
@@ -2117,11 +2005,6 @@ export type GlobalBlocksTailwindCardsButtonsFilter = {
   link?: InputMaybe<StringFilter>;
   buttonStyle?: InputMaybe<StringFilter>;
   fathomId?: InputMaybe<StringFilter>;
-};
-
-export type GlobalBlocksTailwindCardsItemsImageFilter = {
-  src?: InputMaybe<ImageFilter>;
-  alt?: InputMaybe<StringFilter>;
 };
 
 export type GlobalBlocksTailwindCardsItemsFilter = {
@@ -2314,7 +2197,7 @@ export type PageBlocksFeatureStyleMutation = {
   textStyles?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksFeatureBackgroundOrnamentsMutation = {
+export type GlobalBlocksFeatureBackgroundOrnamentsMutation = {
   src?: InputMaybe<Scalars['String']>;
   alignment?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['String']>;
@@ -2327,7 +2210,7 @@ export type PageBlocksFeatureBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
   position?: InputMaybe<Scalars['String']>;
-  ornaments?: InputMaybe<Array<InputMaybe<PageBlocksFeatureBackgroundOrnamentsMutation>>>;
+  ornaments?: InputMaybe<Array<InputMaybe<GlobalBlocksFeatureBackgroundOrnamentsMutation>>>;
 };
 
 export type PageBlocksFeatureImageMutation = {
@@ -2385,7 +2268,7 @@ export type PageBlocksCardsCardStyleMutation = {
   buttonWidth?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksCardsBackgroundOrnamentsMutation = {
+export type GlobalBlocksCardsBackgroundOrnamentsMutation = {
   src?: InputMaybe<Scalars['String']>;
   alignment?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['String']>;
@@ -2398,7 +2281,7 @@ export type PageBlocksCardsBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
   position?: InputMaybe<Scalars['String']>;
-  ornaments?: InputMaybe<Array<InputMaybe<PageBlocksCardsBackgroundOrnamentsMutation>>>;
+  ornaments?: InputMaybe<Array<InputMaybe<GlobalBlocksCardsBackgroundOrnamentsMutation>>>;
 };
 
 export type PageBlocksCardsButtonsMutation = {
@@ -2408,13 +2291,13 @@ export type PageBlocksCardsButtonsMutation = {
   fathomId?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksCardsItemsImageMutation = {
+export type GlobalBlocksCardsItemsImageMutation = {
   src?: InputMaybe<Scalars['String']>;
   alt?: InputMaybe<Scalars['String']>;
 };
 
 export type PageBlocksCardsItemsMutation = {
-  image?: InputMaybe<PageBlocksCardsItemsImageMutation>;
+  image?: InputMaybe<GlobalBlocksCardsItemsImageMutation>;
   rule?: InputMaybe<Scalars['String']>;
   label?: InputMaybe<Scalars['String']>;
   headline?: InputMaybe<Scalars['String']>;
@@ -2509,7 +2392,7 @@ export type PageBlocksEmbedStyleMutation = {
   padding?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksEmbedBackgroundOrnamentsMutation = {
+export type GlobalBlocksEmbedBackgroundOrnamentsMutation = {
   src?: InputMaybe<Scalars['String']>;
   alignment?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['String']>;
@@ -2522,7 +2405,7 @@ export type PageBlocksEmbedBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
   position?: InputMaybe<Scalars['String']>;
-  ornaments?: InputMaybe<Array<InputMaybe<PageBlocksEmbedBackgroundOrnamentsMutation>>>;
+  ornaments?: InputMaybe<Array<InputMaybe<GlobalBlocksEmbedBackgroundOrnamentsMutation>>>;
 };
 
 export type PageBlocksEmbedMutation = {
@@ -2547,7 +2430,7 @@ export type PageBlocksTailwindFeatureTailwindMutation = {
   button?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindFeatureBackgroundOrnamentsMutation = {
+export type GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation = {
   src?: InputMaybe<Scalars['String']>;
   alignment?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['String']>;
@@ -2560,7 +2443,7 @@ export type PageBlocksTailwindFeatureBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
   position?: InputMaybe<Scalars['String']>;
-  ornaments?: InputMaybe<Array<InputMaybe<PageBlocksTailwindFeatureBackgroundOrnamentsMutation>>>;
+  ornaments?: InputMaybe<Array<InputMaybe<GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation>>>;
 };
 
 export type PageBlocksTailwindFeatureImageMutation = {
@@ -2616,7 +2499,7 @@ export type PageBlocksTailwindCardsTailwindMutation = {
   cardButton?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindCardsBackgroundOrnamentsMutation = {
+export type GlobalBlocksTailwindCardsBackgroundOrnamentsMutation = {
   src?: InputMaybe<Scalars['String']>;
   alignment?: InputMaybe<Scalars['String']>;
   width?: InputMaybe<Scalars['String']>;
@@ -2629,7 +2512,7 @@ export type PageBlocksTailwindCardsBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
   position?: InputMaybe<Scalars['String']>;
-  ornaments?: InputMaybe<Array<InputMaybe<PageBlocksTailwindCardsBackgroundOrnamentsMutation>>>;
+  ornaments?: InputMaybe<Array<InputMaybe<GlobalBlocksTailwindCardsBackgroundOrnamentsMutation>>>;
 };
 
 export type PageBlocksTailwindCardsButtonsMutation = {
@@ -2639,13 +2522,13 @@ export type PageBlocksTailwindCardsButtonsMutation = {
   fathomId?: InputMaybe<Scalars['String']>;
 };
 
-export type PageBlocksTailwindCardsItemsImageMutation = {
+export type GlobalBlocksTailwindCardsItemsImageMutation = {
   src?: InputMaybe<Scalars['String']>;
   alt?: InputMaybe<Scalars['String']>;
 };
 
 export type PageBlocksTailwindCardsItemsMutation = {
-  image?: InputMaybe<PageBlocksTailwindCardsItemsImageMutation>;
+  image?: InputMaybe<GlobalBlocksTailwindCardsItemsImageMutation>;
   label?: InputMaybe<Scalars['String']>;
   headline?: InputMaybe<Scalars['String']>;
   subhead?: InputMaybe<Scalars['String']>;
@@ -2876,15 +2759,6 @@ export type GlobalBlocksCardsCardStyleMutation = {
   buttonWidth?: InputMaybe<Scalars['String']>;
 };
 
-export type GlobalBlocksCardsBackgroundOrnamentsMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  xOffset?: InputMaybe<Scalars['String']>;
-  yOffset?: InputMaybe<Scalars['String']>;
-};
-
 export type GlobalBlocksCardsBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
@@ -2897,11 +2771,6 @@ export type GlobalBlocksCardsButtonsMutation = {
   link?: InputMaybe<Scalars['String']>;
   buttonStyle?: InputMaybe<Scalars['String']>;
   fathomId?: InputMaybe<Scalars['String']>;
-};
-
-export type GlobalBlocksCardsItemsImageMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alt?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalBlocksCardsItemsMutation = {
@@ -2935,15 +2804,6 @@ export type GlobalBlocksEmbedStyleMutation = {
   padding?: InputMaybe<Scalars['String']>;
 };
 
-export type GlobalBlocksEmbedBackgroundOrnamentsMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  xOffset?: InputMaybe<Scalars['String']>;
-  yOffset?: InputMaybe<Scalars['String']>;
-};
-
 export type GlobalBlocksEmbedBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
@@ -2968,15 +2828,6 @@ export type GlobalBlocksFeatureStyleMutation = {
   headlineStyles?: InputMaybe<Scalars['String']>;
   subheadStyles?: InputMaybe<Scalars['String']>;
   textStyles?: InputMaybe<Scalars['String']>;
-};
-
-export type GlobalBlocksFeatureBackgroundOrnamentsMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  xOffset?: InputMaybe<Scalars['String']>;
-  yOffset?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalBlocksFeatureBackgroundMutation = {
@@ -3024,15 +2875,6 @@ export type GlobalBlocksTailwindFeatureTailwindMutation = {
   text?: InputMaybe<Scalars['String']>;
   buttons?: InputMaybe<Scalars['String']>;
   button?: InputMaybe<Scalars['String']>;
-};
-
-export type GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  xOffset?: InputMaybe<Scalars['String']>;
-  yOffset?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalBlocksTailwindFeatureBackgroundMutation = {
@@ -3095,15 +2937,6 @@ export type GlobalBlocksTailwindCardsTailwindMutation = {
   cardButton?: InputMaybe<Scalars['String']>;
 };
 
-export type GlobalBlocksTailwindCardsBackgroundOrnamentsMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alignment?: InputMaybe<Scalars['String']>;
-  width?: InputMaybe<Scalars['String']>;
-  height?: InputMaybe<Scalars['String']>;
-  xOffset?: InputMaybe<Scalars['String']>;
-  yOffset?: InputMaybe<Scalars['String']>;
-};
-
 export type GlobalBlocksTailwindCardsBackgroundMutation = {
   fillStyles?: InputMaybe<Scalars['String']>;
   src?: InputMaybe<Scalars['String']>;
@@ -3116,11 +2949,6 @@ export type GlobalBlocksTailwindCardsButtonsMutation = {
   link?: InputMaybe<Scalars['String']>;
   buttonStyle?: InputMaybe<Scalars['String']>;
   fathomId?: InputMaybe<Scalars['String']>;
-};
-
-export type GlobalBlocksTailwindCardsItemsImageMutation = {
-  src?: InputMaybe<Scalars['String']>;
-  alt?: InputMaybe<Scalars['String']>;
 };
 
 export type GlobalBlocksTailwindCardsItemsMutation = {
@@ -3178,7 +3006,7 @@ export type ContentQueryQueryVariables = Exact<{
 }>;
 
 
-export type ContentQueryQuery = { __typename?: 'Query', page: { __typename?: 'Page', backgroundColor?: string | null, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null }, global: { __typename?: 'Global', siteUrl?: string | null, favicon?: string | null, gtmId?: string | null, fathomSiteId?: string | null, rule?: string | null, theme?: { __typename?: 'Theme', name?: string | null, desktopWidth?: string | null, linkColor?: string | null, id: string, colors?: { __typename: 'ThemeColors', primary?: string | null, accent1?: string | null, accent2?: string | null, accent3?: string | null, accent4?: string | null, white?: string | null, grayLight?: string | null, gray?: string | null, grayDark?: string | null, black?: string | null } | null, typo?: Array<{ __typename: 'ThemeTypo', label?: string | null, typography?: string | null } | null> | null, buttons?: Array<{ __typename: 'ThemeButtons', label?: string | null, fill?: string | null, typography?: string | null, padding?: string | null, primaryBorder?: string | null, primaryRounded?: string | null } | null> | null } | null, logo?: { __typename: 'GlobalLogo', logoType?: string | null, logoTypeStyle?: string | null, image?: string | null, imageWidth?: string | null, imageHeight?: string | null, imageMargin?: string | null } | null, nav?: { __typename: 'GlobalNav', navAlignment?: string | null, navTypeStyle?: string | null, navBackgroundColor?: string | null, padding?: string | null, navItems?: Array<{ __typename: 'GlobalNavNavItems', label?: string | null, link?: string | null, subNavItems?: Array<{ __typename: 'GlobalNavNavItemsSubNavItems', label?: string | null, link?: string | null } | null> | null } | null> | null } | null, blocks?: Array<{ __typename: 'GlobalBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'GlobalBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'GlobalBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'GlobalBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'GlobalBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'GlobalBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'GlobalBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'GlobalBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'GlobalBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'GlobalBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'GlobalBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'GlobalBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'GlobalBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'GlobalBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'GlobalBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'GlobalBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'GlobalBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | null> | null } };
+export type ContentQueryQuery = { __typename?: 'Query', page: { __typename?: 'Page', backgroundColor?: string | null, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null }, global: { __typename?: 'Global', siteUrl?: string | null, favicon?: string | null, gtmId?: string | null, fathomSiteId?: string | null, rule?: string | null, theme?: { __typename?: 'Theme', name?: string | null, desktopWidth?: string | null, linkColor?: string | null, id: string, colors?: { __typename: 'ThemeColors', primary?: string | null, accent1?: string | null, accent2?: string | null, accent3?: string | null, accent4?: string | null, white?: string | null, grayLight?: string | null, gray?: string | null, grayDark?: string | null, black?: string | null } | null, typo?: Array<{ __typename: 'ThemeTypo', label?: string | null, typography?: string | null } | null> | null, buttons?: Array<{ __typename: 'ThemeButtons', label?: string | null, fill?: string | null, typography?: string | null, padding?: string | null, primaryBorder?: string | null, primaryRounded?: string | null } | null> | null } | null, logo?: { __typename: 'GlobalLogo', logoType?: string | null, logoTypeStyle?: string | null, image?: string | null, imageWidth?: string | null, imageHeight?: string | null, imageMargin?: string | null } | null, nav?: { __typename: 'GlobalNav', navAlignment?: string | null, navTypeStyle?: string | null, navBackgroundColor?: string | null, padding?: string | null, navItems?: Array<{ __typename: 'GlobalNavNavItems', label?: string | null, link?: string | null, subNavItems?: Array<{ __typename: 'GlobalNavNavItemsSubNavItems', label?: string | null, link?: string | null } | null> | null } | null> | null } | null, blocks?: Array<{ __typename: 'GlobalBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'GlobalBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'GlobalBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'GlobalBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'GlobalBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'GlobalBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'GlobalBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'GlobalBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'GlobalBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'GlobalBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'GlobalBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'GlobalBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'GlobalBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'GlobalBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'GlobalBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'GlobalBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'GlobalBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'GlobalBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'GlobalBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | null> | null } };
 
 export type BlogPostQueryQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -3201,7 +3029,7 @@ export type ThemeQueryQueryVariables = Exact<{
 
 export type ThemeQueryQuery = { __typename?: 'Query', theme: { __typename?: 'Theme', name?: string | null, desktopWidth?: string | null, linkColor?: string | null, colors?: { __typename: 'ThemeColors', primary?: string | null, accent1?: string | null, accent2?: string | null, accent3?: string | null, accent4?: string | null, white?: string | null, grayLight?: string | null, gray?: string | null, grayDark?: string | null, black?: string | null } | null, typo?: Array<{ __typename: 'ThemeTypo', label?: string | null, typography?: string | null } | null> | null, buttons?: Array<{ __typename: 'ThemeButtons', label?: string | null, fill?: string | null, typography?: string | null, padding?: string | null, primaryBorder?: string | null, primaryRounded?: string | null } | null> | null } };
 
-export type PagePartsFragment = { __typename?: 'Page', backgroundColor?: string | null, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null };
+export type PagePartsFragment = { __typename?: 'Page', backgroundColor?: string | null, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null };
 
 export type PostPartsFragment = { __typename?: 'Post', title: string, heroImg?: string | null, excerpt?: any | null, date?: string | null, _body?: any | null };
 
@@ -3216,7 +3044,7 @@ export type PageQueryVariables = Exact<{
 }>;
 
 
-export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, backgroundColor?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null } };
+export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, backgroundColor?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null } };
 
 export type PageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -3228,7 +3056,7 @@ export type PageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename?: 'Page', id: string, backgroundColor?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'PageBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null } | null } | null> | null } };
+export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PageConnectionEdges', cursor: string, node?: { __typename?: 'Page', id: string, backgroundColor?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksFeatureStyle', alignment?: string | null, padding?: string | null, featureImage?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksCardsStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksCardsCardStyle', fillStyles?: string | null, grid?: string | null, alignment?: string | null, image?: string | null, imagePadding?: string | null, contentPadding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null, buttonTitle?: string | null, buttonType?: string | null, buttonLayout?: string | null, buttonWidth?: string | null } | null, background?: { __typename: 'PageBlocksCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksCardsItems', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksAccordian', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksAccordianStyle', alignment?: string | null, padding?: string | null, featureContent?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, cardStyle?: { __typename: 'PageBlocksAccordianCardStyle', fillStyles?: string | null, fillStylesActive?: string | null, padding?: string | null, borderStyles?: string | null, typographyTitle?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksAccordianBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksAccordianBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksAccordianButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksAccordianItems', headline?: string | null, subhead?: string | null, text?: any | null } | null> | null } | { __typename: 'PageBlocksEmbed', markup?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEmbedStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null } | null, background?: { __typename: 'PageBlocksEmbedBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksEmbedBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksTailwindFeature', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindFeatureTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null } | null, background?: { __typename: 'PageBlocksTailwindFeatureBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindFeatureBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, image?: { __typename: 'PageBlocksTailwindFeatureImage', src?: string | null, alt?: string | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindFeatureButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null } | { __typename: 'PageBlocksTailwindCards', rule?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, body?: any | null, navigationLabel?: string | null, tailwind?: { __typename: 'PageBlocksTailwindCardsTailwind', section?: string | null, wrap?: string | null, imageWrap?: string | null, image?: string | null, contentWrap?: string | null, content?: string | null, label?: string | null, headline?: string | null, subhead?: string | null, text?: string | null, buttons?: string | null, button?: string | null, rule?: string | null, cardWrap?: string | null, card?: string | null, cardImageWrap?: string | null, cardImage?: string | null, cardContentWrap?: string | null, cardContent?: string | null, cardLabel?: string | null, cardHeadline?: string | null, cardSubhead?: string | null, cardText?: string | null, cardButtons?: string | null, cardButton?: string | null } | null, background?: { __typename: 'PageBlocksTailwindCardsBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'GlobalBlocksTailwindCardsBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null, buttons?: Array<{ __typename: 'PageBlocksTailwindCardsButtons', label?: string | null, link?: string | null, buttonStyle?: string | null, fathomId?: string | null } | null> | null, items?: Array<{ __typename: 'PageBlocksTailwindCardsItems', label?: string | null, headline?: string | null, subhead?: string | null, text?: any | null, link?: string | null, buttonLabel?: string | null, image?: { __typename: 'GlobalBlocksTailwindCardsItemsImage', src?: string | null, alt?: string | null } | null } | null> | null } | { __typename: 'PageBlocksEventSchedule', navigationLabel?: string | null, scheduleStartDate: string, scheduleEndDate: string, addEventLink?: string | null, background?: { __typename: 'PageBlocksEventScheduleBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventScheduleBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | { __typename: 'PageBlocksEventTimeline', fathomId?: string | null, navigationLabel?: string | null, style?: { __typename: 'PageBlocksEventTimelineStyle', fullWidth?: boolean | null, minHeight?: string | null, padding?: string | null, typographyTitle?: string | null, labelStyles?: string | null, headlineStyles?: string | null, subheadStyles?: string | null, textStyles?: string | null } | null, background?: { __typename: 'PageBlocksEventTimelineBackground', fillStyles?: string | null, src?: string | null, position?: string | null, ornaments?: Array<{ __typename: 'PageBlocksEventTimelineBackgroundOrnaments', src?: string | null, alignment?: string | null, width?: string | null, height?: string | null, xOffset?: string | null, yOffset?: string | null } | null> | null } | null } | null> | null, meta?: { __typename: 'PageMeta', title?: string | null, description?: string | null, ogImage?: string | null } | null } | null } | null> | null } };
 
 export type PostQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -4532,7 +4360,7 @@ const generateRequester = (client: TinaClient) => {
  **/
 export const ExperimentalGetTinaClient = () =>
   getSdk(
-    generateRequester(createClient({ url: "http://localhost:4001/graphql", queries }))
+    generateRequester(createClient({ url: "https://content.tinajs.io/1.4/content/5377c4c8-6836-49fa-ac3d-85fa90ea9c52/github/main", queries }))
   );
 
 export const queries = (client: TinaClient) => {

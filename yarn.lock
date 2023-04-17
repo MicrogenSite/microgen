@@ -2410,7 +2410,7 @@
     webfontloader "1.6.28"
     xstate "4.32.1"
 
-"@tinacms/cli@^1.0.0":
+"@tinacms/cli@^1.5.2":
   version "1.5.6"
   resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-1.5.6.tgz#316ae2bd307739d449c9454faac5b4bd7be01eef"
   integrity sha512-xg8iPabC8qzN7//BKl9hm9ofqCZGZeel7uai2lSj8XoZNgOPoeJm8eyQ5zSNs14AVpfTDTCQ9+0Id/MNxV+r5w==
@@ -10108,7 +10108,7 @@ thenify-all@^1.0.0:
   dependencies:
     any-promise "^1.0.0"
 
-tinacms@1.4.6, tinacms@^1.0.0:
+tinacms@1.4.6, tinacms@^1.4.3:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-1.4.6.tgz#327318146f233eebd21c7cc9001fd7fe8fa8475e"
   integrity sha512-PgCCkHDhmKTtUZEiHO50alPAc5k7/AuyBZDzlmAE64cWJQXlw5+kb/Tni4cvgmn15z/GVwjg7GQQNTwkVRtRKQ==

@@ -51,24 +51,33 @@ export const EventSchedule = ({ data, events, parentField = "" }) => {
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
-      <div className="bg-gray-100 py-10 pb-0 text-center">
-        <IconClickDrag />
-        Click and drag the schedule to navigate
-      </div>
-      <div className='w-full max-w-desktop-full mx-auto min-h-[10vh]' id='schedule'>
-        <ScrollContainer innerRef={scrollContainer} className="scroll-container bg-gray-100 py-10" ignoreElements='.modal'>
-          <div className="flex-none min-h-full w-full">
-            <div className="content">
-              <ScheduleTable events={annotateEvents(data, events)} data={data} />
-            </div>
+      {events.length < 1 &&
+        <div className="max-w-desktop-full mx-auto p-10">
+          <p>No events to display on schedule.</p>
+        </div>
+      }
+      {events.length >= 1 &&
+        <>
+          <div className="bg-gray-100 py-10 pb-0 text-center">
+            <IconClickDrag />
+            Click and drag the schedule to navigate
           </div>
-        </ScrollContainer>
-        {data.addEventLink && (
-          <div className={`bg-gray-100 p-10 pt-0`}>
-            <AddCard addEventlink={data.addEventLink} />
+          <div className='w-full max-w-desktop-full mx-auto min-h-[10vh]' id='schedule'>
+            <ScrollContainer innerRef={scrollContainer} className="scroll-container bg-gray-100 py-10" ignoreElements='.modal'>
+              <div className="flex-none min-h-full w-full">
+                <div className="content">
+                  <ScheduleTable events={annotateEvents(data, events)} data={data} />
+                </div>
+              </div>
+            </ScrollContainer>
+            {data.addEventLink && (
+              <div className={`bg-gray-100 p-10 pt-0`}>
+                <AddCard addEventlink={data.addEventLink} />
+              </div>
+            )}
           </div>
-        )}
-      </div>
+        </>
+      }
     </Section>
   );
 };

@@ -23,23 +23,12 @@ blocks:
         buttonStyle: primary
         fathomId: ''
     _template: feature
-  - scheduleStartDate: '2023-04-14T05:00:00.000Z'
-    scheduleEndDate: '2023-04-21T05:00:00.000Z'
-    _template: eventSchedule
-  - style:
-      fullWidth: false
-      minHeight: min-h-0
-      padding: pt-20 pb-20 pr-10 pl-10
-      labelStyles: text-black
-      headlineStyles: text-black
-      subheadStyles: text-black mb-4
-      textStyles: text-black
-    _template: eventTimeline
 backgroundColor: white
 meta:
   title: Microgen
   description: ''
 ---
+
 
 
 

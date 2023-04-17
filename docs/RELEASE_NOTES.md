@@ -2,6 +2,16 @@
 
 **Version 1.5** | Released 4/12/23
 
+Features
+
+- Add event schedule component
+
+Fixes
+
+- Remove unused components
+
+**Version 1.5** | Released 4/12/23
+
 Fixes
 
 - Add default card styles

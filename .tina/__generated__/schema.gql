@@ -105,7 +105,7 @@ type PageBlocksFeatureStyle {
   textStyles: String
 }
 
-type PageBlocksFeatureBackgroundOrnaments {
+type GlobalBlocksFeatureBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -118,7 +118,7 @@ type PageBlocksFeatureBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksFeatureBackgroundOrnaments]
+  ornaments: [GlobalBlocksFeatureBackgroundOrnaments]
 }
 
 type PageBlocksFeatureImage {
@@ -176,7 +176,7 @@ type PageBlocksCardsCardStyle {
   buttonWidth: String
 }
 
-type PageBlocksCardsBackgroundOrnaments {
+type GlobalBlocksCardsBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -189,7 +189,7 @@ type PageBlocksCardsBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksCardsBackgroundOrnaments]
+  ornaments: [GlobalBlocksCardsBackgroundOrnaments]
 }
 
 type PageBlocksCardsButtons {
@@ -199,13 +199,13 @@ type PageBlocksCardsButtons {
   fathomId: String
 }
 
-type PageBlocksCardsItemsImage {
+type GlobalBlocksCardsItemsImage {
   src: String
   alt: String
 }
 
 type PageBlocksCardsItems {
-  image: PageBlocksCardsItemsImage
+  image: GlobalBlocksCardsItemsImage
   rule: String
   label: String
   headline: String
@@ -300,7 +300,7 @@ type PageBlocksEmbedStyle {
   padding: String
 }
 
-type PageBlocksEmbedBackgroundOrnaments {
+type GlobalBlocksEmbedBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -313,7 +313,7 @@ type PageBlocksEmbedBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksEmbedBackgroundOrnaments]
+  ornaments: [GlobalBlocksEmbedBackgroundOrnaments]
 }
 
 type PageBlocksEmbed {
@@ -338,7 +338,7 @@ type PageBlocksTailwindFeatureTailwind {
   button: String
 }
 
-type PageBlocksTailwindFeatureBackgroundOrnaments {
+type GlobalBlocksTailwindFeatureBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -351,7 +351,7 @@ type PageBlocksTailwindFeatureBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksTailwindFeatureBackgroundOrnaments]
+  ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnaments]
 }
 
 type PageBlocksTailwindFeatureImage {
@@ -407,7 +407,7 @@ type PageBlocksTailwindCardsTailwind {
   cardButton: String
 }
 
-type PageBlocksTailwindCardsBackgroundOrnaments {
+type GlobalBlocksTailwindCardsBackgroundOrnaments {
   src: String
   alignment: String
   width: String
@@ -420,7 +420,7 @@ type PageBlocksTailwindCardsBackground {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksTailwindCardsBackgroundOrnaments]
+  ornaments: [GlobalBlocksTailwindCardsBackgroundOrnaments]
 }
 
 type PageBlocksTailwindCardsButtons {
@@ -430,13 +430,13 @@ type PageBlocksTailwindCardsButtons {
   fathomId: String
 }
 
-type PageBlocksTailwindCardsItemsImage {
+type GlobalBlocksTailwindCardsItemsImage {
   src: String
   alt: String
 }
 
 type PageBlocksTailwindCardsItems {
-  image: PageBlocksTailwindCardsItemsImage
+  image: GlobalBlocksTailwindCardsItemsImage
   label: String
   headline: String
   subhead: String
@@ -456,6 +456,30 @@ type PageBlocksTailwindCards {
   buttons: [PageBlocksTailwindCardsButtons]
   items: [PageBlocksTailwindCardsItems]
   navigationLabel: String
+}
+
+type PageBlocksEventScheduleBackgroundOrnaments {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+type PageBlocksEventScheduleBackground {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventScheduleBackgroundOrnaments]
+}
+
+type PageBlocksEventSchedule {
+  background: PageBlocksEventScheduleBackground
+  navigationLabel: String
+  scheduleStartDate: String!
+  scheduleEndDate: String!
+  addEventLink: String
 }
 
 type PageBlocksEventTimelineStyle {
@@ -492,7 +516,7 @@ type PageBlocksEventTimeline {
   navigationLabel: String
 }
 
-union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksAccordian | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventTimeline
+union PageBlocks = PageBlocksFeature | PageBlocksCards | PageBlocksAccordian | PageBlocksEmbed | PageBlocksTailwindFeature | PageBlocksTailwindCards | PageBlocksEventSchedule | PageBlocksEventTimeline
 
 type PageMeta {
   title: String
@@ -535,7 +559,7 @@ input ImageFilter {
   in: [String]
 }
 
-input PageBlocksFeatureBackgroundOrnamentsFilter {
+input GlobalBlocksFeatureBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
   width: StringFilter
@@ -548,7 +572,7 @@ input PageBlocksFeatureBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
   position: StringFilter
-  ornaments: PageBlocksFeatureBackgroundOrnamentsFilter
+  ornaments: GlobalBlocksFeatureBackgroundOrnamentsFilter
 }
 
 input PageBlocksFeatureImageFilter {
@@ -612,7 +636,7 @@ input PageBlocksCardsCardStyleFilter {
   buttonWidth: StringFilter
 }
 
-input PageBlocksCardsBackgroundOrnamentsFilter {
+input GlobalBlocksCardsBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
   width: StringFilter
@@ -625,7 +649,7 @@ input PageBlocksCardsBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
   position: StringFilter
-  ornaments: PageBlocksCardsBackgroundOrnamentsFilter
+  ornaments: GlobalBlocksCardsBackgroundOrnamentsFilter
 }
 
 input PageBlocksCardsButtonsFilter {
@@ -635,13 +659,13 @@ input PageBlocksCardsButtonsFilter {
   fathomId: StringFilter
 }
 
-input PageBlocksCardsItemsImageFilter {
+input GlobalBlocksCardsItemsImageFilter {
   src: ImageFilter
   alt: StringFilter
 }
 
 input PageBlocksCardsItemsFilter {
-  image: PageBlocksCardsItemsImageFilter
+  image: GlobalBlocksCardsItemsImageFilter
   rule: StringFilter
   label: StringFilter
   headline: StringFilter
@@ -741,7 +765,7 @@ input PageBlocksEmbedStyleFilter {
   padding: StringFilter
 }
 
-input PageBlocksEmbedBackgroundOrnamentsFilter {
+input GlobalBlocksEmbedBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
   width: StringFilter
@@ -754,7 +778,7 @@ input PageBlocksEmbedBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
   position: StringFilter
-  ornaments: PageBlocksEmbedBackgroundOrnamentsFilter
+  ornaments: GlobalBlocksEmbedBackgroundOrnamentsFilter
 }
 
 input PageBlocksEmbedFilter {
@@ -779,7 +803,7 @@ input PageBlocksTailwindFeatureTailwindFilter {
   button: StringFilter
 }
 
-input PageBlocksTailwindFeatureBackgroundOrnamentsFilter {
+input GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
   width: StringFilter
@@ -792,7 +816,7 @@ input PageBlocksTailwindFeatureBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
   position: StringFilter
-  ornaments: PageBlocksTailwindFeatureBackgroundOrnamentsFilter
+  ornaments: GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter
 }
 
 input PageBlocksTailwindFeatureImageFilter {
@@ -848,7 +872,7 @@ input PageBlocksTailwindCardsTailwindFilter {
   cardButton: StringFilter
 }
 
-input PageBlocksTailwindCardsBackgroundOrnamentsFilter {
+input GlobalBlocksTailwindCardsBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
   width: StringFilter
@@ -861,7 +885,7 @@ input PageBlocksTailwindCardsBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
   position: StringFilter
-  ornaments: PageBlocksTailwindCardsBackgroundOrnamentsFilter
+  ornaments: GlobalBlocksTailwindCardsBackgroundOrnamentsFilter
 }
 
 input PageBlocksTailwindCardsButtonsFilter {
@@ -871,13 +895,13 @@ input PageBlocksTailwindCardsButtonsFilter {
   fathomId: StringFilter
 }
 
-input PageBlocksTailwindCardsItemsImageFilter {
+input GlobalBlocksTailwindCardsItemsImageFilter {
   src: ImageFilter
   alt: StringFilter
 }
 
 input PageBlocksTailwindCardsItemsFilter {
-  image: PageBlocksTailwindCardsItemsImageFilter
+  image: GlobalBlocksTailwindCardsItemsImageFilter
   label: StringFilter
   headline: StringFilter
   subhead: StringFilter
@@ -897,6 +921,38 @@ input PageBlocksTailwindCardsFilter {
   buttons: PageBlocksTailwindCardsButtonsFilter
   items: PageBlocksTailwindCardsItemsFilter
   navigationLabel: StringFilter
+}
+
+input PageBlocksEventScheduleBackgroundOrnamentsFilter {
+  src: ImageFilter
+  alignment: StringFilter
+  width: StringFilter
+  height: StringFilter
+  xOffset: StringFilter
+  yOffset: StringFilter
+}
+
+input PageBlocksEventScheduleBackgroundFilter {
+  fillStyles: StringFilter
+  src: ImageFilter
+  position: StringFilter
+  ornaments: PageBlocksEventScheduleBackgroundOrnamentsFilter
+}
+
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PageBlocksEventScheduleFilter {
+  background: PageBlocksEventScheduleBackgroundFilter
+  navigationLabel: StringFilter
+  scheduleStartDate: DatetimeFilter
+  scheduleEndDate: DatetimeFilter
+  addEventLink: StringFilter
 }
 
 input PageBlocksEventTimelineStyleFilter {
@@ -940,6 +996,7 @@ input PageBlocksFilter {
   embed: PageBlocksEmbedFilter
   tailwindFeature: PageBlocksTailwindFeatureFilter
   tailwindCards: PageBlocksTailwindCardsFilter
+  eventSchedule: PageBlocksEventScheduleFilter
   eventTimeline: PageBlocksEventTimelineFilter
 }
 
@@ -975,14 +1032,6 @@ type Post implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input DatetimeFilter {
-  after: String
-  before: String
-  eq: String
-  exists: Boolean
-  in: [String]
 }
 
 input Post_bodyDateTimeFilter {
@@ -1025,29 +1074,69 @@ type PostConnection implements Connection {
   edges: [PostConnectionEdges]
 }
 
+type EventTimeslots {
+  time: String
+  speakers: String
+  name: String
+  description: String
+}
+
 type Event implements Node & Document {
-  eventName: String!
+  name: String!
+  description: String
+  date: String!
+  days: Float
+  times: String
+  timeslots: [EventTimeslots]
+  venueName: String
+  venueAddress: String
   website: String
-  location: String
-  startDate: String
-  endDate: String
-  dateTBD: Boolean
+  logomark: String
+  attendees: Float
+  label: String
+  org: String
   dri: String
-  tag: String
+  tags: [String]
+  priority: Float
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input EventTimeslotsFilter {
+  time: StringFilter
+  speakers: StringFilter
+  name: StringFilter
+  description: StringFilter
+}
+
 input EventFilter {
-  eventName: StringFilter
+  name: StringFilter
+  description: StringFilter
+  date: DatetimeFilter
+  days: NumberFilter
+  times: StringFilter
+  timeslots: EventTimeslotsFilter
+  venueName: StringFilter
+  venueAddress: StringFilter
   website: StringFilter
-  location: StringFilter
-  startDate: DatetimeFilter
-  endDate: DatetimeFilter
-  dateTBD: BooleanFilter
+  logomark: ImageFilter
+  attendees: NumberFilter
+  label: StringFilter
+  org: StringFilter
   dri: StringFilter
-  tag: StringFilter
+  tags: StringFilter
+  priority: NumberFilter
 }
 
 type EventConnectionEdges {
@@ -1207,15 +1296,6 @@ type GlobalBlocksCardsCardStyle {
   buttonWidth: String
 }
 
-type GlobalBlocksCardsBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 type GlobalBlocksCardsBackground {
   fillStyles: String
   src: String
@@ -1228,11 +1308,6 @@ type GlobalBlocksCardsButtons {
   link: String
   buttonStyle: String
   fathomId: String
-}
-
-type GlobalBlocksCardsItemsImage {
-  src: String
-  alt: String
 }
 
 type GlobalBlocksCardsItems {
@@ -1266,15 +1341,6 @@ type GlobalBlocksEmbedStyle {
   padding: String
 }
 
-type GlobalBlocksEmbedBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 type GlobalBlocksEmbedBackground {
   fillStyles: String
   src: String
@@ -1299,15 +1365,6 @@ type GlobalBlocksFeatureStyle {
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-}
-
-type GlobalBlocksFeatureBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
 }
 
 type GlobalBlocksFeatureBackground {
@@ -1355,15 +1412,6 @@ type GlobalBlocksTailwindFeatureTailwind {
   text: String
   buttons: String
   button: String
-}
-
-type GlobalBlocksTailwindFeatureBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
 }
 
 type GlobalBlocksTailwindFeatureBackground {
@@ -1426,15 +1474,6 @@ type GlobalBlocksTailwindCardsTailwind {
   cardButton: String
 }
 
-type GlobalBlocksTailwindCardsBackgroundOrnaments {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 type GlobalBlocksTailwindCardsBackground {
   fillStyles: String
   src: String
@@ -1447,11 +1486,6 @@ type GlobalBlocksTailwindCardsButtons {
   link: String
   buttonStyle: String
   fathomId: String
-}
-
-type GlobalBlocksTailwindCardsItemsImage {
-  src: String
-  alt: String
 }
 
 type GlobalBlocksTailwindCardsItems {
@@ -1556,15 +1590,6 @@ input GlobalBlocksCardsCardStyleFilter {
   buttonWidth: StringFilter
 }
 
-input GlobalBlocksCardsBackgroundOrnamentsFilter {
-  src: ImageFilter
-  alignment: StringFilter
-  width: StringFilter
-  height: StringFilter
-  xOffset: StringFilter
-  yOffset: StringFilter
-}
-
 input GlobalBlocksCardsBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
@@ -1577,11 +1602,6 @@ input GlobalBlocksCardsButtonsFilter {
   link: StringFilter
   buttonStyle: StringFilter
   fathomId: StringFilter
-}
-
-input GlobalBlocksCardsItemsImageFilter {
-  src: ImageFilter
-  alt: StringFilter
 }
 
 input GlobalBlocksCardsItemsFilter {
@@ -1615,15 +1635,6 @@ input GlobalBlocksEmbedStyleFilter {
   padding: StringFilter
 }
 
-input GlobalBlocksEmbedBackgroundOrnamentsFilter {
-  src: ImageFilter
-  alignment: StringFilter
-  width: StringFilter
-  height: StringFilter
-  xOffset: StringFilter
-  yOffset: StringFilter
-}
-
 input GlobalBlocksEmbedBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
@@ -1648,15 +1659,6 @@ input GlobalBlocksFeatureStyleFilter {
   headlineStyles: StringFilter
   subheadStyles: StringFilter
   textStyles: StringFilter
-}
-
-input GlobalBlocksFeatureBackgroundOrnamentsFilter {
-  src: ImageFilter
-  alignment: StringFilter
-  width: StringFilter
-  height: StringFilter
-  xOffset: StringFilter
-  yOffset: StringFilter
 }
 
 input GlobalBlocksFeatureBackgroundFilter {
@@ -1704,15 +1706,6 @@ input GlobalBlocksTailwindFeatureTailwindFilter {
   text: StringFilter
   buttons: StringFilter
   button: StringFilter
-}
-
-input GlobalBlocksTailwindFeatureBackgroundOrnamentsFilter {
-  src: ImageFilter
-  alignment: StringFilter
-  width: StringFilter
-  height: StringFilter
-  xOffset: StringFilter
-  yOffset: StringFilter
 }
 
 input GlobalBlocksTailwindFeatureBackgroundFilter {
@@ -1775,15 +1768,6 @@ input GlobalBlocksTailwindCardsTailwindFilter {
   cardButton: StringFilter
 }
 
-input GlobalBlocksTailwindCardsBackgroundOrnamentsFilter {
-  src: ImageFilter
-  alignment: StringFilter
-  width: StringFilter
-  height: StringFilter
-  xOffset: StringFilter
-  yOffset: StringFilter
-}
-
 input GlobalBlocksTailwindCardsBackgroundFilter {
   fillStyles: StringFilter
   src: ImageFilter
@@ -1796,11 +1780,6 @@ input GlobalBlocksTailwindCardsButtonsFilter {
   link: StringFilter
   buttonStyle: StringFilter
   fathomId: StringFilter
-}
-
-input GlobalBlocksTailwindCardsItemsImageFilter {
-  src: ImageFilter
-  alt: StringFilter
 }
 
 input GlobalBlocksTailwindCardsItemsFilter {
@@ -1903,7 +1882,7 @@ input PageBlocksFeatureStyleMutation {
   textStyles: String
 }
 
-input PageBlocksFeatureBackgroundOrnamentsMutation {
+input GlobalBlocksFeatureBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -1916,7 +1895,7 @@ input PageBlocksFeatureBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksFeatureBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksFeatureBackgroundOrnamentsMutation]
 }
 
 input PageBlocksFeatureImageMutation {
@@ -1974,7 +1953,7 @@ input PageBlocksCardsCardStyleMutation {
   buttonWidth: String
 }
 
-input PageBlocksCardsBackgroundOrnamentsMutation {
+input GlobalBlocksCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -1987,7 +1966,7 @@ input PageBlocksCardsBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksCardsBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksCardsBackgroundOrnamentsMutation]
 }
 
 input PageBlocksCardsButtonsMutation {
@@ -1997,13 +1976,13 @@ input PageBlocksCardsButtonsMutation {
   fathomId: String
 }
 
-input PageBlocksCardsItemsImageMutation {
+input GlobalBlocksCardsItemsImageMutation {
   src: String
   alt: String
 }
 
 input PageBlocksCardsItemsMutation {
-  image: PageBlocksCardsItemsImageMutation
+  image: GlobalBlocksCardsItemsImageMutation
   rule: String
   label: String
   headline: String
@@ -2098,7 +2077,7 @@ input PageBlocksEmbedStyleMutation {
   padding: String
 }
 
-input PageBlocksEmbedBackgroundOrnamentsMutation {
+input GlobalBlocksEmbedBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -2111,7 +2090,7 @@ input PageBlocksEmbedBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksEmbedBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksEmbedBackgroundOrnamentsMutation]
 }
 
 input PageBlocksEmbedMutation {
@@ -2136,7 +2115,7 @@ input PageBlocksTailwindFeatureTailwindMutation {
   button: String
 }
 
-input PageBlocksTailwindFeatureBackgroundOrnamentsMutation {
+input GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -2149,7 +2128,7 @@ input PageBlocksTailwindFeatureBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksTailwindFeatureBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation]
 }
 
 input PageBlocksTailwindFeatureImageMutation {
@@ -2205,7 +2184,7 @@ input PageBlocksTailwindCardsTailwindMutation {
   cardButton: String
 }
 
-input PageBlocksTailwindCardsBackgroundOrnamentsMutation {
+input GlobalBlocksTailwindCardsBackgroundOrnamentsMutation {
   src: String
   alignment: String
   width: String
@@ -2218,7 +2197,7 @@ input PageBlocksTailwindCardsBackgroundMutation {
   fillStyles: String
   src: String
   position: String
-  ornaments: [PageBlocksTailwindCardsBackgroundOrnamentsMutation]
+  ornaments: [GlobalBlocksTailwindCardsBackgroundOrnamentsMutation]
 }
 
 input PageBlocksTailwindCardsButtonsMutation {
@@ -2228,13 +2207,13 @@ input PageBlocksTailwindCardsButtonsMutation {
   fathomId: String
 }
 
-input PageBlocksTailwindCardsItemsImageMutation {
+input GlobalBlocksTailwindCardsItemsImageMutation {
   src: String
   alt: String
 }
 
 input PageBlocksTailwindCardsItemsMutation {
-  image: PageBlocksTailwindCardsItemsImageMutation
+  image: GlobalBlocksTailwindCardsItemsImageMutation
   label: String
   headline: String
   subhead: String
@@ -2254,6 +2233,30 @@ input PageBlocksTailwindCardsMutation {
   buttons: [PageBlocksTailwindCardsButtonsMutation]
   items: [PageBlocksTailwindCardsItemsMutation]
   navigationLabel: String
+}
+
+input PageBlocksEventScheduleBackgroundOrnamentsMutation {
+  src: String
+  alignment: String
+  width: String
+  height: String
+  xOffset: String
+  yOffset: String
+}
+
+input PageBlocksEventScheduleBackgroundMutation {
+  fillStyles: String
+  src: String
+  position: String
+  ornaments: [PageBlocksEventScheduleBackgroundOrnamentsMutation]
+}
+
+input PageBlocksEventScheduleMutation {
+  background: PageBlocksEventScheduleBackgroundMutation
+  navigationLabel: String
+  scheduleStartDate: String
+  scheduleEndDate: String
+  addEventLink: String
 }
 
 input PageBlocksEventTimelineStyleMutation {
@@ -2297,6 +2300,7 @@ input PageBlocksMutation {
   embed: PageBlocksEmbedMutation
   tailwindFeature: PageBlocksTailwindFeatureMutation
   tailwindCards: PageBlocksTailwindCardsMutation
+  eventSchedule: PageBlocksEventScheduleMutation
   eventTimeline: PageBlocksEventTimelineMutation
 }
 
@@ -2320,15 +2324,30 @@ input PostMutation {
   _body: JSON
 }
 
+input EventTimeslotsMutation {
+  time: String
+  speakers: String
+  name: String
+  description: String
+}
+
 input EventMutation {
-  eventName: String
+  name: String
+  description: String
+  date: String
+  days: Float
+  times: String
+  timeslots: [EventTimeslotsMutation]
+  venueName: String
+  venueAddress: String
   website: String
-  location: String
-  startDate: String
-  endDate: String
-  dateTBD: Boolean
+  logomark: String
+  attendees: Float
+  label: String
+  org: String
   dri: String
-  tag: String
+  tags: [String]
+  priority: Float
 }
 
 input ThemeColorsMutation {
@@ -2425,15 +2444,6 @@ input GlobalBlocksCardsCardStyleMutation {
   buttonWidth: String
 }
 
-input GlobalBlocksCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 input GlobalBlocksCardsBackgroundMutation {
   fillStyles: String
   src: String
@@ -2446,11 +2456,6 @@ input GlobalBlocksCardsButtonsMutation {
   link: String
   buttonStyle: String
   fathomId: String
-}
-
-input GlobalBlocksCardsItemsImageMutation {
-  src: String
-  alt: String
 }
 
 input GlobalBlocksCardsItemsMutation {
@@ -2484,15 +2489,6 @@ input GlobalBlocksEmbedStyleMutation {
   padding: String
 }
 
-input GlobalBlocksEmbedBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 input GlobalBlocksEmbedBackgroundMutation {
   fillStyles: String
   src: String
@@ -2517,15 +2513,6 @@ input GlobalBlocksFeatureStyleMutation {
   headlineStyles: String
   subheadStyles: String
   textStyles: String
-}
-
-input GlobalBlocksFeatureBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
 }
 
 input GlobalBlocksFeatureBackgroundMutation {
@@ -2573,15 +2560,6 @@ input GlobalBlocksTailwindFeatureTailwindMutation {
   text: String
   buttons: String
   button: String
-}
-
-input GlobalBlocksTailwindFeatureBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
 }
 
 input GlobalBlocksTailwindFeatureBackgroundMutation {
@@ -2644,15 +2622,6 @@ input GlobalBlocksTailwindCardsTailwindMutation {
   cardButton: String
 }
 
-input GlobalBlocksTailwindCardsBackgroundOrnamentsMutation {
-  src: String
-  alignment: String
-  width: String
-  height: String
-  xOffset: String
-  yOffset: String
-}
-
 input GlobalBlocksTailwindCardsBackgroundMutation {
   fillStyles: String
   src: String
@@ -2665,11 +2634,6 @@ input GlobalBlocksTailwindCardsButtonsMutation {
   link: String
   buttonStyle: String
   fathomId: String
-}
-
-input GlobalBlocksTailwindCardsItemsImageMutation {
-  src: String
-  alt: String
 }
 
 input GlobalBlocksTailwindCardsItemsMutation {
@@ -2719,4 +2683,3 @@ schema {
   query: Query
   mutation: Mutation
 }
-  

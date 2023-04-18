@@ -3,18 +3,84 @@ export const eventCollectionSchema: any = {
   name: "event",
   path: "content/events",
   format: "md",
-  // ui: {
-  //   router: ({ document }) => {
-  //     return `/event/${document._sys.filename}`;
-  //   },
-  // },
+  ui: {
+    defaultItem: () => ({
+      date: new Date().toISOString(),
+    }),
+  },
   fields: [
     {
-      label: "Event Name",
-      name: "eventName",
+      label: "Name",
+      name: "name",
       type: "string",
       isTitle: true,
       required: true,
+    },
+    {
+      label: "Description",
+      name: "description",
+      type: "string",
+    },
+    {
+      label: "Date",
+      name: "date",
+      type: "datetime",
+      ui: {
+        dateFormat: "MMMM DD YYYY",
+      },
+      required: true,
+    },
+    {
+      label: "Days",
+      name: "days",
+      type: "number",
+    },
+    {
+      label: "Times",
+      name: "times",
+      type: "string",
+    },
+    {
+      type: "object",
+      label: "Time Slots",
+      name: "timeslots",
+      description: "If your event needs multiple time slots, add them here. They will be displayed in the event modal.",
+      list: true,
+      ui: {
+        component: "itemListField"
+      },
+      fields: [
+        {
+          label: "Time",
+          name: "time",
+          type: "string",
+        },
+        {
+          label: "Speakers",
+          name: "speakers",
+          type: "string",
+        },
+        {
+          label: "Name",
+          name: "name",
+          type: "string",
+        },
+        {
+          label: "Description",
+          name: "description",
+          type: "string",
+        },
+      ]
+    },
+    {
+      label: "Venue Name",
+      name: "venueName",
+      type: "string",
+    },
+    {
+      label: "Venue Address",
+      name: "venueAddress",
+      type: "string",
     },
     {
       label: "Event Website",
@@ -22,57 +88,44 @@ export const eventCollectionSchema: any = {
       type: "string",
     },
     {
-      label: "Location",
-      name: "location",
+      label: "Logo",
+      name: "logomark",
+      type: "image",
+      description: "Displayed in the corner of the event card. Should be a 48x48px png.",
+    },
+    {
+      label: "Attendees",
+      description: "Maximum number of attendees allowed",
+      name: "attendees",
+      type: "number",
+    },
+    {
+      label: "Attendee Label",
+      description: "A label next to the attendee count",
+      name: "label",
       type: "string",
     },
     {
-      label: "Start Date",
-      name: "startDate",
-      type: "datetime",
-      ui: {
-        dateFormat: "MMMM DD YYYY",
-        timeFormat: "hh:mm A",
-      },
+      label: "Organization",
+      name: "org",
+      type: "string",
     },
     {
-      label: "End Date",
-      name: "endDate",
-      type: "datetime",
-      ui: {
-        dateFormat: "MMMM DD YYYY",
-        timeFormat: "hh:mm A",
-      },
-    },
-    {
-      label: "Date TBD",
-      name: "dateTBD",
-      description: 'Enter approximate dates and tick this box to put event in correct month but render label as TBD',
-      type: 'boolean'
-    },
-    {
-      label: "Directly Responsibile Individual",
+      label: "Directly Responsible Individual",
       name: "dri",
       type: "string",
     },
     {
-      label: "Tag",
-      name: "tag",
+      label: "Tags",
+      name: "tags",
       type: "string",
-      options: [
-        {
-          label: 'None',
-          value: '',
-        },
-        {
-          label: 'PLN Event',
-          value: 'PLN Event',
-        },
-        {
-          label: 'Industry Event',
-          value: 'Industry Event',
-        },
-      ],
+      list: true,
+    },
+    {
+      label: "Priority",
+      name: "priority",
+      description: "Lower numbers are closer to the top of the event schedule.",
+      type: "number",
     },
   ],
 }

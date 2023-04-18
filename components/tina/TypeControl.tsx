@@ -110,7 +110,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         </div>
         <SelectMenu value={margin} onChange={setMargin} options={marginOptions} className="w-16" />
       </div>
-      <input type="text" value={`${color} ${font} ${margin}`} className="hidden" />
+      <input type="text" defaultValue={`${color} ${font} ${margin}`} className="hidden" />
     </>
   )
 }

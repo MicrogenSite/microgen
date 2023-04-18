@@ -68,7 +68,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         <LabeledSelectMenu label="L" value={left} onChange={setLeft} options={leftOptions} />
         <LabeledSelectMenu label="R" value={right} onChange={setRight} options={rightOptions} />
       </div>
-      <input type="text" value={`${top} ${bottom} ${right} ${left}`} className="hidden" />
+      <input type="text" defaultValue={`${top} ${bottom} ${right} ${left}`} className="hidden" />
     </>
   )
 }

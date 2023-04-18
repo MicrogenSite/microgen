@@ -56,7 +56,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
           <LabeledSelectMenu label="H" value={height} onChange={setHeight} options={heightOptions} className="flex-1" />
           <IconPicker value={alignment} onClick={value => setAlignment(value)} options={alignmentOptions} menuPosition="right" />
       </div>
-      <input type="text" value={`${width} ${height} ${alignment}`} className="hidden" />
+      <input type="text" defaultValue={`${width} ${height} ${alignment}`} className="hidden" />
     </div>
   )
 }

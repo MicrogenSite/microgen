@@ -5,6 +5,7 @@ import { Accordian } from "./blocks/accordian";
 import { Embed } from "./blocks/embed";
 import { TailwindFeature } from "./blocks/tailwind-feature";
 import { TailwindCards } from "./blocks/tailwind-cards";
+import { EventSchedule } from "./blocks/event-schedule";
 import { EventTimeline } from "./blocks/event-timeline";
 
 export const Blocks = (props: any) => {
@@ -65,6 +66,15 @@ export const Blocks = (props: any) => {
                     key={i + block.__typename}
                   >
                     <TailwindCards data={block} parentField={`blocks.${i}`} />
+                  </div>
+                );
+              case "PageBlocksEventSchedule":
+                return (
+                  <div
+                    data-tinafield={`blocks.${i}`}
+                    key={i + block.__typename}
+                  >
+                    <EventSchedule data={block} events={props.events as any} parentField={`blocks.${i}`} />
                   </div>
                 );
               case "PageBlocksEventTimeline":

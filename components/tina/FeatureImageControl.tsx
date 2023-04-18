@@ -35,7 +35,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         <PixelField value={height.replace(`${mobilePrefix}hpx-`, '')} label="H" onChange={event => setHeight(`${mobilePrefix}hpx-${event.target.value}`)} className="flex-1" />
         <IconPicker value={margin} onClick={value => setMargin(value)} options={marginOptions} menuPosition="right" />
       </div>
-      <input type="text" value={`${width} ${height} ${margin}`} className="hidden" />
+      <input type="text" defaultValue={`${width} ${height} ${margin}`} className="hidden" />
     </div>
   )
 }

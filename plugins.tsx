@@ -24,10 +24,11 @@ export const SectionListItemsPlugin = {
       const templateNames = {
         accordian: 'Accordian',
         banner: 'Banner',
+        cards: 'Cards',
         embed: 'Embed',
+        eventSchedule: 'Event Schedule',
         eventTimeline: 'Event Timeline',
         feature: 'Feature',
-        cards: 'Cards',
         tailwindCards: 'Cards TW',
         tailwindFeature: 'Feature TW',
       }
@@ -56,23 +57,13 @@ export const itemListFieldPlugin = {
     const field = {
       ...props.field,
       itemProps: (item) => {
-        return { label: item.headline || item.subhead || item.label }
+        return { label: item.headline || item.subhead || item.label || item.name }
       },
     }
     return <GroupListField {...props} field={field} />
   },
   __type: 'field',
   name: 'itemListField'
-}
-
-export const emailFieldPlugin = {
-  Component: TextField,
-  __type: 'field',
-  name: 'emailField',
-  validate: (email, allValues, meta, field) => {
-    const isValidEmail = /.*@.*\..*/.test(email)
-    if (!isValidEmail) return 'Invalid email address'
-  },
 }
 
 export const alignmentControlFieldPlugin = {

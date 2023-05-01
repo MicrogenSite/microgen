@@ -3,11 +3,11 @@ import { useTina } from "tinacms/dist/react";
 import { ThemeLayout } from "../../components/layout/theme-layout";
 
 function slugify(string: string) {
-  return string?.replace(" ", "-")?.toLowerCase()
+  return string.replace(" ", "-").toLowerCase()
 }
 
 const Typography = ({ item, index, parentField = "" }) => {
-  const typography = JSON.parse(item.typography)
+  const typography = JSON.parse(item.typography) || {}
   let sample
   if (Number(typography.size) > 40) {
     sample = 'The quick brown fox jumps over the lazy dog'
@@ -16,7 +16,7 @@ const Typography = ({ item, index, parentField = "" }) => {
   } else {
     sample = 'The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog The quick brown fox jumps over the lazy dog'
   }
-
+  
   return (
     <div className="flex items-center gap-10 mb-16">
       <div className="flex-none text-gray text-right uppercase w-40">
@@ -25,7 +25,7 @@ const Typography = ({ item, index, parentField = "" }) => {
         <div style={{fontSize: "12px" }}>{typography.size}px / {typography.lineHeight}px</div>
       </div>
       <div className=" w-full rounded overflow-hidden border-b border-gray-light">
-        <h3 className={`mg-${slugify(item.label)}`}>{sample}</h3>
+        <h3 className={item.label && `mg-${slugify(item.label)}`}>{sample}</h3>
       </div>
     </div>
   )
@@ -85,7 +85,7 @@ export default function ThemePage(
                     <div style={{fontSize: "14px" }}>{item.label}</div>
                   </div>
                   <div className="w-full">
-                    <a className={`btn-${slugify(item.label)}`} href="#">Do Nothing</a>
+                    <a className={item.label && `btn-${slugify(item.label)}`} href="#">Do Nothing</a>
                   </div>
                 </div>
               )
@@ -111,18 +111,11 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-/**
- * To build the blog post pages we just iterate through the list of
- * posts and provide their "filename" as part of the URL path
- *
- * So a blog post at "content/posts/hello.md" would
- * be viewable at http://localhost:3000/posts/hello
- */
 export const getStaticPaths = async () => {
-  const postsListData = await client.queries.postConnection();
+  const themesListData = await client.queries.themeConnection();
   return {
-    paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename },
+    paths: themesListData.data.themeConnection.edges.map((theme) => ({
+      params: { filename: theme.node._sys.filename },
     })),
     fallback: "blocking",
   };

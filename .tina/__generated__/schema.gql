@@ -17,6 +17,11 @@ type SystemInfo {
   collection: Collection!
 }
 
+type Folder {
+  name: String!
+  path: String!
+}
+
 type PageInfo {
   hasPreviousPage: Boolean!
   hasNextPage: Boolean!
@@ -88,10 +93,10 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Page | Post | Event | Theme | Global
+union DocumentNode = Page | Post | Event | Theme | Global | Folder
 
 type PageBlocksFeatureStyle {
   alignment: String

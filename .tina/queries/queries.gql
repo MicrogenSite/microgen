@@ -1,5 +1,4 @@
 query pageQuery {
-  ...LayoutQueryFragment
   postConnection {
     edges {
       node {
@@ -21,28 +20,29 @@ query pageQuery {
         }
       }
     }
-  }
+  },
+  ...LayoutQueryFragment
 }
 
 query contentQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
-  }
+  },
+  ...LayoutQueryFragment
 }
 
 query blogPostQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   post(relativePath: $relativePath) {
     ...PostParts
-  }
+  },
+  ...LayoutQueryFragment
 }
 
 query eventQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   event(relativePath: $relativePath) {
     ...EventParts
-  }
+  },
+  ...LayoutQueryFragment
 }
 
 query themeQuery($relativePath: String!) {

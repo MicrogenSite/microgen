@@ -3955,7 +3955,6 @@ export const ThemePartsFragmentDoc = gql`
     `;
 export const PageQueryDocument = gql`
     query pageQuery {
-  ...LayoutQueryFragment
   postConnection {
     edges {
       node {
@@ -3978,35 +3977,36 @@ export const PageQueryDocument = gql`
       }
     }
   }
+  ...LayoutQueryFragment
 }
     ${LayoutQueryFragmentFragmentDoc}`;
 export const ContentQueryDocument = gql`
     query contentQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   page(relativePath: $relativePath) {
     ...PageParts
   }
+  ...LayoutQueryFragment
 }
-    ${LayoutQueryFragmentFragmentDoc}
-${PagePartsFragmentDoc}`;
+    ${PagePartsFragmentDoc}
+${LayoutQueryFragmentFragmentDoc}`;
 export const BlogPostQueryDocument = gql`
     query blogPostQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   post(relativePath: $relativePath) {
     ...PostParts
   }
+  ...LayoutQueryFragment
 }
-    ${LayoutQueryFragmentFragmentDoc}
-${PostPartsFragmentDoc}`;
+    ${PostPartsFragmentDoc}
+${LayoutQueryFragmentFragmentDoc}`;
 export const EventQueryDocument = gql`
     query eventQuery($relativePath: String!) {
-  ...LayoutQueryFragment
   event(relativePath: $relativePath) {
     ...EventParts
   }
+  ...LayoutQueryFragment
 }
-    ${LayoutQueryFragmentFragmentDoc}
-${EventPartsFragmentDoc}`;
+    ${EventPartsFragmentDoc}
+${LayoutQueryFragmentFragmentDoc}`;
 export const ThemeQueryDocument = gql`
     query themeQuery($relativePath: String!) {
   theme(relativePath: $relativePath) {
@@ -4367,7 +4367,7 @@ const generateRequester = (client: TinaClient) => {
  **/
 export const ExperimentalGetTinaClient = () =>
   getSdk(
-    generateRequester(createClient({ url: "https://content.tinajs.io/1.4/content/5377c4c8-6836-49fa-ac3d-85fa90ea9c52/github/v1.7", queries }))
+    generateRequester(createClient({ url: "http://localhost:4001/graphql", queries }))
   );
 
 export const queries = (client: TinaClient) => {

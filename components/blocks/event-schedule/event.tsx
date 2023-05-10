@@ -2,6 +2,7 @@ import classNames from 'classnames'
 import { dateRangeString } from '../../../helpers/utilities';
 import { EventModal } from './event-modal'
 import Link from 'next/link.js'
+import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 function Card({ children, color }) {
   let borderColor = 'bg-gray'
@@ -111,9 +112,11 @@ function EventModalContent({ event }) {
           (tag && <Tag key={i}>{tag}</Tag>)
         ))}
       </div>
-      <p className="mg-copy-small mt-4">
-        {event.description}
-      </p>
+      {event.description && (
+        <div className="markdown mg-copy-small mt-4">
+          <TinaMarkdown content={event.description} />
+        </div>
+      )}
       {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} />}
     </>
   )
@@ -176,7 +179,9 @@ function TimeslotTable({ timeslots }) {
               <td className="px-6 py-4">
                 <span className="font-bold">{timeslot.name}</span>
                 {timeslot.description && (
-                  <p>{timeslot.description}</p>
+                  <div className="markdown">
+                    <TinaMarkdown content={timeslot.description} />
+                  </div>
                 )}
               </td>
             </tr>

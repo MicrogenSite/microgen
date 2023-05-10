@@ -1083,12 +1083,12 @@ type EventTimeslots {
   time: String
   speakers: String
   name: String
-  description: String
+  description: JSON
 }
 
 type Event implements Node & Document {
   name: String!
-  description: String
+  description: JSON
   date: String!
   days: Float
   times: String
@@ -1122,12 +1122,12 @@ input EventTimeslotsFilter {
   time: StringFilter
   speakers: StringFilter
   name: StringFilter
-  description: StringFilter
+  description: RichTextFilter
 }
 
 input EventFilter {
   name: StringFilter
-  description: StringFilter
+  description: RichTextFilter
   date: DatetimeFilter
   days: NumberFilter
   times: StringFilter
@@ -2333,12 +2333,12 @@ input EventTimeslotsMutation {
   time: String
   speakers: String
   name: String
-  description: String
+  description: JSON
 }
 
 input EventMutation {
   name: String
-  description: String
+  description: JSON
   date: String
   days: Float
   times: String

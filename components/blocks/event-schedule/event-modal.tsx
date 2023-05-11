@@ -18,12 +18,6 @@ function bindKey(bindKey, handler) {
   }, []);
 }
 
-function getLocationHash() {
-  if (typeof window !== 'undefined') {
-    return window.location.hash
-  }
-}
-
 function setLocationHash(hash) {
   if (typeof window !== 'undefined') {
     if (history?.pushState) {
@@ -34,30 +28,43 @@ function setLocationHash(hash) {
   }
 }
 
-export function EventModal({ children, content, name, link, hash }) {
-  const [openModal, setOpenModal] = useState(getLocationHash() === hash);
+export function EventModal({ children, content, name, link, hash, urlHash }) {
+  const [openModal, setOpenModal] = useState(urlHash === hash);
+  const modalHash = urlHash.includes('/') ? urlHash.split('/').at(0) : urlHash
+
+  useEffect(() => {
+    if (modalHash === hash) {
+      open()
+    } else {
+      setOpenModal(false)
+    }
+  }, [urlHash]);
+
   const open = () => {
-    setLocationHash(hash)
-    setOpenModal(true)
+    if (!openModal) {
+      setLocationHash(hash)
+      setOpenModal(true)
+    }
+
+    // The modal needs to be open before we can scroll to the timeslot
+    setTimeout(() => {
+      scrollToTimeslot()
+    }, 100);
   }
+
   const close = () => {
     setLocationHash('#')
     setOpenModal(false)
   }
 
-  // const [hashChangeEventRegistered, setHashChangeEventRegistered] = useState(false);
-  // if (typeof window !== 'undefined' && !hashChangeEventRegistered) {
-  //   window.addEventListener('hashchange', (hashChangeEvent) => {
-  //     const oldUrlHash = (new URL(hashChangeEvent.oldURL)).hash
-  //     const newUrlHash = (new URL(hashChangeEvent.newURL)).hash
-  //     if (newUrlHash === event.hash) {
-  //       open()
-  //     } else if (oldUrlHash === event.hash) {
-  //       close()
-  //     }
-  //   })
-  //   setHashChangeEventRegistered(true)
-  // }
+  const scrollToTimeslot = () => {
+    const timeslotIndex = urlHash.includes('/') && urlHash.split('/').at(1)
+    if (modalHash && timeslotIndex) {
+      const timeSlotId = `${modalHash}-timeslot${Number(timeslotIndex) + 1}`
+      const element = document.getElementById(timeSlotId)
+      element && element.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
+  }
 
   /* TODO: This runs on every modal */
   bindKey('Escape', close)

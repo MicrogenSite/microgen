@@ -406,8 +406,8 @@ fragment EventParts on Event {
   timeslots {
     __typename
     time
+    title
     speakers
-    name
     description
   }
   venueName

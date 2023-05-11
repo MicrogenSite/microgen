@@ -1081,8 +1081,8 @@ type PostConnection implements Connection {
 
 type EventTimeslots {
   time: String
+  title: String
   speakers: String
-  name: String
   description: JSON
 }
 
@@ -1120,8 +1120,8 @@ input NumberFilter {
 
 input EventTimeslotsFilter {
   time: StringFilter
+  title: StringFilter
   speakers: StringFilter
-  name: StringFilter
   description: RichTextFilter
 }
 
@@ -2331,8 +2331,8 @@ input PostMutation {
 
 input EventTimeslotsMutation {
   time: String
+  title: String
   speakers: String
-  name: String
   description: JSON
 }
 

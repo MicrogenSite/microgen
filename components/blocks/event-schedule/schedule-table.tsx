@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import dayjs from 'dayjs'
 import { EventCard } from './event'
 
@@ -14,18 +15,33 @@ function dayOffset(start, date) {
   return dayjs(date).diff(dayjs(start), 'days')
 }
 
-function EventCardWrapper({e, i}) {
-  if (!e.isWithinRange) {
+function EventCardWrapper({event, index, urlHash}) {
+  if (!event.isWithinRange) {
     return null
   }
   return (
-    <div className={`col-start-${(e.startDay + 1)} col-end-${(e.startDay + e.days + 1)} shrink-0 h-full auto-rows-fr`}>
-      <EventCard event={e} key={i} />
+    <div className={`col-start-${(event.startDay + 1)} col-end-${(event.startDay + event.days + 1)} shrink-0 h-full auto-rows-fr`}>
+      <div className={`col-start-${(event.startDay + 1)} col-end-${(event.startDay + event.days + 1)} shrink-0 h-full auto-rows-fr`}>
+        <EventCard event={event} key={index} urlHash={urlHash} />
+      </div>
     </div>
   )
 }
 
 export function ScheduleTable({ events, data }) {
+  const [urlHash, setUrlHash] = useState('');
+  const [hashChangeEventRegistered, setHashChangeEventRegistered] = useState(false);
+
+  useEffect(() => {
+    setUrlHash(window.location.hash)
+    if (!hashChangeEventRegistered) {
+      window.addEventListener('hashchange', (hashChangeEvent) => {
+        setUrlHash( (new URL(hashChangeEvent.newURL)).hash)
+      });
+      setHashChangeEventRegistered(true)
+    }
+  }, []);
+  
   const scheduleStartDate = dayjs(data.scheduleStartDate)
   const scheduleEndDate = dayjs(data.scheduleEndDate)
   const numDays = Number(dayOffset(scheduleStartDate, scheduleEndDate) + 1)
@@ -39,14 +55,17 @@ export function ScheduleTable({ events, data }) {
   return (
     <>
       <div className={`schedule-days px-10 no-flex grid grid-flow-col-dense grid-cols-${numDays} gap-4`} style={{ "width": `${numDays * 250}px`}}>
-        {days.map((d, i) => (
-          <div className={`flex col-start-${(i + 1)} col-span-1 text-center p-3 bg-primary text-white text-xl shrink-0`} key={i}>
-            <p className="flex-1 mx-2 text-left">{d.format('ddd')}</p>
-            <p className="flex-1 mx-2 text-right">{d.format('MMM DD')}</p>
+        {days.map((day, index) => (
+          <div className={`flex col-start-${(index + 1)} col-span-1 text-center p-3 bg-primary text-white text-xl shrink-0`} key={index}>
+            <p className="flex-1 mx-2 text-left">{day.format('ddd')}</p>
+            <p className="flex-1 mx-2 text-right">{day.format('MMM DD')}</p>
           </div>
         ))}
-        {prioritizedEvents.map((e, i) => (<EventCardWrapper e={e} i={i}  key={i} />))}
+        {prioritizedEvents.map((event, index) => (<EventCardWrapper event={event} index={index} urlHash={urlHash} key={index} />))}
       </div>
+
+
+
 
       <div className="invisible"> {/* trick tailwindcss to generate the required columns */}
         <div className="grid grid-cols-1  w-[250px]"> <div className="col-span-1  col-start-1  col-end-1"></div></div>

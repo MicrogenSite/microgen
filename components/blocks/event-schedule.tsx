@@ -2,12 +2,14 @@ import { useRef, useEffect } from 'react'
 import dayjs from 'dayjs'
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { dayOffset, readableHash } from '../../helpers/utilities';
-import { Section } from "../section";
-import { AddCard } from './event-schedule/event'
-import ScheduleTable from './event-schedule/schedule-table';
-import { IconClickDrag } from './event-schedule/icons';
+
 import { backgroundSchema } from "../../schema/background"
 import { navigationLabelSchema } from "../../schema/navigation-label";
+
+import { AddCard } from './event-schedule/event'
+import { IconClickDrag } from './event-schedule/icons';
+import { ScheduleTable } from './event-schedule/schedule-table';
+import { Section } from "../section";
 
 function annotateEvents(data, events) {
   const startDate = dayjs(data.scheduleStartDate)
@@ -18,17 +20,17 @@ function annotateEvents(data, events) {
 
   return Object.keys(events).map((fileName) => {
     const event = {
-      ...events[fileName],
-      fileName,
+        ...events[fileName],
+        fileName,
     }
     event.startDay = dayOffset(startDate, event.date)
     event.isWithinRange = eventWithinRange(event)
-    event.hash = `#${event.name}`
+    event.hash = `#${readableHash(event.name)}`
 
     // To ensure our event modal hashes are unique we keep a Set of all the hashes
     if (uniqEventHashes.has(event.hash)) {
-      // Filename's are always unique
-      event.hash = `#${readableHash(event.fileName)}`
+        // Filename's are always unique
+        event.hash = `#${readableHash(event.fileName)}`
     }
 
     uniqEventHashes.add(event.hash)

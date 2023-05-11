@@ -5,11 +5,9 @@ import Link from 'next/link.js'
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
 function Card({ children, color }) {
-  let borderColor = 'bg-gray'
   let bgColor = 'bg-white'
 
   if (color) {
-    borderColor = 'bg-' + color
     bgColor = 'bg-' + color
   }
 
@@ -31,10 +29,10 @@ function Card({ children, color }) {
   )
 }
 
-export function EventCard({ event }) {
+export function EventCard({ event, urlHash }) {
   const isWorkInProgress = event.tags?.some((el) => el.toLowerCase() === "wip")
   return (
-    <EventModal content={<EventModalContent event={event} />} name={event.name} link={event.website} hash={event.hash}>
+    <EventModal content={<EventModalContent event={event} urlHash={urlHash}/>} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash}>
       <Link href={`/${event.hash}`} scroll={false}>
         <div className={classNames('w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
           <Card color={event.color}>
@@ -87,7 +85,7 @@ export function EventCard({ event }) {
   )
 }
 
-function EventModalContent({ event }) {
+function EventModalContent({ event, urlHash }) {
   return (
     <>
       <ul className="list-disc mg-copy-small ml-4">
@@ -117,7 +115,7 @@ function EventModalContent({ event }) {
           <TinaMarkdown content={event.description} />
         </div>
       )}
-      {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} />}
+      {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} hash={event.hash} urlHash={urlHash} />}
     </>
   )
 }
@@ -158,7 +156,7 @@ function AddEventModalContent({ config }) {
   )
 }
 
-function TimeslotTable({ timeslots }) {
+function TimeslotTable({ timeslots, hash, urlHash }) {
   const sortedTimeslots = timeslots.sort((a, b) => a.time.localeCompare(b.time))
   return (
     <div>
@@ -171,21 +169,26 @@ function TimeslotTable({ timeslots }) {
             <th scope="col" className="px-6 py-3">INFO</th>
           </tr>
         </thead>
-        <tbody>
-          {sortedTimeslots?.map((timeslot, i) => (
-            <tr key={i} className="bg-white mg-copy-small border-b border-gray-light">
-              <th scope="row" className="px-6 py-4 align-top whitespace-nowrap text-left">{timeslot.time}</th>
-              <td className="px-6 py-4 align-top">{timeslot.speakers}</td>
-              <td className="px-6 py-4">
-                <span className="font-bold">{timeslot.name}</span>
-                {timeslot.description && (
-                  <div className="markdown">
-                    <TinaMarkdown content={timeslot.description} />
-                  </div>
-                )}
-              </td>
-            </tr>
-          ))}
+        <tbody className="mg-copy-small">
+          {sortedTimeslots?.map((timeslot, index) => {
+            const timeslotId = `${hash}-timeslot${index+1}`
+            const currentTimeslot = urlHash?.replace('/', '-timeslot')
+            const isCurrent = timeslotId === currentTimeslot
+            return (
+              <tr id={timeslotId} key={index} className={`border-b border-gray-light ${isCurrent ? 'bg-gray-light' : 'bg-white' }`} >
+                <th scope="row" className="px-6 py-4 align-top whitespace-nowrap text-left">{timeslot.time}</th>
+                <td className="px-6 py-4 align-top">{timeslot.speakers}</td>
+                <td className="px-6 py-4">
+                  <a className="font-bold underline" href={`/${hash}/${index+1}`}>{timeslot.title}</a>
+                  {timeslot.description && (
+                    <div className="markdown">
+                      <TinaMarkdown content={timeslot.description} />
+                    </div>
+                  )}
+                </td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>

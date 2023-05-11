@@ -31,6 +31,13 @@ function Card({ children, color }) {
 
 export function EventCard({ event, urlHash }) {
   const isWorkInProgress = event.tags?.some((el) => el.toLowerCase() === "wip")
+  const attendees = () => {
+    if (event.attendees && event.label) return `${event.attendees} (${event.label})`
+    if (event.attendees && !event.label) return `${event.attendees}`
+    if (!event.attendees && event.label) return `${event.label}`
+    return null
+  }
+  
   return (
     <EventModal content={<EventModalContent event={event} urlHash={urlHash}/>} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash}>
       <Link href={`/${event.hash}`} scroll={false}>
@@ -54,10 +61,8 @@ export function EventCard({ event, urlHash }) {
                 {event.venueName &&
                   <div>{event.venueName}</div>
                 }
-                {event.attendees &&
-                  <div>
-                    👤 {event.attendees && `${event.attendees} -`} {event.label}
-                  </div>
+                {attendees() && 
+                  <span>👤 {attendees()}</span>
                 }
                 {event.org &&
                   <div className="mt-3">
@@ -86,6 +91,13 @@ export function EventCard({ event, urlHash }) {
 }
 
 function EventModalContent({ event, urlHash }) {
+  const attendees = () => {
+    if (event.attendees && event.label) return `${event.attendees} (${event.label})`
+    if (event.attendees && !event.label) return `${event.attendees}`
+    if (!event.attendees && event.label) return `${event.label}`
+    return null
+  }
+
   return (
     <>
       <ul className="list-disc mg-copy-small ml-4">
@@ -101,8 +113,8 @@ function EventModalContent({ event, urlHash }) {
         {event.org &&
           <li><b>Organization</b>: {event.org}</li>
         }
-        {event.attendees &&
-          <li><b>Attendees</b>: {event.attendees} ({event.label})</li>
+        {attendees() &&
+          <li><b>Attendees</b>: {attendees()}</li>
         }
       </ul>
       <div className="event-tags">

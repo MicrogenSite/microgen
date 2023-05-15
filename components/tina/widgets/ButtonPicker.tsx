@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { client } from "../../../.tina/__generated__/client";
+import { client } from "../../../tina/__generated__/client";
 import { lowerDash } from '../../../helpers/utilities';
 
 interface ButtonPickerProps {

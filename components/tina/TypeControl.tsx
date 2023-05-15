@@ -4,7 +4,7 @@ import Control from './Control';
 import SelectMenu from './widgets/SelectMenu';
 import ColorPicker from './widgets/ColorPicker';
 import IconMargin from './icons/IconMargin';
-import { client } from "../../.tina/__generated__/client";
+import { client } from "../../tina/__generated__/client";
 
 function buildColorOptions(prefix?) {
   const options = [

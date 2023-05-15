@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { client } from "../../../.tina/__generated__/client";
+import { client } from "../../../tina/__generated__/client";
 
 /*
 Color picker expects the value prop to match one of the colorOptions

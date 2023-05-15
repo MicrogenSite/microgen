@@ -463,6 +463,26 @@ type PageBlocksTailwindCards {
   navigationLabel: String
 }
 
+type PageBlocksEventScheduleStyle {
+  calendarFill: String
+  calendarHover: String
+  calendarBorder: String
+  calendarPadding: String
+  calendarLabel: String
+  calendarHeadline: String
+  calendarText: String
+  modalTitle: String
+  modalFill: String
+  modalBorder: String
+  modalPadding: String
+  modalLabel: String
+  modalHeadline: String
+  modalText: String
+  timeslotLabel: String
+  timeslotHeadline: String
+  timeslotText: String
+}
+
 type PageBlocksEventScheduleBackgroundOrnaments {
   src: String
   alignment: String
@@ -480,11 +500,12 @@ type PageBlocksEventScheduleBackground {
 }
 
 type PageBlocksEventSchedule {
+  style: PageBlocksEventScheduleStyle
   background: PageBlocksEventScheduleBackground
-  navigationLabel: String
   scheduleStartDate: String!
   scheduleEndDate: String!
   addEventLink: String
+  navigationLabel: String
 }
 
 type PageBlocksEventTimelineStyle {
@@ -928,6 +949,26 @@ input PageBlocksTailwindCardsFilter {
   navigationLabel: StringFilter
 }
 
+input PageBlocksEventScheduleStyleFilter {
+  calendarFill: StringFilter
+  calendarHover: StringFilter
+  calendarBorder: StringFilter
+  calendarPadding: StringFilter
+  calendarLabel: StringFilter
+  calendarHeadline: StringFilter
+  calendarText: StringFilter
+  modalTitle: StringFilter
+  modalFill: StringFilter
+  modalBorder: StringFilter
+  modalPadding: StringFilter
+  modalLabel: StringFilter
+  modalHeadline: StringFilter
+  modalText: StringFilter
+  timeslotLabel: StringFilter
+  timeslotHeadline: StringFilter
+  timeslotText: StringFilter
+}
+
 input PageBlocksEventScheduleBackgroundOrnamentsFilter {
   src: ImageFilter
   alignment: StringFilter
@@ -953,11 +994,12 @@ input DatetimeFilter {
 }
 
 input PageBlocksEventScheduleFilter {
+  style: PageBlocksEventScheduleStyleFilter
   background: PageBlocksEventScheduleBackgroundFilter
-  navigationLabel: StringFilter
   scheduleStartDate: DatetimeFilter
   scheduleEndDate: DatetimeFilter
   addEventLink: StringFilter
+  navigationLabel: StringFilter
 }
 
 input PageBlocksEventTimelineStyleFilter {
@@ -2240,6 +2282,26 @@ input PageBlocksTailwindCardsMutation {
   navigationLabel: String
 }
 
+input PageBlocksEventScheduleStyleMutation {
+  calendarFill: String
+  calendarHover: String
+  calendarBorder: String
+  calendarPadding: String
+  calendarLabel: String
+  calendarHeadline: String
+  calendarText: String
+  modalTitle: String
+  modalFill: String
+  modalBorder: String
+  modalPadding: String
+  modalLabel: String
+  modalHeadline: String
+  modalText: String
+  timeslotLabel: String
+  timeslotHeadline: String
+  timeslotText: String
+}
+
 input PageBlocksEventScheduleBackgroundOrnamentsMutation {
   src: String
   alignment: String
@@ -2257,11 +2319,12 @@ input PageBlocksEventScheduleBackgroundMutation {
 }
 
 input PageBlocksEventScheduleMutation {
+  style: PageBlocksEventScheduleStyleMutation
   background: PageBlocksEventScheduleBackgroundMutation
-  navigationLabel: String
   scheduleStartDate: String
   scheduleEndDate: String
   addEventLink: String
+  navigationLabel: String
 }
 
 input PageBlocksEventTimelineStyleMutation {

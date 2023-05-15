@@ -15,14 +15,14 @@ function dayOffset(start, date) {
   return dayjs(date).diff(dayjs(start), 'days')
 }
 
-function EventCardWrapper({event, index, urlHash}) {
+function EventCardWrapper({event, index, urlHash, style }) {
   if (!event.isWithinRange) {
     return null
   }
   return (
     <div className={`col-start-${(event.startDay + 1)} col-end-${(event.startDay + event.days + 1)} shrink-0 h-full auto-rows-fr`}>
       <div className={`col-start-${(event.startDay + 1)} col-end-${(event.startDay + event.days + 1)} shrink-0 h-full auto-rows-fr`}>
-        <EventCard event={event} key={index} urlHash={urlHash} />
+        <EventCard event={event} key={index} urlHash={urlHash} style={style} />
       </div>
     </div>
   )
@@ -31,6 +31,7 @@ function EventCardWrapper({event, index, urlHash}) {
 export function ScheduleTable({ events, data }) {
   const [urlHash, setUrlHash] = useState('');
   const [hashChangeEventRegistered, setHashChangeEventRegistered] = useState(false);
+  const style = data.style
 
   useEffect(() => {
     setUrlHash(window.location.hash)
@@ -56,12 +57,12 @@ export function ScheduleTable({ events, data }) {
     <>
       <div className={`schedule-days px-10 no-flex grid grid-flow-col-dense grid-cols-${numDays} gap-4`} style={{ "width": `${numDays * 250}px`}}>
         {days.map((day, index) => (
-          <div className={`flex col-start-${(index + 1)} col-span-1 text-center p-3 bg-primary text-white text-xl shrink-0`} key={index}>
-            <p className="flex-1 mx-2 text-left">{day.format('ddd')}</p>
-            <p className="flex-1 mx-2 text-right">{day.format('MMM DD')}</p>
+          <div className={`flex col-start-${(index + 1)} col-span-1 shrink-0 bg-primary ${style.calendarPadding} ${style.calendarLabel}`} key={index}>
+          <p className="flex-1 text-left">{day.format('ddd')}</p>
+            <p className="flex-1 text-right">{day.format('MMM DD')}</p>
           </div>
         ))}
-        {prioritizedEvents.map((event, index) => (<EventCardWrapper event={event} index={index} urlHash={urlHash} key={index} />))}
+        {prioritizedEvents.map((event, index) => (<EventCardWrapper event={event} index={index} urlHash={urlHash} style={style} key={index} />))}
       </div>
     </>
   )

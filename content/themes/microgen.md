@@ -15,7 +15,7 @@ colors:
 typo:
   - label: Copy Small
     typography: >-
-      {"family":"Inter:wght@400","size":"13","lineHeight":"26","letterSpacing":"1","margin":"22","smSize":"12","smLineHeight":"16","smLetterSpacing":"0","smMargin":"0"}
+      {"family":"Inter:wght@400","size":"13","lineHeight":"21","letterSpacing":"0","margin":"0","smSize":"13","smLineHeight":"21","smLetterSpacing":"0","smMargin":"0"}
   - label: Copy Medium
     typography: >-
       {"family":"Inter:wght@400","size":"15","lineHeight":"24","letterSpacing":"0","margin":"0","smSize":"15","smLineHeight":"24","smLetterSpacing":"0","smMargin":"0"}
@@ -41,4 +41,8 @@ buttons:
     primaryRounded: rounded
 linkColor: primary
 ---
+
+
+
+
 

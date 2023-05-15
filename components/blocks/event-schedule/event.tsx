@@ -4,32 +4,7 @@ import { EventModal } from './event-modal'
 import Link from 'next/link.js'
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
-function Card({ children, color }) {
-  let bgColor = 'bg-white'
-
-  if (color) {
-    bgColor = 'bg-' + color
-  }
-
-  return (
-    <>
-      <div className={classNames(
-        'cursor-pointer p-0.5 shadow-md h-full whitespace-normal bg-gray bg-gradient-to-br hover:from-accent4 hover:via-accent2 hover:to-accent3'
-      )}>
-        <div className={classNames(
-          bgColor,
-          'event-card-background relative block p-3 sm:px-3 sm:py-2 h-full bg-white'
-        )}>
-          <div className="flex flex-col h-full text-xs text-gray-600">
-            {children}
-          </div>
-        </div>
-      </div>
-    </>
-  )
-}
-
-export function EventCard({ event, urlHash }) {
+export function EventCard({ event, urlHash, style }) {
   const isWorkInProgress = event.tags?.some((el) => el.toLowerCase() === "wip")
   const attendees = () => {
     if (event.attendees && event.label) return `${event.attendees} (${event.label})`
@@ -37,24 +12,24 @@ export function EventCard({ event, urlHash }) {
     if (!event.attendees && event.label) return `${event.label}`
     return null
   }
-  
+
   return (
-    <EventModal content={<EventModalContent event={event} urlHash={urlHash}/>} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash}>
+    <EventModal content={<EventModalContent event={event} urlHash={urlHash} style={style} />} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash} style={style}>
       <Link href={`/${event.hash}`} scroll={false}>
         <div className={classNames('w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
-          <Card color={event.color}>
+          <div className={`cursor-pointer relative block flex flex-col h-full ${style.calendarPadding} ${style.calendarBorder} ${style.calendarFill}`}>
             <div className="flex-1">
               <div className="flex gap-2">
-                <h5 className="flex-1 text-black mg-headline-small">
+                <h5 className={`flex-1 ${style.calendarHeadline}`}>
                   {event.name}
                 </h5>
                 {event.isLive &&
-                  <div className="w-12 mt-0.5 flex-none">
+                  <div className="flex-none w-12 mt-0.5">
                     <img width="48" height="18" src="/live-streaming.svg" />
                   </div>
                 }
               </div>
-              <div className="mg-copy-small mt-2">
+              <div className={`${style.calendarText}`}>
                 {event.times !== "To be confirmed" &&
                   <div>{event.times}</div>
                 }
@@ -83,14 +58,14 @@ export function EventCard({ event, urlHash }) {
                 </div>
               }
             </div>
-          </Card>
+          </div>
         </div>
       </Link>
     </EventModal>
   )
 }
 
-function EventModalContent({ event, urlHash }) {
+function EventModalContent({ event, urlHash, style }) {
   const attendees = () => {
     if (event.attendees && event.label) return `${event.attendees} (${event.label})`
     if (event.attendees && !event.label) return `${event.attendees}`
@@ -100,7 +75,7 @@ function EventModalContent({ event, urlHash }) {
 
   return (
     <>
-      <ul className="list-disc mg-copy-small ml-4">
+      <ul className={`list-disc ml-4 ${style.modalText}`}>
         <li><b>Date</b>: {dateRangeString(event.date, event.days)}</li>
         {event.times &&
           <li><b>Times</b>: {event.times}</li>
@@ -128,42 +103,6 @@ function EventModalContent({ event, urlHash }) {
         </div>
       )}
       {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} hash={event.hash} urlHash={urlHash} />}
-    </>
-  )
-}
-
-export function AddCard({ addEventlink }) {
-  return (
-    // <Modal content={<AddEventModalContent config={config} />} name="Submit a track or talk" link="" hash="#add-event">
-    <a target="_blank" href={addEventlink}>
-      <Card color="white">
-        <div className="place-content-center w-full m-0 py-5 text-center text-gray-300 hover:text-gray-500">
-          <div className="text-6xl">
-            +
-          </div>
-          <div className="text-xl font-bold">
-            Submit a track or talk
-          </div>
-        </div>
-      </Card>
-    </a>
-    // </Modal>
-  )
-}
-
-function AddEventModalContent({ config }) {
-  return (
-    <>
-      <p>The event listings in this website are coordinated through GitHub.</p>
-      <p>Steps to list your event:</p>
-      <ol className="list-decimal ml-4 mt-3">
-        <li><b>Step 1</b>: Read & file a pull-request in this repo: <br />
-          <a className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
-            href={config.repo} target="_blank">{config.repo}</a>
-        </li>
-        <li><b>Step 2</b>: Address any comments until your PR is merged.</li>
-        <li><b>Step 3</b>: Blastoff! ⭐️💙</li>
-      </ol>
     </>
   )
 }

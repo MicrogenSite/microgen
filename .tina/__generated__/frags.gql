@@ -329,6 +329,26 @@ fragment PageParts on Page {
       navigationLabel
     }
     ... on PageBlocksEventSchedule {
+      style {
+        __typename
+        calendarFill
+        calendarHover
+        calendarBorder
+        calendarPadding
+        calendarLabel
+        calendarHeadline
+        calendarText
+        modalTitle
+        modalFill
+        modalBorder
+        modalPadding
+        modalLabel
+        modalHeadline
+        modalText
+        timeslotLabel
+        timeslotHeadline
+        timeslotText
+      }
       background {
         __typename
         fillStyles
@@ -344,10 +364,10 @@ fragment PageParts on Page {
           yOffset
         }
       }
-      navigationLabel
       scheduleStartDate
       scheduleEndDate
       addEventLink
+      navigationLabel
     }
     ... on PageBlocksEventTimeline {
       style {

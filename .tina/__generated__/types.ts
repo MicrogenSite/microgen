@@ -42,6 +42,12 @@ export type SystemInfoBreadcrumbsArgs = {
   excludeExtension?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type Folder = {
+  __typename?: 'Folder';
+  name: Scalars['String'];
+  path: Scalars['String'];
+};
+
 export type PageInfo = {
   __typename?: 'PageInfo';
   hasPreviousPage: Scalars['Boolean'];
@@ -223,9 +229,10 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<DocumentFilter>;
+  folder?: InputMaybe<Scalars['String']>;
 };
 
-export type DocumentNode = Page | Post | Event | Theme | Global;
+export type DocumentNode = Page | Post | Event | Theme | Global | Folder;
 
 export type PageBlocksFeatureStyle = {
   __typename?: 'PageBlocksFeatureStyle';
@@ -4360,7 +4367,7 @@ const generateRequester = (client: TinaClient) => {
  **/
 export const ExperimentalGetTinaClient = () =>
   getSdk(
-    generateRequester(createClient({ url: "https://content.tinajs.io/1.4/content/5377c4c8-6836-49fa-ac3d-85fa90ea9c52/github/main", queries }))
+    generateRequester(createClient({ url: "http://localhost:4001/graphql", queries }))
   );
 
 export const queries = (client: TinaClient) => {

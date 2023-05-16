@@ -1,12 +1,9 @@
 import * as React from "react";
 import { linkTarget } from "../helpers/utilities";
 import { trackGoal } from "fathom-client";
+import { tinaField } from "tinacms/dist/react";
 
-export const Buttons = ({
-  className = "",
-  buttons,
-  parentField = ""
-}) => {
+export const Buttons = ({ className = "", buttons, parentField = "" }) => {
   return (
     <div className={`inline-flex flex-wrap gap-4 items-center ${className}`}>
       {buttons &&
@@ -22,9 +19,9 @@ export const Buttons = ({
               }}
               target={linkTarget(button.link)}
               key={index}
-              data-tinafield={`${parentField}.${index}`}
+              data-tina-field={tinaField(button, "label")}
             >
-              { button.label }
+              {button.label}
             </a>
           );
           return element;

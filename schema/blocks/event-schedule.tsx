@@ -8,6 +8,10 @@ export const eventScheduleBlockSchema: any = {
     defaultItem: {
       scheduleStartDate: new Date().toISOString(),
       scheduleEndDate: new Date().toISOString(),
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
     }
   },
   fields: [

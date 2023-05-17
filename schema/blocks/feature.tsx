@@ -22,6 +22,10 @@ export const featureBlockSchema: any = {
         subheadStyles: "text-black",
         textStyles: "text-black",
       },
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
     },
   },
   fields: [

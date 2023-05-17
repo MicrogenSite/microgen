@@ -9,6 +9,10 @@ export const tailwindFeatureBlockSchema: any = {
   name: "tailwindFeature",
   ui: {
     defaultItem: {
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
       label: "",
       headline: "This is the main headline",
       subhead: "Here is a subhead",

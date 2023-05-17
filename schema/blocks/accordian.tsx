@@ -47,6 +47,10 @@ export const accordianBlockSchema: any = {
         subheadStyles: "text-black",
         textStyles: "text-black",
       },
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
       items: [defaultCard, defaultCard, defaultCard],
     },
   },

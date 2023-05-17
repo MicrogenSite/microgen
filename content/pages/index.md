@@ -12,6 +12,8 @@ blocks:
     background:
       fillStyles: from-accent3 to-accent4 bg-gradient-to-tl opacity-100
       src: ''
+      style: bg-cover
+      position: bg-center
     label: ''
     headline: Microgen
     subhead: A site builder for Web3
@@ -27,7 +29,15 @@ backgroundColor: white
 meta:
   title: Microgen
   description: ''
+background:
+  fillStyles: ' opacity-100'
+  src: ''
+  style: bg-cover
+  position: bg-left
 ---
+
+
+
 
 
 

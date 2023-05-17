@@ -6,6 +6,14 @@ import { navigationLabelSchema } from "../navigation-label";
 export const embedBlockSchema: any = {
   label: "Embed",
   name: "embed",
+  ui: {
+    defaultItem: {
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
+    },
+  },
   fields: [
     {
       label: "Section Style",

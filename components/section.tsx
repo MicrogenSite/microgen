@@ -7,7 +7,8 @@ export const Section = ({
   background = {
     fillStyles: "",
     src: "",
-    position: "center",
+    style: "",
+    position: "",
     ornaments: []
   },
   navigationLabel = "",

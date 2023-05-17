@@ -17,6 +17,10 @@ export const eventTimelineBlockSchema: any = {
         subheadStyles: "text-black mb-4",
         textStyles: "text-black",
       },
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
     },
   },
   fields: [

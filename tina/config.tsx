@@ -57,6 +57,15 @@ const config = defineStaticConfig({
             }
             return `/${document._sys.filename}`
           },
+          defaultItem: () => {
+            return {
+              test: "New Page",
+              background: {
+                style: "bg-cover",
+                position: "bg-center",
+              },
+            }
+          },
         },
         fields: [
           {

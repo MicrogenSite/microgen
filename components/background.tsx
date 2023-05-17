@@ -26,18 +26,19 @@ const alignmentTransform = {
 
 export const Background = ({
   background = {
+    style: "",
     fillStyles: "",
     src: "",
-    position: "center",
+    position: "",
     ornaments: []
   },
 }) => {
   return (
     <>
       <div className={`background absolute inset-0 -z-2 ${background?.fillStyles}`}></div>
-      <div className={`background absolute inset-0 -z-2`}>
-        {background?.src && <img className={`w-full h-full object-cover ${background?.position}`} src={background.src} alt="background image" />}
-      </div>
+      {background?.src && (
+        <div className={`absolute inset-0 -z-2 w-full h-full ${background.style} ${background.position}`} style={{ backgroundImage: `url(${background.src.replace(' ', '%20')})` }}></div>
+      )}
       {background?.ornaments?.length > 0 &&
         <div className="ornaments absolute inset-0 -z-1">
           {background.ornaments.map(function (ornament, index) {

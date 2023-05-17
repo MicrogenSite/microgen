@@ -25,6 +25,10 @@ export const tailwindCardsBlockSchema: any = {
   label: "Tailwind Cards",
   ui: {
     defaultItem: {
+      background: {
+        style: "bg-cover",
+        position: "bg-center",
+      },
       label: "",
       headline: "This is the main headline",
       subhead: "Here is a subhead",

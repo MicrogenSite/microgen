@@ -1,5 +1,5 @@
 import React from "react";
-import { TextField, GroupListField, BlocksFieldPlugin } from 'tinacms'
+import { GroupListField, BlocksFieldPlugin } from 'tinacms'
 import AlignmentControl from './components/tina/AlignmentControl'
 import BorderControl from './components/tina/BorderControl'
 import ButtonControl from './components/tina/ButtonControl'

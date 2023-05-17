@@ -43,6 +43,9 @@ export const backgroundSchema = {
       name: 'ornaments',
       type: "object",
       list: true,
+      itemProps: (item) => ({
+        label: item.src?.replace('/uploads/', ''),
+      }),
       fields: [
         {
           label: "Image",
@@ -82,12 +85,12 @@ export const backgroundSchema = {
           type: "string",
         },
         {
-          label: "X Offset",
+          label: "Horizontal Offset",
           name: "xOffset",
           type: "string",
         },
         {
-          label: "Y Offset",
+          label: "Vertical Offset",
           name: "yOffset",
           type: "string",
         },

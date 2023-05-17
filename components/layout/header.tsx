@@ -121,7 +121,7 @@ export const Header = ({
     marginRight: `${globalData.logo?.imageMargin}px`
   }
   const background = nav?.navBackgroundColor.split(' ').filter((item) => !item.includes('opacity')).join(' ')
-  const hasLinks = navItems.length > 0 || pageJumps(blocks).length > 0; 
+  const hasLinks = navItems?.length > 0 || pageJumps(blocks)?.length > 0 || false; 
 
   function Logo(props) {
     const hasLogoImage = globalData.logo?.image;

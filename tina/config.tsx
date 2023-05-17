@@ -1,6 +1,9 @@
 import { defineStaticConfig } from "tinacms";
 import { colorOptions } from "../schema/options";
 
+// Partials
+import { backgroundSchema } from "../schema/background"
+
 // Blocks
 import { featureBlockSchema } from "../schema/blocks/feature";
 import { cardsBlockSchema } from "../schema/blocks/cards";
@@ -77,14 +80,14 @@ const config = defineStaticConfig({
             ],
           },
           {
+            label: "Page Settings",
+            name: "rule",
             type: "string",
-            label: "Background Color",
-            name: "backgroundColor",
             ui: {
-              component: "colorControl",
+              component: "ruledTitle",
             },
-            options: colorOptions,
           },
+          backgroundSchema,
           {
             type: "object",
             label: "Meta",

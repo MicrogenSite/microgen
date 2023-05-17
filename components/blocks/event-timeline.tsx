@@ -1,10 +1,6 @@
 import React from "react";
-import { dateRangeString } from '../../helpers/utilities';
+import { dateRangeString } from '../../helpers/utilities.ts';
 import { Section } from "../section";
-import { minHeightOptions } from "../../schema/options"
-import { backgroundSchema } from "../../schema/background"
-import { navigationLabelSchema } from "../../schema/navigation-label";
-import { typographySchema } from "../../schema/typography"
 import { trackGoal } from "fathom-client";
 
 const IconLink = ({width="12"}) => {
@@ -97,63 +93,4 @@ export const EventTimeline = ({ data, events, parentField = "" }) => {
       </div>
     </Section>
   );
-};
-
-export const eventTimelineBlockSchema: any = {
-  label: "Event Timeline",
-  name: "eventTimeline",
-  ui: {
-    defaultItem: {
-      style: {
-        fullWidth: false,
-        minHeight: "min-h-0",
-        padding: "pt-20 pb-20 pr-10 pl-10",
-        labelStyles: "text-black",
-        headlineStyles: "text-black",
-        subheadStyles: "text-black mb-4",
-        textStyles: "text-black",
-      },
-    },
-  },
-  fields: [
-    {
-      label: "Section Style",
-      name: "style",
-      type: "object",
-      fields: [
-        {
-          label: "Full Width",
-          name: "fullWidth",
-          type: "boolean",
-        },
-        {
-          label: "Minimum Height",
-          name: "minHeight",
-          type: "string",
-          ui: {
-            component: "selectField",
-            mobileMode: true,
-          },
-          options: minHeightOptions,
-        },
-        {
-          label: "Padding",
-          name: "padding",
-          type: "string",
-          ui: {
-            component: "paddingControl",
-          }
-        },
-        ...typographySchema,
-      ],
-    },
-    backgroundSchema,
-    {
-      label: "Fathom Tracking ID",
-      name: "fathomId",
-      description: "If fathom is installed you can add an id and track event clicks",
-      type: "string",
-    },
-    navigationLabelSchema,
-  ],
 };

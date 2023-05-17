@@ -1,13 +1,7 @@
 import * as React from 'react';
 import { Section } from '../section';
 import { Content } from '../content';
-import { hasWord, getWordWith } from '../../helpers/utilities';
-import { buttonsSchema } from "../../schema/buttons"
-import { backgroundSchema } from "../../schema/background"
-import { contentSchema } from "../../schema/content"
-import { imageSchema } from '../../schema/image';
-import { navigationLabelSchema } from "../../schema/navigation-label";
-import { typographySchema } from "../../schema/typography"
+import { hasWord, getWordWith } from '../../helpers/utilities.ts';
 
 const imageWrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
@@ -84,72 +78,4 @@ export const Feature = ({ data, parentField = '' }) => {
       </div>
     </Section>
   );
-};
-
-export const featureBlockSchema: any = {
-  label: "Feature",
-  name: "feature",
-  ui: {
-    defaultItem: {
-      headline: "Headline",
-      subhead: "Subhead",
-      style: {
-        alignment: "flex-row items-center gap-0",
-        padding: "pt-20 pb-20 pr-10 pl-10",
-        featureImage: "mx-auto",
-        featureContent: "w-1/2 min-h-0 text-left",
-        labelStyles: "text-black",
-        headlineStyles: "text-black",
-        subheadStyles: "text-black",
-        textStyles: "text-black",
-      },
-    },
-  },
-  fields: [
-    {
-      label: "Section Style",
-      name: "style",
-      type: "object",
-      fields: [
-        {
-          label: "Alignment",
-          name: "alignment",
-          type: "string",
-          ui: {
-            component: "alignmentControl",
-          },
-        },
-        {
-          label: "Padding",
-          name: "padding",
-          type: "string",
-          ui: {
-            component: "paddingControl",
-          }
-        },
-        {
-          label: "Image",
-          name: "featureImage",
-          type: "string",
-          ui: {
-            component: "featureImageControl",
-          }
-        },
-        {
-          label: "Content",
-          name: "featureContent",
-          type: "string",
-          ui: {
-            component: "featureContentControl",
-          }
-        },
-        ...typographySchema,
-      ],
-    },
-    backgroundSchema,
-    imageSchema,
-    ...contentSchema,
-    buttonsSchema,
-    navigationLabelSchema,
-  ],
 };

@@ -1,10 +1,7 @@
 import { useRef, useEffect } from 'react'
 import dayjs from 'dayjs'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { dayOffset, readableHash } from '../../helpers/utilities';
-
-import { backgroundSchema } from "../../schema/background"
-import { navigationLabelSchema } from "../../schema/navigation-label";
+import { dayOffset, readableHash } from '../../helpers/utilities.ts';
 
 import { AddCard } from './event-schedule/event'
 import { IconClickDrag } from './event-schedule/icons';
@@ -82,39 +79,4 @@ export const EventSchedule = ({ data, events, parentField = "" }) => {
       }
     </Section>
   );
-};
-
-export const eventScheduleBlockSchema: any = {
-  label: "Event Schedule",
-  name: "eventSchedule",
-  ui: {
-    defaultItem: {
-      scheduleStartDate: new Date().toISOString(),
-      scheduleEndDate: new Date().toISOString(),
-    }
-  },
-  fields: [
-    backgroundSchema,
-    navigationLabelSchema,
-    {
-      label: "Schedule Start Date",
-      name: "scheduleStartDate",
-      description: "The first day of the schedule",
-      type: "datetime",
-      required: true,
-    },
-    {
-      label: "Schedule End Date",
-      name: "scheduleEndDate",
-      description: "The last day of the schedule",
-      type: "datetime",
-      required: true,
-    },
-    {
-      label: "Add Event Link",
-      name: "addEventLink",
-      description: "A link to a form or repo to add an event to the schedule",
-      type: "string",
-    },
-  ],
 };

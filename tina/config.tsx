@@ -2,14 +2,14 @@ import { defineStaticConfig } from "tinacms";
 import { colorOptions } from "../schema/options";
 
 // Blocks
-import { featureBlockSchema } from "../components/blocks/feature";
-import { cardsBlockSchema } from "../components/blocks/cards";
-import { accordianBlockSchema } from "../components/blocks/accordian";
-import { embedBlockSchema } from "../components/blocks/embed";
-import { tailwindFeatureBlockSchema } from "../components/blocks/tailwind-feature"
-import { tailwindCardsBlockSchema } from "../components/blocks/tailwind-cards"
-import { eventScheduleBlockSchema } from "../components/blocks/event-schedule"
-import { eventTimelineBlockSchema } from "../components/blocks/event-timeline"
+import { featureBlockSchema } from "../schema/blocks/feature";
+import { cardsBlockSchema } from "../schema/blocks/cards";
+import { accordianBlockSchema } from "../schema/blocks/accordian";
+import { embedBlockSchema } from "../schema/blocks/embed";
+import { tailwindFeatureBlockSchema } from "../schema/blocks/tailwind-feature"
+import { tailwindCardsBlockSchema } from "../schema/blocks/tailwind-cards"
+import { eventScheduleBlockSchema } from "../schema/blocks/event-schedule"
+import { eventTimelineBlockSchema } from "../schema/blocks/event-timeline"
 
 // Collections
 import { eventCollectionSchema } from "../schema/collections/events"

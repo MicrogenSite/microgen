@@ -43,7 +43,7 @@ const textAlignments = [
   { label: "text-right", value: "text-right"},
 ]
 
-function buildOptions(options: {label: string, value: string }[] = [{label: '', value: ''}], isMobile = false) {
+function buildOptions(options = [{label: '', value: ''}], isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(options, `${mobilePrefix}`)
 }

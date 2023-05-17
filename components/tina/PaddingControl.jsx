@@ -3,7 +3,7 @@ import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities'
 import Control from './Control';
 import LabeledSelectMenu from './widgets/LabeledSelectMenu';
 
-export const spacingOptions: {label: string, value: string}[] = [
+export const spacingOptions = [
   { label: "0", value: "0" },
   { label: "1", value: "px" },
   { label: "2", value: "0.5" },

@@ -4,8 +4,8 @@ import ColorPicker from './widgets/ColorPicker';
 import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch } from './widgets/helpers'
 
-export default function ColorControl({ field, input, meta }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+export default function ColorControl({ field, input }) {
+  const inputRef = useRef(null);
   const colors = [
     { label: "Primary", value: "primary"},
     { label: "Accent 1", value: "accent1"},
@@ -25,7 +25,7 @@ export default function ColorControl({ field, input, meta }) {
     const lastValue = input.value;
     const newValue = color;
     input.value = newValue;
-    (input as any)._valueTracker?.setValue(lastValue);
+    input._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
   }
 
@@ -33,7 +33,7 @@ export default function ColorControl({ field, input, meta }) {
     updateHiddenField()
   }, [color, inputRef.current]);
 
-  function handleSetColor(value: string) {
+  function handleSetColor(value) {
     setColor(value)
   }
 

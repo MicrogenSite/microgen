@@ -1,15 +1,7 @@
 
 import React from 'react';
 
-interface PixelFieldProps {
-  onChange
-  label: string
-  value: string
-  icon?
-  className?: string
-}
-
-export default function PixelField(props:PixelFieldProps) {
+export default function PixelField(props) {
   const isLabel = (!props.icon && props.label)
   return (
     <div className={`relative pl-6 ${props.className}`}>

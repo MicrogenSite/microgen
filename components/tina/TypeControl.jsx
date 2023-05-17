@@ -6,7 +6,7 @@ import ColorPicker from './widgets/ColorPicker';
 import IconMargin from './icons/IconMargin';
 import { client } from "../../tina/__generated__/client";
 
-function buildColorOptions(prefix?) {
+function buildColorOptions(prefix) {
   const options = [
     { label: "Primary", value: "text-primary"},
     { label: "Accent 1", value: "text-accent1"},
@@ -28,7 +28,7 @@ function buildColorOptions(prefix?) {
   return formattedOptions;
 }
 
-function buildMarginOptions(prefix?) {
+function buildMarginOptions(prefix) {
   const options = [
     { label: "default", value: "" },
     { label: "0", value: "mb-0" },
@@ -63,7 +63,7 @@ function buildMarginOptions(prefix?) {
   return formattedOptions;
 }
 
-function getFontClass(classString: string) {
+function getFontClass(classString) {
   const classes = classString.split(" ")
   return classes.find(item => item.includes("mg-"))
 }
@@ -77,7 +77,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   const [font, setFont] = useState(getFontClass(inputValue));
   const [margin, setMargin] = useState(getStyleMatch(marginOptions, inputValue));
   
-  function handleSetColor(value: string) {
+  function handleSetColor(value) {
     setColor(`${prefix}text-${value}`)
   }
 
@@ -90,7 +90,6 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
         setFontOptions([{ label: "default", value: "" }, ...options]);
       } catch (error) {
         setFontOptions([{ label: "default", value: "" }]);
-        console.log("error", error);
       }
     };
     fetchData();

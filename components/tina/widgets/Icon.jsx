@@ -1,10 +1,5 @@
 import * as React from "react";
 
-interface IconProps {
-  icon: string;
-  className?: string;
-}
-
 const icons = {
   'fontSize': `<svg fill="currentColor" width="18" height="13" viewBox="0 0 18 13" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M5 0H18V3H13V13H10V3H5V0ZM8 5H0V7H3V13H5V7H8V5Z"/></svg>`,
   'mobile': `<svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M8 2H2L2 14H8V2ZM2 0C0.895431 0 0 0.895431 0 2V14C0 15.1046 0.89543 16 2 16H8C9.10457 16 10 15.1046 10 14V2C10 0.895431 9.10457 0 8 0H2Z" fill="currentColor"/><rect x="2" y="12" width="6" height="2" fill="currentColor"/></svg>`,
@@ -34,7 +29,7 @@ const icons = {
   'margin-right': `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="4" height="4" fill="#D9D9D9"/><rect y="5" width="6" height="6" fill="black"/><rect y="12" width="4" height="4" fill="#D9D9D9"/><rect x="6" width="4" height="4" fill="#D9D9D9"/><rect x="6" y="6" width="4" height="4" fill="#D9D9D9"/><rect x="6" y="12" width="4" height="4" fill="#D9D9D9"/><rect x="12" width="4" height="4" fill="#D9D9D9"/><rect x="12" y="6" width="4" height="4" fill="#D9D9D9"/><rect x="12" y="12" width="4" height="4" fill="#D9D9D9"/></svg>`,
 }
 
-export default function Icon(props:IconProps) {
+export default function Icon(props) {
   return (
     <div className={props?.className}>
       <img src={`data:image/svg+xml;utf8,${encodeURIComponent(icons[props.icon])}`} />

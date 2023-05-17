@@ -4,8 +4,8 @@ import ColorPicker from './widgets/ColorPicker';
 import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch } from './widgets/helpers'
 
-export default function FillControl({ field, input, meta }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+export default function FillControl({ field, input }) {
+  const inputRef = useRef(null);
 
   const fillTypes = [
     { label: "None", value: "transparent" },
@@ -90,11 +90,11 @@ export default function FillControl({ field, input, meta }) {
       gradient: `${fromColor} ${toColor} ${direction}`,
     }
     input.value = `${fillClasses[fillType]} ${opacity}`;
-    (input as any)._valueTracker?.setValue(lastValue);
+    (input)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
   }, [bgColor, toColor, fromColor, fillType, direction, opacity, inputRef.current]);
 
-  function getFillType(value: string) {
+  function getFillType(value) {
     if (value.includes("to-")) {
       return "gradient";
     } else if (value.includes("bg-")) {
@@ -102,16 +102,16 @@ export default function FillControl({ field, input, meta }) {
     }
     return "transparent";
   }
-  function handleSetBgColor(value: string) {
+  function handleSetBgColor(value) {
     setBgColor(`bg-${value}`)
   }
-  function handleSetToColor(value: string) {
+  function handleSetToColor(value) {
     setToColor(`to-${value}`)
   }
-  function handleSetFromColor(value: string) {
+  function handleSetFromColor(value) {
     setFromColor(`from-${value}`)
   }
-  function handleSetFillType(value: string) {
+  function handleSetFillType(value) {
     if (value === "solid") {
       setBgColor(fromColor?.replace("from-", "bg-"))
     } else {

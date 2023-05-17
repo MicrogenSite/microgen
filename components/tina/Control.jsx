@@ -3,7 +3,7 @@ import IconMobile from './icons/IconMobile';
 import FieldLabel from './widgets/FieldLabel';
 
 export default function Control({ field, input, fieldRow, isResponsive = true }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef(null);
   const [hasMobileStyles, setHasMobileStyles] = useState(input.value.includes("sm:"));
   const [desktopValue, setDesktopValue] = useState(input.value.split(' ').filter(item => !item.includes('sm:')).join(' '));
   const [mobileValue, setMobileValue] = useState(input.value.split(' ').filter(item => item.includes('sm:')).join(' '));
@@ -20,7 +20,7 @@ export default function Control({ field, input, fieldRow, isResponsive = true })
     const lastValue = input.value;
     const newValue = hasMobileStyles ? `${desktopValue} ${mobileValue}` : desktopValue;
     input.value = newValue;
-    (input as any)._valueTracker?.setValue(lastValue);
+    (input)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
   }
 

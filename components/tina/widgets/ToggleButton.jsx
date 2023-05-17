@@ -1,15 +1,6 @@
 import React from 'react';
 
-interface ToggleButtonProps {
-  options: {
-    label: string,
-    value: string
-  }[];
-  onClick;
-  value: string;
-  className?: string;
-}
-export default function ToggleButton(props:ToggleButtonProps) {
+export default function ToggleButton(props) {
   const isActive = props.options[0].value === props.value && props.value != undefined;
 
   function handleClick() {

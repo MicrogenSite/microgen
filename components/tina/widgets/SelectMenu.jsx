@@ -1,15 +1,6 @@
 import React from 'react';
 
-interface SelectMenuProps {
-  options: {
-    label: string,
-    value: string
-  }[];
-  onChange;
-  value: string;
-  className?: string;
-}
-export default function SelectMenu(props:SelectMenuProps) {
+export default function SelectMenu(props) {
   const optionElements = props.options.map((option) => {
     return <option value={option.value} key={option.value}>{option.label}</option>
   });

@@ -1,13 +1,7 @@
 import React from 'react';
 import IconMobile from '../icons/IconMobile';
 
-interface FieldLabelProps {
-  label: string,
-  hasMobileStyles?: boolean,
-  mobileMode?: boolean,
-  onMobileToggle?;
-}
-export default function FieldLabel(props:FieldLabelProps) {
+export default function FieldLabel(props) {
   function handleChange() {
     props.onMobileToggle()
   }

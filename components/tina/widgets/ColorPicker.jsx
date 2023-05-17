@@ -4,20 +4,13 @@ import { client } from "../../../tina/__generated__/client";
 /*
 Color picker expects the value prop to match one of the colorOptions
 */
-interface ColorPickerProps {
-  onClick;
-  value: string;
-  className?: string;
-  width?: number;
-}
-
 const kebobToCamel = (kabobString) => {
   return kabobString.replace(/-([a-z])/g, function (match, letter) {
     return letter.toUpperCase();
   });
 }
 
-export default function ColorPicker(props:ColorPickerProps) {
+export default function ColorPicker(props) {
   const colorOptions = [
     { label: "primary", value: "primary"},
     { label: "accent1", value: "accent1"},
@@ -53,7 +46,7 @@ export default function ColorPicker(props:ColorPickerProps) {
       const colors = fetchedData?.data?.global?.theme?.colors || {}
       setGlobalColors(colors);
     };
-    fetchData().catch(console.error)
+    fetchData().catch()
 
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);

@@ -2,15 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { client } from "../../../tina/__generated__/client";
 import { lowerDash } from '../../../helpers/utilities';
 
-interface ButtonPickerProps {
-  onChange;
-  value: string;
-  className?: string;
-}
-export default function ButtonPicker(props:ButtonPickerProps) {
-  const [options, setOptions] = useState([{label: "...", value: "loading"}])
+export default function ButtonPicker(props) {
+  const [options, setOptions] = useState([{ label: "...", value: "loading" }])
 
-  
   useEffect(() => {
     const fetchData = async () => {
       const fetchedData = await client.queries.global({relativePath: `../global/index.json`})
@@ -18,13 +12,13 @@ export default function ButtonPicker(props:ButtonPickerProps) {
       const options = buttonTypeData.map(item => ({ label: item.label, value: lowerDash(item.label) }))
       setOptions(options);
     };
-    fetchData().catch(console.error)
+    fetchData().catch()
   }, []);
-  
+
   function handleChange(event) {
     props.onChange(event.target.value);
   }
-  
+
   const optionElements = options.map((option) => {
     return <option value={option.value} key={option.value}>{option.label}</option>
   });
@@ -33,7 +27,7 @@ export default function ButtonPicker(props:ButtonPickerProps) {
 
   return (
     <select value={props.value} onChange={handleChange} className={selectClasses}>
-        {optionElements}
+      {optionElements}
     </select>
   )
 }

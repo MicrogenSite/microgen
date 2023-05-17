@@ -2,18 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Icon from './Icon';
 
-interface IconPickerProps {
-  options: {
-    label: string,
-    value: string
-  }[];
-  onClick;
-  value: string;
-  menuPosition?: string;
-  className?: string;
-}
-
-export default function IconPicker(props:IconPickerProps) {
+export default function IconPicker(props) {
   const [isActive, setIsActive] = useState(false)
   const clickOutsideRef = useRef(null);
   const currentOption = props.options.find(option => option.value === props.value)

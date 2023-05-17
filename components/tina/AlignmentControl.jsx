@@ -38,7 +38,7 @@ const gapOptions = [
   { label: "192", value: "gap-48"},
 ]
 
-function buildOptions(options: {label: string, value: string }[] = [{label: '', value: ''}], isMobile = false) {
+function buildOptions(options = [{label: '', value: ''}], isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(options, `${mobilePrefix}`)
 }

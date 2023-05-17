@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities';
 import Control from './Control';
 import IconPicker from './widgets/IconPicker';
@@ -32,7 +32,7 @@ const alignments = [
   { label: "text-right", value: "text-right"},
 ]
 
-function buildOptions(options: { label: string, value: string }[] = [], isMobile = false) {
+function buildOptions(options = [{label: '', value: ''}], isMobile = false) {
   const mobilePrefix = isMobile ? 'sm:' : ''
   return prefixSelectValues(options, `${mobilePrefix}`)
 }

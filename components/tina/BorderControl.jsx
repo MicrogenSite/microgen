@@ -5,7 +5,7 @@ import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch, getBorderWidth, getBorderSide } from './widgets/helpers'
 
 export default function BorderControl({ field, input, meta }) {
-  const inputRef = useRef<HTMLInputElement>(null);
+  const inputRef = useRef(null);
   
   const colors = [
     { label: "Primary", value: "border-primary"},
@@ -47,11 +47,11 @@ export default function BorderControl({ field, input, meta }) {
     const lastValue = input.value;
     const newValue = `${color} ${side}${width}`;
     input.value = newValue;
-    (input as any)._valueTracker?.setValue(lastValue);
+    (input)._valueTracker?.setValue(lastValue);
     input.dispatchEvent(new Event("input", {bubbles: true}));
   }, [color, width, sides, inputRef.current]);
 
-  function handleSetColor(value: string) {
+  function handleSetColor(value) {
     setColor(`border-${value}`)
   }
   

@@ -53,6 +53,11 @@ export const Layout = ({ rawData, children }) => {
           }}
         />
 
+        {/* Typekit Project Link */ }
+        { global.theme.fonts?.typekitLink && (
+          <link rel="stylesheet" href={global.theme.fonts?.typekitLink}></link>
+        )}
+
         {/* Google Fonts */ }
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>

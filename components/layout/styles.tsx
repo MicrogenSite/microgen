@@ -1,11 +1,19 @@
 function justFontFamily(fontName) {
-  const parts = fontName.split(":wght@")
-  return parts[0] || ""
+  const parts = fontName.split("@")
+  const family = parts[0]?.replace(":wght", "")
+  return family || ""
 }
 
 function justFontWeight(fontName) {
-  const parts = fontName.split(":wght@")
-  return Number(parts[1]) || 400
+  const parts = fontName.split("@")
+  const weight = parts[1]?.replace(":style", "")
+  return Number(weight) || 400
+}
+
+function justFontStyle(fontName) {
+  const parts = fontName.split("@")
+  const style = parts[2]
+  return style || "normal"
 }
 
 function slugify(string: string) {
@@ -95,6 +103,7 @@ function buttonClass(obj) {
       background: ${getBackground(obj)};
       font-family: ${justFontFamily(typography?.family)};
       font-weight: ${justFontWeight(typography?.family)};
+      font-style: ${justFontStyle(typography?.family)};
       font-size: ${typography.size}px;
       line-height: ${typography.lineHeight}px;
       letter-spacing: ${typography.letterSpacing}px;
@@ -117,6 +126,7 @@ function typographyClass(obj, isMobile: boolean) {
     .mg-${slugify(obj.label)} {
       font-family: "${justFontFamily(typography?.family)}";
       font-weight: ${justFontWeight(typography?.family)};
+      font-style: ${justFontStyle(typography?.family)};
       font-size: ${isMobile ? typography?.smSize : typography?.size}px;
       line-height: ${isMobile ? typography?.smLineHeight : typography?.lineHeight}px;
       letter-spacing: ${isMobile ? typography?.smLetterSpacing : typography?.letterSpacing}px;

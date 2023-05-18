@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fontOptions } from './options/font-options';
+import { client } from "../../tina/__generated__/client";
 import Control from './Control';
 import PixelField from './widgets/PixelField';
 import SelectMenu from './widgets/SelectMenu';
@@ -8,8 +8,14 @@ import IconLetterSpacing from './icons/IconLetterSpacing';
 import IconLineHeight from './icons/IconLineHeight';
 import IconMargin from './icons/IconMargin';
 import IconMobile from './icons/IconMobile';
+import { systemFontOptions } from './options/system-font-options';
+import { googleFontOptions } from './options/google-font-options';
+import { customFontOptions } from './options/custom-font-options';
+
+const fontOptions = [...systemFontOptions, ...customFontOptions, ...googleFontOptions];
 
 const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
+  const [allFontOptions, setAllFontOptions] = useState([{ label: "loading", value: "loading" }]);
   const [family, setFamily] = useState(getInputObject("family"));
   const [size, setSize] = useState(getInputObject("size"));
   const [letterSpacing, setLetterSpacing] = useState(getInputObject("letterSpacing"));
@@ -41,13 +47,27 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
   }
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = await client.queries.global({relativePath: `../global/index.json`})
+        const data = fetchedData?.data?.global?.theme?.fonts?.typekitFonts
+        const typekitOptions = data.map(item => ({ label: item.fontLabel, value: `${item.fontFamily}:wght@${item.fontWeight}:style@${item.fontStyle}` }))
+        setAllFontOptions([{ label: "default", value: "" }, ...typekitOptions, ...fontOptions]);
+      } catch (error) {
+        setAllFontOptions([{ label: "default", value: "" }, ...fontOptions]);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
     onUpdate(`${jsonInput()}`)
   }, [family, size, letterSpacing, lineHeight, margin, smSize, smLetterSpacing, smLineHeight, smMargin]);
 
   return (
     <div style={{marginBottom: "40px"}}>
       <div className="flex items-center gap-2 mb-2">
-        <SelectMenu value={family} onChange={setFamily} options={fontOptions} className="flex-1" />
+        <SelectMenu value={family} onChange={setFamily} options={allFontOptions} className="flex-1" />
       </div>
       <div className="mb-2" style={{
         display: "grid",

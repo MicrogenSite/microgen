@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fontOptions } from './options/font-options';
+import { client } from "../../tina/__generated__/client";
 import Control from './Control';
 import ColorPicker from './widgets/ColorPicker';
 import PixelField from './widgets/PixelField';
@@ -8,8 +8,14 @@ import IconFontSize from './icons/IconFontSize';
 import IconLetterSpacing from './icons/IconLetterSpacing';
 import IconLineHeight from './icons/IconLineHeight';
 import IconMobile from './icons/IconMobile';
+import { systemFontOptions } from './options/system-font-options';
+import { googleFontOptions } from './options/google-font-options';
+import { customFontOptions } from './options/custom-font-options';
+
+const fontOptions = [...systemFontOptions, ...customFontOptions, ...googleFontOptions];
 
 const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
+  const [allFontOptions, setAllFontOptions] = useState([{ label: "loading", value: "loading" }]);
   const [color, setColor] = useState(getInputObject("color"));
   const [family, setFamily] = useState(getInputObject("family"));
   const [size, setSize] = useState(getInputObject("size"));
@@ -39,6 +45,20 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
   }
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchedData = await client.queries.global({relativePath: `../global/index.json`})
+        const data = fetchedData?.data?.global?.theme?.fonts?.typekitFonts
+        const typekitOptions = data.map(item => ({ label: item.fontLabel, value: `${item.fontFamily}:wght@${item.fontWeight}` }))
+        setAllFontOptions([{ label: "default", value: "" }, ...typekitOptions, ...fontOptions]);
+      } catch (error) {
+        setAllFontOptions([{ label: "default", value: "" }, ...fontOptions]);
+      }
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
     onUpdate(`${jsonInput()}`)
   }, [color, family, size, letterSpacing, lineHeight, smSize, smLetterSpacing, smLineHeight]);
 
@@ -46,7 +66,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
     <div>
       <div className="flex items-center gap-2 mb-2">
         <ColorPicker value={color} onClick={setColor} className="w-9" />
-        <SelectMenu value={family} onChange={setFamily} options={fontOptions} className="flex-1" />
+        <SelectMenu value={family} onChange={setFamily} options={allFontOptions} className="flex-1" />
       </div>
       <div className="mb-2" style={{
         display: "grid",

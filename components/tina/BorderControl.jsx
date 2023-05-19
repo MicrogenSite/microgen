@@ -4,7 +4,7 @@ import ColorPicker from './widgets/ColorPicker';
 import FieldLabel from './widgets/FieldLabel';
 import { getStyleMatch, getBorderWidth, getBorderSide } from './widgets/helpers'
 
-export default function BorderControl({ field, input, meta }) {
+export default function BorderControl({ field, input }) {
   const inputRef = useRef(null);
   
   const colors = [
@@ -48,7 +48,8 @@ export default function BorderControl({ field, input, meta }) {
     const newValue = `${color} ${side}${width}`;
     input.value = newValue;
     (input)._valueTracker?.setValue(lastValue);
-    input.dispatchEvent(new Event("input", {bubbles: true}));
+    // dispatchEvent is necessary so our form will recognize a change has been made
+    input.dispatchEvent(new Event('input', { bubbles: true })); // eslint-disable-line no-undef
   }, [color, width, sides, inputRef.current]);
 
   function handleSetColor(value) {

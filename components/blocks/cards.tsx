@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { hasWord, getWordWith } from '../../helpers/utilities.ts';
+import { hasWord, getWordWith } from '../../helpers/utilities';
 import { Section } from '../section';
 import { Content } from '../content';
 

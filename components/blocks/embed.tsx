@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Section } from "../section";
 
-export const Embed = ({ data, parentField = "" }) => {
+export const Embed = ({ data }) => {
   const padding = data.style?.padding
   const width = data.style?.fullWidth ? "" : "max-w-desktop-full mx-auto"
 

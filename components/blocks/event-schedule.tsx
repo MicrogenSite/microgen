@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react'
 import dayjs from 'dayjs'
 import ScrollContainer from 'react-indiana-drag-scroll'
-import { dayOffset, readableHash } from '../../helpers/utilities.ts';
+import { dayOffset, readableHash } from '../../helpers/utilities';
 
 import { AddCard } from './event-schedule/event'
 import { IconClickDrag } from './event-schedule/icons';

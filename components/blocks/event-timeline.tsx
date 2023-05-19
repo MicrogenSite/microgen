@@ -1,5 +1,5 @@
 import React from "react";
-import { dateRangeString } from '../../helpers/utilities.ts';
+import { dateRangeString } from '../../helpers/utilities';
 import { Section } from "../section";
 import { trackGoal } from "fathom-client";
 

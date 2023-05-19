@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Section } from '../section';
 import { Content } from '../content';
-import { hasWord, getWordWith } from '../../helpers/utilities.ts';
+import { hasWord, getWordWith } from '../../helpers/utilities';
 
 const imageWrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''

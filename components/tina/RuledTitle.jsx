@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RuledTitle({ field, input, meta }) {
+export default function RuledTitle({ field }) {
 
   return (
     <>

@@ -91,7 +91,8 @@ export default function FillControl({ field, input }) {
     }
     input.value = `${fillClasses[fillType]} ${opacity}`;
     (input)._valueTracker?.setValue(lastValue);
-    input.dispatchEvent(new Event("input", {bubbles: true}));
+    // dispatchEvent is necessary so our form will recognize a change has been made
+    input.dispatchEvent(new Event("input", {bubbles: true})); // eslint-disable-line no-undef
   }, [bgColor, toColor, fromColor, fillType, direction, opacity, inputRef.current]);
 
   function getFillType(value) {

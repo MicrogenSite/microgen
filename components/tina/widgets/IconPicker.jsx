@@ -21,8 +21,8 @@ export default function IconPicker(props) {
   }
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside); // eslint-disable-line no-undef
+    return () => document.removeEventListener('mousedown', handleClickOutside); // eslint-disable-line no-undef
   });
 
   const options = props.options.map((option) => {

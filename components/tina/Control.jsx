@@ -21,7 +21,8 @@ export default function Control({ field, input, fieldRow, isResponsive = true })
     const newValue = hasMobileStyles ? `${desktopValue} ${mobileValue}` : desktopValue;
     input.value = newValue;
     (input)._valueTracker?.setValue(lastValue);
-    input.dispatchEvent(new Event("input", {bubbles: true}));
+    // dispatchEvent is necessary so our form will recognize a change has been made
+    input.dispatchEvent(new Event("input", {bubbles: true})); // eslint-disable-line no-undef
   }
 
   useEffect(() => {

@@ -201,6 +201,9 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
     .markdown a {
       text-decoration: underline;
     }
+    .markdown p:not(:last-child) {
+      margin-bottom: inherit;
+    }
     ${buttonClasses(theme.buttons)}
     ${typographyClasses(theme.typo)}
     

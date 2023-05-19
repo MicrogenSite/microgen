@@ -9,11 +9,11 @@ function unique(list) {
 export const googleFontsLink = (theme) => {
   const typographyFontFamilies = theme.typo?.map(item => {
     const fontObject = JSON.parse(item.typography)
-    return fontObject.family || null
+    return fontObject?.family || null
   }) || []
   const buttonFontFamilies = theme.buttons?.map(item => {
     const fontObject = JSON.parse(item.typography)
-    return fontObject.family || null
+    return fontObject?.family || null
   }) || []
   const themeFontFamilies = [...typographyFontFamilies, ...buttonFontFamilies]
   const uniqueFontList = unique(themeFontFamilies)

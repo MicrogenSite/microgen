@@ -167,6 +167,7 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
       overflow-x: hidden;
     }
     #__next {
+      position: relative;
       display: flex;
       flex-direction: column;
       overflow: clip;

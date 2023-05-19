@@ -32,7 +32,7 @@ export const Layout = ({ rawData, children }) => {
         
         <style id="theme-styles"
           dangerouslySetInnerHTML={{
-            __html: styles(global?.theme, page?.backgroundColor ),
+            __html: styles(global?.theme),
           }}
         />
         

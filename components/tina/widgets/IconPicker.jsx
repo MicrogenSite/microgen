@@ -27,17 +27,15 @@ export default function IconPicker(props) {
 
   const options = props.options.map((option) => {
     return (
-      <>
-        <div
-          onClick={() => handleClick(option.value)}
-          className={`icon-picker-option inline-flex w-8 h-8 items-center rounded-sm cursor-pointer`}
-          key={option.value}
-          >
-          <div style={{margin: "auto"}}>
-            <Icon icon={option.label} />
-          </div>
+      <div
+        onClick={() => handleClick(option.value)}
+        className={`icon-picker-option inline-flex w-8 h-8 items-center rounded-sm cursor-pointer`}
+        key={option.value}
+        >
+        <div style={{margin: "auto"}}>
+          <Icon icon={option.label} />
         </div>
-      </>
+      </div>
     )
   });
 

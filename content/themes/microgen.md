@@ -30,7 +30,7 @@ typo:
       {"family":"bely:wght@400","size":"42","lineHeight":"28","letterSpacing":"0","margin":"0","smSize":"18","smLineHeight":"28","smLetterSpacing":"0","smMargin":"0"}
   - label: Headline Large
     typography: >-
-      {"family":"bely:wght@400:style@italic","size":"50","lineHeight":"60","letterSpacing":"0","margin":"0","smSize":"48","smLineHeight":"60","smLetterSpacing":"0","smMargin":"0"}
+      {"family":"Inter:wght@900","size":"50","lineHeight":"60","letterSpacing":"0","margin":"0","smSize":"48","smLineHeight":"60","smLetterSpacing":"0","smMargin":"0"}
 buttons:
   - label: Outline
     fill: ' opacity-100'
@@ -67,6 +67,7 @@ fonts:
       fontWeight: '700'
       fontStyle: normal
 ---
+
 
 
 

@@ -76,6 +76,7 @@ const Card = ({ data, index, cardstyle, parentField = "" }) => {
           data = {data}
           styles = {cardstyle}
           alignment = {``}
+          buttonsLayout = ""
           width = "w-full"
           parentField = {parentField}
           className = ""
@@ -113,6 +114,7 @@ export const Cards = ({ data, parentField = "" }) => {
             data = {data}
             styles = {style}
             alignment = {`${textAlign} ${textAlignMobile}`}
+            buttonsLayout = {style.buttonsLayout}
             width = "w-full"
             parentField = {parentField}
             className = ""

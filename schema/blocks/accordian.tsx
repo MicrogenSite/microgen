@@ -33,6 +33,7 @@ export const accordianBlockSchema: any = {
         alignment: "flex-col-reverse items-center gap-6",
         padding: "pt-20 pb-20 pr-10 pl-10",
         featureContent: "w-full min-h-0 text-left",
+        buttonsLayout: "flex-row gap-4",
         labelStyles: "text-black",
         headlineStyles: "text-black",
         subheadStyles: "text-black",
@@ -86,6 +87,14 @@ export const accordianBlockSchema: any = {
           ui: {
             component: "featureContentControl",
           }
+        },
+        {
+          label: "Buttons",
+          name: "buttonsLayout",
+          type: "string",
+          ui: {
+            component: "buttonsLayoutControl",
+          },
         },
         ...typographySchema
       ],

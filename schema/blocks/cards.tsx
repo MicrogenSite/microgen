@@ -22,6 +22,7 @@ export const cardsBlockSchema: any = {
         alignment: "flex-col-reverse items-start gap-6",
         padding: "pt-20 pb-20 pr-20 pl-20",
         featureContent: "w-1/2 min-h-0 text-left",
+        buttonsLayout: "flex-row gap-4",
         labelStyles: "text-black",
         headlineStyles: "text-black",
         subheadStyles: "text-black",
@@ -78,6 +79,14 @@ export const cardsBlockSchema: any = {
           ui: {
             component: "featureContentControl",
           }
+        },
+        {
+          label: "Buttons",
+          name: "buttonsLayout",
+          type: "string",
+          ui: {
+            component: "buttonsLayoutControl",
+          },
         },
         ...typographySchema
       ],

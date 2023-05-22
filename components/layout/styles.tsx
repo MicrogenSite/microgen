@@ -48,7 +48,7 @@ function buttonClass(obj) {
     return roundedOptions[obj.primaryRounded]
   }
   const getBorder = (obj) => {
-    if (obj.primaryBorder?.length > 1) {
+    if (obj.primaryBorder?.length < 1) {
       return ""
     }
     const borderClasses = obj.primaryBorder.split(" ")

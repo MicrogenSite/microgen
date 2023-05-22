@@ -32,6 +32,13 @@ typo:
     typography: >-
       {"family":"bely:wght@400:style@italic","size":"50","lineHeight":"60","letterSpacing":"0","margin":"0","smSize":"48","smLineHeight":"60","smLetterSpacing":"0","smMargin":"0"}
 buttons:
+  - label: Outline
+    fill: ' opacity-100'
+    typography: >-
+      {"color":"primary","family":"Arial","size":"18","lineHeight":"18","letterSpacing":"0","smSize":"18","smLineHeight":"18","smLetterSpacing":"0"}
+    padding: pt-2.5 pb-2.5 pr-9 pl-9
+    primaryBorder: border-primary border-1
+    primaryRounded: rounded
   - label: Primary
     fill: bg-primary opacity-100
     typography: >-
@@ -60,6 +67,8 @@ fonts:
       fontWeight: '700'
       fontStyle: normal
 ---
+
+
 
 
 

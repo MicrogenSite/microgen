@@ -17,6 +17,7 @@ export const featureBlockSchema: any = {
         padding: "pt-20 pb-20 pr-10 pl-10",
         featureImage: "mx-auto",
         featureContent: "w-1/2 min-h-0 text-left",
+        buttonsLayoutControl: "flex-row gap-4",
         labelStyles: "text-black",
         headlineStyles: "text-black",
         subheadStyles: "text-black",
@@ -65,6 +66,14 @@ export const featureBlockSchema: any = {
           ui: {
             component: "featureContentControl",
           }
+        },
+        {
+          label: "Buttons",
+          name: "buttonsLayout",
+          type: "string",
+          ui: {
+            component: "buttonsLayoutControl",
+          },
         },
         ...typographySchema,
       ],

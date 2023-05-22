@@ -19,6 +19,7 @@ export const Content = ({
   data,
   styles,
   alignment,
+  buttonsLayout,
   width,
   parentField,
   className = ""
@@ -43,9 +44,9 @@ export const Content = ({
       )}
       {data?.buttons && (
         <Buttons
+          layout={buttonsLayout}
           buttons={data.buttons}
-          className={`${buttonAlignment(alignment)} order-4`}
-          parentField={`${parentField}.buttons`}
+          className={`${buttonAlignment(alignment)}`}
         />
       )}
     </div>

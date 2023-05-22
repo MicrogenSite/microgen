@@ -1,5 +1,4 @@
 import { defineStaticConfig } from "tinacms";
-import { colorOptions } from "../schema/options";
 
 // Partials
 import { backgroundSchema } from "../schema/background"
@@ -138,6 +137,9 @@ const config = defineStaticConfig({
     });
     import("../plugins").then(({ buttonControlFieldPlugin }) => {
       cms.plugins.add(buttonControlFieldPlugin);
+    });
+    import("../plugins").then(({ buttonsLayoutControlFieldPlugin }) => {
+      cms.plugins.add(buttonsLayoutControlFieldPlugin);
     });
     import("../plugins").then(({ buttonTypographyControlFieldPlugin }) => {
       cms.plugins.add(buttonTypographyControlFieldPlugin);

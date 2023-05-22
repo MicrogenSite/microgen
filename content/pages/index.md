@@ -5,6 +5,7 @@ blocks:
       padding: pt-20 pb-20 pr-10 pl-10
       featureImage: '  mx-auto'
       featureContent: 'w-1/2 min-h-0 text-left sm:w-full sm:min-h-0 sm:text-left'
+      buttonsLayout: 'flex-wrap gap-3.5 '
       labelStyles: 'text-black mg-headline-small '
       headlineStyles: 'text-black mg-headline-large '
       subheadStyles: text-gray mg-copy-large mb-7
@@ -35,6 +36,16 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
+
+
+
+
+
+
+
 
 
 

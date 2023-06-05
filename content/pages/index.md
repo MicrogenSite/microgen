@@ -12,6 +12,8 @@ blocks:
     background:
       fillStyles: bg-black opacity-100
       src: ''
+      style: bg-cover
+      position: bg-center
     label: ''
     headline: Microgen
     subhead: A site builder for Web3
@@ -29,16 +31,16 @@ blocks:
       calendarBorder: border-primary border-2
       calendarPadding: pt-2.5 pb-2.5 pr-2.5 pl-2.5
       calendarLabel: text-white mg-copy-medium mb-0
-      calendarHeadline: text-accent1 mg-headline-small mb-0
+      calendarHeadline: text-accent2 mg-headline-small mb-0
       calendarText: text-black mg-copy-small mb-0
       modalFill: ' opacity-100'
       modalBorder: border-white border-0
       modalPadding: undefined undefined undefined undefined
-      modalLabel: 'undefined undefined '
-      modalHeadline: 'undefined undefined '
+      modalLabel: 'text-accent2  '
+      modalHeadline: 'text-accent2 undefined '
       modalText: 'undefined undefined '
       timeslotLabel: 'undefined undefined '
-      timeslotHeadline: 'undefined undefined '
+      timeslotHeadline: 'text-accent2 undefined '
       timeslotText: 'undefined undefined '
     background:
       fillStyles: bg-gray-light opacity-100
@@ -49,23 +51,10 @@ backgroundColor: white
 meta:
   title: Microgen
   description: ''
+background:
+  fillStyles: ' opacity-100'
+  src: ''
+  style: bg-cover
+  position: bg-left
 ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

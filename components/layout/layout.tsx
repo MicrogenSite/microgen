@@ -4,6 +4,7 @@ import { Header } from "./header";
 import { Blocks } from "../../components/blocks-renderer";
 import { styles } from "./styles"
 import { googleFontsLink } from "./google-fonts"
+import { Background } from "../background";
 
 export const Layout = ({ rawData, children }) => {
   const page = rawData.page
@@ -31,7 +32,7 @@ export const Layout = ({ rawData, children }) => {
         
         <style id="theme-styles"
           dangerouslySetInnerHTML={{
-            __html: styles(global?.theme, page?.backgroundColor ),
+            __html: styles(global?.theme),
           }}
         />
         
@@ -52,6 +53,11 @@ export const Layout = ({ rawData, children }) => {
           }}
         />
 
+        {/* Typekit Project Link */ }
+        { global.theme.fonts?.typekitLink && (
+          <link rel="stylesheet" href={global.theme.fonts?.typekitLink}></link>
+        )}
+
         {/* Google Fonts */ }
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>
@@ -59,9 +65,11 @@ export const Layout = ({ rawData, children }) => {
           <link href={googleFontsLink(global.theme)} rel="stylesheet"></link>
         )}
       </Head>
-      
+      <Background background={page.background}></Background>
       <Header blocks={page?.blocks} globalData={global} />
-      {children}
+      <main>
+        {children}
+      </main>
       <div id="footer">
         <Blocks blocks={global.blocks} />
       </div>

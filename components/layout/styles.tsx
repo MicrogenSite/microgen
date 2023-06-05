@@ -1,11 +1,19 @@
 function justFontFamily(fontName) {
-  const parts = fontName.split(":wght@")
-  return parts[0] || ""
+  const parts = fontName.split("@")
+  const family = parts[0]?.replace(":wght", "")
+  return family || ""
 }
 
 function justFontWeight(fontName) {
-  const parts = fontName.split(":wght@")
-  return Number(parts[1]) || 400
+  const parts = fontName.split("@")
+  const weight = parts[1]?.replace(":style", "")
+  return Number(weight) || 400
+}
+
+function justFontStyle(fontName) {
+  const parts = fontName.split("@")
+  const style = parts[2]
+  return style || "normal"
 }
 
 function slugify(string: string) {
@@ -40,7 +48,7 @@ function buttonClass(obj) {
     return roundedOptions[obj.primaryRounded]
   }
   const getBorder = (obj) => {
-    if (obj.primaryBorder?.length > 1) {
+    if (obj.primaryBorder?.length < 1) {
       return ""
     }
     const borderClasses = obj.primaryBorder.split(" ")
@@ -95,6 +103,7 @@ function buttonClass(obj) {
       background: ${getBackground(obj)};
       font-family: ${justFontFamily(typography?.family)};
       font-weight: ${justFontWeight(typography?.family)};
+      font-style: ${justFontStyle(typography?.family)};
       font-size: ${typography.size}px;
       line-height: ${typography.lineHeight}px;
       letter-spacing: ${typography.letterSpacing}px;
@@ -117,6 +126,7 @@ function typographyClass(obj, isMobile: boolean) {
     .mg-${slugify(obj.label)} {
       font-family: "${justFontFamily(typography?.family)}";
       font-weight: ${justFontWeight(typography?.family)};
+      font-style: ${justFontStyle(typography?.family)};
       font-size: ${isMobile ? typography?.smSize : typography?.size}px;
       line-height: ${isMobile ? typography?.smLineHeight : typography?.lineHeight}px;
       letter-spacing: ${isMobile ? typography?.smLetterSpacing : typography?.letterSpacing}px;
@@ -129,7 +139,7 @@ function typographyClasses(typography, isMobile = false) {
   return items.map((item) => typographyClass(item, isMobile)).join(" ")
 }
 
-export const styles = (theme, pageBackground = "#FFFFFF") => {
+export const styles = (theme) => {
   return `
     :root {
       --site-width: ${theme.desktopWidth}px;
@@ -147,7 +157,6 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
       --link-color: ${theme.linkColor};              
     }
     html {
-      background:  var(--${pageBackground}-color);
       scroll-behavior: smooth;
       height: 100%;
     }
@@ -157,6 +166,7 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
       overflow-x: hidden;
     }
     #__next {
+      position: relative;
       display: flex;
       flex-direction: column;
       overflow: clip;
@@ -189,6 +199,9 @@ export const styles = (theme, pageBackground = "#FFFFFF") => {
     }
     .markdown a {
       text-decoration: underline;
+    }
+    .markdown p:not(:last-child) {
+      margin-bottom: inherit;
     }
     ${buttonClasses(theme.buttons)}
     ${typographyClasses(theme.typo)}

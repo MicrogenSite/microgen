@@ -1,4 +1,4 @@
-import { client } from "../../.tina/__generated__/client";
+import { client } from "../../tina/__generated__/client";
 import { useTina } from "tinacms/dist/react";
 import { ThemeLayout } from "../../components/layout/theme-layout";
 

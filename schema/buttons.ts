@@ -5,6 +5,11 @@ export const buttonsSchema = {
   list: true,
   ui: {
     component: 'itemListField',
+    defaultItem: {
+      label: "New Button",
+      link: "/",
+      buttonStyle: "primary",
+    },
   },
   fields: [
     {

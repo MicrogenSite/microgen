@@ -156,6 +156,79 @@ export const themeCollectionSchema: any = {
     },
     {
       type: "object",
+      label: "Fonts",
+      name: "fonts",
+      fields: [
+        {
+          label: "Typekit Link",
+          name: "typekitLink",
+          description: "Link to Adobe Typekit project. i.e. https://use.typekit.net/296tei.css",
+          type: "string",
+        },
+        {
+          label: "Typekit Fonts",
+          name: "typekitFonts",
+          type: "object",
+          list: true,
+          ui: {
+            defaultItem: {
+              fontWeight: "400",
+              fontStyle: "normal",
+            },
+            itemProps: (item) => {
+              return { label: item?.fontLabel || "New Font" }
+            },
+          },
+          fields: [
+            {
+              label: "Font Label",
+              name: "fontLabel",
+              description: "How the font will appear in the font dropdown",
+              type: "string",
+            },
+            {
+              label: "Font Family",
+              name: "fontFamily",
+              description: "The font family name from typekit, should be lowercase and hyphenated if their are spaces",
+              type: "string",
+            },
+            {
+              label: "Font Weight",
+              name: "fontWeight",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: [
+                { label: '100', value: '100' },
+                { label: '200', value: '200' },
+                { label: '300', value: '300' },
+                { label: '400', value: '400' },
+                { label: '500', value: '500' },
+                { label: '600', value: '600' },
+                { label: '700', value: '700' },
+                { label: '800', value: '800' },
+                { label: '900', value: '900' },
+              ]
+            },
+            {
+              label: "Font Style",
+              name: "fontStyle",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: [
+                { label: 'normal', value: 'normal' },
+                { label: 'italic', value: 'italic' },
+              ]
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: "object",
       label: "Typography",
       name: "typo",
       list: true,

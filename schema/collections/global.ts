@@ -1,9 +1,9 @@
 // Blocks
-import { featureBlockSchema } from "../../components/blocks/feature";
-import { cardsBlockSchema } from "../../components/blocks/cards";
-import { embedBlockSchema } from "../../components/blocks/embed";
-import { tailwindFeatureBlockSchema } from "../../components/blocks/tailwind-feature"
-import { tailwindCardsBlockSchema } from "../../components/blocks/tailwind-cards"
+import { featureBlockSchema } from "../blocks/feature";
+import { cardsBlockSchema } from "../blocks/cards";
+import { embedBlockSchema } from "../blocks/embed";
+import { tailwindFeatureBlockSchema } from "../blocks/tailwind-feature"
+import { tailwindCardsBlockSchema } from "../blocks/tailwind-cards"
 
 export const globalCollectionSchema: any = {
   label: "Global",

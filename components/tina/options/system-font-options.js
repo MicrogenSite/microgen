@@ -1,0 +1,15 @@
+export const systemFontOptions = [
+  { "label": "Arial", "value": "Arial" },
+  { "label": "Courier", "value": "Courier" },
+  { "label": "Geneva", "value": "Geneva" },
+  { "label": "Georgia", "value": "Georgia" },
+  { "label": "Helvetica", "value": "Helvetica" },
+  { "label": "Impact", "value": "Impact" },
+  { "label": "Lucia Console", "value": "Lucia Console" },
+  { "label": "Lucida Grande", "value": "Lucida Grande" },
+  { "label": "Monaco", "value": "Monaco" },
+  { "label": "Palatino", "value": "Palatino" },
+  { "label": "Tahoma", "value": "Tahoma" },
+  { "label": "Times New Roman", "value": "Times New Roman" },
+  { "label": "Verdana", "value": "Verdana" },
+]

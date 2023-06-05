@@ -19,6 +19,7 @@ export const Content = ({
   data,
   styles,
   alignment,
+  buttonsLayout,
   width,
   parentField,
   className = ""
@@ -36,16 +37,16 @@ export const Content = ({
       {data?.label &&<h4 className={`${styles.labelStyles}`} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
       {headlineElement()}
       {data?.subhead && <h3 className={`${styles.subheadStyles}`} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
-      {data?.body?.children && (
+      {data?.body?.children?.length > 0 && (
         <div className={`markdown items-center ${styles.textStyles}`} data-tinafield={`${parentField}.body`}>
           <TinaMarkdown content={data.body} />
         </div>
       )}
       {data?.buttons && (
         <Buttons
+          layout={buttonsLayout}
           buttons={data.buttons}
-          className={`${buttonAlignment(alignment)} order-4`}
-          parentField={`${parentField}.buttons`}
+          className={`${buttonAlignment(alignment)}`}
         />
       )}
     </div>

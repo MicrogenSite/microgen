@@ -26,25 +26,25 @@ blocks:
         fathomId: ''
     _template: feature
   - style:
-      calendarFill: from-accent4 to-accent3 bg-gradient-to-br opacity-100
-      calendarHover: bg-accent3 opacity-100
-      calendarBorder: border-primary border-2
-      calendarPadding: pt-2.5 pb-2.5 pr-2.5 pl-2.5
-      calendarLabel: text-white mg-copy-medium mb-0
-      calendarHeadline: text-accent2 mg-headline-small mb-0
-      calendarText: text-black mg-copy-small mb-0
-      modalFill: ' opacity-100'
-      modalBorder: border-white border-0
-      modalPadding: undefined undefined undefined undefined
-      modalLabel: 'text-accent2  '
-      modalHeadline: 'text-accent2 undefined '
-      modalText: 'undefined undefined '
-      timeslotLabel: 'undefined undefined '
-      timeslotHeadline: 'text-accent2 undefined '
-      timeslotText: 'undefined undefined '
-    background:
-      fillStyles: bg-gray-light opacity-100
-    scheduleStartDate: 2023-04-14T05:00:00.000Z
+      width: siteWidth
+      labelFill: bg-black
+      labelBorder: ''
+      labelPadding: pt-4 pb-4 pr-4 pl-4
+      label: text-white
+      fill: bg-gray-light
+      border: ''
+      padding: pt-4 pb-4 pr-4 pl-4
+      headline: text-black
+      text: text-black
+    modalStyle:
+      fill: bg-white
+      border: ''
+      padding: pt-5 pb-5 pr-5 pl-5
+      headline: text-black
+      label: text-black
+      text: text-black
+      modalButtonStyle: primary
+    scheduleStartDate: 2023-04-16T05:00:00.000Z
     scheduleEndDate: 2023-04-20T05:00:00.000Z
     _template: eventSchedule
 backgroundColor: white
@@ -57,4 +57,16 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -15,22 +15,22 @@ colors:
 typo:
   - label: Copy Small
     typography: >-
-      {"family":"Inter:wght@400","size":"13","lineHeight":"21","letterSpacing":"0","margin":"0","smSize":"13","smLineHeight":"21","smLetterSpacing":"0","smMargin":"0"}
+      {"family":"Inter:wght@400","size":"14","lineHeight":"21","letterSpacing":"0","margin":"0","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
   - label: Copy Medium
     typography: >-
-      {"family":"Inter:wght@400","size":"15","lineHeight":"24","letterSpacing":"0","margin":"0","smSize":"15","smLineHeight":"24","smLetterSpacing":"0","smMargin":"0"}
+      {"family":"Inter:wght@400","size":"17","lineHeight":"24","letterSpacing":"0","margin":"0","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
   - label: Copy Large
     typography: >-
       {"family":"Inter:wght@400","size":"21","lineHeight":"36","letterSpacing":"0","margin":"0","smSize":"21","smLineHeight":"36","smLetterSpacing":"0","smMargin":"0"}
   - label: Headline Small
     typography: >-
-      {"family":"Inter:wght@400","size":"18","lineHeight":"20","letterSpacing":"0","margin":"0","smSize":"18","smLineHeight":"20","smLetterSpacing":"0","smMargin":"0"}
+      {"family":"Inter:wght@600","size":"16","lineHeight":"20","letterSpacing":"0","margin":"","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
   - label: Headline Medium
     typography: >-
-      {"family":"Inter:wght@400","size":"28","lineHeight":"28","letterSpacing":"0","margin":"0","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
+      {"family":"Inter:wght@600","size":"24","lineHeight":"30","letterSpacing":"0","margin":"","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
   - label: Headline Large
     typography: >-
-      {"family":"Inter:wght@900","size":"50","lineHeight":"60","letterSpacing":"0","margin":"0","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
+      {"family":"Inter:wght@900","size":"50","lineHeight":"60","letterSpacing":"0","margin":"","smSize":"","smLineHeight":"","smLetterSpacing":"","smMargin":""}
 buttons:
   - label: Outline
     fill: ' opacity-100'
@@ -48,25 +48,12 @@ buttons:
     primaryRounded: rounded
 linkColor: primary
 fonts:
-  typekitLink: 'https://use.typekit.net/rzo2moc.css'
-  typekitFonts:
-    - fontLabel: Bely Display
-      fontFamily: bely-display
-      fontWeight: '400'
-      fontStyle: normal
-    - fontLabel: Bely
-      fontFamily: bely
-      fontWeight: '400'
-      fontStyle: normal
-    - fontLabel: Bely Italic
-      fontFamily: bely
-      fontWeight: '400'
-      fontStyle: italic
-    - fontLabel: Bely Bold
-      fontFamily: bely
-      fontWeight: '700'
-      fontStyle: normal
+  typekitLink: ''
 ---
+
+
+
+
 
 
 

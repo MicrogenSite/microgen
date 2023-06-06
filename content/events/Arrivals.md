@@ -9,7 +9,12 @@ label: All Welcome
 priority: 1
 description: ''
 logomark: /uploads/logo.jpg
+tags:
+  - Event
+  - Dinner
+  - Party
 ---
+
 
 
 

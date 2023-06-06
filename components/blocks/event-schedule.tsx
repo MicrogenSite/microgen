@@ -59,7 +59,7 @@ export const EventSchedule = ({ data, events }) => {
             <IconClickDrag />
             Click and drag the schedule to navigate
           </div>
-          <div className='w-full max-w-desktop-full mx-auto min-h-[10vh]' id='schedule'>
+          <div className={`w-full mx-auto min-h-[10vh] ${ data?.style?.width === 'siteWidth' ? 'max-w-desktop-full' : '' }`} id='schedule'>
             <ScrollContainer innerRef={scrollContainer} className="scroll-container bg-gray-100 py-10" ignoreElements='.modal'>
               <div className="flex-none min-h-full w-full">
                 <div className="content">

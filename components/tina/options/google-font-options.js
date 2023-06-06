@@ -164,6 +164,7 @@ export const googleFontOptions = [
   { "label": "Inter Extra Light", "value": "Inter:wght@100" },
   { "label": "Inter Light", "value": "Inter:wght@300" },
   { "label": "Inter", "value": "Inter:wght@400" },
+  { "label": "Inter Bold", "value": "Inter:wght@600" },
   { "label": "Inter Heavy", "value": "Inter:wght@900" },
   { "label": "JetBrains Mono Extra Light", "value": "JetBrains Mono:wght@100" },
   { "label": "JetBrains Mono Heavy", "value": "JetBrains Mono:wght@800" },

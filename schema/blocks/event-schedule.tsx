@@ -9,91 +9,56 @@ export const eventScheduleBlockSchema: any = {
       scheduleStartDate: new Date().toISOString(),
       scheduleEndDate: new Date().toISOString(),
       style: {
-        calendarFill: "bg-white",
-        calendarHover: "bg-gray-light",
-        calendarBorder: "",
-        calendarPadding: "pt-4 pb4 pr-4 pl-4",
-        calendarLabel: "text-black",
-        calendarHeadline: "text-black",
-        calendarText: "text-black",
-        modalFill: "bg-white",
-        modalBorder: "",
-        modalPadding: "pt10 pb-10 pr-10 pl-10",
-        modalLabel: "text-black",
-        modalHeadline: "text-black",
-        modalText: "text-black",
+        width: "siteWidth",
+        labelFill: "bg-black",
+        labelBorder: "",
+        labelPadding: "pt-4 pb-4 pr-4 pl-4",
+        label: "text-white",
+        fill: "bg-gray-light",
+        border: "",
+        padding: "pt-4 pb-4 pr-4 pl-4",
+        headline: "text-black",
+        text: "text-black",
+      },
+      modalStyle: {
+        fill: "bg-white",
+        border: "",
+        padding: "pt-5 pb-5 pr-5 pl-5",
+        label: "text-black",
+        headline: "text-black",
+        text: "text-black",
         timelineLabel: "text-black",
         timelineHeadline: "text-black",
         timelineText: "text-black",
+        modalButtonStyle: "primary",
       },
     }
   },
   fields: [
     {
-      label: "Section Style",
+      label: "Calendar Style",
       name: "style",
       type: "object",
       fields: [
         {
-          type: "string",
-          label: "Background",
-          name: "calendarFill",
-          ui: {
-            component: "fillControl"
-          }
+          label: 'Calendar Width',
+          name: 'width',
+          type: 'string',
+          list: false,
+          options: [
+            {
+              value: 'siteWidth',
+              label: 'Site Width',
+            },
+            {
+              value: 'windowWidth',
+              label: 'Window Width',
+            },
+          ],
         },
         {
-          type: "string",
-          label: "Hover",
-          name: "calendarHover",
-          ui: {
-            component: "fillControl"
-          }
-        },
-        {
-          type: "string",
-          label: "Border",
-          name: "calendarBorder",
-          ui: {
-            component: "borderControl"
-          }
-        },
-        {
-          label: "Padding",
-          name: "calendarPadding",
-          type: "string",
-          ui: {
-            component: "paddingControl",
-          }
-        },
-        {
-          type: "string",
-          label: "Label",
-          name: "calendarLabel",
-          ui: {
-            component: "typeControl"
-          }
-        },
-        {
-          type: "string",
-          label: "Headline",
-          name: "calendarHeadline",
-          ui: {
-            component: "typeControl"
-          }
-        },
-        {
-          type: "string",
-          label: "Text",
-          name: "calendarText",
-          ui: {
-            component: "typeControl"
-          }
-        },
-
-        {
-          label: "Modal",
-          name: "modalTitle",
+          label: "Label Styles",
+          name: "labelStyles",
           type: "string",
           ui: {
             component: "ruledTitle",
@@ -102,7 +67,7 @@ export const eventScheduleBlockSchema: any = {
         {
           type: "string",
           label: "Background",
-          name: "modalFill",
+          name: "labelFill",
           ui: {
             component: "fillControl"
           }
@@ -110,14 +75,14 @@ export const eventScheduleBlockSchema: any = {
         {
           type: "string",
           label: "Border",
-          name: "modalBorder",
+          name: "labelBorder",
           ui: {
             component: "borderControl"
           }
         },
         {
           label: "Padding",
-          name: "modalPadding",
+          name: "labelPadding",
           type: "string",
           ui: {
             component: "paddingControl",
@@ -126,15 +91,47 @@ export const eventScheduleBlockSchema: any = {
         {
           type: "string",
           label: "Label",
-          name: "modalLabel",
+          name: "label",
           ui: {
             component: "typeControl"
           }
         },
         {
+          label: "Day Styles",
+          name: "dayStyles",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          type: "string",
+          label: "Background",
+          name: "fill",
+          ui: {
+            component: "fillControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Border",
+          name: "border",
+          ui: {
+            component: "borderControl"
+          }
+        },
+        {
+          label: "Padding",
+          name: "padding",
+          type: "string",
+          ui: {
+            component: "paddingControl",
+          }
+        },
+        {
           type: "string",
           label: "Headline",
-          name: "modalHeadline",
+          name: "headline",
           ui: {
             component: "typeControl"
           }
@@ -142,22 +139,77 @@ export const eventScheduleBlockSchema: any = {
         {
           type: "string",
           label: "Text",
-          name: "modalText",
+          name: "text",
+          ui: {
+            component: "typeControl"
+          }
+        },
+      ],
+    },
+    {
+      label: "Modal Style",
+      name: "modalStyle",
+      type: "object",
+      fields: [
+        {
+          type: "string",
+          label: "Background",
+          name: "fill",
+          ui: {
+            component: "fillControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Border",
+          name: "border",
+          ui: {
+            component: "borderControl"
+          }
+        },
+        {
+          label: "Padding",
+          name: "padding",
+          type: "string",
+          ui: {
+            component: "paddingControl",
+          }
+        },
+        {
+          type: "string",
+          label: "Headline",
+          name: "headline",
           ui: {
             component: "typeControl"
           }
         },
         {
           type: "string",
-          label: "Timeslot Label",
-          name: "timeslotLabel",
+          label: "Details",
+          name: "label",
           ui: {
             component: "typeControl"
           }
         },
         {
           type: "string",
-          label: "Timeslot Headline",
+          label: "Text",
+          name: "text",
+          ui: {
+            component: "typeControl"
+          }
+        },
+        {
+          label: "Schedule",
+          name: "title",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          type: "string",
+          label: "Schedule Headline",
           name: "timeslotHeadline",
           ui: {
             component: "typeControl"
@@ -165,11 +217,35 @@ export const eventScheduleBlockSchema: any = {
         },
         {
           type: "string",
-          label: "Timeslot Text",
+          label: "Schedule Label",
+          name: "timeslotLabel",
+          ui: {
+            component: "typeControl"
+          }
+        },
+        {
+          type: "string",
+          label: "Schedule Text",
           name: "timeslotText",
           ui: {
             component: "typeControl"
           }
+        },
+        {
+          label: "",
+          name: "modalButton",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          type: "string",
+          label: "Button Style",
+          name: "modalButtonStyle",
+          ui: {
+            component: "buttonControl",
+          },
         },
       ],
     },
@@ -187,12 +263,6 @@ export const eventScheduleBlockSchema: any = {
       description: "The last day of the schedule",
       type: "datetime",
       required: true,
-    },
-    {
-      label: "Add Event Link",
-      name: "addEventLink",
-      description: "A link to a form or repo to add an event to the schedule",
-      type: "string",
     },
     navigationLabelSchema,
   ],

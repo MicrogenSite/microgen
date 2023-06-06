@@ -4,7 +4,7 @@ import { EventModal } from './event-modal'
 import Link from 'next/link.js'
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 
-export function EventCard({ event, urlHash, style }) {
+export function EventCard({ event, urlHash, style, modalStyle }) {
   const isWorkInProgress = event.tags?.some((el) => el.toLowerCase() === "wip")
   const attendees = () => {
     if (event.attendees && event.label) return `${event.attendees} (${event.label})`
@@ -14,13 +14,13 @@ export function EventCard({ event, urlHash, style }) {
   }
 
   return (
-    <EventModal content={<EventModalContent event={event} urlHash={urlHash} style={style} />} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash} style={style}>
+    <EventModal content={<EventModalContent event={event} urlHash={urlHash} modalStyle={modalStyle} />} name={event.name} link={event.website} hash={event.hash} urlHash={urlHash} modalStyle={modalStyle}>
       <Link href={`/${event.hash}`} scroll={false}>
-        <div className={classNames('w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
-          <div className={`cursor-pointer relative block flex flex-col h-full ${style.calendarPadding} ${style.calendarBorder} ${style.calendarFill}`}>
+        <div className={classNames('cursor-pointer', 'w-full', 'h-full', 'overflow-hidden', { 'opacity-70': isWorkInProgress })}>
+          <div className={`relative block flex flex-col h-full ${style.padding} ${style.border} ${style.fill}`}>
             <div className="flex-1">
               <div className="flex gap-2">
-                <h5 className={`flex-1 ${style.calendarHeadline}`}>
+                <h5 className={`flex-1 ${style.headline}`}>
                   {event.name}
                 </h5>
                 {event.isLive &&
@@ -29,7 +29,7 @@ export function EventCard({ event, urlHash, style }) {
                   </div>
                 }
               </div>
-              <div className={`${style.calendarText}`}>
+              <div className={`${style.text}`}>
                 {event.times !== "To be confirmed" &&
                   <div>{event.times}</div>
                 }
@@ -65,7 +65,7 @@ export function EventCard({ event, urlHash, style }) {
   )
 }
 
-function EventModalContent({ event, urlHash, style }) {
+function EventModalContent({ event, urlHash, modalStyle }) {
   const attendees = () => {
     if (event.attendees && event.label) return `${event.attendees} (${event.label})`
     if (event.attendees && !event.label) return `${event.attendees}`
@@ -75,7 +75,7 @@ function EventModalContent({ event, urlHash, style }) {
 
   return (
     <>
-      <ul className={`list-disc ml-4 ${style.modalText}`}>
+      <ul className={`list-disc ml-4 ${modalStyle?.label}`}>
         <li><b>Date</b>: {dateRangeString(event.date, event.days)}</li>
         {event.times &&
           <li><b>Times</b>: {event.times}</li>
@@ -98,29 +98,29 @@ function EventModalContent({ event, urlHash, style }) {
         ))}
       </div>
       {event.description && (
-        <div className="markdown mg-copy-small mt-4">
+        <div className={`markdown ${modalStyle?.text}`}>
           <TinaMarkdown content={event.description} />
         </div>
       )}
-      {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} hash={event.hash} urlHash={urlHash} />}
+      {event.timeslots?.length >= 1 && <TimeslotTable timeslots={event.timeslots} hash={event.hash} urlHash={urlHash} modalStyle={modalStyle} />}
     </>
   )
 }
 
-function TimeslotTable({ timeslots, hash, urlHash }) {
+function TimeslotTable({ timeslots, hash, urlHash, modalStyle }) {
   const sortedTimeslots = timeslots.sort((a, b) => a.time.localeCompare(b.time))
   return (
     <div>
-      <h4 className="py-3 mg-small text-black font-bold">Schedule</h4>
+      <h4 className={`${modalStyle.timeslotHeadline}`}>Schedule</h4>
       <table className="w-full">
-        <thead className="bg-gray-light text-left mg-copy-xs">
+        <thead className={`bg-gray-light text-left`}>
           <tr>
-            <th scope="col" className="px-6 py-3">TIME</th>
-            <th scope="col" className="px-6 py-3">SPEAKER</th>
-            <th scope="col" className="px-6 py-3">INFO</th>
+            <th scope="col" className={`px-6 py-3 ${modalStyle.timeslotLabel}`}>TIME</th>
+            <th scope="col" className={`px-6 py-3 ${modalStyle.timeslotLabel}`}>SPEAKER</th>
+            <th scope="col" className={`px-6 py-3 ${modalStyle.timeslotLabel}`}>INFO</th>
           </tr>
         </thead>
-        <tbody className="mg-copy-small">
+        <tbody className={`${modalStyle.timeslotText}`}>
           {sortedTimeslots?.map((timeslot, index) => {
             const timeslotId = `${hash}-timeslot${index+1}`
             const currentTimeslot = urlHash?.replace('/', '-timeslot')

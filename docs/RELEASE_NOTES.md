@@ -13,6 +13,7 @@ Features
 - Footer Nav
 - Update demo site
 - Upgrade Tina
+- Update schedule styling
 
 Fixes
 

@@ -56,13 +56,13 @@ export const eventCollectionSchema: any = {
           type: "string",
         },
         {
-          label: "Speakers",
-          name: "speakers",
+          label: "Title",
+          name: "title",
           type: "string",
         },
         {
-          label: "Name",
-          name: "name",
+          label: "Speakers",
+          name: "speakers",
           type: "string",
         },
         {

@@ -28,7 +28,7 @@ function setLocationHash(hash) {
   }
 }
 
-export function EventModal({ children, content, name, link, hash, urlHash }) {
+export function EventModal({ children, content, name, link, hash, urlHash, modalStyle }) {
   const [openModal, setOpenModal] = useState(urlHash === hash);
   const modalHash = urlHash.includes('/') ? urlHash.split('/').at(0) : urlHash
 
@@ -76,19 +76,17 @@ export function EventModal({ children, content, name, link, hash, urlHash }) {
       </div>
       <div className={`modal fixed inset-0 z-50 overflow-hidden flex items-center p-8 justify-center backdrop-blur-xl ${openModal ? "" : "hidden"}`}>
         <div className="modal-fader absolute inset-0 bg-black opacity-50" onClick={close}></div>
-        <div className="modal-wrap relative max-h-full w-full max-w-3xl bg-gradient-to-r from-accent4 via-accent2 to-accent3 p-1">
-          <div className="bg-white">
-            <div className="modal-header p-5 mg-headline-medium">{name}</div>
-            <div className="modal-body p-5 overflow-y-scroll border-gray-light border-b border-t" style={{maxHeight: '70vh'}}>
+        <div className={`modal-wrap relative max-h-full w-full max-w-3xl ${modalStyle?.fill} ${modalStyle?.border}`}>
+            <div className={`modal-header ${modalStyle?.padding} ${modalStyle?.headline}`}>{name}</div>
+            <div className={`modal-body ${modalStyle?.padding} overflow-y-scroll border-gray-light border-b border-t`} style={{maxHeight: '70vh'}}>
               {content}
             </div>
-            <div className="modal-footer p-5 flex gap-4">
+            <div className={`modal-footer ${modalStyle?.padding} flex gap-4`}>
               {link &&
-                <a href={link} target="_blank" className="btn-gradient">Website</a>
+                <a href={link} target="_blank" className={`cursor-pointer btn-${modalStyle?.modalButtonStyle}`}>Website</a>
               }
-              <a className="btn-outline" onClick={close}>Close</a>
+              <a className={`cursor-pointer btn-${modalStyle?.modalButtonStyle}`} onClick={close}>Close</a>
             </div>
-          </div>
         </div>
       </div>
     </>

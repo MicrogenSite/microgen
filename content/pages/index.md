@@ -31,6 +31,28 @@ blocks:
         fathomId: ''
     _template: feature
   - style:
+      width: siteWidth
+      labelFill: bg-black
+      labelBorder: ''
+      labelPadding: pt-4 pb-4 pr-4 pl-4
+      label: text-white
+      fill: bg-gray-light
+      border: ''
+      padding: pt-4 pb-4 pr-4 pl-4
+      headline: text-black
+      text: text-black
+    modalStyle:
+      fill: bg-white
+      border: ''
+      padding: pt-5 pb-5 pr-5 pl-5
+      headline: text-black
+      label: text-black
+      text: text-black
+      modalButtonStyle: primary
+    scheduleStartDate: 2023-04-16T05:00:00.000Z
+    scheduleEndDate: 2023-04-20T05:00:00.000Z
+    _template: eventSchedule
+  - style:
       alignment: 'flex-col-reverse items-center '
       padding: pt-0 pb-0.5 pr-0 pl-0
       featureContent: w-full min-h-0 text-center
@@ -366,3 +388,4 @@ background:
   style: bg-cover
   position: bg-left
 ---
+

@@ -12,6 +12,14 @@ export const backgroundSchema = {
       }
     },
     {
+      type: "string",
+      label: "Wrap Background",
+      name: "wrapFillStyles",
+      ui: {
+        component: "fillControl"
+      }
+    },
+    {
       label: "Image",
       name: "src",
       type: "image",
@@ -20,29 +28,52 @@ export const backgroundSchema = {
       }
     },
     {
-      label: "Image Position",
-      name: "position",
+      label: "Image Style",
+      name: "style",
+      type: "string",
       ui: {
         component: "select",
       },
-      type: "string",
       options: [
-        { label: "Center", value: "object-center" },
-        { label: "Top", value: "object-top" },
-        { label: "Right Top", value: "object-right-top" },
-        { label: "Right", value: "object-right" },
-        { label: "Right Bottom", value: "object-right-bottom" },
-        { label: "Bottom", value: "object-bottom" },
-        { label: "Left Bottom", value: "object-left-bottom" },
-        { label: "Left", value: "object-left" },
-        { label: "Left Top", value: "object-left-top" },
+        { label: "Cover", value: "bg-cover" },
+        { label: "Tile", value: "bg-repeat" },
       ],
+    },
+    {
+      label: "Image Position",
+      name: "position",
+      type: "string",
+      ui: {
+        component: "select",
+      },
+      options: [
+        { label: "Center", value: "bg-center" },
+        { label: "Top", value: "bg-top" },
+        { label: "Right Top", value: "bg-right-top" },
+        { label: "Right", value: "bg-right" },
+        { label: "Right Bottom", value: "bg-right-bottom" },
+        { label: "Bottom", value: "bg-bottom" },
+        { label: "Left Bottom", value: "bg-left-bottom" },
+        { label: "Left", value: "bg-left" },
+        { label: "Left Top", value: "bg-left-top" },
+      ],
+    },
+    {
+      label: "",
+      name: "typographyTitle",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
     },
     {
       label: 'Ornaments',
       name: 'ornaments',
       type: "object",
       list: true,
+      itemProps: (item) => ({
+        label: item.src?.replace('/uploads/', ''),
+      }),
       fields: [
         {
           label: "Image",
@@ -82,12 +113,12 @@ export const backgroundSchema = {
           type: "string",
         },
         {
-          label: "X Offset",
+          label: "Horizontal Offset",
           name: "xOffset",
           type: "string",
         },
         {
-          label: "Y Offset",
+          label: "Vertical Offset",
           name: "yOffset",
           type: "string",
         },

@@ -1,12 +1,8 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { tinaField } from "tinacms/dist/react";
 import { linkTarget } from "../../helpers/utilities";
 import { Section } from "../section";
-import { buttonsSchema } from "../../schema/buttons"
-import { backgroundSchema } from "../../schema/background"
-import { contentSchema } from "../../schema/content"
-import { imageSchema } from '../../schema/image';
-import { navigationLabelSchema } from "../../schema/navigation-label";
 
 export const TailwindFeature = ({ data, parentField = ""  }) => {
   const tw = data.tailwind || {};
@@ -14,15 +10,15 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
     if (data?.headline && parentField === 'blocks.0') {
       return (
         <>
-          <h1 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h1> 
-          {data.subhead && <h2 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h2>}
+          <h1 className={tw.headline} data-tina-field={tinaField(data, "headline")}>{data.headline}</h1> 
+          {data.subhead && <h2 className={tw.subhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h2>}
         </>
       )
     } else if (data?.headline) {
       return (
         <>
           <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
-          {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+          {data.subhead && <h3 className={tw.subhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h3>}
         </>
       )
     }
@@ -39,10 +35,10 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
         </div>
         <div className={tw.contentWrap}>
           <div className={`markdown ${tw.content}`}>
-            {data.label &&<h4 className={tw.label} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
+            {data.label &&<h4 className={tw.label} data-tina-field={tinaField(data, "label")}>{data.label}</h4>}
             {headlineElement()}
             {data.body?.children && (
-              <div className={tw.text} data-tinafield={`${parentField}.body`}>
+              <div className={tw.text} data-tina-field={tinaField(data, "body")}>
                 <TinaMarkdown content={data.body} />
               </div>
             )}
@@ -70,118 +66,4 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
       </div>
     </Section>
   );
-};
-
-export const tailwindFeatureBlockSchema: any = {
-  label: "Tailwind Feature",
-  name: "tailwindFeature",
-  ui: {
-    defaultItem: {
-      label: "",
-      headline: "This is the main headline",
-      subhead: "Here is a subhead",
-      body: {
-        children: [
-         {
-           type: "p",
-           children: [
-              {
-                text: "This is a rich text component you can add hyperlinks, etc."
-              }
-            ]
-          }
-        ]
-      },
-      tailwind: {
-        section: "",
-        wrap: "",
-        imageWrap: "",
-        image: "",
-        contentWrap: "",
-        content: "",
-        label: "",
-        headline: "",
-        subhead: "",
-        text: "",
-        buttons: ""
-      }
-    },
-  },
-  fields: [
-    {
-      type: "object",
-      label: "Tailwind",
-      name: "tailwind",
-      ui: {
-        component: "group",
-      },
-      fields: [
-        {
-          label: "Section",
-          name: "section",
-          type: "string",
-        },
-        {
-          label: "Wrap",
-          name: "wrap",
-          type: "string",
-        },
-        {
-          label: "Image Wrap",
-          name: "imageWrap",
-          type: "string",
-        },
-        {
-          label: "Image",
-          name: "image",
-          type: "string",
-        },
-        {
-          label: "Content Wrap",
-          name: "contentWrap",
-          type: "string",
-        },
-        {
-          label: "Content",
-          name: "content",
-          type: "string",
-        },
-        {
-          label: "Label",
-          name: "label",
-          type: "string",
-        },
-        {
-          label: "Headline",
-          name: "headline",
-          type: "string",
-        },
-        {
-          label: "Subhead",
-          name: "subhead",
-          type: "string",
-        },
-        {
-          label: "Text",
-          name: "text",
-          type: "string",
-        },
-        {
-          label: "Buttons",
-          name: "buttons",
-          type: "string",
-        },
-        {
-          label: "Button",
-          name: "button",
-          type: "string",
-        },
-      ],
-    },
-    backgroundSchema,
-    imageSchema,
-    ...contentSchema,
-    buttonsSchema,
-    navigationLabelSchema,
-  ],
 };

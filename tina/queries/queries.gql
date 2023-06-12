@@ -1,0 +1,52 @@
+query pageQuery {
+  postConnection {
+    edges {
+      node {
+        id
+        _values
+        _sys {
+          filename
+        }
+      }
+    }
+  },
+  eventConnection {
+    edges {
+      node {
+        id
+        _values
+        _sys {
+          filename
+        }
+      }
+    }
+  },
+  ...LayoutQueryFragment
+}
+
+query contentQuery($relativePath: String!) {
+  page(relativePath: $relativePath) {
+    ...PageParts
+  },
+  ...LayoutQueryFragment
+}
+
+query blogPostQuery($relativePath: String!) {
+  post(relativePath: $relativePath) {
+    ...PostParts
+  },
+  ...LayoutQueryFragment
+}
+
+query eventQuery($relativePath: String!) {
+  event(relativePath: $relativePath) {
+    ...EventParts
+  },
+  ...LayoutQueryFragment
+}
+
+query themeQuery($relativePath: String!) {
+  theme(relativePath: $relativePath) {
+    ...ThemeParts
+  }
+}

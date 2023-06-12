@@ -156,6 +156,79 @@ export const themeCollectionSchema: any = {
     },
     {
       type: "object",
+      label: "Fonts",
+      name: "fonts",
+      fields: [
+        {
+          label: "Typekit Link",
+          name: "typekitLink",
+          description: "Link to Adobe Typekit project. i.e. https://use.typekit.net/296tei.css",
+          type: "string",
+        },
+        {
+          label: "Typekit Fonts",
+          name: "typekitFonts",
+          type: "object",
+          list: true,
+          ui: {
+            defaultItem: {
+              fontWeight: "400",
+              fontStyle: "normal",
+            },
+            itemProps: (item) => {
+              return { label: item?.fontLabel || "New Font" }
+            },
+          },
+          fields: [
+            {
+              label: "Font Label",
+              name: "fontLabel",
+              description: "How the font will appear in the font dropdown",
+              type: "string",
+            },
+            {
+              label: "Font Family",
+              name: "fontFamily",
+              description: "The font family name from typekit, should be lowercase and hyphenated if their are spaces",
+              type: "string",
+            },
+            {
+              label: "Font Weight",
+              name: "fontWeight",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: [
+                { label: '100', value: '100' },
+                { label: '200', value: '200' },
+                { label: '300', value: '300' },
+                { label: '400', value: '400' },
+                { label: '500', value: '500' },
+                { label: '600', value: '600' },
+                { label: '700', value: '700' },
+                { label: '800', value: '800' },
+                { label: '900', value: '900' },
+              ]
+            },
+            {
+              label: "Font Style",
+              name: "fontStyle",
+              type: "string",
+              ui: {
+                component: "select",
+              },
+              options: [
+                { label: 'normal', value: 'normal' },
+                { label: 'italic', value: 'italic' },
+              ]
+            },
+          ]
+        },
+      ]
+    },
+    {
+      type: "object",
       label: "Typography",
       name: "typo",
       list: true,
@@ -191,6 +264,7 @@ export const themeCollectionSchema: any = {
           typography: '{"color":"white","family":"Arial","size":"18","lineHeight":"18","letterSpacing":"0","smSize":"18","smLineHeight":"18","smLetterSpacing":"0"}',
           padding: "pt-2.5 pb-2.5 pr-9 pl-9",
           primaryBorder: "border-primary border-0",
+          iconSize: "16px",
         },
       },
       fields: [
@@ -239,6 +313,25 @@ export const themeCollectionSchema: any = {
             component: "selectField",
           },
           options: roundedOptions,
+        },
+        {
+          label: "Icon Size",
+          name: "iconSize",
+          type: "string",
+          ui: {
+            component: "selectField",
+          },
+          options: [
+            { label: '10px', value: '10px' },
+            { label: '12px', value: '12px' },
+            { label: '14px', value: '14px' },
+            { label: '16px', value: '16px' },
+            { label: '20px', value: '20px' },
+            { label: '24px', value: '24px' },
+            { label: '28px', value: '28px' },
+            { label: '32px', value: '32px' },
+            { label: '48px', value: '48px' },
+          ]
         },
       ]
     },

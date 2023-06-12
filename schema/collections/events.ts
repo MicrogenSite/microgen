@@ -19,7 +19,7 @@ export const eventCollectionSchema: any = {
     {
       label: "Description",
       name: "description",
-      type: "string",
+      type: "rich-text",
     },
     {
       label: "Date",
@@ -56,19 +56,19 @@ export const eventCollectionSchema: any = {
           type: "string",
         },
         {
+          label: "Title",
+          name: "title",
+          type: "string",
+        },
+        {
           label: "Speakers",
           name: "speakers",
           type: "string",
         },
         {
-          label: "Name",
-          name: "name",
-          type: "string",
-        },
-        {
           label: "Description",
           name: "description",
-          type: "string",
+          type: "rich-text",
         },
       ]
     },

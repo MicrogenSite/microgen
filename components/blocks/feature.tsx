@@ -2,12 +2,6 @@ import * as React from 'react';
 import { Section } from '../section';
 import { Content } from '../content';
 import { hasWord, getWordWith } from '../../helpers/utilities';
-import { buttonsSchema } from "../../schema/buttons"
-import { backgroundSchema } from "../../schema/background"
-import { contentSchema } from "../../schema/content"
-import { imageSchema } from '../../schema/image';
-import { navigationLabelSchema } from "../../schema/navigation-label";
-import { typographySchema } from "../../schema/typography"
 
 const imageWrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
@@ -52,7 +46,7 @@ export const Feature = ({ data, parentField = '' }) => {
     <Section background={data.background} navigationLabel={data.navigationLabel}>
       <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
         <div className={`${imageWrapClasses(style)}`}>
-          {data.image?.src && (
+          {data.image?.src && !data.image?.src.includes(".mp4") && (
             <>
               <img
                 className={`sm:hidden ${imgClasses(style, false)}`}
@@ -70,12 +64,20 @@ export const Feature = ({ data, parentField = '' }) => {
               />
             </>
           )}
+          {data.image?.src && data.image?.src.includes(".mp4") && (
+            <div className={`${imgClasses(style, false)}`}>
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                <source src={data.image.src} type="video/mp4" />
+              </video>
+            </div>
+          )}
         </div>
         <div className={`flex-none ${style.featureContent}`}>
           <Content
             data = {data}
             styles = {style}
             alignment = {`${textAlign} ${textAlignMobile}`}
+            buttonsLayout = {style.buttonsLayout}
             width = "w-full"
             parentField = {parentField}
             className = ""
@@ -84,72 +86,4 @@ export const Feature = ({ data, parentField = '' }) => {
       </div>
     </Section>
   );
-};
-
-export const featureBlockSchema: any = {
-  label: "Feature",
-  name: "feature",
-  ui: {
-    defaultItem: {
-      headline: "Headline",
-      subhead: "Subhead",
-      style: {
-        alignment: "flex-row items-center gap-0",
-        padding: "pt-20 pb-20 pr-10 pl-10",
-        featureImage: "mx-auto",
-        featureContent: "w-1/2 min-h-0 text-left",
-        labelStyles: "text-black",
-        headlineStyles: "text-black",
-        subheadStyles: "text-black",
-        textStyles: "text-black",
-      },
-    },
-  },
-  fields: [
-    {
-      label: "Section Style",
-      name: "style",
-      type: "object",
-      fields: [
-        {
-          label: "Alignment",
-          name: "alignment",
-          type: "string",
-          ui: {
-            component: "alignmentControl",
-          },
-        },
-        {
-          label: "Padding",
-          name: "padding",
-          type: "string",
-          ui: {
-            component: "paddingControl",
-          }
-        },
-        {
-          label: "Image",
-          name: "featureImage",
-          type: "string",
-          ui: {
-            component: "featureImageControl",
-          }
-        },
-        {
-          label: "Content",
-          name: "featureContent",
-          type: "string",
-          ui: {
-            component: "featureContentControl",
-          }
-        },
-        ...typographySchema,
-      ],
-    },
-    backgroundSchema,
-    imageSchema,
-    ...contentSchema,
-    buttonsSchema,
-    navigationLabelSchema,
-  ],
 };

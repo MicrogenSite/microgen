@@ -4,16 +4,17 @@
 
 Features
 
-- Typekit Fonts
 - Page Background
 - Tile backgrounds
 - Video backgrounds
+- Wrap background
 - Button layout horizontal or vertical
-- Add wrap background
+- Button icons
+- Update schedule styling
+- Typekit Fonts
 - Footer Nav
 - Update demo site
 - Upgrade Tina
-- Update schedule styling
 
 Fixes
 

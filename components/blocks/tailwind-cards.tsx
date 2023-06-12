@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { tinaField } from "tinacms/dist/react";
 import { linkTarget } from "../../helpers/utilities";
 import { Section } from "../section";
 
@@ -18,11 +19,11 @@ const Card = ({ data, index, tw, parentField = ""  }) => {
       </div>
       <div className={tw.cardContentWrap}>
         <div className={`markdown ${tw.content}`}>
-          {data.label &&<h4 className={tw.cardLabel} data-tinafield={`${parentField}.${index}.label`}>{data.label}</h4>}
-          {data.headline && <h2 className={tw.cardHeadline} data-tinafield={`${parentField}.${index}.headline`}>{data.headline}</h2>}
-          {data.subhead && <h3 className={tw.cardSubhead} data-tinafield={`${parentField}.${index}.subhead`}>{data.subhead}</h3>}
+          {data.label &&<h4 className={tw.cardLabel} data-tina-field={tinaField(data, "label")}>{data.label}</h4>}
+          {data.headline && <h2 className={tw.cardHeadline} data-tina-field={tinaField(data, "headline")}>{data.headline}</h2>}
+          {data.subhead && <h3 className={tw.cardSubhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h3>}
           {data.text?.children && (
-            <div className={tw.cardText} data-tinafield={`${parentField}.${index}.text`}>
+            <div className={tw.cardText}data-tina-field={tinaField(data, "text")}>
               <TinaMarkdown content={data.text} />
             </div>
           )}
@@ -53,11 +54,11 @@ export const TailwindCards = ({ data, parentField = "" }) => {
       <div className={tw.background}></div>
       <div className={tw.contentWrap}>
         <div className={tw.content}>
-          {data.label &&<h4 className={tw.label} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
-          {data.headline && <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>}
-          {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+          {data.label &&<h4 className={tw.label} data-tina-field={tinaField(data, "label")}>{data.label}</h4>}
+          {data.headline && <h2 className={tw.headline} data-tina-field={tinaField(data, "headline")}>{data.headline}</h2>}
+          {data.subhead && <h3 className={tw.subhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h3>}
           {data.body?.children && (
-            <div className={tw.text} data-tinafield={`${parentField}.body`}>
+            <div className={tw.text} data-tina-field={tinaField(data, "body")}>
               <TinaMarkdown content={data.body} />
             </div>
           )}

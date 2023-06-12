@@ -7,6 +7,7 @@ import { TailwindFeature } from "./blocks/tailwind-feature";
 import { TailwindCards } from "./blocks/tailwind-cards";
 import { EventSchedule } from "./blocks/event-schedule";
 import { EventTimeline } from "./blocks/event-timeline";
+import { tinaField } from "tinacms/dist/react";
 
 export const Blocks = (props: any) => {
   return (
@@ -17,7 +18,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksFeature":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <Feature data={block} />
@@ -26,7 +27,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksCards":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <Cards data={block} />
@@ -35,7 +36,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksAccordion":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <Accordion data={block} />
@@ -44,7 +45,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksEmbed":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <Embed data={block} />
@@ -53,7 +54,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksTailwindFeature":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <TailwindFeature data={block} />
@@ -62,7 +63,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksTailwindCards":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <TailwindCards data={block} />
@@ -71,7 +72,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksEventSchedule":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <EventSchedule data={block} events={props.events as any} />
@@ -80,7 +81,7 @@ export const Blocks = (props: any) => {
               case "PageBlocksEventTimeline":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <EventTimeline data={block} events={props.events} />
@@ -88,54 +89,52 @@ export const Blocks = (props: any) => {
                 );
               default:
                 return null;
-              
-
               /* Footer Blocks */
               case "GlobalBlocksFeature":
                 return (
                   <div
-                    data-tinafield={`blocks.${i}`}
+                    data-tina-field={tinaField(block)}
                     key={i + block.__typename}
                   >
                     <Feature data={block} />
                   </div>
                 );
-                case "GlobalBlocksCards":
-                  return (
-                    <div
-                      data-tinafield={`blocks.${i}`}
-                      key={i + block.__typename}
-                    >
-                      <Cards data={block} />
-                    </div>
-                  );
-                case "GlobalBlocksEmbed":
-                  return (
-                    <div
-                      data-tinafield={`blocks.${i}`}
-                      key={i + block.__typename}
-                    >
-                      <Embed data={block} />
-                    </div>
-                  );
-                case "GlobalBlocksTailwindFeature":
-                  return (
-                    <div
-                      data-tinafield={`blocks.${i}`}
-                      key={i + block.__typename}
-                    >
-                      <TailwindFeature data={block} />
-                    </div>
-                  );
-                case "GlobalBlocksTailwindCards":
-                  return (
-                    <div
-                      data-tinafield={`blocks.${i}`}
-                      key={i + block.__typename}
-                    >
-                      <TailwindCards data={block} />
-                    </div>
-                  );
+              case "GlobalBlocksCards":
+                return (
+                  <div
+                    data-tina-field={tinaField(block)}
+                    key={i + block.__typename}
+                  >
+                    <Cards data={block} />
+                  </div>
+                );
+              case "GlobalBlocksEmbed":
+                return (
+                  <div
+                    data-tina-field={tinaField(block)}
+                    key={i + block.__typename}
+                  >
+                    <Embed data={block} />
+                  </div>
+                );
+              case "GlobalBlocksTailwindFeature":
+                return (
+                  <div
+                    data-tina-field={tinaField(block)}
+                    key={i + block.__typename}
+                  >
+                    <TailwindFeature data={block} />
+                  </div>
+                );
+              case "GlobalBlocksTailwindCards":
+                return (
+                  <div
+                    data-tina-field={tinaField(block)}
+                    key={i + block.__typename}
+                  >
+                    <TailwindCards data={block} />
+                  </div>
+                );
             }
           })
         : null}

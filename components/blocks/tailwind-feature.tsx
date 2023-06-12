@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
+import { tinaField } from "tinacms/dist/react";
 import { linkTarget } from "../../helpers/utilities";
 import { Section } from "../section";
 
@@ -9,15 +10,15 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
     if (data?.headline && parentField === 'blocks.0') {
       return (
         <>
-          <h1 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h1> 
-          {data.subhead && <h2 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h2>}
+          <h1 className={tw.headline} data-tina-field={tinaField(data, "headline")}>{data.headline}</h1> 
+          {data.subhead && <h2 className={tw.subhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h2>}
         </>
       )
     } else if (data?.headline) {
       return (
         <>
           <h2 className={tw.headline} data-tinafield={`${parentField}.headline`}>{data.headline}</h2>
-          {data.subhead && <h3 className={tw.subhead} data-tinafield={`${parentField}.subhead`}>{data.subhead}</h3>}
+          {data.subhead && <h3 className={tw.subhead} data-tina-field={tinaField(data, "subhead")}>{data.subhead}</h3>}
         </>
       )
     }
@@ -34,10 +35,10 @@ export const TailwindFeature = ({ data, parentField = ""  }) => {
         </div>
         <div className={tw.contentWrap}>
           <div className={`markdown ${tw.content}`}>
-            {data.label &&<h4 className={tw.label} data-tinafield={`${parentField}.label`}>{data.label}</h4>}
+            {data.label &&<h4 className={tw.label} data-tina-field={tinaField(data, "label")}>{data.label}</h4>}
             {headlineElement()}
             {data.body?.children && (
-              <div className={tw.text} data-tinafield={`${parentField}.body`}>
+              <div className={tw.text} data-tina-field={tinaField(data, "body")}>
                 <TinaMarkdown content={data.body} />
               </div>
             )}

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { tinaField } from "tinacms/dist/react";
 import { FaIcon } from "./icons/fa-icon";
 import { linkTarget } from "../helpers/utilities";
 import { trackGoal } from "fathom-client";
@@ -28,7 +29,7 @@ export const Buttons = ({
               key={index}
             >
               <div className="flex items-center gap-2">
-                <span>{ button.label }</span>
+                <span data-tina-field={tinaField(button, "label")}>{ button.label }</span>
                 { button.icon && (
                   <FaIcon icon={button.icon} />
                 )}

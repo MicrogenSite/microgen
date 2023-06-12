@@ -22,7 +22,10 @@ const contentAlignOptions = [
 ]
 const gapOptions = [
   { label: "0", value: ""},
+  { label: "1", value: "gap-px"},
+  { label: "2", value: "gap-0.5"},
   { label: "4", value: "gap-1"},
+  { label: "6", value: "gap-1.5"},
   { label: "8", value: "gap-2"},
   { label: "16", value: "gap-4"},
   { label: "24", value: "gap-6"},

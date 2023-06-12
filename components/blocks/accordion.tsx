@@ -24,7 +24,7 @@ const borderWidth = (borderClasses) => {
   return borderWidthString.slice(lastDashIndex + 1) || ""
 }
 
-const AccordianItem = ({ data, index, cardstyle, isLast, parentField = "" }) => {
+const AccordionItem = ({ data, index, cardstyle, isLast, parentField = "" }) => {
   const [active, setActive] = React.useState(false);
   const borderWidthClass = isLast ? '' : `border-b-${borderWidth(cardstyle?.borderStyles)}`
 
@@ -59,7 +59,7 @@ const AccordianItem = ({ data, index, cardstyle, isLast, parentField = "" }) => 
   )
 }
 
-export const Accordian = ({ data, parentField = "" }) => {
+export const Accordion = ({ data, parentField = "" }) => {
   const style = data.style || {}
   const textAlignMobile = getWordWith(style.featureContent, 'sm:text-')
   const textAlign = getWordWith(style.featureContent, 'text-')
@@ -72,7 +72,7 @@ export const Accordian = ({ data, parentField = "" }) => {
               {data.items.map((item, index) => {
                 const isLast = data.items?.length === index + 1
                 return (
-                  <AccordianItem key={index} index={index} data={item} cardstyle={data.cardStyle} isLast={isLast} parentField={`${parentField}.items`} />
+                  <AccordionItem key={index} index={index} data={item} cardstyle={data.cardStyle} isLast={isLast} parentField={`${parentField}.items`} />
                 )
               })}
             </div>

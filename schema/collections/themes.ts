@@ -264,6 +264,7 @@ export const themeCollectionSchema: any = {
           typography: '{"color":"white","family":"Arial","size":"18","lineHeight":"18","letterSpacing":"0","smSize":"18","smLineHeight":"18","smLetterSpacing":"0"}',
           padding: "pt-2.5 pb-2.5 pr-9 pl-9",
           primaryBorder: "border-primary border-0",
+          iconSize: "16px",
         },
       },
       fields: [
@@ -312,6 +313,25 @@ export const themeCollectionSchema: any = {
             component: "selectField",
           },
           options: roundedOptions,
+        },
+        {
+          label: "Icon Size",
+          name: "iconSize",
+          type: "string",
+          ui: {
+            component: "selectField",
+          },
+          options: [
+            { label: '10px', value: '10px' },
+            { label: '12px', value: '12px' },
+            { label: '14px', value: '14px' },
+            { label: '16px', value: '16px' },
+            { label: '20px', value: '20px' },
+            { label: '24px', value: '24px' },
+            { label: '28px', value: '28px' },
+            { label: '32px', value: '32px' },
+            { label: '48px', value: '48px' },
+          ]
         },
       ]
     },

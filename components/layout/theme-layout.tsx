@@ -16,6 +16,11 @@ export const ThemeLayout = ({ theme, children }) => {
           }}
         />
 
+        {/* Typekit Project Link */ }
+        { theme.fonts?.typekitLink && (
+          <link rel="stylesheet" href={theme.fonts?.typekitLink}></link>
+        )}
+
         {/* Google Fonts */ }
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com"></link>

@@ -31,7 +31,6 @@ Fixes
 - Page background color not working
 - Upgrade Tina
 
-
 **Version 1.3** | Released 2/8/23
 
 Fixes
@@ -60,7 +59,7 @@ Fixes
 
 Features
 
-- Accordian block
+- Accordion block
 
 Fixes
 

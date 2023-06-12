@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import * as ga from '../../lib/ga'
+import { FaIcon } from "../icons/fa-icon";
 import { linkTarget, lowerDash } from "../../helpers/utilities";
 import { Burger } from "./burger"
+import { Logo } from "./logo"
 
 const pageJumps = (blocks) => {
   const anchorLinks: [] = blocks?.filter(block => block.navigationLabel).map(block => block.navigationLabel);
@@ -101,12 +103,18 @@ export const Header = ({
 
   const nav = globalData.nav
   const navItems = nav?.navItems || []
-  const sectionClasses = navOpen ? "md:h-screen" : "md:h-0";
+  const navButtons = nav?.navButtons || []
   const navClasses = navOpen ? "md:opacity-100 m-0" : "h-0 md:opacity-0 pointer-events-none";
-  const backgroundClasses = navOpen ? "opacity-100" : "opacity-0 pointer-events-none";
   const navStyles = { 
     transition: "opacity .4s, margin .3s",
   }
+  const logo = globalData.logo || {}
+  const logoStyles = { 
+    marginRight: `${logo.imageMargin}px`
+  }
+  const sectionClasses = navOpen ? "md:h-screen" : "md:h-0";
+  const background = nav?.navBackgroundColor.split(' ').filter((item) => !item.includes('opacity')).join(' ')
+  const backgroundClasses = navOpen ? "opacity-100" : "opacity-0 pointer-events-none";
   const backgroundStyles = { 
     transition: "opacity .4s ease-out",
   }
@@ -117,24 +125,7 @@ export const Header = ({
     lineHeight: "6rem",
     transition: "line-height .4s"
   }
-  const logoStyles = { 
-    marginRight: `${globalData.logo?.imageMargin}px`
-  }
-  const background = nav?.navBackgroundColor.split(' ').filter((item) => !item.includes('opacity')).join(' ')
   const hasLinks = navItems?.length > 0 || pageJumps(blocks)?.length > 0 || false; 
-
-  function Logo(props) {
-    const hasLogoImage = globalData.logo?.image;
-    if (hasLogoImage) {
-      return (
-        <img className={props.className} src={globalData.logo?.image} width={globalData.logo?.imageWidth} height={globalData.logo?.imageHeight} style={logoStyles} alt={globalData.logo?.logoType || "logo"} />
-      );
-    }
-    return (
-      <h1 className={`flex-none ${props.className} ${globalData.logo?.logoTypeStyle}`} style={logoStyles}>{globalData.logo?.logoType}</h1>
-    );
-  }
-
   
   return (
     <section className="relative">
@@ -143,8 +134,8 @@ export const Header = ({
         <div className="md:hidden absolute z-10 top-0 left-0 right-0">
           <div className={`max-w-desktop-full mx-auto ${nav?.padding}`}>
             <div className="flex items-center">
-              <Logo className="flex-none" />
-              <ul style={navStyles} className={`${nav?.navTypeStyle} ${nav?.navAlignment} flex-grow list-none md:hidden`}>
+              <Logo className="flex-none" image={logo.image} imageHeight={logo.imageHeight} imageWidth={logo.imageWidth} logoStyles={logoStyles} logoType={logo.logoType} logoTypeStyle={logo.logoTypeStyle} />
+              <ul style={navStyles} className={`${nav?.navTypeStyle} ${nav?.navAlignment} mt-6 mb-0 flex-grow list-none md:hidden`}>
 
                 {pageJumps(blocks)?.map(function (item, index) {
                   return (
@@ -170,18 +161,33 @@ export const Header = ({
                     )
                   }
                 })}
-
               </ul>
+
+              {navButtons?.map(function (item, index) {
+                return(
+                  <a href={item.link} className={`btn-${item.style} ml-6`} key={index}>
+                    <div className="flex items-center gap-2">
+                      { item.label && (
+                        <span>{ item.label }</span>
+                      )}
+                      { item.icon && (
+                        <FaIcon icon={item.icon} />
+                      )}
+                    </div>
+                  </a>
+                )
+              })}
+
             </div>
           </div>
         </div>
 
         {/* Mobile Nav */}
         {hasLinks && (
-        <div className={`${sectionClasses} hidden md:block h-screen fixed z-40 top-0 left-0 right-0`}>
+        <div className={`${sectionClasses} hidden md:block h-screen absolute z-40 top-0 left-0 right-0`}>
           <div style={backgroundStyles} className={`${backgroundClasses} ${background} transition duration-400 absolute w-full h-screen -z-1`}></div>
           <div className={`w-full md:p-5`}>
-            <Logo className="absolute top-4 left-4" />
+            <Logo className="absolute top-4 left-4" image={logo.image} imageHeight={logo.imageHeight} imageWidth={logo.imageWidth} logoStyles={logoStyles} logoType={logo.logoType} logoTypeStyle={logo.logoTypeStyle} />
             <div className={`absolute top-3 -right-2 py-1 pl-2 pr-6 rounded ${nav?.navBackgroundColor}`} onClick={() => setNavOpen(!navOpen)}>
               <Burger color="white" isOpen={navOpen}  />
             </div>

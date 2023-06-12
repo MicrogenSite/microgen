@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { hasWord, getWordWith } from '../../helpers/utilities';
+import { FaIcon } from '../icons/fa-icon';
 import { Section } from '../section';
 import { Content } from '../content';
 
@@ -51,23 +52,27 @@ const Card = ({ data, index, cardstyle, parentField = "" }) => {
       )}
       {data.image?.src && (
         <>
-          <div className={`${cardstyle?.imagePadding} sm:hidden`} style={cardImgStyles(cardstyle, false)}>
-            <img
-              className={`sm:hidden ${cardImgClasses(cardstyle, false)}`}
-              style={cardImgStyles(cardstyle, false)}
-              alt={data.image.alt || data.headline}
-              src={data.image.src}
-              data-tinafield={`${parentField}.image`}
-            />
+          <div className={`${cardstyle?.imagePadding} sm:hidden`}>
+            <div style={cardImgStyles(cardstyle, false)}>
+              <img
+                className={`sm:hidden ${cardImgClasses(cardstyle, false)}`}
+                style={cardImgStyles(cardstyle, false)}
+                alt={data.image.alt || data.headline}
+                src={data.image.src}
+                data-tinafield={`${parentField}.image`}
+              />
+            </div>
           </div>
-          <div className={`${cardstyle?.imagePadding} hidden sm:block`} style={cardImgStyles(cardstyle, true)}>
-            <img
-              className={`hidden sm:block  ${cardImgClasses(cardstyle, true)}`}
-              style={cardImgStyles(cardstyle, true)}
-              alt={data.image.alt || data.headline}
-              src={data.image.src}
-              data-tinafield={`${parentField}.image`}
-            />
+          <div className={`${cardstyle?.imagePadding} hidden sm:block`}>
+            <div style={cardImgStyles(cardstyle, true)}>
+              <img
+                className={`hidden sm:block  ${cardImgClasses(cardstyle, true)}`}
+                style={cardImgStyles(cardstyle, true)}
+                alt={data.image.alt || data.headline}
+                src={data.image.src}
+                data-tinafield={`${parentField}.image`}
+              />
+            </div>
           </div>
         </>
       )}
@@ -84,7 +89,12 @@ const Card = ({ data, index, cardstyle, parentField = "" }) => {
         <div>
           {data.link && data.buttonLabel && (
             <a href={data.link} className={`btn-${cardstyle?.buttonType} ${cardstyle?.buttonWidth}`} data-tinafield={`${parentField}.${index}.link.0`}>
-              {data.buttonLabel}
+              <div className="flex items-center gap-2">
+                <span>{ data.buttonLabel }</span>
+                { cardstyle?.buttonIcon && (
+                  <FaIcon icon={cardstyle.buttonIcon} />
+                )}
+              </div>
             </a>
           )}
         </div>

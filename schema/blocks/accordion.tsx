@@ -9,9 +9,9 @@ const defaultCard = {
   subhead: "",
 };
 
-export const accordianBlockSchema: any = {
-  name: "accordian",
-  label: "Accordian",
+export const accordionBlockSchema: any = {
+  name: "accordion",
+  label: "Accordion",
   ui: {
     defaultItem: {
       label: "",

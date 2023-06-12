@@ -46,7 +46,7 @@ export const Feature = ({ data, parentField = '' }) => {
     <Section background={data.background} navigationLabel={data.navigationLabel}>
       <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
         <div className={`${imageWrapClasses(style)}`}>
-          {data.image?.src && (
+          {data.image?.src && !data.image?.src.includes(".mp4") && (
             <>
               <img
                 className={`sm:hidden ${imgClasses(style, false)}`}
@@ -63,6 +63,13 @@ export const Feature = ({ data, parentField = '' }) => {
                 data-tinafield={`${parentField}.image`}
               />
             </>
+          )}
+          {data.image?.src && data.image?.src.includes(".mp4") && (
+            <div className={`${imgClasses(style, false)}`}>
+              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                <source src={data.image.src} type="video/mp4" />
+              </video>
+            </div>
           )}
         </div>
         <div className={`flex-none ${style.featureContent}`}>

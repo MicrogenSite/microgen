@@ -4,6 +4,7 @@
 
 Features
 
+- Visual Editing
 - Page Background
 - Tile backgrounds
 - Video backgrounds

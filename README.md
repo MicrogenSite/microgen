@@ -8,7 +8,7 @@ A global theming system keeps everything looking consistent and support for stan
 
 <https://microgen.site>
 
-### Documentation
+## Documentation
 
 - [Setup](docs/SETUP.md)
 - [Editing content](docs/EDITING.md)

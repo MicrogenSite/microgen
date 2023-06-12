@@ -324,6 +324,7 @@ export const googleFontOptions = [
   { "label": "Roboto Mono Extra Light", "value": "Roboto Mono:wght@100" },
   { "label": "Roboto Mono Light", "value": "Roboto Mono:wght@300" },
   { "label": "Roboto Mono", "value": "Roboto Mono:wght@400" },
+  { "label": "Roboto Mono Bold", "value": "Roboto Mono:wght@700" },
   { "label": "Roboto Slab Extra Light", "value": "Roboto Slab:wght@100" },
   { "label": "Roboto Slab Heavy", "value": "Roboto Slab:wght@900" },
   { "label": "Roboto Slab Light", "value": "Roboto Slab:wght@300" },

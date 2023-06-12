@@ -4,13 +4,25 @@
   "fathomSiteId": "",
   "theme": "content/themes/microgen.md",
   "logo": {
-    "logoTypeStyle": "",
-    "image": ""
+    "logoType": "Microgen",
+    "logoTypeStyle": "undefined undefined ",
+    "image": "/uploads/microgen-logo.svg",
+    "imageWidth": "224"
   },
   "nav": {
+    "padding": "pt-6 pb-5 pr-10 pl-10 sm:pt-6 sm:pb-5 sm:pr-5 sm:pl-5",
+    "navBackgroundColor": "bg-black opacity-80",
     "navAlignment": "text-right",
-    "navTypeStyle": "text-accent2 mg-body-sm ",
-    "navBackgroundColor": " opacity-100",
-    "padding": "pt-7 pb-10 pr-10 pl-8"
-  }
+    "navTypeStyle": "text-white mg-nav mb-7",
+    "navButtons": [
+      {
+        "label": "",
+        "link": "https://github.com/MicrogenSite/microgen",
+        "icon": "github",
+        "style": "icon"
+      }
+    ]
+  },
+  "favicon": "/uploads/favicon.png",
+  "footerNav": "true"
 }

@@ -5,8 +5,16 @@ export const backgroundSchema = {
   fields: [
     {
       type: "string",
-      label: "Color",
+      label: "Background",
       name: "fillStyles",
+      ui: {
+        component: "fillControl"
+      }
+    },
+    {
+      type: "string",
+      label: "Wrap Background",
+      name: "wrapFillStyles",
       ui: {
         component: "fillControl"
       }
@@ -49,6 +57,14 @@ export const backgroundSchema = {
         { label: "Left", value: "bg-left" },
         { label: "Left Top", value: "bg-left-top" },
       ],
+    },
+    {
+      label: "",
+      name: "typographyTitle",
+      type: "string",
+      ui: {
+        component: "ruledTitle",
+      },
     },
     {
       label: 'Ornaments',

@@ -1,6 +1,32 @@
 # Release Notes
 
-**Version 1.5** | Released 4/12/23
+**Version 1.7** | Released 6/12/23
+
+Features
+
+- Typekit Fonts
+- Page Background
+- Tile backgrounds
+- Video backgrounds
+- Button layout horizontal or vertical
+- Add wrap background
+- Footer Nav
+- Update demo site
+- Upgrade Tina
+- Update schedule styling
+
+Fixes
+
+- Fix check for no body in content
+- Fix button layout in cards and accordion
+- Missing keys in loops added
+- Lint errors fixed
+- Convert controls and widgets to jsx to avoid Vite errors
+- Various fixes to schedule
+- Center markdown images
+- Repair missing sidebar labels
+
+**Version 1.6** | Released 4/17/23
 
 Features
 
@@ -30,7 +56,6 @@ Fixes
 - Ornaments make page too wide
 - Page background color not working
 - Upgrade Tina
-
 
 **Version 1.3** | Released 2/8/23
 

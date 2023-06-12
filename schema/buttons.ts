@@ -1,3 +1,5 @@
+import { iconOptions } from "./options"
+
 export const buttonsSchema = {
   label: "Buttons",
   name: "buttons",
@@ -21,6 +23,15 @@ export const buttonsSchema = {
       label: "Link",
       name: "link",
       type: "string",
+    },
+    {
+      type: "string",
+      label: "Button Icon",
+      name: "icon",
+      ui: {
+        component: "select",
+      },
+      options: iconOptions,
     },
     {
       type: "string",

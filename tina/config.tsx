@@ -6,7 +6,7 @@ import { backgroundSchema } from "../schema/background"
 // Blocks
 import { featureBlockSchema } from "../schema/blocks/feature";
 import { cardsBlockSchema } from "../schema/blocks/cards";
-import { accordianBlockSchema } from "../schema/blocks/accordian";
+import { accordionBlockSchema } from "../schema/blocks/accordion";
 import { embedBlockSchema } from "../schema/blocks/embed";
 import { tailwindFeatureBlockSchema } from "../schema/blocks/tailwind-feature"
 import { tailwindCardsBlockSchema } from "../schema/blocks/tailwind-cards"
@@ -21,10 +21,7 @@ import { themeCollectionSchema } from "../schema/collections/themes"
 
 const config = defineStaticConfig({
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID!,
-  branch:
-    process.env.NEXT_PUBLIC_TINA_BRANCH! || // custom branch env override
-    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF! || // Vercel branch env
-    process.env.HEAD!, // Netlify branch env
+  branch: "v1.7", // This should be set to the current branch
   token: process.env.TINA_TOKEN!,
   media: {
     // If you wanted cloudinary do this
@@ -79,7 +76,7 @@ const config = defineStaticConfig({
             templates: [
               featureBlockSchema,
               cardsBlockSchema,
-              accordianBlockSchema,
+              accordionBlockSchema,
               embedBlockSchema,
               tailwindFeatureBlockSchema,
               tailwindCardsBlockSchema,

@@ -6,6 +6,7 @@ export const Section = ({
   children,
   background = {
     fillStyles: "",
+    wrapFillStyles: "",
     src: "",
     style: "",
     position: "",

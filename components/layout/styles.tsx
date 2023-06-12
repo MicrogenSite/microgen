@@ -47,15 +47,18 @@ function buttonClass(obj) {
     }
     return roundedOptions[obj.primaryRounded]
   }
-  const getBorder = (obj) => {
-    if (obj.primaryBorder?.length < 1) {
+  const getBorder = (border = "") => {
+    const borderClasses = border.split(" ")
+    if (borderClasses?.length !== 2) {
       return ""
     }
-    const borderClasses = obj.primaryBorder.split(" ")
+    // Color
     const borderColor = borderClasses[0].replace("border-", "")
-    const borderWidth = borderClasses[1].split("-").at(-1)
+    // Width
+    const borderWidth = borderClasses[1].split("-")?.slice(-1)?.pop() || "0"
+    // Side
     const borderSideClasses = borderClasses[1].split("-")
-    const borderSideKey = borderSideClasses.length > 2 ? borderSideClasses[1] : "a"
+    const borderSideKey = borderSideClasses.length === 3 ? borderSideClasses[1] : "a"
     const borderSides = {
       "a": "border",
       "t": "border-top",
@@ -95,6 +98,13 @@ function buttonClass(obj) {
     return isGradient ? getGradient(fillClass) : `var(--${getBackgroundColor(fillClass)}-color)`
   }
 
+  const getIconSize = (iconSize) => {
+    if (!iconSize || iconSize === "undefined") {
+      return "16px"
+    }
+    return iconSize
+  }
+
   if (!obj.label) return
   return `
     .btn-${slugify(obj.label)} {
@@ -110,7 +120,11 @@ function buttonClass(obj) {
       padding: ${getPadding(obj, "pt-")} ${getPadding(obj, "pr-")} ${getPadding(obj, "pb-")} ${getPadding(obj, "pl-")};
       border-radius: ${getRadius(obj)};
       text-align: center;
-      ${getBorder(obj)};
+      ${getBorder(obj.primaryBorder)};
+    }
+    .btn-${slugify(obj.label)} svg {
+      fill: currentColor;
+      height: ${getIconSize(obj.iconSize)};
     }`
 }
 
@@ -193,15 +207,22 @@ export const styles = (theme) => {
       list-style: disc;
       margin-left: 1.5rem;
     }
+    .markdown ol {
+      list-style: decimal;
+      margin-left: 2rem;
+    }
     .markdown ul li,
     .markdown ol li {
-      margin-bottom: .5rem;
+      margin-bottom: inherit;
     }
     .markdown a {
       text-decoration: underline;
     }
     .markdown p:not(:last-child) {
       margin-bottom: inherit;
+    }
+    .markdown.items-center img {
+      margin: 0 auto 50px auto;
     }
     ${buttonClasses(theme.buttons)}
     ${typographyClasses(theme.typo)}

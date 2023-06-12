@@ -1,4 +1,5 @@
 import * as React from "react";
+import { FaIcon } from "./icons/fa-icon";
 import { linkTarget } from "../helpers/utilities";
 import { trackGoal } from "fathom-client";
 
@@ -26,7 +27,12 @@ export const Buttons = ({
               target={linkTarget(button.link)}
               key={index}
             >
-              { button.label }
+              <div className="flex items-center gap-2">
+                <span>{ button.label }</span>
+                { button.icon && (
+                  <FaIcon icon={button.icon} />
+                )}
+              </div>
             </a>
           );
           return element;

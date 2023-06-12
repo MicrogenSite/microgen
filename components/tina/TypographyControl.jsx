@@ -20,7 +20,7 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value } }) => {
   const [size, setSize] = useState(getInputObject("size"));
   const [letterSpacing, setLetterSpacing] = useState(getInputObject("letterSpacing"));
   const [lineHeight, setLineHeight] = useState(getInputObject("lineHeight"));
-  const [margin, setMargin] = useState(getInputObject("smMargin"));
+  const [margin, setMargin] = useState(getInputObject("margin"));
   const [smSize, setSmSize] = useState(getInputObject("smSize"));
   const [smLetterSpacing, setSmLetterSpacing] = useState(getInputObject("smLetterSpacing"));
   const [smLineHeight, setSmLineHeight] = useState(getInputObject("smLineHeight"));

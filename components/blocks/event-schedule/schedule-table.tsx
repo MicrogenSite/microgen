@@ -56,7 +56,7 @@ export function ScheduleTable({ events, data }) {
 
   return (
     <>
-      <div className={`schedule-days px-10 no-flex grid grid-flow-col-dense grid-cols-${numDays} gap-4`} style={{ "width": `${numDays * 250}px`}}>
+      <div className={`schedule-days px-10 no-flex grid grid-flow-col-dense grid-cols-${numDays} gap-4 min-w-full`} style={{ "width": `${numDays * 250}px`}}>
         {days.map((day, index) => (
           <div className={`flex col-start-${(index + 1)} col-span-1 shrink-0 ${style.labelFill} ${style.labelPadding} ${style.labelBorder} ${style.label}`} key={index}>
           <p className="flex-1 text-left">{day.format('ddd')}</p>

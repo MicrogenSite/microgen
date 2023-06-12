@@ -1,7 +1,7 @@
 import React from "react";
 import { Feature } from "./blocks/feature";
 import { Cards } from "./blocks/cards";
-import { Accordian } from "./blocks/accordian";
+import { Accordion } from "./blocks/accordion";
 import { Embed } from "./blocks/embed";
 import { TailwindFeature } from "./blocks/tailwind-feature";
 import { TailwindCards } from "./blocks/tailwind-cards";
@@ -32,13 +32,13 @@ export const Blocks = (props: any) => {
                     <Cards data={block} />
                   </div>
                 );
-              case "PageBlocksAccordian":
+              case "PageBlocksAccordion":
                 return (
                   <div
                     data-tinafield={`blocks.${i}`}
                     key={i + block.__typename}
                   >
-                    <Accordian data={block} />
+                    <Accordion data={block} />
                   </div>
                 );
               case "PageBlocksEmbed":

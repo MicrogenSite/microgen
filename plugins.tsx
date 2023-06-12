@@ -23,7 +23,7 @@ export const SectionListItemsPlugin = {
   Component: (props) => {
     const itemProps = (item) => {
       const templateNames = {
-        accordian: 'Accordian',
+        accordion: 'Accordion',
         banner: 'Banner',
         cards: 'Cards',
         embed: 'Embed',

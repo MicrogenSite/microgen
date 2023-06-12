@@ -1,4 +1,5 @@
 import { buttonsSchema } from "../buttons"
+import { iconOptions } from "../options"
 import { backgroundSchema } from "../background"
 import { contentSchema } from "../content"
 import { navigationLabelSchema } from "../navigation-label";
@@ -166,11 +167,20 @@ export const cardsBlockSchema: any = {
         },
         {
           type: "string",
-          label: "Button Type",
+          label: "Button Style",
           name: "buttonType",
           ui: {
             component: "buttonControl",
           },
+        },
+        {
+          type: "string",
+          label: "Button Icon",
+          name: "buttonIcon",
+          ui: {
+            component: "select",
+          },
+          options: iconOptions,
         },
         {
           label: "Layout",
@@ -206,6 +216,9 @@ export const cardsBlockSchema: any = {
       label: "Cards",
       name: "items",
       list: true,
+      itemProps: (item) => ({
+        label: item.headline,
+      }),
       fields: [
         imageSchema,
         ...contentSchema,

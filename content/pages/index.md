@@ -16,13 +16,13 @@ blocks:
       style: bg-cover
       position: bg-center
     label: ''
-    headline: A visual site builder you own
+    headline: The Web3 Visual Site Builder
     subhead: ''
     body: >
-      Quickly build mobile-friendly websites with an intuitive, easy-to-use
-      visual editor and customizable components. Execute your exact design
-      vision with the flexible theme editor and background system. Add your own
-      components, extend the project however you like, and host it anywhere.
+      Microgen is an intuitive, open source visual site builder made for Web3.
+      Free forever and built for the decentralized internet. Extend the library
+      of customizable components however you like and host your website for free
+      on IPFS or any other static host.
     buttons:
       - label: Get Started
         link: 'https://github.com/MicrogenSite/microgen'
@@ -366,5 +366,6 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
 
 

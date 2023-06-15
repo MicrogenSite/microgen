@@ -8,6 +8,7 @@ import { featureBlockSchema } from "../schema/blocks/feature";
 import { cardsBlockSchema } from "../schema/blocks/cards";
 import { accordionBlockSchema } from "../schema/blocks/accordion";
 import { embedBlockSchema } from "../schema/blocks/embed";
+import { videoBlockSchema } from "../schema/blocks/video";
 import { tailwindFeatureBlockSchema } from "../schema/blocks/tailwind-feature"
 import { tailwindCardsBlockSchema } from "../schema/blocks/tailwind-cards"
 import { eventScheduleBlockSchema } from "../schema/blocks/event-schedule"
@@ -81,6 +82,7 @@ const config = defineStaticConfig({
               cardsBlockSchema,
               accordionBlockSchema,
               embedBlockSchema,
+              videoBlockSchema,
               tailwindFeatureBlockSchema,
               tailwindCardsBlockSchema,
               eventScheduleBlockSchema,

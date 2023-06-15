@@ -34,7 +34,7 @@ blocks:
       alignment: 'flex-col-reverse items-center '
       padding: pt-0 pb-0.5 pr-0 pl-0
       featureContent: w-full min-h-0 text-center
-      buttonsLayout: 'flex-row  '
+      buttonsLayout: 'flex-wrap gap-0 '
       labelStyles: text-white undefined undefined
       headlineStyles: text-white mg-hidden undefined
       subheadStyles: text-white undefined undefined
@@ -62,9 +62,6 @@ blocks:
       wrapFillStyles: bg-gray-dark opacity-100
       style: bg-cover
       position: bg-center
-      ornaments:
-        - src: /uploads/rule.svg
-          alignment: bottom
     label: ''
     headline: Features
     subhead: ''

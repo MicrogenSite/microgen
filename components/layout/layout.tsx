@@ -37,22 +37,10 @@ export const Layout = ({ rawData, children }) => {
           }}
         />
         
-        {/* Google Analytics */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${global.gtmId}`} />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-            if (document.location.hostname.replace("www.", "") === "${global.siteUrl}") {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${global.gtmId}', {
-                  page_path: window.location.pathname,
-                });
-              }
-            `,
-          }}
-        />
+        {/* Plausible Analytics */}
+        { global.siteUrl && global.analytics === "plausible" && (
+          <script defer data-domain={global.siteUrl} src="https://plausible.io/js/script.js"></script>
+        )}
 
         {/* Typekit Project Link */ }
         { global.theme.fonts?.typekitLink && (

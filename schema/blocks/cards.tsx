@@ -21,6 +21,7 @@ export const cardsBlockSchema: any = {
       headline: "Headline",
       subhead: "Subhead",
       style: {
+        grid: "grid-cols-3 justify-start gap-6",
         alignment: "flex-col-reverse items-start gap-6",
         padding: "pt-20 pb-20 pr-20 pl-20",
         featureContent: "w-1/2 min-h-0 text-left",
@@ -32,7 +33,6 @@ export const cardsBlockSchema: any = {
       },
       cardStyle: {
         fillStyles: "bg-gray",
-        grid: "grid-cols-3 justify-start gap-6",
         alignment: "flex-row items-start  text-left",
         image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
@@ -58,6 +58,14 @@ export const cardsBlockSchema: any = {
         component: "group",
       },
       fields: [
+        {
+          label: "Grid",
+          name: "grid",
+          type: "string",
+          ui: {
+            component: "gridControl",
+          },
+        },
         {
           label: "Alignment",
           name: "alignment",

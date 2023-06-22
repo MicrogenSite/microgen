@@ -31,6 +31,9 @@ blocks:
         fathomId: ''
     _template: feature
   - style:
+      grid: >-
+        grid-cols-3 justify-start gap-0.5 sm:grid-cols-1 sm:justify-start
+        sm:gap-0.5
       alignment: 'flex-col-reverse items-center '
       padding: pt-0 pb-0.5 pr-0 pl-0
       featureContent: w-full min-h-0 text-center
@@ -41,9 +44,6 @@ blocks:
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: bg-black opacity-100
-      grid: >-
-        grid-cols-3 justify-start gap-0.5 sm:grid-cols-1 sm:justify-start
-        sm:gap-0.5
       alignment: flex-col items-start  text-left
       image: wpx-48 hpx-48 object-left object-fill
       imagePadding: 'pt-20 pb-0 pr-0 pl-10 sm:pt-10 sm:pb-0 sm:pr-0 sm:pl-5'
@@ -119,6 +119,9 @@ blocks:
     navigationLabel: features
     _template: cards
   - style:
+      grid: >-
+        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
+        sm:gap-4
       alignment: >-
         flex-col-reverse items-center gap-6 sm:flex-col-reverse sm:items-center
         sm:gap-12
@@ -131,9 +134,6 @@ blocks:
       textStyles: text-white mg-copy-small undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-4
       alignment: flex-col items-start  text-left
       image: wpx-48 hpx-48 object-center object-fill
       imagePadding: pt-0 pb-0 pr-0 pl-0
@@ -188,6 +188,9 @@ blocks:
     navigationLabel: tooling
     _template: cards
   - style:
+      grid: >-
+        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
+        sm:gap-6
       alignment: >-
         flex-col-reverse items-center gap-6 sm:flex-col-reverse sm:items-center
         sm:gap-12
@@ -200,9 +203,6 @@ blocks:
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-6
       alignment: flex-col items-start  text-left
       image: wpx-36 hpx-36 object-center object-fill
       imagePadding: pt-0 pb-0 pr-0 pl-0

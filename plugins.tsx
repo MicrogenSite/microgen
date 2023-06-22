@@ -26,6 +26,7 @@ export const SectionListItemsPlugin = {
         accordion: 'Accordion',
         banner: 'Banner',
         cards: 'Cards',
+        carousel: 'Carousel',
         embed: 'Embed',
         eventSchedule: 'Event Schedule',
         eventTimeline: 'Event Timeline',

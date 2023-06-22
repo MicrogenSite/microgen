@@ -1,6 +1,7 @@
 import React from "react";
 import { Feature } from "./blocks/feature";
 import { Cards } from "./blocks/cards";
+import { Carousel } from "./blocks/carousel";
 import { Accordion } from "./blocks/accordion";
 import { Embed } from "./blocks/embed";
 import { TailwindFeature } from "./blocks/tailwind-feature";
@@ -29,6 +30,14 @@ export const Blocks = (props: any) => {
                     key={i + block.__typename}
                   >
                     <Cards data={block} />
+                  </div>
+                );
+              case "PageBlocksCarousel":
+                return (
+                  <div
+                    key={i + block.__typename}
+                  >
+                    <Carousel data={block} />
                   </div>
                 );
               case "PageBlocksAccordion":

@@ -31,6 +31,53 @@ blocks:
         fathomId: ''
     _template: feature
   - style:
+      fullWidth: false
+      loop: true
+      gap: pl-px
+      slides: w-2/5
+      alignment: center
+      padding: pt-10 pb-10 pr-0 pl-0
+    cardStyle:
+      fillStyles: bg-gray
+      alignment: flex-row items-start  text-left
+      image: object-center object-fill
+      imagePadding: pt-0 pr-0 pb-0 pl-0
+      contentPadding: pt-2 pr-2 pb-2 pl-2
+      labelStyles: text-black
+      headlineStyles: text-black
+      subheadStyles: text-black
+      textStyles: text-black
+    background:
+      style: bg-cover
+      position: bg-center
+    label: ''
+    headline: Headline
+    subhead: Subhead
+    body: ''
+    items:
+      - headline: Headline 1
+        subhead: Subhead
+        body: ''
+      - headline: Headline 2
+        subhead: Subhead
+        body: ''
+      - headline: Headline 3
+        subhead: Subhead
+        body: ''
+      - headline: Headline 4
+        subhead: Subhead
+        body: ''
+      - headline: Headline 5
+        subhead: Subhead
+        body: ''
+      - headline: Headline 6
+        subhead: Subhead
+        body: ''
+      - headline: Headline 7
+        subhead: Subhead
+        body: ''
+    _template: carousel
+  - style:
       grid: >-
         grid-cols-3 justify-start gap-0.5 sm:grid-cols-1 sm:justify-start
         sm:gap-0.5
@@ -363,6 +410,18 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

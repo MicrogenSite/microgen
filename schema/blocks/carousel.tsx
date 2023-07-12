@@ -21,6 +21,11 @@ export const carouselBlockSchema: any = {
       subhead: "Subhead",
       style: {
         fullWidth: false,
+        loop: true,
+        gap: "pl-4",
+        slides: "w-1/3",
+        slidesToScroll: "1",
+        alignment: "center",
         padding: "pt-0 pr-0 pb-0 pl-0",
       },
       cardStyle: {
@@ -51,6 +56,11 @@ export const carouselBlockSchema: any = {
         {
           label: "Full Width",
           name: "fullWidth",
+          type: "boolean",
+        },
+        {
+          label: "Overflow Hidden",
+          name: "overflowHidden",
           type: "boolean",
         },
         {
@@ -101,6 +111,23 @@ export const carouselBlockSchema: any = {
             { label: "4", value: "w-1/4" },
             { label: "5", value: "w-1/5" },
             { label: "6", value: "w-1/6" },
+          ],
+        },
+        {
+          label: "Slides To Scroll",
+          name: "slidesToScroll",
+          type: "string",
+          ui: {
+            component: "selectField",
+            mobileMode: true,
+          },
+          options: [
+            { label: "1", value: "1" },
+            { label: "2", value: "2" },
+            { label: "3", value: "3" },
+            { label: "4", value: "4" },
+            { label: "5", value: "5" },
+            { label: "6", value: "6" },
           ],
         },
         {

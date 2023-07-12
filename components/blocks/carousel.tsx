@@ -17,6 +17,7 @@ export const Carousel = ({ data }) => {
     if (emblaApi) emblaApi.reInit({
       loop: style.loop,
       align: style.alignment,
+      slidesToScroll: Number(style.slidesToScroll),
     })
   }, [emblaApi, style])
 
@@ -25,8 +26,9 @@ export const Carousel = ({ data }) => {
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
+      <p className="text-white">Overflow: {JSON.stringify(style.overflowHidden)}</p>
       <div className={`${width} ${padding} ${style.minHeight}`}>
-        <div className="embla overflow-hidden bg-gray-dark" ref={emblaRef}>
+        <div className={`embla ${style.overflowHidden && "overflow-hidden"}`} ref={emblaRef}>
           <div className="embla__container flex">
             {data.items &&
               data.items.map(function (block, index) {

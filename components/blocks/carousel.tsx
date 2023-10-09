@@ -4,6 +4,21 @@ import { FaIcon } from "../icons/fa-icon";
 import { Card } from '../card';
 import { Section } from "../section";
 
+const slidesOffScreen = (slideWidth, totalSlides) => {
+  const stringToCount = {
+    "w-full": 1,
+    "w-2/3": 1.5,
+    "w-1/2": 2,
+    "w-2/5": 2.5,
+    "w-1/3": 3,
+    "w-1/4": 4,
+    "w-1/5": 5,
+    "w-1/6": 6,
+  }
+  const slideCount = stringToCount[slideWidth] || 1
+  return totalSlides > slideCount
+}
+
 export const Carousel = ({ data }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "center",
@@ -16,7 +31,8 @@ export const Carousel = ({ data }) => {
   const paddingY = style.padding.split(' ').filter(word => word.includes('pt') || word.includes('pb')).join(' ');
   const paddingX = style.padding.split(' ').filter(word => word.includes('pl') || word.includes('pr')).join(' ');
   const width = style.fullWidth ? "" : "max-w-desktop-full mx-auto"
-  const gap = (data.items?.length > 0 || style.loop) ? `space-x-${style.gap} px-${style.gap}` : ""
+  const canScroll = slidesOffScreen(style.slides, data.items?.length)
+  const gap = (canScroll) ? `space-x-${style.gap} px-${style.gap}` : `gap-${style.gap}`
   
   useEffect(() => {
     if (emblaApi) emblaApi.reInit({
@@ -56,13 +72,13 @@ export const Carousel = ({ data }) => {
             <div className={`embla__container flex ${gap}`}>
               {data.items &&
                 data.items.map(function (block, index) {
-                  return <div className={`embla__slide min-w-0 flex-grow-0 flex-shrink-0 ${style.slides}`} key={index}>
+                  return <div className={`embla__slide min-w-0 ${canScroll && "flex-grow-0 flex-shrink-0"} ${style.slides}`} key={index}>
                     <Card data={block} cardstyle={{ ...data.cardStyle, equalHeights: style.equalHeights }} />
                   </div>;
                 })
               }
             </div>
-            {style.showArrows && (
+            {style.showArrows && canScroll && (
               <>
                 {isPrevVisible && (
                   <a className={`absolute top-1/2 transform -translate-y-1/2 left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>

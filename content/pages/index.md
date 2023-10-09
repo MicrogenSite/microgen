@@ -75,7 +75,7 @@ blocks:
     _template: cards
   - style:
       gap: '6'
-      slides: w-1/3
+      slides: w-1/4
       slidesToScroll: '1'
       alignment: center
       padding: pt-0 pb-0 pr-20 pl-20
@@ -449,6 +449,7 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
 
 
 

@@ -74,15 +74,21 @@ blocks:
         body: ''
     _template: cards
   - style:
-      fullWidth: false
-      loop: true
       gap: pl-4
       slides: w-1/3
       slidesToScroll: '1'
       alignment: center
-      padding: pt-0 pr-0 pb-0 pl-0
+      padding: pt-0 pb-0 pr-10 pl-10
+      fullWidth: false
+      equalHeights: true
+      overflowHidden: true
+      loop: true
+      showArrows: true
+      arrowButtonStyle: icon
+      arrowInset: '2'
     cardStyle:
       fillStyles: from-primary to-accent2 bg-gradient-to-br opacity-100
+      grid: 'grid-cols-1 items-start '
       alignment: flex-col items-start  text-left
       image: w-100% h-200px object-center object-cover
       imagePadding: pt-0 pb-0 pr-0 pl-0
@@ -443,6 +449,9 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
 
 
 

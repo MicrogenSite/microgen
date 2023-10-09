@@ -1,5 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useCallback } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
+import { FaIcon } from "../icons/fa-icon";
 import { Card } from '../card';
 import { Section } from "../section";
 
@@ -21,12 +22,20 @@ export const Carousel = ({ data }) => {
     })
   }, [emblaApi, style])
 
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext()
+  }, [emblaApi])
+
   return (
     <Section
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
-      <div className={`${width} ${padding} ${style.minHeight}`}>
+      <div className={`relative ${width} ${padding} ${style.minHeight}`}>
         <div className={`embla ${style.overflowHidden && "overflow-hidden"}`} ref={emblaRef}>
           <div className="embla__container flex">
             {data.items &&
@@ -37,6 +46,16 @@ export const Carousel = ({ data }) => {
               })
             }
           </div>
+          {style.showArrows && (
+            <>
+              <a className={`absolute top-1/2 transform -translate-y-1/2 left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>
+                <FaIcon icon="chevron-left-solid" />
+              </a>
+              <a className={`absolute top-1/2 transform -translate-y-1/2 right-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollNext}>
+                <FaIcon icon="chevron-right-solid" />
+              </a>
+            </>
+          )}
         </div>
       </div>
     </Section>

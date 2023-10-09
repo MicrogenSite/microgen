@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import { FaIcon } from "../icons/fa-icon";
 import { Card } from '../card';
@@ -10,6 +10,8 @@ export const Carousel = ({ data }) => {
     containScroll: "trimSnaps",
     loop: true,
   })
+  const [isPrevVisible, setIsPrevVisible] = useState(false);
+  const [isNextVisible, setIsNextVisible] = useState(false);
   const style = data.style || {}
   const padding = style.padding
   const width = style.fullWidth ? "" : "max-w-desktop-full mx-auto"
@@ -21,6 +23,17 @@ export const Carousel = ({ data }) => {
       slidesToScroll: Number(style.slidesToScroll),
     })
   }, [emblaApi, style])
+
+  useEffect(() => {
+    if (emblaApi) {
+      setIsPrevVisible(emblaApi.canScrollPrev());
+      setIsNextVisible(emblaApi.canScrollNext());
+      emblaApi.on('select', () => {
+        setIsPrevVisible(emblaApi.canScrollPrev());
+        setIsNextVisible(emblaApi.canScrollNext());
+      });
+    }
+  }, [emblaApi]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev()
@@ -48,12 +61,16 @@ export const Carousel = ({ data }) => {
           </div>
           {style.showArrows && (
             <>
-              <a className={`absolute top-1/2 transform -translate-y-1/2 left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>
-                <FaIcon icon="chevron-left-solid" />
-              </a>
-              <a className={`absolute top-1/2 transform -translate-y-1/2 right-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollNext}>
-                <FaIcon icon="chevron-right-solid" />
-              </a>
+              {isPrevVisible && (
+                <a className={`absolute top-1/2 transform -translate-y-1/2 left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>
+                  <FaIcon icon="chevron-left-solid" />
+                </a>
+              )}
+              {isNextVisible && (
+                <a className={`absolute top-1/2 transform -translate-y-1/2 right-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollNext}>
+                  <FaIcon icon="chevron-right-solid" />
+                </a>
+              )}
             </>
           )}
         </div>

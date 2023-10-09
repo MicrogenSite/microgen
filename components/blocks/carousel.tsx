@@ -15,6 +15,7 @@ export const Carousel = ({ data }) => {
   const style = data.style || {}
   const padding = style.padding
   const width = style.fullWidth ? "" : "max-w-desktop-full mx-auto"
+  const gap = (data.items?.length > 0 || style.loop) ? `space-x-${style.gap} px-${style.gap}` : ""
   
   useEffect(() => {
     if (emblaApi) emblaApi.reInit({
@@ -50,10 +51,10 @@ export const Carousel = ({ data }) => {
     >
       <div className={`relative ${width} ${padding} ${style.minHeight}`}>
         <div className={`embla ${style.overflowHidden && "overflow-hidden"}`} ref={emblaRef}>
-          <div className="embla__container flex">
+          <div className={`embla__container flex ${gap}`}>
             {data.items &&
               data.items.map(function (block, index) {
-                return <div className={`embla__slide min-w-0 flex-grow-0 flex-shrink-0 ${style.slides} ${(index !=0 || style.loop) && style.gap}`} key={index}>
+                return <div className={`embla__slide min-w-0 flex-grow-0 flex-shrink-0 ${style.slides}`} key={index}>
                   <Card data={block} cardstyle={{ ...data.cardStyle, equalHeights: style.equalHeights }} />
                 </div>;
               })

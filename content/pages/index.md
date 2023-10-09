@@ -74,18 +74,18 @@ blocks:
         body: ''
     _template: cards
   - style:
-      gap: pl-4
+      gap: '6'
       slides: w-1/3
       slidesToScroll: '1'
       alignment: center
-      padding: pt-0 pb-0 pr-10 pl-10
+      padding: pt-0 pb-0 pr-20 pl-20
       fullWidth: false
       equalHeights: true
       overflowHidden: true
       loop: true
       showArrows: true
       arrowButtonStyle: icon
-      arrowInset: '2'
+      arrowInset: '10'
     cardStyle:
       fillStyles: from-primary to-accent2 bg-gradient-to-br opacity-100
       grid: 'grid-cols-1 items-start '
@@ -449,6 +449,7 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
 
 
 

@@ -129,9 +129,9 @@ export const carouselBlockSchema: any = {
             mobileMode: true,
           },
           options: [
-            { label: "center", value: "center" },
             { label: "left", value: "start" },
-            { label: "right", value: "min-h-120" },
+            { label: "center", value: "center" },
+            { label: "right", value: "end" },
           ],
         },
         {

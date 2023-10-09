@@ -31,6 +31,98 @@ blocks:
         fathomId: ''
     _template: feature
   - style:
+      alignment: flex-col-reverse items-start gap-6
+      padding: pt-20 pb-20 pr-20 pl-20
+      featureContent: w-1/2 min-h-0 text-left
+      buttonsLayout: 'flex-wrap gap-4 '
+      labelStyles: text-black undefined undefined
+      headlineStyles: text-black undefined undefined
+      subheadStyles: text-black undefined undefined
+      textStyles: text-black undefined undefined
+    cardStyle:
+      fillStyles: from-primary to-accent2 bg-gradient-to-br opacity-100
+      grid: grid-cols-3 justify-start gap-6
+      alignment: flex-row items-start  text-left
+      image: w-50% h-100% object-center object-cover
+      imagePadding: pt-5 pb-5 pr-5 pl-5
+      contentPadding: pt-2 pb-0 pr-0 pl-0
+      borderStyles: border-white border-0
+      labelStyles: text-black undefined undefined
+      headlineStyles: text-white mg-headline-small mb-0
+      subheadStyles: text-gray-light mg-copy mb-0
+      textStyles: text-black undefined undefined
+      buttonLayout: undefined
+      buttonWidth: undefined
+    background:
+      style: bg-cover
+      position: bg-center
+    label: ''
+    headline: ''
+    subhead: ''
+    body: ''
+    items:
+      - image:
+          src: /uploads/logo.jpg
+        headline: 'Headline Is Awesome Headline Headline Headline '
+        subhead: Subhead
+        body: ''
+      - headline: Headline
+        subhead: Subhead
+        body: ''
+      - headline: Headline
+        subhead: Subhead
+        body: ''
+    _template: cards
+  - style:
+      gap: '6'
+      slides: w-1/4
+      slidesToScroll: '1'
+      alignment: center
+      padding: pt-0 pb-0 pr-20 pl-20
+      fullWidth: false
+      equalHeights: true
+      overflowHidden: true
+      loop: true
+      showArrows: true
+      arrowButtonStyle: icon
+      arrowInset: '10'
+    cardStyle:
+      fillStyles: from-primary to-accent2 bg-gradient-to-br opacity-100
+      grid: 'grid-cols-1 items-start '
+      alignment: flex-col items-start  text-left
+      image: w-100% h-200px object-center object-cover
+      imagePadding: pt-0 pb-0 pr-0 pl-0
+      contentPadding: pt-2 pb-2 pr-0 pl-2
+      borderStyles: border-white border-0
+      labelStyles: text-black undefined undefined
+      headlineStyles: text-white mg-headline-small mb-0
+      subheadStyles: text-gray-light mg-copy undefined
+      textStyles: text-black undefined undefined
+      buttonLayout: undefined
+      buttonWidth: undefined
+    background:
+      style: bg-cover
+      position: bg-center
+    label: ''
+    headline: Headline
+    subhead: Subhead
+    body: ''
+    items:
+      - headline: Another One
+        body: ''
+      - headline: Headline
+        subhead: Subhead
+        body: ''
+      - headline: Headline
+        subhead: Subhead
+        body: ''
+      - image:
+          src: /uploads/logo.jpg
+        headline: Headline
+        subhead: Subhead
+        body: ''
+    _template: carousel
+  - style:
       alignment: 'flex-col-reverse items-center '
       padding: pt-0 pb-0.5 pr-0 pl-0
       featureContent: w-full min-h-0 text-center
@@ -41,11 +133,9 @@ blocks:
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: bg-black opacity-100
-      grid: >-
-        grid-cols-3 justify-start gap-0.5 sm:grid-cols-1 sm:justify-start
-        sm:gap-0.5
+      grid: grid-cols-3 justify-center gap-px
       alignment: flex-col items-start  text-left
-      image: wpx-48 hpx-48 object-left object-fill
+      image: '  object-left object-fill'
       imagePadding: 'pt-20 pb-0 pr-0 pl-10 sm:pt-10 sm:pb-0 sm:pr-0 sm:pl-5'
       contentPadding: 'pt-5 pb-12 pr-11 pl-11 sm:pt-5 sm:pb-2.5 sm:pr-5 sm:pl-5'
       borderStyles: border-white border-0
@@ -131,11 +221,9 @@ blocks:
       textStyles: text-white mg-copy-small undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-4
+      grid: grid-cols-4 justify-center gap-8
       alignment: flex-col items-start  text-left
-      image: wpx-48 hpx-48 object-center object-fill
+      image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
@@ -200,11 +288,9 @@ blocks:
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-6
+      grid: grid-cols-3 justify-start gap-8
       alignment: flex-col items-start  text-left
-      image: wpx-36 hpx-36 object-center object-fill
+      image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
@@ -363,6 +449,62 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

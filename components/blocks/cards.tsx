@@ -26,7 +26,7 @@ export const Cards = ({ data, parentField = "" }) => {
     <Section background={data.background} navigationLabel={data.navigationLabel}>
       <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
         <div className={`${wrapClasses(style)}`}>
-          <div className={`grid ${style.grid}`}>
+          <div className={`grid ${data.cardStyle?.grid}`}>
             {data.items &&
               data.items.map(function (block, index) {
                 return <Card key={index} data={block} cardstyle={data.cardStyle} />;

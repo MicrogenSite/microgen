@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getStyleMatch, prefixSelectValues } from '../../helpers/utilities';
 import Control from './Control';
 import IconPicker from './widgets/IconPicker';
-import PixelField from './widgets/PixelField';
+import UnitField from './widgets/UnitField';
 
 const margins = [
   { label: "object-left-top", value: "object-left-top" },
@@ -32,9 +32,9 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   const [margin, setMargin] = useState(getStyleMatch(marginOptions, inputValue));
   const fitOptions = buildOptions(fits, isMobile)
   const [fit, setFit] = useState(getStyleMatch(fitOptions, inputValue));
-  const getWidth = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}wpx-`))
+  const getWidth = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}w-`))
   const [width, setWidth] = useState(getWidth() || "")
-  const getHeight = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}hpx-`))
+  const getHeight = () => inputValue.split(' ').find(item => item.includes(`${mobilePrefix}h-`))
   const [height, setHeight] = useState(getHeight() || "")
 
   useEffect(() => {
@@ -44,8 +44,8 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   return (
     <div className="">
       <div className="flex items-center gap-2">
-        <PixelField value={width.replace(`${mobilePrefix}wpx-`, '')} label="W"  onChange={event => setWidth(`${mobilePrefix}wpx-${event.target.value}`)} className="flex-1" />
-        <PixelField value={height.replace(`${mobilePrefix}hpx-`, '')} label="H" onChange={event => setHeight(`${mobilePrefix}hpx-${event.target.value}`)} className="flex-1" />
+        <UnitField value={width.replace(`${mobilePrefix}w-`, '')} label="W"  onChange={(value) => setWidth(`${mobilePrefix}w-${value}`)} className="flex-1" />
+        <UnitField value={height.replace(`${mobilePrefix}h-`, '')} label="H" onChange={(value) => setHeight(`${mobilePrefix}h-${value}`)} className="flex-1" />
         <IconPicker value={fit} onClick={value => setFit(value)} options={fitOptions} menuPosition="right" />
         <IconPicker value={margin} onClick={value => setMargin(value)} options={marginOptions} menuPosition="right" />
       </div>

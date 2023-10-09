@@ -6,16 +6,21 @@ const cardImgStyles = (cardStyle, isMobile:boolean) => {
   let imageWidth
   let imageHeight
   if (isMobile) {
-    imageWidth = classes.find(item => item.substring(0,7) === 'sm:wpx-')?.replace(`sm:wpx-`, '')
-    imageHeight = classes.find(item => item.substring(0,7) === 'sm:hpx-')?.replace(`sm:wpx-`, '')
+    imageWidth = classes.find(item => item.includes('sm:w-'))?.replace(`sm:w-`, '')
+    imageHeight = classes.find(item => item.includes('sm:h-'))?.replace(`sm:w-`, '')
   } else {
-    imageWidth = classes.find(item => item.substring(0,4) === 'wpx-')?.replace(`wpx-`, '')
-    imageHeight = classes.find(item => item.substring(0,4) === 'hpx-')?.replace(`hpx-`, '')
+    imageWidth = classes.find(item => item.includes('w-'))?.replace(`w-`, '')
+    imageHeight = classes.find(item => item.includes('h-'))?.replace(`h-`, '')
   }
-  return {
-    width: imageWidth ? `${imageWidth}px` : '100%',
-    height: imageHeight ? `${imageHeight}px` : '100%'
+
+  const styles = {}
+  if (imageWidth) {
+    styles['width'] = `${imageWidth}`
   }
+  if (imageHeight) {
+    styles['height'] = `${imageHeight}`
+  }
+  return styles
 }
 
 const cardImgClasses = (cardStyle, isMobile:boolean) => {
@@ -29,18 +34,17 @@ const cardImgClasses = (cardStyle, isMobile:boolean) => {
 
 export const Card = ({ data, cardstyle }) => {
   return (    
-    <div className={`relative w-full flex ${cardstyle?.alignment} ${cardstyle?.borderStyles}`}>
+    <div className={`relative w-full flex ${cardstyle?.alignment} ${cardstyle?.equalHeights === true && "min-h-full"} ${cardstyle?.borderStyles}`}>
       <div className={`${cardstyle?.fillStyles} absolute inset-0 -z-1`} />
       {data.link && !data.buttonLabel && (
         <a className={`absolute inset-0 -z-20`} href={data.link} />
       )}
       {data.image?.src && (
         <>
-          <div className={`${cardstyle?.imagePadding} sm:hidden`}>
-            <div style={cardImgStyles(cardstyle, false)}>
+          <div style={cardImgStyles(cardstyle, false)} className={`max-w-full max-h-full`}>
+            <div className={`${cardstyle?.imagePadding} w-full h-full sm:hidden`}>
               <img
-                className={`sm:hidden ${cardImgClasses(cardstyle, false)}`}
-                style={cardImgStyles(cardstyle, false)}
+                className={`sm:hidden w-full h-full ${cardImgClasses(cardstyle, false)}`}
                 alt={data.image.alt || data.headline}
                 src={data.image.src}
               />
@@ -58,7 +62,7 @@ export const Card = ({ data, cardstyle }) => {
           </div>
         </>
       )}
-      <div className={`flex-1 h-full flex flex-col ${cardstyle.buttonLayout} ${cardstyle?.contentPadding}`} >
+      <div className={`flex-1 flex flex-col overflow-x-hidden w-full ${cardstyle.buttonLayout} ${cardstyle?.contentPadding}`} >
         <Content
           data = {data}
           styles = {cardstyle}

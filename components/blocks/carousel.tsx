@@ -26,14 +26,13 @@ export const Carousel = ({ data }) => {
       background={data.background}
       navigationLabel={data.navigationLabel}
     >
-      <p className="text-white">Overflow: {JSON.stringify(style.overflowHidden)}</p>
       <div className={`${width} ${padding} ${style.minHeight}`}>
         <div className={`embla ${style.overflowHidden && "overflow-hidden"}`} ref={emblaRef}>
           <div className="embla__container flex">
             {data.items &&
               data.items.map(function (block, index) {
                 return <div className={`embla__slide min-w-0 flex-grow-0 flex-shrink-0 ${style.slides} ${(index !=0 || style.loop) && style.gap}`} key={index}>
-                  <Card data={block} cardstyle={data.cardStyle} />
+                  <Card data={block} cardstyle={{ ...data.cardStyle, equalHeights: style.equalHeights }} />
                 </div>;
               })
             }

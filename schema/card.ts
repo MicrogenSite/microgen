@@ -18,6 +18,14 @@ export const cardSchema = {
       }
     },
     {
+      label: "Grid",
+      name: "grid",
+      type: "string",
+      ui: {
+        component: "gridControl",
+      },
+    },
+    {
       label: "Alignment",
       name: "alignment",
       type: "string",

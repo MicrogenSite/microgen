@@ -54,21 +54,6 @@ export const carouselBlockSchema: any = {
       type: "object",
       fields: [
         {
-          label: "Full Width",
-          name: "fullWidth",
-          type: "boolean",
-        },
-        {
-          label: "Overflow Hidden",
-          name: "overflowHidden",
-          type: "boolean",
-        },
-        {
-          label: "Loop",
-          name: "loop",
-          type: "boolean",
-        },
-        {
           label: "Gap",
           name: "gap",
           type: "string",
@@ -151,6 +136,26 @@ export const carouselBlockSchema: any = {
           ui: {
             component: "paddingControl",
           }
+        },
+        {
+          label: "Full Width",
+          name: "fullWidth",
+          type: "boolean",
+        },
+        {
+          label: "Equal Height Cards",
+          name: "equalHeights",
+          type: "boolean",
+        },
+        {
+          label: "Overflow Hidden",
+          name: "overflowHidden",
+          type: "boolean",
+        },
+        {
+          label: "Loop",
+          name: "loop",
+          type: "boolean",
         },
       ],
     },

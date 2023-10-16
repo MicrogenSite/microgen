@@ -26,7 +26,7 @@
 
 Setting up local environment 
 - Install dependencies in your cloned folder using ```npm install```.
-- Locate the **_.env.example_** template file within the **_tina_** folder and rename the file to **_.env_**.
+- Locate the **_.env.example_** template file and rename the file to **_.env_**.
 - In your __*_.env_*__ file, replace *** with the correct variables from Tina Cloud (find the *client_id* under __Overview__, the *token* under __Tokens__ > __Content (Readonly)__, and set the _branch_ to _main_).
 - For deployment, use ```npm run dev``` and visit http://localhost:3000 (to edit locally, visit http://localhost:3000/admin).
 

@@ -69,10 +69,10 @@ export const Carousel = ({ data }) => {
       <div className={paddingY}>
         <div className={`relative ${width} ${paddingX} ${style.minHeight}`}>
           <div className={`embla ${style.overflowHidden && "overflow-hidden"}`} ref={emblaRef}>
-            <div className={`embla__container flex ${gap}`}>
+            <div className={`embla__container flex -ml-${style.gap}`}>
               {data.items &&
                 data.items.map(function (block, index) {
-                  return <div className={`embla__slide min-w-0 ${canScroll && "flex-grow-0 flex-shrink-0"} ${style.slides}`} key={index}>
+                  return <div className={`embla__slide pl-${style.gap} ${style.slides} ${canScroll && "flex-grow-0 flex-shrink-0"}`} key={index}>
                     <Card data={block} cardstyle={{ ...data.cardStyle, equalHeights: style.equalHeights }} />
                   </div>;
                 })
@@ -81,12 +81,12 @@ export const Carousel = ({ data }) => {
             {style.showArrows && canScroll && (
               <>
                 {isPrevVisible && (
-                  <a className={`absolute top-1/2 transform -translate-y-1/2 left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>
+                  <a className={`absolute top-1/2 transform -translate-y-1/2 cursor-pointer left-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollPrev}>
                     <FaIcon icon="chevron-left-solid" />
                   </a>
                 )}
                 {isNextVisible && (
-                  <a className={`absolute top-1/2 transform -translate-y-1/2 right-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollNext}>
+                  <a className={`absolute top-1/2 transform -translate-y-1/2 cursor-pointer right-${style.arrowInset || '0'} btn-${style.arrowButtonStyle || 'primary'}`} onClick={scrollNext}>
                     <FaIcon icon="chevron-right-solid" />
                   </a>
                 )}

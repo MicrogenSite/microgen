@@ -44,7 +44,7 @@ export const Feature = ({ data, parentField = '' }) => {
   const textAlign = getWordWith(style.featureContent, 'text-')
   return (
     <Section background={data.background} navigationLabel={data.navigationLabel}>
-      <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
+      <div className={`relative flex w-full max-w-site-full mx-auto bg-primary ${style?.padding} ${style?.alignment}`}>
         <div className={`${imageWrapClasses(style)}`}>
           {data.image?.src && !data.image?.src.includes(".mp4") && (
             <>

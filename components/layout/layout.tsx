@@ -53,6 +53,10 @@ export const Layout = ({ rawData, children }) => {
         {googleFontsLink(global.theme) && (
           <link href={googleFontsLink(global.theme)} rel="stylesheet"></link>
         )}
+
+        {/* Custom Fonts */ }
+        {/* <link rel="stylesheet" type="text/css" href="/fonts/knewave-webfont.woff"></link> */ }
+
       </Head>
       <Background background={page.background}></Background>
       <Header blocks={page?.blocks} globalData={global} />

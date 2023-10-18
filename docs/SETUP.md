@@ -1,29 +1,39 @@
-
 # Setup
 
-#### 1. Clone the Repo
-Clone the [MicroGen repo](https://github.com/pathfindertools/microgen) from GitHub. After cloning you will want to remove the git folder and run ```git init``` to start a fresh git repository. 
+To get started using Microgen, fork the [repo](https://github.com/pathfindertools/microgen). To deploy your site on the internet, you must connect your repo to the free Tina CMS service and your choice of static webhost.
 
-#### 2. Setup Tina Cloud to manage the CMS
+If you plan to add custom blocks to your site, you may want to consider cloning the repo instead. See the [Development](DEVELOPMENT.md) doc for more details.
+
+## Connect to Tina
+
 - [Login](https://app.tina.io/signin) to Tina Cloud or [create a new account](https://app.tina.io/register).
-- Go to [projects](https://app.tina.io/projects) and create a new Custom Project.
-- Follow the steps to select your forked repo. (add http://localhost:3000 as the site URL)
-- Click on your new project and save the client ID for later use.
+- Go to [projects](https://app.tina.io/projects) and create a new custom project.
+- Follow the steps to select your repo (make sure to add <http://localhost:3000> as the site URL).
+- Save the Client ID and Token of your newly created project for later use.
 
-#### 3. Set up a Fleek site
-When you're ready you can setup a site on Fleek running off your repo. You will need to setup environment variables for Tina.
+## Deploy to a static host
 
-## Upgrading MicroGen
+Microgen can be deployed to the static host of your choice. If you want your site to live on Web3, we recommend using [Fleek](https://fleek.co/).
 
-You can upgrade your project to the latest version of MicroGen by checking out the MicroGen [repo](https://github.com/filecoin-project/microgen-tina) and then merging it into your project. Be careful not to overwrite your projects ```/content/index.md``` file.
+### Fleek
+
+- [Login](https://app.fleek.co/#/auth/sign-in) to Fleek or [create a new account](https://app.fleek.co/#/auth/sign-up).
+- Choose **Add New Site** to create a new site and follow the steps to select your forked repo (select _"IPFS"_ as _"Hosting Service"_).
+- Go to **Hosting** > **Settings** > **Advanced Build Settings** and add the 2 environment variables from Tina as shown in the Environment Variables section below.
+- Go to **Configuration** on Tina Cloud and add the site URL created from Fleek (https://**_<replace-with-your_site-name>_**.on.fleek.co).
+- Deploy your site by selecting **Deploy Site**.
+
+### Environment Variables
+
 ```
-cd path/to/your-project
-git remote add microgen-tina /path/to/microgen-tina
-git fetch microgen-tina --tags
-git merge --allow-unrelated-histories microgen-tina/main
-git remote remove microgen-tina
+NEXT_PUBLIC_TINA_CLIENT_ID=[YOUR CLIENT ID FROM TINA]
+TINA_TOKEN=[YOUR READ ONLY TOKEN FROM TINA]
 ```
 
-## Tips and Tricks
+## Making Edits
 
-- If you edit environment variables remember you must redeploy your project on Vercel for the new variables to take effect.
+Once your site has successfully deployed, you can make edits by adding `/admin` to the URL of your site. For example, `https://www.yoursite.com/admin`. Only sites added to the Site URLs section in Tina are allowed to make edits from the admin URL.
+
+## Sync Media
+
+If images are not showing up on your site, you may need to enable and sync media from Tina. Choose media from the sidebar on the Tina site and click "Enable Media", then click the "Sync Media" button.

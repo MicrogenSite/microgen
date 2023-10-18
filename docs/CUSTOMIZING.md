@@ -47,6 +47,21 @@ You can add your own custom font files to Microgen as well.
 
 ## Icons
 
+Microgen features a collection of icons that can be used in buttons.
+
+1. Add the SVG code to `/components/icons/fa-icon.tsx`.
+
+    ```javascript
+      case "your-icon":
+        return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M9.4 233.4c-12.5"/></svg>
+    ```
+
+2. Add the icon to the iconOptions array in `/schema/options.tsx`
+
+    ```javascript
+      { label: "Your Icon", value: "your-icon" },
+    ```
+
 ## Custom Blocks
 
 Coming Soon.

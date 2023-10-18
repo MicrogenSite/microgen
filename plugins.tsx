@@ -26,14 +26,16 @@ export const SectionListItemsPlugin = {
         accordion: 'Accordion',
         banner: 'Banner',
         cards: 'Cards',
+        carousel: 'Carousel',
         embed: 'Embed',
         eventSchedule: 'Event Schedule',
         eventTimeline: 'Event Timeline',
         feature: 'Feature',
         tailwindCards: 'Cards TW',
         tailwindFeature: 'Feature TW',
+        video: 'Video',
       }
-      const sectionName = item.headline || item.subhead || item.label || item.title || ''
+      const sectionName = item.headline || item.subhead || item.label || item.title || item.video || ''
       const sectionNameShort = sectionName.match(/^.{24}\w*/)
       const sectionLabel = sectionNameShort || sectionName || ''
       const label = sectionLabel ? `${sectionLabel} (${templateNames[item._template]})` : `${templateNames[item._template]}`

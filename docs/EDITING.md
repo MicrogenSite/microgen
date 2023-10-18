@@ -1,6 +1,7 @@
 # Editing
 
 ## Logging In
+
 Login to your site by going to the staging domain followed by "/admin"  
 ```https://www.yourstagingsite.com/admin```
 
@@ -148,6 +149,7 @@ The button type to use for the card.
 ---
 
 ## Embed Section
+
 Intended for raw html, css or javascript.
 
 - **Minimum Height:**
@@ -167,9 +169,6 @@ You can customize colors, typography and other site wide settings from from the 
 
 **Site URL:**
 The production url of your site without the protocol or slashes (example.com). This is used to identify the site you want to track analytics from.
- 
-**Google Tag Manager Id:**
-If you setup a site in google analytics you can add the google tag manager id here to start tracking. (Also set the site url). Page jump navigations are tracked as events.
 
 **Favicon:**
 Upload a favicon to use for your site. This should be a 48x48 pixel png image.**Desktop Width:**
@@ -192,21 +191,27 @@ Choose a logo image, set the width and set a margin to the right of it. If you d
 The header settings contain options to control the styling of the navigation.
 
 ---
+
 # Other Topics
 
 ## Meta Data
+
 The main page sidebar contains a Meta button which brings you to the Meta sidebar. This information is used for the site title and description as well as open graph for social sharing.
 
 ## Push staging to production
+
 Tina edits are made on a staging site. To push staging edits to production create a pull request in github with merging main into production.
 
 ## Navigation
+
 A navigation bar can be drawn across the top of the page. Settings for this are available from the navigation button on the main page sidebar. Navigation is comprised of two types of links.
 
 ## Page Jumps
+
 Sections that have a navigation label will have that label drawn in the top nav. Clicking that item will scroll down to the section.
 
 ## Additional Links
+
 Links to external pages can be added from the navigation menu.
 
 ## Technology

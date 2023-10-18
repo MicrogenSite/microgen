@@ -16,13 +16,13 @@ blocks:
       style: bg-cover
       position: bg-center
     label: ''
-    headline: A visual site builder you own
+    headline: The Web3 Visual Site Builder
     subhead: ''
     body: >
-      Quickly build mobile-friendly websites with an intuitive, easy-to-use
-      visual editor and customizable components. Execute your exact design
-      vision with the flexible theme editor and background system. Add your own
-      components, extend the project however you like, and host it anywhere.
+      Microgen is an intuitive, open source visual site builder made for Web3.
+      Free forever and built for the decentralized internet. Extend the library
+      of customizable components however you like and host your website for free
+      on IPFS or any other static host.
     buttons:
       - label: Get Started
         link: 'https://github.com/MicrogenSite/microgen'
@@ -34,18 +34,16 @@ blocks:
       alignment: 'flex-col-reverse items-center '
       padding: pt-0 pb-0.5 pr-0 pl-0
       featureContent: w-full min-h-0 text-center
-      buttonsLayout: 'flex-row  '
+      buttonsLayout: 'flex-wrap gap-0 '
       labelStyles: text-white undefined undefined
       headlineStyles: text-white mg-hidden undefined
       subheadStyles: text-white undefined undefined
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: bg-black opacity-100
-      grid: >-
-        grid-cols-3 justify-start gap-0.5 sm:grid-cols-1 sm:justify-start
-        sm:gap-0.5
+      grid: grid-cols-3 justify-center gap-px
       alignment: flex-col items-start  text-left
-      image: wpx-48 hpx-48 object-left object-fill
+      image: '  object-left object-fill'
       imagePadding: 'pt-20 pb-0 pr-0 pl-10 sm:pt-10 sm:pb-0 sm:pr-0 sm:pl-5'
       contentPadding: 'pt-5 pb-12 pr-11 pl-11 sm:pt-5 sm:pb-2.5 sm:pr-5 sm:pl-5'
       borderStyles: border-white border-0
@@ -62,9 +60,6 @@ blocks:
       wrapFillStyles: bg-gray-dark opacity-100
       style: bg-cover
       position: bg-center
-      ornaments:
-        - src: /uploads/rule.svg
-          alignment: bottom
     label: ''
     headline: Features
     subhead: ''
@@ -134,11 +129,9 @@ blocks:
       textStyles: text-white mg-copy-small undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-4
+      grid: grid-cols-4 justify-center gap-8
       alignment: flex-col items-start  text-left
-      image: wpx-48 hpx-48 object-center object-fill
+      image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
@@ -203,11 +196,9 @@ blocks:
       textStyles: text-white undefined undefined
     cardStyle:
       fillStyles: ' opacity-100'
-      grid: >-
-        grid-cols-4 justify-start gap-12 sm:grid-cols-2 sm:justify-start
-        sm:gap-6
+      grid: grid-cols-3 justify-start gap-8
       alignment: flex-col items-start  text-left
-      image: wpx-36 hpx-36 object-center object-fill
+      image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
@@ -366,5 +357,62 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

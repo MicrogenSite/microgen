@@ -11,7 +11,7 @@ const layoutOptions = [
   { label: "Stack", value: "flex-col"},
 ]
 const gapOptions = [
-  { label: "0", value: ""},
+  { label: "0", value: "gap-0"},
   { label: "2", value: "gap-0.5"},
   { label: "4", value: "gap-1"},
   { label: "6", value: "gap-1.5"},
@@ -62,8 +62,8 @@ const FieldRow = ({ inputValue='', onUpdate=(value)=>{ value }, isMobile = false
   const layoutOptionsPrefixed = buildOptions(layoutOptions, isMobile)
   const gapOptionsPrefixed = buildOptions(gapOptions, isMobile)
   const widthOptionsPrefixed = buildOptions(widthOptions, isMobile)
-  const [layout, setLayout] = useState(getStyleMatch(layoutOptionsPrefixed, inputValue) || "flex-row");
-  const [gap, setGap] = useState(getStyleMatch(gapOptionsPrefixed, inputValue) || "");
+  const [layout, setLayout] = useState(getStyleMatch(layoutOptionsPrefixed, inputValue) || "flex-wrap");
+  const [gap, setGap] = useState(getStyleMatch(gapOptionsPrefixed, inputValue) || "gap-0");
   const [width, setWidth] = useState(getStyleMatch(widthOptionsPrefixed, inputValue) || "");
 
   useEffect(() => {

@@ -11,9 +11,10 @@ export const Buttons = ({
 }) => {
   const layoutClasses = layout?.split(" ").filter((item) => !item.includes("w-")).join(" ")
   const buttonWidth = layout?.split(" ").filter((item) => item.includes("w-")).join(" ")
+  const isStacked = layout?.includes("flex-col")
 
   return (
-    <div className={`inline-flex ${layoutClasses} ${className}`}>
+    <div className={`inline-flex ${isStacked && "items-start"} ${layoutClasses} ${className}`}>
       {buttons &&
         buttons.map(function (button, index) {
           const element = (
@@ -28,7 +29,7 @@ export const Buttons = ({
               target={linkTarget(button.link)}
               key={index}
             >
-              <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-2">
                 <span data-tina-field={tinaField(button, "label")}>{ button.label }</span>
                 { button.icon && (
                   <FaIcon icon={button.icon} />

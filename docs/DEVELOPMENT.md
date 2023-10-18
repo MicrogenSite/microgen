@@ -55,12 +55,6 @@ Commonly you'll want to bring the child forks along with you when detaching your
 
 7. Within a few minutes to half an hour you should get a confirmation in your e-mail.
 
-## Future Topics
-
-- Add Custom Blocks
-- Add Custom Fonts
-- Add Custom Icons
-
 ## Getting Help
 
 - Visit the [Tina Documentation](https://tina.io/docs/) to learn about Tina.

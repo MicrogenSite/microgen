@@ -226,6 +226,15 @@ export const styles = (theme) => {
     }
     ${buttonClasses(theme.buttons)}
     ${typographyClasses(theme.typo)}
+
+    /* Custom Fonts */
+    /* 
+    @font-face {
+      font-family: 'YourFont';
+      src: url('fonts/yourfont.woff') format('woff');
+    }
+    */
+    
     
     @media only screen and (max-width: 700px) {
       html {

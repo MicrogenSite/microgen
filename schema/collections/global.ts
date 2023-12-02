@@ -19,6 +19,7 @@ export const globalCollectionSchema: any = {
       type: "string",
       label: "Site Url",
       name: "siteUrl",
+      description: "Live url without www or https://",
     },
     {
       type: "image",
@@ -27,9 +28,18 @@ export const globalCollectionSchema: any = {
       description: "Should be a 48x48px png",
     },
     {
+      label: "Analytics",
+      name: "analytics",
+      description: "The type of analytics to use",
       type: "string",
-      label: "Google Tag Manager ID",
-      name: "gtmId",
+      ui: {
+        component: "select",
+      },
+      options: [
+        { label: "None", value: "none" },
+        { label: "Plausible", value: "plausible" },
+        { label: "Fathom", value: "fathom" },
+      ],
     },
     {
       label: "Fathom Site ID",

@@ -12,7 +12,9 @@ A global theming system keeps everything looking consistent and support for stan
 
 - [Setup](docs/SETUP.md)
 - [Editing content](docs/EDITING.md)
+- [Customizing](docs/CUSTOMIZING.md)
 - [Development](docs/DEVELOPMENT.md)
+- [Upgrade](docs/UPGRADE.md)
 - [Tips](docs/TIPS.md)
 - [Release notes](docs/RELEASE_NOTES.md)
 

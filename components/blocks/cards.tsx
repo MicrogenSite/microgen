@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { hasWord, getWordWith } from '../../helpers/utilities';
-import { FaIcon } from '../icons/fa-icon';
-import { Section } from '../section';
+import { Card } from '../card';
 import { Content } from '../content';
+import { Section } from '../section';
 
 const wrapWidthClasses = (isVertical: boolean, isMobile: boolean) => {
   const mobilePrefix = isMobile ? 'sm:' : ''
@@ -116,10 +116,10 @@ export const Cards = ({ data, parentField = "" }) => {
     <Section background={data.background} navigationLabel={data.navigationLabel}>
       <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.border} ${style?.alignment}`}>
         <div className={`${wrapClasses(style)}`}>
-          <div className={`grid ${data.cardStyle.grid}`}>
+          <div className={`grid ${data.cardStyle?.grid}`}>
             {data.items &&
               data.items.map(function (block, index) {
-                return <Card key={index} index={index} data={block} cardstyle={data.cardStyle} parentField={`${parentField}.items`} />;
+                return <Card key={index} data={block} cardstyle={data.cardStyle} />;
               })}
           </div>
         </div>

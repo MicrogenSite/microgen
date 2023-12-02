@@ -1,5 +1,18 @@
 # Release Notes
 
+**Version 1.8** | Released 10/18/23
+
+Features
+
+- Carousel Block
+- Video Block
+- Documentation Updates
+
+Fixes
+
+- Stacked Button Fixes
+- Card Fixes
+
 **Version 1.7** | Released 6/12/23
 
 Features

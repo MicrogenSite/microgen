@@ -1,10 +1,11 @@
-import { buttonsSchema } from "../buttons"
-import { iconOptions } from "../options"
 import { backgroundSchema } from "../background"
+import { buttonsSchema } from "../buttons"
+import { cardSchema } from "../card"
 import { contentSchema } from "../content"
+import { iconOptions } from "../options"
+import { imageSchema } from '../image';
 import { navigationLabelSchema } from "../navigation-label";
 import { typographySchema } from "../typography"
-import { imageSchema } from '../image';
 
 const defaultCard = {
   headline: "Headline",
@@ -31,8 +32,8 @@ export const cardsBlockSchema: any = {
         textStyles: "text-black",
       },
       cardStyle: {
-        fillStyles: "bg-gray",
         grid: "grid-cols-3 justify-start gap-6",
+        fillStyles: "bg-gray",
         alignment: "flex-row items-start  text-left",
         image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
@@ -226,6 +227,7 @@ export const cardsBlockSchema: any = {
         },
       ],
     },
+    cardSchema,
     backgroundSchema,
     ...contentSchema,
     buttonsSchema,

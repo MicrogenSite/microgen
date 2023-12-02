@@ -24,5 +24,6 @@
     ]
   },
   "favicon": "/uploads/favicon.png",
-  "footerNav": "true"
+  "footerNav": "true",
+  "analytics": "none"
 }

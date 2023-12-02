@@ -6,8 +6,10 @@ import { backgroundSchema } from "../schema/background"
 // Blocks
 import { featureBlockSchema } from "../schema/blocks/feature";
 import { cardsBlockSchema } from "../schema/blocks/cards";
+import { carouselBlockSchema } from "../schema/blocks/carousel";
 import { accordionBlockSchema } from "../schema/blocks/accordion";
 import { embedBlockSchema } from "../schema/blocks/embed";
+import { videoBlockSchema } from "../schema/blocks/video";
 import { tailwindFeatureBlockSchema } from "../schema/blocks/tailwind-feature"
 import { tailwindCardsBlockSchema } from "../schema/blocks/tailwind-cards"
 import { eventScheduleBlockSchema } from "../schema/blocks/event-schedule"
@@ -79,8 +81,10 @@ const config = defineStaticConfig({
             templates: [
               featureBlockSchema,
               cardsBlockSchema,
+              carouselBlockSchema,
               accordionBlockSchema,
               embedBlockSchema,
+              videoBlockSchema,
               tailwindFeatureBlockSchema,
               tailwindCardsBlockSchema,
               eventScheduleBlockSchema,

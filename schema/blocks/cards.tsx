@@ -22,6 +22,7 @@ export const cardsBlockSchema: any = {
       style: {
         alignment: "flex-col-reverse items-start gap-6",
         padding: "pt-20 pb-20 pr-20 pl-20",
+        border: "rounded-tl rounded-tr rounded-br rounded-bl",
         featureContent: "w-1/2 min-h-0 text-left",
         buttonsLayout: "flex-row gap-4",
         labelStyles: "text-black",
@@ -35,6 +36,7 @@ export const cardsBlockSchema: any = {
         alignment: "flex-row items-start  text-left",
         image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
+        imageBorder: "rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none",
         contentPadding: "pt-2 pr-2 pb-2 pl-2",
         labelStyles: "text-black",
         headlineStyles: "text-black",
@@ -71,6 +73,14 @@ export const cardsBlockSchema: any = {
           type: "string",
           ui: {
             component: "paddingControl",
+          }
+        },
+        {
+          label: "Border",
+          name: "border",
+          type: "string",
+          ui: {
+            component: "borderControl",
           }
         },
         {
@@ -138,6 +148,14 @@ export const cardsBlockSchema: any = {
           type: "string",
           ui: {
             component: "paddingControl",
+          }
+        },
+        {
+          label: "Image Border",
+          name: "imageBorder",
+          type: "string",
+          ui: {
+            component: "borderControl",
           }
         },
         {

@@ -45,6 +45,7 @@ blocks:
       alignment: flex-col items-start  text-left
       image: '  object-left object-fill'
       imagePadding: 'pt-20 pb-0 pr-0 pl-10 sm:pt-10 sm:pb-0 sm:pr-0 sm:pl-5'
+      imageBorder: 'rounded-tl rounded-tr rounded-br rounded-bl sm:rounded-tl-sm sm:rounded-tr-sm sm:rounded-br-sm sm:rounded-bl-sm'
       contentPadding: 'pt-5 pb-12 pr-11 pl-11 sm:pt-5 sm:pb-2.5 sm:pr-5 sm:pl-5'
       borderStyles: border-white border-0
       labelStyles: text-white undefined undefined
@@ -133,6 +134,7 @@ blocks:
       alignment: flex-col items-start  text-left
       image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
+      imageBorder: rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
       labelStyles: text-white undefined undefined
@@ -200,6 +202,7 @@ blocks:
       alignment: flex-col items-start  text-left
       image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
+      imageBorder: rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
       labelStyles: text-white undefined undefined

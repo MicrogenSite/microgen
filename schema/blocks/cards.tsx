@@ -23,6 +23,7 @@ export const cardsBlockSchema: any = {
       style: {
         alignment: "flex-col-reverse items-start gap-6",
         padding: "pt-20 pb-20 pr-20 pl-20",
+        border: "rounded-tl rounded-tr rounded-br rounded-bl",
         featureContent: "w-1/2 min-h-0 text-left",
         buttonsLayout: "flex-row gap-4",
         labelStyles: "text-black",
@@ -36,6 +37,7 @@ export const cardsBlockSchema: any = {
         alignment: "flex-row items-start  text-left",
         image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
+        imageBorder: "rounded-tl-none rounded-tr-none rounded-br-none rounded-bl-none",
         contentPadding: "pt-2 pr-2 pb-2 pl-2",
         labelStyles: "text-black",
         headlineStyles: "text-black",
@@ -75,6 +77,14 @@ export const cardsBlockSchema: any = {
           }
         },
         {
+          label: "Border",
+          name: "border",
+          type: "string",
+          ui: {
+            component: "borderControl",
+          }
+        },
+        {
           label: "Content",
           name: "featureContent",
           type: "string",
@@ -91,6 +101,130 @@ export const cardsBlockSchema: any = {
           },
         },
         ...typographySchema
+      ],
+    },
+    {
+      type: "object",
+      label: "Card Style",
+      name: "cardStyle",
+      ui: {
+        component: "group",
+      },
+      fields: [
+        {
+          type: "string",
+          label: "Background",
+          name: "fillStyles",
+          ui: {
+            component: "fillControl"
+          }
+        },
+        {
+          label: "Grid",
+          name: "grid",
+          type: "string",
+          ui: {
+            component: "gridControl",
+          },
+        },
+        {
+          label: "Alignment",
+          name: "alignment",
+          type: "string",
+          ui: {
+            component: "cardAlignmentControl",
+          },
+        },
+        {
+          label: "Image",
+          name: "image",
+          type: "string",
+          ui: {
+            component: "imageControl",
+          }
+        },
+        {
+          label: "Image Padding",
+          name: "imagePadding",
+          type: "string",
+          ui: {
+            component: "paddingControl",
+          }
+        },
+        {
+          label: "Image Border",
+          name: "imageBorder",
+          type: "string",
+          ui: {
+            component: "borderControl",
+          }
+        },
+        {
+          label: "Content Padding",
+          name: "contentPadding",
+          type: "string",
+          ui: {
+            component: "paddingControl",
+          }
+        },
+        {
+          type: "string",
+          label: "Border",
+          name: "borderStyles",
+          ui: {
+            component: "borderControl"
+          }
+        },
+        ...typographySchema,
+        {
+          label: "Button",
+          name: "buttonTitle",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          type: "string",
+          label: "Button Style",
+          name: "buttonType",
+          ui: {
+            component: "buttonControl",
+          },
+        },
+        {
+          type: "string",
+          label: "Button Icon",
+          name: "buttonIcon",
+          ui: {
+            component: "select",
+          },
+          options: iconOptions,
+        },
+        {
+          label: "Layout",
+          name: "buttonLayout",
+          type: "string",
+          ui: {
+            component: "selectField",
+          },
+          options: [
+            { label: "Under Content", value: "justify-start" },
+            { label: "Bottom", value: "justify-between" },
+          ],
+        },
+        {
+          label: "Width",
+          name: "buttonWidth",
+          type: "string",
+          ui: {
+            component: "selectField",
+          },
+          options: [
+            { label: "Auto", value: "w-auto" },
+            { label: "Full", value: "w-full" },
+          ],
+        },
       ],
     },
     cardSchema,

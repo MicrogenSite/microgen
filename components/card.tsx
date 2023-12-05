@@ -5,12 +5,15 @@ const cardImgStyles = (cardStyle, isMobile:boolean) => {
   const classes: [string] = cardStyle?.image?.split(' ') || []
   let imageWidth
   let imageHeight
+  let imageBorder
   if (isMobile) {
     imageWidth = classes.find(item => item.includes('sm:w-'))?.replace(`sm:w-`, '')
-    imageHeight = classes.find(item => item.includes('sm:h-'))?.replace(`sm:w-`, '')
+    imageHeight = classes.find(item => item.includes('sm:h-'))?.replace(`sm:h-`, '')
+    imageBorder = classes.find(item => item.includes('sm:rounded-'))?.replace(`sm:rounded-`, '')
   } else {
     imageWidth = classes.find(item => item.includes('w-'))?.replace(`w-`, '')
     imageHeight = classes.find(item => item.includes('h-'))?.replace(`h-`, '')
+    imageBorder = classes.find(item => item.includes('rounded-'))?.replace(`rounded-`, '')
   }
 
   const styles = {}
@@ -19,6 +22,9 @@ const cardImgStyles = (cardStyle, isMobile:boolean) => {
   }
   if (imageHeight) {
     styles['height'] = `${imageHeight}`
+  }
+  if (imageBorder) {
+    styles['border'] = `${imageBorder}`
   }
   return styles
 }
@@ -42,18 +48,18 @@ export const Card = ({ data, cardstyle }) => {
       {data.image?.src && (
         <>
           <div style={cardImgStyles(cardstyle, false)} className={`max-w-full max-h-full`}>
-            <div className={`${cardstyle?.imagePadding} w-full h-full sm:hidden`}>
+            <div className={`${cardstyle?.imagePadding} ${cardstyle?.imageBorder} w-full h-full rounded-none sm:hidden`}>
               <img
-                className={`sm:hidden w-full h-full ${cardImgClasses(cardstyle, false)}`}
+                className={`sm:hidden w-full h-full rounded-none ${cardImgClasses(cardstyle, false)}`}
                 alt={data.image.alt || data.headline}
                 src={data.image.src}
               />
             </div>
           </div>
-          <div className={`${cardstyle?.imagePadding} hidden sm:block`}>
+          <div className={`${cardstyle?.imagePadding} ${cardstyle?.imageBorder} hidden sm:block`}>
             <div style={cardImgStyles(cardstyle, true)}>
               <img
-                className={`hidden sm:block  ${cardImgClasses(cardstyle, true)}`}
+                className={`hidden sm:block ${cardImgClasses(cardstyle, true)}`}
                 style={cardImgStyles(cardstyle, true)}
                 alt={data.image.alt || data.headline}
                 src={data.image.src}

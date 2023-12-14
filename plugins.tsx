@@ -15,6 +15,7 @@ import ImageControl from './components/tina/ImageControl'
 import PaddingControl from './components/tina/PaddingControl'
 import RuledTitle from './components/tina/RuledTitle'
 import SelectField from './components/tina/SelectField'
+import TransformControl from './components/tina/TransformControl'
 import TypeControl from './components/tina/TypeControl'
 import TypographyControl from './components/tina/TypographyControl'
 
@@ -159,6 +160,12 @@ export const selectFieldPlugin = {
   Component: SelectField,
   __type: 'field',
   name: 'selectField',
+}
+
+export const transformControlFieldPlugin = {
+  Component: TransformControl,
+  __type: 'field',
+  name: 'transformControl',
 }
 
 export const typeControlFieldPlugin = {

@@ -184,6 +184,9 @@ const config = defineStaticConfig({
     import("../plugins").then(({ selectFieldPlugin }) => {
       cms.plugins.add(selectFieldPlugin);
     });
+    import("../plugins").then(({ transformControlFieldPlugin }) => {
+      cms.plugins.add(transformControlFieldPlugin);
+    });
     import("../plugins").then(({ typeControlFieldPlugin }) => {
       cms.plugins.add(typeControlFieldPlugin);
     });

@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Tween, ScrollTrigger } from 'react-gsap';
 
 const anchorPosition = {
@@ -24,20 +25,47 @@ const alignmentTransform = {
   "top-left": "0,0"
 };
 
+const getValue = (string, searchString) => {
+  if (!string) return ""
+  const array = string.split(" ");
+  const foundItem = array.find((item) => item.includes(searchString));
+  return foundItem ? foundItem.replace(searchString, "") : "";
+};
+
+const transformToObject = (transform = "") => {  
+  const x = getValue(transform, "translate-x-")
+  const y = getValue(transform, "translate-y-")
+  const opacity = getValue(transform, "opacity-")
+  const scale = getValue(transform, "scale-")
+  const rotate = getValue(transform, "rotation-")
+  return {
+    x: x || 0,
+    y: y || 0,
+    opacity: opacity ? Number(opacity)/100 : 1,
+    scale: scale ? Number(scale)/100 : 1,
+    rotate: rotate,
+  }
+}
+
 export const Ornament = ({
   props
 }) => {
+  const [refeshing, setRefreshing] = useState(false);
+  const transform = transformToObject(props.transform || "");
+  const transformOut = transformToObject(props.endTransform || "");
+  const width = getValue(props.ornamentControl, "w-");
+  const height = getValue(props.ornamentControl, "h-");
+  const alignment = getValue(props.ornamentControl, "object-");
   const wrapStyle = {
-    transform: `translate(${props.xOffset || 0}px,${props.yOffset || 0}px)`,
+    transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale}) rotate(${transform.rotate || 0}deg)`,
+    opacity: `${transform.opacity}`,
   };
-
   const imgStyle = {
-    width: `${props.width}px`,
-    height: `${props.height}px`,
-    transform: `translate(${alignmentTransform[props.alignment]})`,
+    width: `${width}`,
+    height: `${height}`,
+    transform: `translate(${alignmentTransform[alignment]})`,
     maxWidth: "none"
   };
-
   const image = (
     <img
       className='absolute'
@@ -48,38 +76,50 @@ export const Ornament = ({
     />
   )
 
+  /*
+    This refresh functionality is a hack to get the ornament to
+    animate correctly after updating settings.
+  */
+  useEffect(() => {
+    setRefreshing(true)
+    setTimeout(() => {
+      setRefreshing(false)
+    }, 10)
+  }, [props.transform])
+  if (refeshing) return null
+
   if (props.animationType === "scroll") {
-    return (
-      <div className={`absolute ${anchorPosition[props.alignment]}`} style={wrapStyle} >
-        <ScrollTrigger
-          start={`${Number(props.scrollOffset) || 0}px bottom`}
-          end={`${Number(props.scrollOffset) + Number(props.duration) || 0}px bottom`}
-          scrub={0.5}
+    return (    
+      <ScrollTrigger
+        start={`${Number(props.scrollOffset) || 0}px top`}
+        end={`${Number(props.scrollOffset) + Number(props.duration) || 0}px top`}
+        scrub={0.5}
+      >
+        <Tween
+          from={{
+            x: transform.x,
+            y: transform.y,
+            opacity: transform.opacity,
+            scale: transform.scale,
+            rotation: transform.rotate,
+          }}
+          to={{
+            x: transformOut.x,
+            y: transformOut.y,
+            opacity: transformOut.opacity,
+            scale: transformOut.scale,
+            rotation: transformOut.rotate,
+          }}
         >
-          <Tween
-            from={{
-              x: props.startOffsetX || 0,
-              y: props.startOffsetY || 0,
-              opacity: props.startOpacity || 1,
-              scale: props.startScale || 1,
-              rotation: props.startRotation || 0,
-            }}
-            to={{
-              x: props.endOffsetX || 0,
-              y: props.endOffsetY || 0,
-              opacity: props.endOpacity || 1,
-              scale: props.endScale || 1,
-              rotation: props.endRotation || 0,
-            }}
-          >
-            {image}
-          </Tween>
-        </ScrollTrigger>
-      </div>
+        <div className={`absolute ${anchorPosition[alignment]}`} style={wrapStyle}>
+          {image}
+        </div>
+        </Tween>
+      </ScrollTrigger>
     )
   } else {
     return (
-      <div className={`absolute ${anchorPosition[props.alignment]}`} style={wrapStyle} >
+      <div className={`absolute ${anchorPosition[alignment]}`} style={wrapStyle} >
         {image}
       </div>
     )

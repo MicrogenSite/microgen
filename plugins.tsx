@@ -13,6 +13,7 @@ import FillControl from './components/tina/FillControl'
 import GridControl from './components/tina/GridControl'
 import ImageControl from './components/tina/ImageControl'
 import PaddingControl from './components/tina/PaddingControl'
+import OrnamentControl from './components/tina/OrnamentControl'
 import RuledTitle from './components/tina/RuledTitle'
 import SelectField from './components/tina/SelectField'
 import TransformControl from './components/tina/TransformControl'
@@ -148,6 +149,12 @@ export const paddingControlFieldPlugin = {
   Component: PaddingControl,
   __type: 'field',
   name: 'paddingControl',
+}
+
+export const ornamentControlFieldPlugin = {
+  Component: OrnamentControl,
+  __type: 'field',
+  name: 'ornamentControl',
 }
 
 export const ruledTitlePlugin = {

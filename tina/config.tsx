@@ -175,6 +175,9 @@ const config = defineStaticConfig({
     import("../plugins").then(({ paddingControlFieldPlugin }) => {
       cms.plugins.add(paddingControlFieldPlugin);
     });
+    import("../plugins").then(({ ornamentControlFieldPlugin }) => {
+      cms.plugins.add(ornamentControlFieldPlugin);
+    });
     import("../plugins").then(({ ruledTitlePlugin }) => {
       cms.plugins.add(ruledTitlePlugin);
     });

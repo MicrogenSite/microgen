@@ -32,12 +32,13 @@ const getValue = (string, searchString) => {
   return foundItem ? foundItem.replace(searchString, "") : "";
 };
 
-const transformToObject = (transform = "") => {  
-  const x = getValue(transform, "translate-x-")
-  const y = getValue(transform, "translate-y-")
-  const opacity = getValue(transform, "opacity-")
-  const scale = getValue(transform, "scale-")
-  const rotate = getValue(transform, "rotation-")
+const transformToObject = (transform = "", mobile = false) => {
+  const prefix = mobile ? "sm:" : ""
+  const x = getValue(transform, `${prefix}translate-x-`)
+  const y = getValue(transform, `${prefix}translate-y-`)
+  const opacity = getValue(transform, `${prefix}opacity-`)
+  const scale = getValue(transform, `${prefix}scale-`)
+  const rotate = getValue(transform, `${prefix}rotation-`)
   return {
     x: x || 0,
     y: y || 0,
@@ -47,34 +48,69 @@ const transformToObject = (transform = "") => {
   }
 }
 
+const ornamentControlToObject = (ornamentControl = "", mobile = false) => {
+  const prefix = mobile ? "sm:" : ""
+  const width = getValue(ornamentControl, `${prefix}w-`)
+  const height = getValue(ornamentControl, `${prefix}h-`)
+  const alignment = getValue(ornamentControl, `${prefix}object-`)
+  return {
+    width: width || "",
+    height: height || "",
+    alignment: alignment || "",
+  }
+
+}
+
 export const Ornament = ({
   props
 }) => {
   const [refeshing, setRefreshing] = useState(false);
+  const hasMobile = props.transform?.includes("sm:") || props.ornamentControl?.includes("sm:");
+
+  // Desktop
+  const ornamentControl = ornamentControlToObject(props.ornamentControl || "");
   const transform = transformToObject(props.transform || "");
   const transformOut = transformToObject(props.endTransform || "");
-  const width = getValue(props.ornamentControl, "w-");
-  const height = getValue(props.ornamentControl, "h-");
-  const alignment = getValue(props.ornamentControl, "object-");
-  const wrapStyle = {
-    transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale}) rotate(${transform.rotate || 0}deg)`,
-    opacity: `${transform.opacity}`,
-  };
-  const imgStyle = {
-    width: `${width}`,
-    height: `${height}`,
-    transform: `translate(${alignmentTransform[alignment]})`,
-    maxWidth: "none"
-  };
   const image = (
     <img
       className='absolute'
       src={props.src}
-      style={imgStyle}
-      width={props.width}
-      height={props.height}
+      style={{
+        width: `${ornamentControl.width}`,
+        height: `${ornamentControl.height}`,
+        transform: `translate(${alignmentTransform[ornamentControl.alignment]})`,
+        maxWidth: "none"
+      }}
+      width={ornamentControl.width}
+      height={ornamentControl.height}
     />
   )
+  const wrapStyle = {
+    transform: `translate(${transform.x}px, ${transform.y}px) scale(${transform.scale}) rotate(${transform.rotate || 0}deg)`,
+    opacity: `${transform.opacity}`,
+  };
+
+  // Mobile
+  const ornamentControlMobile = ornamentControlToObject(props.ornamentControl || "", true);
+  const transformMobile = transformToObject(props.transform || "", true);
+  const imageMobile = (
+    <img
+      className='absolute'
+      src={props.src}
+      style={{
+        width: `${ornamentControlMobile.width}`,
+        height: `${ornamentControlMobile.height}`,
+        transform: `translate(${alignmentTransform[ornamentControlMobile.alignment]})`,
+        maxWidth: "none"
+      }}
+      width={ornamentControlMobile.width}
+      height={ornamentControlMobile.height}
+    />
+  )
+  const wrapStyleMobile = {
+    transform: `translate(${transformMobile.x}px, ${transformMobile.y}px) scale(${transformMobile.scale}) rotate(${transformMobile.rotate || 0}deg)`,
+    opacity: `${transformMobile.opacity}`,
+  };
 
   /*
     This refresh functionality is a hack to get the ornament to
@@ -89,39 +125,58 @@ export const Ornament = ({
   if (refeshing) return null
 
   if (props.animationType === "scroll") {
-    return (    
-      <ScrollTrigger
-        start={`${Number(props.scrollOffset) || 0}px top`}
-        end={`${Number(props.scrollOffset) + Number(props.duration) || 0}px top`}
-        scrub={0.5}
-      >
-        <Tween
-          from={{
-            x: transform.x,
-            y: transform.y,
-            opacity: transform.opacity,
-            scale: transform.scale,
-            rotation: transform.rotate,
-          }}
-          to={{
-            x: transformOut.x,
-            y: transformOut.y,
-            opacity: transformOut.opacity,
-            scale: transformOut.scale,
-            rotation: transformOut.rotate,
-          }}
+    return (
+      <>
+        <ScrollTrigger
+          start={`${Number(props.scrollOffset) || 0}px top`}
+          end={`${Number(props.scrollOffset) + Number(props.duration) || 0}px top`}
+          scrub={0.5}
         >
-        <div className={`absolute ${anchorPosition[alignment]}`} style={wrapStyle}>
-          {image}
-        </div>
-        </Tween>
-      </ScrollTrigger>
+          <Tween
+            from={{
+              x: transform.x,
+              y: transform.y,
+              opacity: transform.opacity,
+              scale: transform.scale,
+              rotation: transform.rotate,
+            }}
+            to={{
+              x: transformOut.x,
+              y: transformOut.y,
+              opacity: transformOut.opacity,
+              scale: transformOut.scale,
+              rotation: transformOut.rotate,
+            }}
+          >
+          <div className={`absolute sm:hidden ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle}>
+            {image}
+          </div>
+          </Tween>
+        </ScrollTrigger>
+        {!hasMobile && (
+          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle} >
+            {image}
+          </div>
+        )}
+        {hasMobile && (
+          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControlMobile.alignment]}`} style={wrapStyleMobile} >
+            {imageMobile}
+          </div>
+        )}
+      </>
     )
   } else {
     return (
-      <div className={`absolute ${anchorPosition[alignment]}`} style={wrapStyle} >
-        {image}
-      </div>
+      <>
+        <div className={`absolute ${hasMobile ? `sm:hidden` : ''} ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle} >
+          {image}
+        </div>
+        {hasMobile && (    
+          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControlMobile.alignment]}`} style={wrapStyleMobile} >
+            {imageMobile}
+          </div>
+        )}
+      </>
     )
   }
 };

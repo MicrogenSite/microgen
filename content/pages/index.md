@@ -18,11 +18,11 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/logo.jpg
-          alignment: center
-          width: '300'
-          height: '200'
-          ornamentControl: w-200px h-200px object-center
-          transform: translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
+          ornamentControl: 'w-200px h-200px object-center sm:w-100px sm:h-200px sm:object-center'
+          transform: >-
+            translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
+            sm:translate-x-199 sm:translate-y-0 sm:opacity-100 sm:scale-100
+            sm:rotation-0
           animationType: none
           duration: '1500'
           scrollOffset: '-500'
@@ -149,7 +149,6 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/rule.svg
-          alignment: bottom
     label: ''
     headline: 'Built on a foundation of fast, production-grade tooling'
     subhead: ''
@@ -217,7 +216,6 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/rule.svg
-          alignment: bottom
     label: ''
     headline: Components
     subhead: ''
@@ -281,14 +279,10 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/logo.jpg
-          alignment: top
-          width: '200'
-          height: '200'
           animationType: scroll
           duration: '300'
           scrollOffset: '0'
         - src: /uploads/rule.svg
-          alignment: bottom
     image:
       src: /uploads/collections.mp4
     headline: Collections
@@ -317,7 +311,6 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/rule.svg
-          alignment: bottom
     headline: Get Started
     subhead: ''
     body: |
@@ -346,7 +339,6 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/rule.svg
-          alignment: bottom
     headline: Credits
     subhead: ''
     body: >
@@ -368,6 +360,7 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
 
 
 

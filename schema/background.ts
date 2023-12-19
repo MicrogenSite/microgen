@@ -76,7 +76,7 @@ export const backgroundSchema = {
       }),
       fields: [
         {
-          label: "Image",
+          label: " ",
           name: "src",
           type: "image",
           ui: {

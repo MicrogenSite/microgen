@@ -190,6 +190,9 @@ const config = defineStaticConfig({
     import("../plugins").then(({ transformControlFieldPlugin }) => {
       cms.plugins.add(transformControlFieldPlugin);
     });
+    import("../plugins").then(({ transformDesktopControlFieldPlugin }) => {
+      cms.plugins.add(transformDesktopControlFieldPlugin);
+    });
     import("../plugins").then(({ typeControlFieldPlugin }) => {
       cms.plugins.add(typeControlFieldPlugin);
     });

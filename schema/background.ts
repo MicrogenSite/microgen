@@ -134,7 +134,7 @@ export const backgroundSchema = {
           name: "endTransform",
           type: "string",
           ui: {
-            component: "transformControl",
+            component: "transformDesktopControl",
           },
         },
       ],

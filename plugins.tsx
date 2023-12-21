@@ -17,6 +17,7 @@ import OrnamentControl from './components/tina/OrnamentControl'
 import RuledTitle from './components/tina/RuledTitle'
 import SelectField from './components/tina/SelectField'
 import TransformControl from './components/tina/TransformControl'
+import TransformDesktopControl from './components/tina/TransformDesktopControl'
 import TypeControl from './components/tina/TypeControl'
 import TypographyControl from './components/tina/TypographyControl'
 
@@ -173,6 +174,12 @@ export const transformControlFieldPlugin = {
   Component: TransformControl,
   __type: 'field',
   name: 'transformControl',
+}
+
+export const transformDesktopControlFieldPlugin = {
+  Component: TransformDesktopControl,
+  __type: 'field',
+  name: 'transformDesktopControl',
 }
 
 export const typeControlFieldPlugin = {

@@ -121,7 +121,7 @@ export const Ornament = ({
     setTimeout(() => {
       setRefreshing(false)
     }, 10)
-  }, [props.transform])
+  }, [props.transform, props.scrollOffset, props.duration])
   if (refeshing) return null
 
   if (props.animationType === "scroll") {

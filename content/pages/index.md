@@ -19,13 +19,10 @@ blocks:
       ornaments:
         - src: /uploads/logo.jpg
           ornamentControl: 'w-200px h-200px object-center sm:w-100px sm:h-200px sm:object-center'
-          transform: >-
-            translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
-            sm:translate-x-199 sm:translate-y-0 sm:opacity-100 sm:scale-100
-            sm:rotation-0
-          animationType: none
+          transform: translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
+          animationType: ''
           duration: '1500'
-          scrollOffset: '-500'
+          scrollOffset: '0'
           endTransform: translate-x-500 translate-y-0 opacity-100 scale-100 rotation-0
     label: ''
     headline: ''
@@ -360,6 +357,8 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
 
 
 

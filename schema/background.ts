@@ -71,6 +71,12 @@ export const backgroundSchema = {
       name: 'ornaments',
       type: "object",
       list: true,
+      ui: {
+        defaultItem: {
+          scrollOffset: -500,
+          duration: 1200,
+        }
+      },
       itemProps: (item) => ({
         label: item.src?.replace('/uploads/', ''),
       }),
@@ -115,7 +121,6 @@ export const backgroundSchema = {
           },
           type: "string",
           options: [
-            { label: "None", value: "none" },
             { label: "Scroll Based", value: "scroll" },
           ],
         },
@@ -125,7 +130,8 @@ export const backgroundSchema = {
           type: "string",
         },
         {
-          label: "Scroll Offset",
+          label: "Scroll Trigger Offset",
+          description: "Animation begins when the middle of the element hits the top of the viewport. Offset should be a negative value.",
           name: "scrollOffset",
           type: "string",
         },

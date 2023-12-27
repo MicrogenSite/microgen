@@ -173,10 +173,10 @@ export const Ornament = ({
   } else {
     return (
       <>
-        <div className={`sm:hidden absolute border border-white ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyle} >
+        <div className={`sm:hidden absolute ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyle} >
           {image}
         </div>
-        <div className={`hidden sm:block absolute border border-black ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyleMobile} >
+        <div className={`hidden sm:block absolute ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyleMobile} >
           {imageMobile}
         </div>
       </>

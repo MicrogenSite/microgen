@@ -175,6 +175,9 @@ const config = defineStaticConfig({
     import("../plugins").then(({ paddingControlFieldPlugin }) => {
       cms.plugins.add(paddingControlFieldPlugin);
     });
+    import("../plugins").then(({ ornamentControlFieldPlugin }) => {
+      cms.plugins.add(ornamentControlFieldPlugin);
+    });
     import("../plugins").then(({ ruledTitlePlugin }) => {
       cms.plugins.add(ruledTitlePlugin);
     });
@@ -183,6 +186,12 @@ const config = defineStaticConfig({
     });
     import("../plugins").then(({ selectFieldPlugin }) => {
       cms.plugins.add(selectFieldPlugin);
+    });
+    import("../plugins").then(({ transformControlFieldPlugin }) => {
+      cms.plugins.add(transformControlFieldPlugin);
+    });
+    import("../plugins").then(({ transformDesktopControlFieldPlugin }) => {
+      cms.plugins.add(transformDesktopControlFieldPlugin);
     });
     import("../plugins").then(({ typeControlFieldPlugin }) => {
       cms.plugins.add(typeControlFieldPlugin);

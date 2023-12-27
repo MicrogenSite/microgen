@@ -71,12 +71,18 @@ export const backgroundSchema = {
       name: 'ornaments',
       type: "object",
       list: true,
+      ui: {
+        defaultItem: {
+          scrollOffset: -500,
+          duration: 1200,
+        }
+      },
       itemProps: (item) => ({
         label: item.src?.replace('/uploads/', ''),
       }),
       fields: [
         {
-          label: "Image",
+          label: " ",
           name: "src",
           type: "image",
           ui: {
@@ -84,43 +90,58 @@ export const backgroundSchema = {
           }
         },
         {
-          label: "Alignment",
-          name: "alignment",
+          label: "Size & Alignment",
+          name: "ornamentControl",
+          type: "string",
+          ui: {
+            component: "ornamentControl",
+          },
+        },
+        {
+          label: "Transform",
+          name: "transform",
+          type: "string",
+          ui: {
+            component: "transformControl",
+          },
+        },
+        {
+          label: "Animation",
+          name: "animationTitle",
+          type: "string",
+          ui: {
+            component: "ruledTitle",
+          },
+        },
+        {
+          label: "Animation Type",
+          name: "animationType",
           ui: {
             component: "select",
           },
           type: "string",
           options: [
-            { label: "Center", value: "center" },
-            { label: "Top", value: "top" },
-            { label: "Right Top", value: "top-right" },
-            { label: "Right", value: "right" },
-            { label: "Right Bottom", value: "bottom-right" },
-            { label: "Bottom", value: "bottom" },
-            { label: "Left Bottom", value: "bottom-left" },
-            { label: "Left", value: "left" },
-            { label: "Left Top", value: "top-left" },
+            { label: "Scroll Based", value: "scroll" },
           ],
         },
         {
-          label: "Width",
-          name: "width",
+          label: "Duration in Pixels or Percentage",
+          name: "duration",
           type: "string",
         },
         {
-          label: "Height",
-          name: "height",
+          label: "Scroll Trigger Offset",
+          description: "Animation begins when the middle of the element hits the top of the viewport. Offset should be a negative value.",
+          name: "scrollOffset",
           type: "string",
         },
         {
-          label: "Horizontal Offset",
-          name: "xOffset",
+          label: "Animate To",
+          name: "endTransform",
           type: "string",
-        },
-        {
-          label: "Vertical Offset",
-          name: "yOffset",
-          type: "string",
+          ui: {
+            component: "transformDesktopControl",
+          },
         },
       ],
     },

@@ -28,6 +28,7 @@ Microgen can be deployed to the static host of your choice. If you want your sit
 ```
 NEXT_PUBLIC_TINA_CLIENT_ID=[YOUR CLIENT ID FROM TINA]
 TINA_TOKEN=[YOUR READ ONLY TOKEN FROM TINA]
+NEXT_PUBLIC_TINA_BRANCH=main
 ```
 
 ## Making Edits

@@ -1,36 +1,36 @@
 ---
 blocks:
   - style:
-      alignment: 'flex-col-reverse items-center '
-      padding: 'pt-20 pb-20 pr-10 pl-10 sm:pt-20 sm:pb-20 sm:pr-5 sm:pl-5'
-      featureImage: '  mx-auto'
-      featureContent: 'w-2/3 min-h-160 text-center sm:w-full sm:min-h-160 sm:text-center'
+      alignment: flex-col items-center gap-8
+      padding: 'pt-52 pb-28 pr-10 pl-10 sm:pt-28 sm:pb-28 sm:pr-5 sm:pl-5'
+      featureImage: wpx-100 hpx-100 mx-auto
+      featureContent: 'w-3/5 min-h-100 text-center sm:w-full sm:min-h-0 sm:text-center'
       buttonsLayout: 'flex-wrap gap-0 '
       labelStyles: 'text-white mg-headline-small '
       headlineStyles: 'text-white mg-headline-large '
-      subheadStyles: 'text-white mg-copy-large '
-      textStyles: 'text-white mg-copy '
+      subheadStyles: 'text-white mg-copy '
+      textStyles: 'text-white mg-copy-small '
     background:
       fillStyles: ' opacity-100'
       wrapFillStyles: ' opacity-100'
       src: /uploads/hero-background.mp4
       style: bg-cover
       position: bg-center
-      ornaments:
-        - src: /uploads/logo.jpg
-          ornamentControl: 'w-500px h-200px object-left sm:w-500px sm:h-200px sm:object-right'
-          transform: >-
-            translate-x-0 translate-y-0 opacity-50 scale-100 rotation-0
-            sm:translate-x-0 sm:translate-y-0 sm:opacity-50 sm:scale-100
-            sm:rotation-0
-          animationType: ''
-          duration: '1500'
-          scrollOffset: '0'
-          endTransform: translate-x-500 translate-y-0 opacity-100 scale-100 rotation-0
+    image:
+      src: ''
     label: ''
-    headline: ''
-    subhead: ''
+    headline: The Web3 Visual Site Builder
+    subhead: >-
+      Microgen is an intuitive, open source visual site builder made for Web3.
+      Free forever and built for the decentralized internet. Extend the library
+      of customizable components however you like and host your website for free
+      on IPFS or any other static host.
     body: ''
+    buttons:
+      - label: Get Started
+        link: 'https://github.com/MicrogenSite/microgen'
+        icon: arrow-right-solid
+        buttonStyle: primary
     _template: feature
   - style:
       alignment: 'flex-col-reverse items-center '
@@ -145,10 +145,14 @@ blocks:
       buttonWidth: undefined
     background:
       fillStyles: ' opacity-100'
+      wrapFillStyles: ' opacity-100'
       style: bg-cover
       position: bg-center
       ornaments:
         - src: /uploads/rule.svg
+          ornamentControl: '  undefined'
+          transform: translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
+          endTransform: translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
     label: ''
     headline: 'Built on a foundation of fast, production-grade tooling'
     subhead: ''
@@ -278,10 +282,6 @@ blocks:
       style: bg-cover
       position: bg-center
       ornaments:
-        - src: /uploads/logo.jpg
-          animationType: scroll
-          duration: '300'
-          scrollOffset: '0'
         - src: /uploads/rule.svg
     image:
       src: /uploads/collections.mp4
@@ -360,6 +360,9 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
+
 
 
 

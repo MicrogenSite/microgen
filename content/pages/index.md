@@ -2,9 +2,9 @@
 blocks:
   - style:
       alignment: 'flex-col-reverse items-center '
-      padding: 'pt-64 pb-64 pr-10 pl-10 sm:pt-28 sm:pb-28 sm:pr-5 sm:pl-5'
+      padding: 'pt-20 pb-20 pr-10 pl-10 sm:pt-20 sm:pb-20 sm:pr-5 sm:pl-5'
       featureImage: '  mx-auto'
-      featureContent: 'w-2/3 min-h-160 text-center sm:w-full sm:min-h-0 sm:text-center'
+      featureContent: 'w-2/3 min-h-160 text-center sm:w-full sm:min-h-160 sm:text-center'
       buttonsLayout: 'flex-wrap gap-0 '
       labelStyles: 'text-white mg-headline-small '
       headlineStyles: 'text-white mg-headline-large '
@@ -18,8 +18,11 @@ blocks:
       position: bg-center
       ornaments:
         - src: /uploads/logo.jpg
-          ornamentControl: 'w-200px h-200px object-center sm:w-100px sm:h-200px sm:object-center'
-          transform: translate-x-0 translate-y-0 opacity-100 scale-100 rotation-0
+          ornamentControl: 'w-500px h-200px object-left sm:w-500px sm:h-200px sm:object-right'
+          transform: >-
+            translate-x-0 translate-y-0 opacity-50 scale-100 rotation-0
+            sm:translate-x-0 sm:translate-y-0 sm:opacity-50 sm:scale-100
+            sm:rotation-0
           animationType: ''
           duration: '1500'
           scrollOffset: '0'
@@ -357,6 +360,8 @@ background:
   style: bg-cover
   position: bg-left
 ---
+
+
 
 
 

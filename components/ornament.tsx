@@ -1,28 +1,28 @@
 import { useEffect, useState } from 'react';
 import { Tween, ScrollTrigger } from 'react-gsap';
 
-const anchorPosition = {
-  "center": "top-1/2 left-1/2",
-  "top": "top-0 left-1/2",
-  "right-top": "top-0 right-0",
-  "right": "top-1/2 right-0",
-  "right-bottom": "bottom-0 right-0",
-  "bottom": "bottom-0 left-1/2",
-  "left-bottom": "left-0 bottom-0",
-  "left": "top-1/2 left-0",
-  "left-top": "top-0 left-0",
+const alignmentTransform = {
+  "center": "-translate-x-1/2 -translate-y-1/2",
+  "top": "-translate-x-1/2",
+  "right-top": "",
+  "right": "-translate-y-1/2",
+  "right-bottom": "",
+  "bottom": "-translate-x-1/2",
+  "left-bottom": "",
+  "left": "-translate-y-1/2",
+  "left-top": ""
 };
 
-const alignmentTransform = {
-  "center": "-50%,-50%",
-  "top": "-50%,0",
-  "right-top": "-100%,0",
-  "right": "-100%,-50%",
-  "right-bottom": "-100%,-100%",
-  "bottom": "-50%,-100%",
-  "left-bottom": "0,-100%",
-  "left": "0,-50%",
-  "left-top": "0,0"
+const anchorPositions = {
+  "center": "top-1/2 left-1/2 bottom-auto right-auto",
+  "top": "top-0 left-1/2 bottom-auto right-auto",
+  "right-top": "top-0 right-0 bottom-auto left-auto",
+  "right": "top-1/2 right-0 bottom-auto left-auto",
+  "right-bottom": "bottom-0 right-0 top-auto left-auto",
+  "bottom": "bottom-0 left-1/2 top-auto right-auto",
+  "left-bottom": "left-0 bottom-0 top-auto right-auto",
+  "left": "top-1/2 left-0 bottom-auto right-auto",
+  "left-top": "top-0 left-0 bottom-auto right-auto",
 };
 
 const getValue = (string, searchString) => {
@@ -58,7 +58,16 @@ const ornamentControlToObject = (ornamentControl = "", mobile = false) => {
     height: height || "",
     alignment: alignment || "",
   }
+}
 
+const ornamentControlClasses = (ornamentControl) => {
+  const classes = ornamentControl?.split(" ") || [];
+  const desktop = classes.find((item) => item.includes("object-"))?.replace("object-", "") || "";
+  const mobile = classes.find((item) => item.includes("sm:object-"))?.replace("sm:object-", "") || "";
+  const desktopAlignment = anchorPositions[desktop]
+  const mobileAlignment = anchorPositions[mobile]?.split(" ").map((item) => `sm:${item}`).join(" ") || "";
+
+  return `${desktopAlignment} ${mobileAlignment}`
 }
 
 export const Ornament = ({
@@ -73,13 +82,11 @@ export const Ornament = ({
   const transformOut = transformToObject(props.endTransform || "");
   const image = (
     <img
-      className='absolute'
+      className={`max-w-none transform ${alignmentTransform[ornamentControl.alignment]}`}
       src={props.src}
       style={{
         width: `${ornamentControl.width}`,
         height: `${ornamentControl.height}`,
-        transform: `translate(${alignmentTransform[ornamentControl.alignment]})`,
-        maxWidth: "none"
       }}
       width={ornamentControl.width}
       height={ornamentControl.height}
@@ -95,16 +102,14 @@ export const Ornament = ({
   const transformMobile = transformToObject(props.transform || "", true);
   const imageMobile = (
     <img
-      className='absolute'
+      className={`max-w-none transform ${ornamentControlMobile.alignment !== "" ? alignmentTransform[ornamentControlMobile.alignment] : alignmentTransform[ornamentControl.alignment]}`}
       src={props.src}
       style={{
-        width: `${ornamentControlMobile.width}`,
-        height: `${ornamentControlMobile.height}`,
-        transform: `translate(${alignmentTransform[ornamentControlMobile.alignment]})`,
-        maxWidth: "none"
+        width: `${ornamentControlMobile.width || ornamentControl.width}`,
+        height: `${ornamentControlMobile.height || ornamentControl.height}`,
       }}
-      width={ornamentControlMobile.width}
-      height={ornamentControlMobile.height}
+      width={ornamentControlMobile.width || ornamentControl.width}
+      height={ornamentControlMobile.height || ornamentControl.height}
     />
   )
   const wrapStyleMobile = {
@@ -148,18 +153,18 @@ export const Ornament = ({
               rotation: transformOut.rotate,
             }}
           >
-          <div className={`absolute sm:hidden ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle}>
+            <div className={`absolute sm:hidden ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyle}>
             {image}
           </div>
           </Tween>
         </ScrollTrigger>
         {!hasMobile && (
-          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle} >
+          <div className={`absolute hidden sm:block ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyle} >
             {image}
           </div>
         )}
         {hasMobile && (
-          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControlMobile.alignment]}`} style={wrapStyleMobile} >
+          <div className={`absolute hidden sm:block ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyleMobile} >
             {imageMobile}
           </div>
         )}
@@ -168,14 +173,12 @@ export const Ornament = ({
   } else {
     return (
       <>
-        <div className={`absolute ${hasMobile ? `sm:hidden` : ''} ${anchorPosition[ornamentControl.alignment]}`} style={wrapStyle} >
+        <div className={`sm:hidden absolute border border-white ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyle} >
           {image}
         </div>
-        {hasMobile && (    
-          <div className={`absolute hidden sm:block ${anchorPosition[ornamentControlMobile.alignment]}`} style={wrapStyleMobile} >
-            {imageMobile}
-          </div>
-        )}
+        <div className={`hidden sm:block absolute border border-black ${ornamentControlClasses(props.ornamentControl)}`} style={wrapStyleMobile} >
+          {imageMobile}
+        </div>
       </>
     )
   }

@@ -1,5 +1,11 @@
 # Release Notes
 
+**Version 1.10** | Released
+
+Features
+
+Fixes
+
 **Version 1.9** | Released 1/28/23
 
 Features

@@ -1,5 +1,14 @@
 # Release Notes
 
+**Version 1.9** | Released 1/28/23
+
+Features
+
+- Ornament Animation
+- Upgrade to Next 14
+- Upgrade to Tina 1.5.9
+- Transform Control
+
 **Version 1.8** | Released 10/18/23
 
 Features

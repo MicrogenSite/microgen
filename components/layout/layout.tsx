@@ -6,6 +6,7 @@ import { Blocks } from "../../components/blocks-renderer";
 import { styles } from "./styles"
 import { googleFontsLink } from "./google-fonts"
 import { Background } from "../background";
+import { Controller } from 'react-scrollmagic';
 
 export const Layout = ({ rawData, children }) => {
   const page = rawData.page
@@ -53,11 +54,17 @@ export const Layout = ({ rawData, children }) => {
         {googleFontsLink(global.theme) && (
           <link href={googleFontsLink(global.theme)} rel="stylesheet"></link>
         )}
+
+        {/* Custom Fonts */ }
+        {/* <link rel="stylesheet" type="text/css" href="/fonts/knewave-webfont.woff"></link> */ }
+
       </Head>
       <Background background={page.background}></Background>
       <Header blocks={page?.blocks} globalData={global} />
       <main>
-        {children}
+        <Controller>
+          {children}
+        </Controller>
       </main>
       <div id="footer">
         { global.footerNav === "true" && (

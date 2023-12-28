@@ -24,16 +24,20 @@ const imgStyles = (style, isMobile:boolean) => {
   const classes: [string] = style.featureImage.split(' ')
   let imageWidth
   let imageHeight
+  let imageBorder
   if (isMobile) {
     imageWidth = classes.find(item => item.substring(0,7) === 'sm:wpx-')?.replace(`sm:wpx-`, '')
-    imageHeight = classes.find(item => item.substring(0,7) === 'sm:hpx-')?.replace(`sm:wpx-`, '')
+    imageHeight = classes.find(item => item.substring(0,7) === 'sm:hpx-')?.replace(`sm:hpx-`, '')
+    imageBorder = classes.find(item => item.substring(0,11) === 'sm:rounded-')?.replace(`sm:rounded-`, '')
   } else {
     imageWidth = classes.find(item => item.substring(0,4) === 'wpx-')?.replace(`wpx-`, '')
     imageHeight = classes.find(item => item.substring(0,4) === 'hpx-')?.replace(`hpx-`, '')
+    imageBorder = classes.find(item => item.substring(0,8) === 'rounded-')?.replace(`rounded-`, '')
   }
   return {
     width: imageWidth ? `${imageWidth}px` : 'auto',
-    height: imageHeight ? `${imageHeight}px` : 'auto'
+    height: imageHeight ? `${imageHeight}px` : 'auto',
+    border: imageBorder ? `${imageBorder}` : 'auto',
   }
 }
 
@@ -44,7 +48,7 @@ export const Feature = ({ data, parentField = '' }) => {
   const textAlign = getWordWith(style.featureContent, 'text-')
   return (
     <Section background={data.background} navigationLabel={data.navigationLabel}>
-      <div className={`relative flex w-full max-w-site-full mx-auto ${style?.padding} ${style?.alignment}`}>
+      <div className={`relative flex w-full max-w-site-full mx-auto rounded-none ${style?.padding} ${style?.border} ${style?.alignment}`}>
         <div className={`${imageWrapClasses(style)}`}>
           {data.image?.src && !data.image?.src.includes(".mp4") && (
             <>
@@ -66,7 +70,7 @@ export const Feature = ({ data, parentField = '' }) => {
           )}
           {data.image?.src && data.image?.src.includes(".mp4") && (
             <div className={`${imgClasses(style, false)}`}>
-              <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+              <video autoPlay loop muted playsInline className="object-cover w-full h-full">
                 <source src={data.image.src} type="video/mp4" />
               </video>
             </div>

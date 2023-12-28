@@ -36,6 +36,7 @@ export const cardsBlockSchema: any = {
         alignment: "flex-row items-start  text-left",
         image: "object-center object-fill",
         imagePadding: "pt-0 pr-0 pb-0 pl-0",
+        imageBorder: "rounded-none",
         contentPadding: "pt-2 pr-2 pb-2 pl-2",
         labelStyles: "text-black",
         headlineStyles: "text-black",

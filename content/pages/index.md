@@ -135,6 +135,7 @@ blocks:
       alignment: flex-col items-start  text-left
       image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
+      imageBorder: rounded-none
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
       labelStyles: text-white undefined undefined
@@ -205,6 +206,7 @@ blocks:
       alignment: flex-col items-start  text-left
       image: '  object-center object-fill'
       imagePadding: pt-0 pb-0 pr-0 pl-0
+      imageBorder: rounded-none
       contentPadding: pt-5 pb-0 pr-0 pl-0
       borderStyles: border-white border-0
       labelStyles: text-white undefined undefined
